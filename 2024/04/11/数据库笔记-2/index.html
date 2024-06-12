@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://somefnone.github.io/img/BWeLyHqW.jpg">
 <meta property="article:published_time" content="2024-04-11T09:17:37.000Z">
-<meta property="article:modified_time" content="2024-04-20T10:34:51.700Z">
+<meta property="article:modified_time" content="2024-06-12T05:53:26.749Z">
 <meta property="article:author" content="魔法猫猫头">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-04-20 18:34:51'
+  postUpdate: '2024-06-12 13:53:26'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -174,14 +174,11 @@
     document.addEventListener('pjax:send', () => { preloader.initLoading() })
     document.addEventListener('pjax:complete', () => { preloader.endLoading() })
   }
-})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/BWeLyHqW.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Wizard Cat"><span class="site-name">Wizard Cat</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数据库笔记-2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-11T09:17:37.000Z" title="发表于 2024-04-11 17:17:37">2024-04-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-20T10:34:51.700Z" title="更新于 2024-04-20 18:34:51">2024-04-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/lesson-note/">lesson note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer">
-<h2 id="四、事务">四、事务</h2>
-<h3 id="1-事务概念">1.事务概念</h3>
-<h4 id="1-定义">1.定义</h4>
-<ul>
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/BWeLyHqW.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Wizard Cat"><span class="site-name">Wizard Cat</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数据库笔记-2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-11T09:17:37.000Z" title="发表于 2024-04-11 17:17:37">2024-04-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-12T05:53:26.749Z" title="更新于 2024-06-12 13:53:26">2024-06-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/lesson-note/">lesson note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer">
+
+<h2 id="四、事务"><a href="#四、事务" class="headerlink" title="四、事务"></a>四、事务</h2><h3 id="1-事务概念"><a href="#1-事务概念" class="headerlink" title="1.事务概念"></a>1.事务概念</h3><h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h4><ul>
 <li>事务是由一系列操作的序列构成的程序执行单元，这些操作<strong>要么都做，要么都不做</strong>，是<strong>不可分割</strong>的工作单位</li>
-<li>SQL中事务的定义
-<ul>
+<li>SQL中事务的定义<ul>
 <li>事务以<code>Begin transaction</code>开始，以<code>commit transaction</code>(提交事务)或<code>rollback transaction</code>结束(回滚，撤销已执行的那部分操作)</li>
 <li><code>Commit transaction</code>表示提交，事务正常结束</li>
 <li><code>Rollback transaction</code>表示事务非正常结束，撤销事务已做的操作，回滚到事务开始时的状态</li>
@@ -190,101 +187,83 @@
 </li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TRANSACTION <span class="keyword">BEGIN</span></span><br><span class="line">...(一系列操作)</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"><span class="keyword">COMMIT</span>; <span class="comment">-- 正常结束提交，commit不可省略！</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-事务特征">2.事务特征</h4>
-<ul>
-<li>一个事务本质是用户的一次业务请求，是对数据库的一组操作，这些操作涉及对 一个或多个数据项进行更新/修改</li>
+
+<h4 id="2-事务特征"><a href="#2-事务特征" class="headerlink" title="2.事务特征"></a>2.事务特征</h4><ul>
+<li>一个事务本质是用户的一次业务请求，是对数据库的一组操作，这些操作涉及对 一个或多个数据项进行更新&#x2F;修改</li>
 <li>要求：中间状态对外部不可见</li>
 </ul>
-<h4 id="3-事务特性-ACID">3.事务特性(ACID)</h4>
-<blockquote>
+<h4 id="3-事务特性-ACID"><a href="#3-事务特性-ACID" class="headerlink" title="3.事务特性(ACID)"></a>3.事务特性(ACID)</h4><blockquote>
 <p>事务特性，即一个DBMS支持事务的话，其所必须满足的特性</p>
 </blockquote>
 <ul>
 <li><strong>原子性</strong>：事务中包含的所有操作要么全做，要么全不做。原子性由*<code>恢复机制</code>*实现</li>
-<li><strong>一致性</strong>：事务的执行必须保证数据库的一致性。事务开始前与结束后，数据库都应该处于一致性状态
-<ul>
+<li><strong>一致性</strong>：事务的执行必须保证数据库的一致性。事务开始前与结束后，数据库都应该处于一致性状态<ul>
 <li>一致性指的是，在外部看来，数据库中的数据总是正确的</li>
-<li>这涉及到了数据正确性的问题，分为两种情况：
-<ul>
-<li>出现故障(事务故障、系统崩溃、磁盘故障、灾难故障)时，数据会丢失/残缺</li>
+<li>这涉及到了数据正确性的问题，分为两种情况：<ul>
+<li>出现故障(事务故障、系统崩溃、磁盘故障、灾难故障)时，数据会丢失&#x2F;残缺</li>
 <li>无故障时，因为数据组织不合理，而导致数据更新异常、冗余、数据不正确</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><strong>隔离性</strong>：系统必须保证事务不受其他并发事务的影响。隔离性通过*<code>并发控制机制</code>*实现
-<ul>
+<li><strong>隔离性</strong>：系统必须保证事务不受其他并发事务的影响。隔离性通过*<code>并发控制机制</code>*实现<ul>
 <li>对任何一对事务T1,T2，在T1看来，T2要么在T1开始前就已经结束，要么在T1完成后再执行</li>
 <li><strong>满足隔离性的条件</strong>：多事务并发执行，但从外部看，其结果与串行执行的结果一样</li>
 </ul>
 </li>
-<li><strong>持久性</strong>：一个事务一旦提交后，它对数据库的影响必须是永久的；系统发生故障不能改变事务的持久性；持久性通过*<code>恢复机制</code>*实现
-<ul>
+<li><strong>持久性</strong>：一个事务一旦提交后，它对数据库的影响必须是永久的；系统发生故障不能改变事务的持久性；持久性通过*<code>恢复机制</code>*实现<ul>
 <li>一个事务一旦提交，即使随后发生故障，其结果在数据库中也不会丢失</li>
 <li>P.S.事务未commit前，write操作在写入新值的同时还会备份旧值，方便回滚。commit后，备份删除</li>
 </ul>
 </li>
 </ul>
-<h4 id="4-事务生命周期图">4.事务生命周期图</h4>
-<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240411192116309.png" alt="image-20240411192116309"></p>
+<h4 id="4-事务生命周期图"><a href="#4-事务生命周期图" class="headerlink" title="4.事务生命周期图"></a>4.事务生命周期图</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240411192116309.png" alt="image-20240411192116309"></p>
 <hr>
-<h3 id="2-事务调度">2.事务调度</h3>
-<h4 id="1-定义-2">1.定义</h4>
-<ul>
+<h3 id="2-事务调度"><a href="#2-事务调度" class="headerlink" title="2.事务调度"></a>2.事务调度</h3><h4 id="1-定义-1"><a href="#1-定义-1" class="headerlink" title="1.定义"></a>1.定义</h4><ul>
 <li>有多个事务需要执行时，<strong>这组事务对应的所有操作的执行顺序</strong>称为这组事务的一个调度，表示<strong>事务的指令在系统中执行的时间顺序</strong></li>
-<li>一组事务的调度必须保证：
-<ul>
+<li>一组事务的调度必须保证：<ul>
 <li>包含了该组所有事务的操作指令</li>
 <li>同一事务中的指令，在调度中的先后顺序，同其在事物内部的先后顺序必须保持一致</li>
 </ul>
 </li>
 </ul>
-<h4 id="2-分类">2.分类</h4>
-<ul>
-<li>
-<p>串行调度</p>
+<h4 id="2-分类"><a href="#2-分类" class="headerlink" title="2.分类"></a>2.分类</h4><ul>
+<li><p>串行调度</p>
 <ul>
 <li>串行调度中，属于同一事务的指令紧挨一起</li>
 <li>对于n个事务的事务组，可以有n!个不同的串行调度</li>
 </ul>
 </li>
-<li>
-<p>并行调度</p>
+<li><p>并行调度</p>
 <ul>
 <li>并行调度中，来自不同事务的指令可以交叉执行</li>
 <li>当并行调度<strong>等价</strong>于某个串行调度时，则称它是正确的</li>
 </ul>
 </li>
-<li>
-<p>基本比较</p>
+<li><p>基本比较</p>
 <ul>
 <li>并行事务容易破坏数据库的一致性</li>
 <li>串行事务效率低</li>
 </ul>
 </li>
-<li>
-<p>并行的优点</p>
+<li><p>并行的优点</p>
 <ul>
-<li>一个事务由不同的步骤组成，所涉及的系统资源也不同。这些步骤可以并发执行，以提高系统的<strong>吞吐量</strong>
-<ul>
-<li>吞吐量：数据库在单位时间内处理请求的数量(每秒处理多少条请求)
-<ul>
+<li>一个事务由不同的步骤组成，所涉及的系统资源也不同。这些步骤可以并发执行，以提高系统的<strong>吞吐量</strong><ul>
+<li>吞吐量：数据库在单位时间内处理请求的数量(每秒处理多少条请求)<ul>
 <li>请求≠指令，请求通常指的是对数据库的一次操作请求，比如查询、插入、更新或删除数据等。请求可以是单个简单的操作，也可以是一组操作的组合。目前可以认为，请求＝事务</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>系统中存在着周期不等的各种事务，串行会导致难于预测的时延。如果各个事务所涉及的是数据库的不同部分，采用并发会减少<strong>平均响应时间</strong>（例如事务操作的表各不相同）
-<ul>
-<li>平均响应时间：吞吐量的倒数(1/吞吐量=平均响应时间)</li>
+<li>系统中存在着周期不等的各种事务，串行会导致难于预测的时延。如果各个事务所涉及的是数据库的不同部分，采用并发会减少<strong>平均响应时间</strong>（例如事务操作的表各不相同）<ul>
+<li>平均响应时间：吞吐量的倒数(1&#x2F;吞吐量&#x3D;平均响应时间)</li>
 <li>注意，倒数关系仅在串行条件下始终满足，并行关系不一定</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h4 id="3-可恢复调度">3.可恢复调度</h4>
-<ul>
+<h4 id="3-可恢复调度"><a href="#3-可恢复调度" class="headerlink" title="3.可恢复调度"></a>3.可恢复调度</h4><ul>
 <li><strong>事务的恢复</strong>：一个事务失败了，为保证事务的原子性，我们应该能够撤消（回滚）该事务对数据库已经造成的影响，如write过的数据项。如果有其它事务Tx读取了失败事务写入的数据，则该事务Tx也应该撤消（前提是Tx尚未commit，如果已经commited，那么就无法恢复，出现不一致）</li>
 <li><strong>可恢复调度</strong>：指该调度可以回滚，也就是，在需要回滚的步骤之间不能有COMMIT</li>
 </ul>
@@ -292,59 +271,48 @@
 <ul>
 <li>结合上述案例：可恢复调度是指，对于每对事务T1和T2，如果T2<strong>读取</strong>了T1所写的数据，则T1必须<strong>先于</strong>T2提交</li>
 </ul>
-<h4 id="4-无级联调度">4.无级联调度</h4>
-<ul>
+<h4 id="4-无级联调度"><a href="#4-无级联调度" class="headerlink" title="4.无级联调度"></a>4.无级联调度</h4><ul>
 <li>级联回滚：因一个事务故障，导致一系列事务回滚的现象。因为需要撤销大量工作，一般应避免</li>
-<li><strong>无级联调度</strong>：不会发生级联回滚的调度
-<ul>
+<li><strong>无级联调度</strong>：不会发生级联回滚的调度<ul>
 <li>对于每对事务T1和T2，如果T2读取了T1所写的数据，则T1必须在T2<strong>读取前提交</strong></li>
 <li>因此，无级联调度必然是可恢复调度</li>
 </ul>
 </li>
 </ul>
-<h4 id="5-Write-VS-Commit">5.Write VS Commit</h4>
-<ul>
-<li>Write(又称 save)
-<ul>
+<h4 id="5-Write-VS-Commit"><a href="#5-Write-VS-Commit" class="headerlink" title="5.Write VS Commit"></a>5.Write VS Commit</h4><ul>
+<li>Write(又称 save)<ul>
 <li>将数据项的值从内存中写入到数据库中，同时会备份好旧值，以便事务失败的时候需要回滚（将旧值写回该数据项），因此Write对数据库的修改是临时性的</li>
 </ul>
 </li>
-<li>Commit
-<ul>
+<li>Commit<ul>
 <li>事务提交之后，会终止该事务，并且所有的备份旧值会被清除，事务对数据项的修改（Write）将因为commit的完成，实现由临时性变为永久性。</li>
 </ul>
 </li>
 </ul>
 <hr>
-<h3 id="3-事务隔离性">3.事务隔离性</h3>
-<h4 id="1-事务问题">1.事务问题</h4>
-<ul>
-<li>丢失修改(写-写冲突)
-<ul>
+<h3 id="3-事务隔离性"><a href="#3-事务隔离性" class="headerlink" title="3.事务隔离性"></a>3.事务隔离性</h3><h4 id="1-事务问题"><a href="#1-事务问题" class="headerlink" title="1.事务问题"></a>1.事务问题</h4><ul>
+<li>丢失修改(写-写冲突)<ul>
 <li><strong>两个事务T1和T2读入同一数据并修改，T1提交的结果破坏了T2提交的结果，导致T2的修改丢失</strong></li>
 </ul>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240411195616016.png" alt="image-20240411195616016"></p>
 <ul>
-<li>读脏数据——脏读(写-读冲突)
-<ul>
+<li>读脏数据——脏读(写-读冲突)<ul>
 <li><strong>事务T1修改某一数据，并将其写回磁盘，事务T2读取同一数据后，T1由于某种原因被撤消，这时T1已修改过的数据恢复原值，<code>T2读到的数据与数据库中数据不一致</code>，则T2读到的数据就是脏数据</strong></li>
 </ul>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240411195800399.png" alt="image-20240411195800399"></p>
 <ul>
-<li>不能重复读(读-写冲突)
-<ul>
+<li>不能重复读(读-写冲突)<ul>
 <li><strong>事务T2读取某一数据后，事务T1对其做了修改，当T2再次读取该数据时，得到与前次不同的值，重复读导致不同值则表示出错，即不能重复读</strong></li>
 </ul>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240411195900182.png" alt="image-20240411195900182"></p>
 <ul>
-<li>发生幻象
-<ul>
+<li>发生幻象<ul>
 <li><strong>事务T2按一定条件读取了某些数据后，事务T1插入了一些满足这些条件的数据，当T2再次按相同条件读取数据时，发现多了一些记录</strong></li>
 </ul>
 </li>
@@ -355,12 +323,10 @@
 <p>丢失修改：两个事务读同一数据，各自修改后，先后写入时会出现吞掉某个修改的情况</p>
 <p>脏读：重点是回滚，读入数据与数据库数据不一致</p>
 <p>不可重复读：重点是update，数据在两次读取前被修改，导致同样的条件，读取的数据再次读取后值不一样了</p>
-<p>幻读：重点是insert/delete，第一次和第二次读出来的<strong>记录数目</strong>不一样</p>
+<p>幻读：重点是insert&#x2F;delete，第一次和第二次读出来的<strong>记录数目</strong>不一样</p>
 </blockquote>
-<h4 id="2-事务隔离性级别">2.事务隔离性级别</h4>
-<ul>
-<li>
-<p>数据库事务的隔离级别有4种，由高到低分别为：</p>
+<h4 id="2-事务隔离性级别"><a href="#2-事务隔离性级别" class="headerlink" title="2.事务隔离性级别"></a>2.事务隔离性级别</h4><ul>
+<li><p>数据库事务的隔离级别有4种，由高到低分别为：</p>
 <ul>
 <li>serializable(可串行化)：一个调度的执行必须等价于一个串行调度的结果</li>
 <li>repeatable read(可重复读)：只允许读取已提交的记录，并要求调度中，一个事务对同一记录的两次读取之间，不存在其它事务对该记录的更新（update）操作</li>
@@ -368,89 +334,70 @@
 <li>read uncommitted(读未提交)：允许读取未提交的记录</li>
 </ul>
 </li>
-<li>
-<p>隔离性级别与不一致现象</p>
+<li><p>隔离性级别与不一致现象</p>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240411201105943.png" alt="image-20240411201105943"></p>
-<h4 id="3-冲突可串行化">3.冲突可串行化</h4>
-<h5 id="1-指令的顺序">1.指令的顺序</h5>
-<p>考虑一个调度S中的两条连续指令（仅限于read与 write操作）Ii与Ij，分别属于事务Ti与Tj</p>
-<p>①Ii = read(Q), Ij = read(Q);</p>
-<p>②Ii = read(Q), Ij = write(Q);</p>
-<p>③Ii = write(Q), Ij = read(Q);</p>
-<p>④Ii = write(Q), Ij = write(Q);</p>
+<h4 id="3-冲突可串行化"><a href="#3-冲突可串行化" class="headerlink" title="3.冲突可串行化"></a>3.冲突可串行化</h4><h5 id="1-指令的顺序"><a href="#1-指令的顺序" class="headerlink" title="1.指令的顺序"></a>1.指令的顺序</h5><p>考虑一个调度S中的两条连续指令（仅限于read与 write操作）Ii与Ij，分别属于事务Ti与Tj</p>
+<p>①Ii &#x3D; read(Q), Ij &#x3D; read(Q);</p>
+<p>②Ii &#x3D; read(Q), Ij &#x3D; write(Q);</p>
+<p>③Ii &#x3D; write(Q), Ij &#x3D; read(Q);</p>
+<p>④Ii &#x3D; write(Q), Ij &#x3D; write(Q);</p>
 <p>在① 情况下，Ii与Ij的次序无关紧要。其余情况下，Ii与Ij的次序不同，其执行结果也不同，数据库最终状态也不同</p>
 <p><strong><code>先读后写或先写后读显然会导致结果不同，但先写后写的区别？——Q的备份值被改变了！</code></strong></p>
 <p><strong>WARNING：以上取决于read和write的对象是同一个，如果不是一个，又会有不同！</strong></p>
-<h5 id="2-冲突指令">2.冲突指令</h5>
-<p>当两条指令是不同事务在相同数据项上的操作，并且其中至少有一个是write指令时，则称这两条指令是冲突的</p>
+<h5 id="2-冲突指令"><a href="#2-冲突指令" class="headerlink" title="2.冲突指令"></a>2.冲突指令</h5><p>当两条指令是不同事务在相同数据项上的操作，并且其中至少有一个是write指令时，则称这两条指令是冲突的</p>
 <p>如在②、③、④情况下，Ii与Ij 是冲突的</p>
 <p>非冲突指令交换次序不会影响调度的最终结果</p>
-<h5 id="3-冲突等价">3.冲突等价</h5>
-<p>如果调度S可以经过一系列<strong>非冲突指令</strong>交换转换成调度S’，则称调度S与S’是冲突等价的</p>
+<h5 id="3-冲突等价"><a href="#3-冲突等价" class="headerlink" title="3.冲突等价"></a>3.冲突等价</h5><p>如果调度S可以经过一系列<strong>非冲突指令</strong>交换转换成调度S’，则称调度S与S’是冲突等价的</p>
 <ul>
 <li><strong>交换操作都默认是两个连续的指令调换先后执行顺序</strong></li>
 <li><strong>不同事务的两条连续指令，对应不同数据项的话，任何操作都是不冲突的</strong></li>
 <li><strong>调度中，同一事务内的指令先后必须与原事务中的指令先后保持一致</strong></li>
 </ul>
-<h5 id="4-冲突可串行化定义">4.冲突可串行化定义</h5>
-<p><code>当一个调度S与一个串行调度冲突等价时，则称该调度是冲突可串行化的</code></p>
-<h5 id="5-冲突可串行化判定">5.冲突可串行化判定</h5>
+<h5 id="4-冲突可串行化定义"><a href="#4-冲突可串行化定义" class="headerlink" title="4.冲突可串行化定义"></a>4.冲突可串行化定义</h5><p><code>当一个调度S与一个串行调度冲突等价时，则称该调度是冲突可串行化的</code></p>
+<h5 id="5-冲突可串行化判定"><a href="#5-冲突可串行化判定" class="headerlink" title="5.冲突可串行化判定"></a>5.冲突可串行化判定</h5><ul>
+<li><p>判定方法——优先图</p>
 <ul>
-<li>
-<p>判定方法——优先图</p>
-<ul>
-<li>
-<p>一个调度S的优先图是这样构造的：它是一个有向图G =（V，E），V是顶点集，E是边集。顶点集由所有参与调度的事务组成，边集由满足下述条件之一的边Ti—&gt; Tj组成：</p>
-<p>①在Tj执行read(Q)之前，Ti执行write(Q)</p>
-<p>②在Tj执行write(Q)之前，Ti执行read(Q)</p>
-<p>③在Tj执行write(Q)之前，Ti执行write(Q)</p>
+<li><p>一个调度S的优先图是这样构造的：它是一个有向图G &#x3D;（V，E），V是顶点集，E是边集。顶点集由所有参与调度的事务组成，边集由满足下述条件之一的边Ti—&gt; Tj组成：</p>
+<p> ①在Tj执行read(Q)之前，Ti执行write(Q)</p>
+<p> ②在Tj执行write(Q)之前，Ti执行read(Q)</p>
+<p> ③在Tj执行write(Q)之前，Ti执行write(Q)</p>
 </li>
-<li>
-<p>总结：<strong>存在读写冲突或者写写冲突时，先操作的事务，指向后操作的事务：<code>Ti—&gt;Tj</code></strong></p>
+<li><p>总结：<strong>存在读写冲突或者写写冲突时，先操作的事务，指向后操作的事务：<code>Ti—&gt;Tj</code></strong></p>
 </li>
 </ul>
 </li>
-<li>
-<p>判定标准</p>
+<li><p>判定标准</p>
 <ul>
 <li>如果优先图中存在边Ti—&gt;Tj ，则在任何等价于S的串行调度S’中，Ti都必须出现在Tj之前</li>
 <li><strong>如果调度S的优先图中有环，则S是非冲突可串行化的。如果图中无环，则S是冲突可串行化的</strong></li>
 </ul>
 </li>
 </ul>
-<h5 id="6-串行顺序">6.串行顺序</h5>
-<ul>
-<li>串行顺序可由拓扑排序得到，求出与优先图的偏序相一致的线序
-<ul>
+<h5 id="6-串行顺序"><a href="#6-串行顺序" class="headerlink" title="6.串行顺序"></a>6.串行顺序</h5><ul>
+<li>串行顺序可由拓扑排序得到，求出与优先图的偏序相一致的线序<ul>
 <li>也就是说，画出优先图，按照拓扑顺序拆解优先图得到的顺序就是事务串行顺序</li>
 </ul>
 </li>
 </ul>
 <hr>
-<h3 id="4-封锁">4.封锁</h3>
-<h4 id="1-定义-3">1.定义</h4>
-<ul>
+<h3 id="4-封锁"><a href="#4-封锁" class="headerlink" title="4.封锁"></a>4.封锁</h3><h4 id="1-定义-2"><a href="#1-定义-2" class="headerlink" title="1.定义"></a>1.定义</h4><ul>
 <li>封锁就是一个事务对某个数据对象加锁，取得对它一定的控制，限制其它事务对该数据对象使用</li>
 <li>要访问一个数据项R，事务Ti必须先申请对R的封锁，如果R已经被事务Tj加了<strong>不相容</strong>的锁，则Ti需要等待，直至Tj释放它的封锁</li>
 </ul>
-<h4 id="2-基本锁类型">2.基本锁类型</h4>
-<ul>
-<li><strong>排它锁(X锁)</strong>
-<ul>
+<h4 id="2-基本锁类型"><a href="#2-基本锁类型" class="headerlink" title="2.基本锁类型"></a>2.基本锁类型</h4><ul>
+<li><strong>排它锁(X锁)</strong><ul>
 <li>事务T对数据对象R加上X锁，则<strong>其它事务对R的<em>任何</em>封锁请求都不能成功</strong>，直至T释放R上的X锁；又称写锁</li>
-<li>申请对R的排它锁：lock-X®</li>
+<li>申请对R的排它锁：lock-X(R)</li>
 </ul>
 </li>
-<li><strong>共享锁(S锁)</strong>
-<ul>
-<li>事务T对数据对象R加上S锁，则<strong>其它事务对R的X锁请求不能成功</strong>，而<strong>对R的S锁/U锁请求可以成功</strong>；又称读锁</li>
-<li>申请对R的共享锁： lock-S®</li>
+<li><strong>共享锁(S锁)</strong><ul>
+<li>事务T对数据对象R加上S锁，则<strong>其它事务对R的X锁请求不能成功</strong>，而<strong>对R的S锁&#x2F;U锁请求可以成功</strong>；又称读锁</li>
+<li>申请对R的共享锁： lock-S(R)</li>
 </ul>
 </li>
-<li><strong>更新锁(U锁)</strong>
-<ul>
+<li><strong>更新锁(U锁)</strong><ul>
 <li>事务T对数据对象R加上U锁，则表示R<strong><em>稍后</em>更新</strong>。<strong>修改值未写入时，U锁与S锁兼容，与X锁互斥；修改值写入时，U锁转换成为X锁</strong></li>
 <li>确切的说，更新锁是<code>“即将更新锁”</code></li>
 <li>这里的更新，是狭义上的更新，也就是替换旧值，<strong>不包括插入、删除</strong></li>
@@ -460,81 +407,70 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center">相容矩阵comp(A,B)</th>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
+<th align="center">相容矩阵comp(A,B)</th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">请求锁模式A</td>
-<td style="text-align:center">现有锁模式B</td>
-<td style="text-align:center">现有锁模式B</td>
-<td style="text-align:center">现有锁模式B</td>
+<tbody><tr>
+<td align="center">请求锁模式A</td>
+<td align="center">现有锁模式B</td>
+<td align="center">现有锁模式B</td>
+<td align="center">现有锁模式B</td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">S</td>
-<td style="text-align:center">X</td>
-<td style="text-align:center">U</td>
+<td align="center"></td>
+<td align="center">S</td>
+<td align="center">X</td>
+<td align="center">U</td>
 </tr>
 <tr>
-<td style="text-align:center">S</td>
-<td style="text-align:center">是</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">是</td>
+<td align="center">S</td>
+<td align="center">是</td>
+<td align="center">否</td>
+<td align="center">是</td>
 </tr>
 <tr>
-<td style="text-align:center">X</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">否</td>
+<td align="center">X</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
 </tr>
 <tr>
-<td style="text-align:center">U</td>
-<td style="text-align:center">是</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">否</td>
+<td align="center">U</td>
+<td align="center">是</td>
+<td align="center">否</td>
+<td align="center">否</td>
 </tr>
-</tbody>
-</table>
-<h4 id="3-锁持有期">3.锁持有期</h4>
-<ul>
+</tbody></table>
+<h4 id="3-锁持有期"><a href="#3-锁持有期" class="headerlink" title="3.锁持有期"></a>3.锁持有期</h4><ul>
 <li>保持到事务结束时才释放的锁：长锁</li>
 <li>在事务中途就可以释放的锁：短锁</li>
-<li>例：
-<ul>
+<li>例：<ul>
 <li>可重复读(repeatable read)：长S锁</li>
 <li>读提交(read commited)：短S锁</li>
 <li>读不提交(read uncommited)：不申请锁</li>
 </ul>
 </li>
 </ul>
-<h4 id="4-封锁粒度">4.封锁粒度</h4>
-<ul>
-<li>
-<p>封锁对象</p>
+<h4 id="4-封锁粒度"><a href="#4-封锁粒度" class="headerlink" title="4.封锁粒度"></a>4.封锁粒度</h4><ul>
+<li><p>封锁对象</p>
 <ul>
 <li>属性值、属性值集合、元组、关系、某索引项（key）、整个索引、整个数据库、物理页、块</li>
 </ul>
 </li>
-<li>
-<p>封锁粒度大，则并发度低，封锁机构简单，开销小</p>
+<li><p>封锁粒度大，则并发度低，封锁机构简单，开销小</p>
 </li>
-<li>
-<p>封锁粒度小，则并发度高，封锁机构复杂，开销高</p>
+<li><p>封锁粒度小，则并发度高，封锁机构复杂，开销高</p>
 </li>
-<li>
-<p>理想的情况是<strong>只封锁与规定的操作有关的的数据对象</strong>，称之为事务的<strong>完整性相关域</strong></p>
+<li><p>理想的情况是<strong>只封锁与规定的操作有关的的数据对象</strong>，称之为事务的<strong>完整性相关域</strong></p>
 </li>
-<li>
-<p><strong>意向封锁(预约封锁)</strong></p>
+<li><p><strong>意向封锁(预约封锁)</strong></p>
 <ul>
 <li>在分层封锁中，封锁了上层节点就意味着封锁了所有内层节点。如果有事务T1对某元组加了S锁，而事务T2对该元组所在的关系加了X锁，因而隐含地X封锁了该元组，从而造成矛盾</li>
 <li>引入意向锁I（Intend）：当某节点加上I锁，表明该节点的某些内层节点(子节点)已发生事实上的封锁，防止其它事务再去显式封锁该节点</li>
-<li>I锁的实施是<strong>从封锁层次的根开始，依次占据路径上的所有节点，直至要真正进行显式封锁的节点的父节点</strong>为止
-<ul>
+<li>I锁的实施是<strong>从封锁层次的根开始，依次占据路径上的所有节点，直至要真正进行显式封锁的节点的父节点</strong>为止<ul>
 <li>下图中，S锁不兼容I锁的原因是，I锁有可能指的是IX锁</li>
 </ul>
 </li>
@@ -543,19 +479,15 @@
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240412154414404.png" alt="image-20240412154414404"></p>
 <ul>
-<li><strong>细化意向锁</strong>
-<ul>
-<li><strong>IS锁</strong>
-<ul>
+<li><strong>细化意向锁</strong><ul>
+<li><strong>IS锁</strong><ul>
 <li>如果对一个数据对象加IS锁，表示它的后裔节点拟（意向）加S锁</li>
 <li>例如，要对元组加S锁，则首先要对关系和数据库加IS锁</li>
 </ul>
 </li>
-<li><strong>IX锁</strong>
-<ul>
+<li><strong>IX锁</strong><ul>
 <li>如果对一个数据对象加IX锁，表示它的后裔节点拟（意向）加X锁</li>
-<li>例如，要对元组加X锁，则首先要对关系和数据库加IX锁
-<ul>
+<li>例如，要对元组加X锁，则首先要对关系和数据库加IX锁<ul>
 <li><strong>IS和IX能够兼容是因为同一节点的后代可以一部分被加S锁，其它部分被加X锁，只要没有同一部分被冲突性加锁，就没问题</strong></li>
 </ul>
 </li>
@@ -566,20 +498,16 @@
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240412154946231.png" alt="image-20240412154946231"></p>
 <p><strong><code>意向锁不是真的锁，只是一种提示，即某节点被加了意向锁之后，表明其下层后代节点存在对应的锁</code></strong></p>
-<h4 id="5-死锁">5.死锁</h4>
-<ul>
-<li>
-<p><strong>定义</strong>：两个事务都封锁了一些数据对象，并相互等待对方释放另一些数据对象以便对其封锁，结果两个事务都不能结束，则发生死锁</p>
+<h4 id="5-死锁"><a href="#5-死锁" class="headerlink" title="5.死锁"></a>5.死锁</h4><ul>
+<li><p><strong>定义</strong>：两个事务都封锁了一些数据对象，并相互等待对方释放另一些数据对象以便对其封锁，结果两个事务都不能结束，则发生死锁</p>
 </li>
-<li>
-<p><strong>发生条件</strong></p>
+<li><p><strong>发生条件</strong></p>
 <ul>
 <li>①互斥条件：事务请求对资源的独占控制</li>
 <li>②占有等待条件：事务已持有一定资源，又去申请并等待其它资源</li>
 <li>③非抢占条件：直到资源被持有它的事务释放之前，不可能将该资源强制从持有它的事务夺去</li>
 <li>④循环等待条件：存在事务相互等待的等待圈</li>
-<li><strong>定理</strong>：<strong>在条件① ② ③成立的前提下，条件④是死锁存在的充分必要条件</strong>
-<ul>
+<li><strong>定理</strong>：<strong>在条件① ② ③成立的前提下，条件④是死锁存在的充分必要条件</strong><ul>
 <li>如下图所示，事务T2和T3间存在环——死锁</li>
 </ul>
 </li>
@@ -588,25 +516,21 @@
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240412155410401.png" alt="image-20240412155410401"></p>
 <ul>
-<li>
-<p>预防死锁</p>
+<li><p>预防死锁</p>
 <ul>
-<li>预先占据所需的全部资源，要么一次全部封锁要么全不封锁
-<ul>
+<li>预先占据所需的全部资源，要么一次全部封锁要么全不封锁 <ul>
 <li>缺点：难于预知需要封锁哪些数据并且数据使用率低</li>
 </ul>
 </li>
 <li>所有资源预先排序，事务按规定顺序封锁数据</li>
-<li>使用抢占与事务回滚
-<ul>
+<li>使用抢占与事务回滚<ul>
 <li>wait-die(抢占)：如果T1等待T2，仅当T1的时间戳小于T2时，允许T1等待，否则回滚T1。</li>
 <li>wound-wait(回滚)：如果T1等待T2，仅当T1的时间戳大于T2时，允许T1等待，否则回滚T2</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<p>死锁检测和恢复</p>
+<li><p>死锁检测和恢复</p>
 <ul>
 <li>超时法：如果等待封锁的时间超过限时，则撤销该事务</li>
 <li>等待图法(略)</li>
@@ -614,53 +538,41 @@
 </li>
 </ul>
 <hr>
-<h3 id="5-并发处理策略">5.并发处理策略</h3>
-<p>略</p>
+<h3 id="5-并发处理策略"><a href="#5-并发处理策略" class="headerlink" title="5.并发处理策略"></a>5.并发处理策略</h3><p>略</p>
 <hr>
-<h3 id="6-故障处理">6.故障处理</h3>
-<h4 id="1-分类">1.分类</h4>
-<ul>
+<h3 id="6-故障处理"><a href="#6-故障处理" class="headerlink" title="6.故障处理"></a>6.故障处理</h3><h4 id="1-分类"><a href="#1-分类" class="headerlink" title="1.分类"></a>1.分类</h4><ul>
 <li>事务故障</li>
 <li>系统崩溃故障(一般说的故障，默认是系统崩溃故障)</li>
 <li>硬件故障</li>
 <li>天灾</li>
 </ul>
-<h4 id="2-故障恢复的方法">2.故障恢复的方法</h4>
-<ul>
+<h4 id="2-故障恢复的方法"><a href="#2-故障恢复的方法" class="headerlink" title="2.故障恢复的方法"></a>2.故障恢复的方法</h4><ul>
 <li>分页方法(效率低)</li>
 <li>日志方法(常用)</li>
 </ul>
-<h4 id="3-事务故障恢复">3.事务故障恢复</h4>
-<p><strong>特征：事务不能执行下去，未完成；</strong></p>
-<p>**恢复方法：**执行回卷(Rollback)操作：当事物Ti要撤销时，反向扫描日志内容，对Ti的每项数据操作记录，执行undo(Ti) 操作，使用旧值恢复数据项的原有值，即撤销事务已做的数据操作；直至遇到<Ti start> 记录为止，然后放弃Ti</Ti></p>
-<h4 id="4-系统崩溃故障">4.系统崩溃故障</h4>
-<h5 id="1-方法">1.方法</h5>
-<p>①重启数据库管理系统；</p>
+<h4 id="3-事务故障恢复"><a href="#3-事务故障恢复" class="headerlink" title="3.事务故障恢复"></a>3.事务故障恢复</h4><p><strong>特征：事务不能执行下去，未完成；</strong></p>
+<p><strong>恢复方法：</strong>执行回卷(Rollback)操作：当事物Ti要撤销时，反向扫描日志内容，对Ti的每项数据操作记录，执行undo(Ti) 操作，使用旧值恢复数据项的原有值，即撤销事务已做的数据操作；直至遇到<Ti start> 记录为止，然后放弃Ti </Ti></p>
+<h4 id="4-系统崩溃故障"><a href="#4-系统崩溃故障" class="headerlink" title="4.系统崩溃故障"></a>4.系统崩溃故障</h4><h5 id="1-方法"><a href="#1-方法" class="headerlink" title="1.方法"></a>1.方法</h5><p>①重启数据库管理系统；</p>
 <p>②从日志磁盘读取日志文件；</p>
 <p>③反向扫描日志，即从日志文件的结束位置开始后向扫描。对于在日志记录中没有<Ti commit> 记录的事物，执行回卷操作(Rollback)，使用旧值恢复数据项，做undo( )处理:</Ti></p>
 <p>④然后从日志文件的开始位置前向扫描。 对日志记录中含有<Ti commit>的事务，执行redo(Ti) 操作，使用新值赋值数据库中的数据项，确保事物的有效性；</Ti></p>
-<h5 id="2-检查点-加快故障恢复">2.检查点(加快故障恢复)</h5>
+<h5 id="2-检查点-加快故障恢复"><a href="#2-检查点-加快故障恢复" class="headerlink" title="2.检查点(加快故障恢复)"></a>2.检查点(加快故障恢复)</h5><ul>
+<li><p>概念</p>
 <ul>
-<li>
-<p>概念</p>
-<ul>
-<li>**做检查点的目的：***<strong>加快系统崩溃故障恢复过程</strong> <strong>。基于如下观察：</strong>
-<ul>
+<li><strong>做检查点的目的：</strong>*<strong>加快系统崩溃故障恢复过程</strong> <strong>。基于如下观察：</strong><ul>
 <li>*扫描整个日志文件很费时；</li>
 <li>对已经输出到了数据库磁盘的事务数据项没有必要再做redo操作；**</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<p><strong>周期性地</strong>做检查点(checkpointing):</p>
+<li><p><strong>周期性地</strong>做检查点(checkpointing):</p>
 <p>①<strong>暂停所有当前活动事务；</strong></p>
 <p>②<strong>把日志缓冲区中的所有日志记录输出到日志磁盘；</strong></p>
 <p>③<strong>把数据库缓冲区中的所有修改输出到数据库磁盘；</strong></p>
-<p>④<strong>写一条</strong> <strong>&lt; checkpoint, &lt;</strong> <strong>当前活动事务的标识号列表</strong> <strong>&gt;&gt;</strong> <strong>日志记录到日志磁盘；</strong></p>
+<p>④<strong>写一条</strong> <strong>&lt; checkpoint, &lt;** **当前活动事务的标识号列表** **&gt;&gt;</strong> <strong>日志记录到日志磁盘；</strong></p>
 </li>
-<li>
-<p>有检查点的系统崩溃恢复</p>
+<li><p>有检查点的系统崩溃恢复</p>
 <ul>
 <li><strong>①从日志文件的结尾处反向扫描，直至遇到最近的 <checkpoint> 记录为止；</checkpoint></strong></li>
 <li><strong>②对反向扫描中只有<Ti start> 而没有<Ti commit>的事务，执行回卷操作(Rollback (Ti) )，做撤销处理；</Ti></Ti></strong></li>
@@ -668,38 +580,27 @@
 </ul>
 </li>
 </ul>
-<h4 id="5-数据库磁盘故障">5.数据库磁盘故障</h4>
-<h5 id="1-处理手段：备份操作-Dump">1.处理手段：备份操作(Dump)</h5>
-<p>周期性地执行备份(dump) 操作，对磁盘数据库进行磁盘备份:</p>
+<h4 id="5-数据库磁盘故障"><a href="#5-数据库磁盘故障" class="headerlink" title="5.数据库磁盘故障"></a>5.数据库磁盘故障</h4><h5 id="1-处理手段：备份操作-Dump"><a href="#1-处理手段：备份操作-Dump" class="headerlink" title="1.处理手段：备份操作(Dump)"></a>1.处理手段：备份操作(Dump)</h5><p>周期性地执行备份(dump) 操作，对磁盘数据库进行磁盘备份:</p>
 <ul>
-<li>
-<p>①不再接收客户事务请求，让当前所有活动事务执行完毕；</p>
+<li><p>①不再接收客户事务请求，让当前所有活动事务执行完毕；</p>
 </li>
-<li>
-<p>②输出日志缓冲区中的日志记录到日志磁盘中;</p>
+<li><p>②输出日志缓冲区中的日志记录到日志磁盘中;</p>
 </li>
-<li>
-<p>③输出数据库缓冲区中的缓冲数据到数据库磁盘中;</p>
+<li><p>③输出数据库缓冲区中的缓冲数据到数据库磁盘中;</p>
 </li>
-<li>
-<p>④把数据库磁盘中的数据库文件拷贝到另一个磁盘上；</p>
+<li><p>④把数据库磁盘中的数据库文件拷贝到另一个磁盘上；</p>
 </li>
-<li>
-<p>⑤往日志磁盘中写入一条 <dump> 日志记录；</dump></p>
+<li><p>⑤往日志磁盘中写入一条 <dump> 日志记录；</dump></p>
 </li>
-<li>
-<p>⑥接收客户事物请求，恢复正常处理；</p>
+<li><p>⑥接收客户事物请求，恢复正常处理；</p>
 </li>
 </ul>
-<h5 id="2-数据库磁盘故障的特征：数据库数据全部丢失">2.数据库磁盘故障的特征：<strong>数据库数据全部丢失</strong></h5>
-<h5 id="3-恢复方法">3.恢复方法</h5>
-<p>①用最近备份的数据库磁盘替换掉失效的数据库磁盘；</p>
+<h5 id="2-数据库磁盘故障的特征：数据库数据全部丢失"><a href="#2-数据库磁盘故障的特征：数据库数据全部丢失" class="headerlink" title="2.数据库磁盘故障的特征：数据库数据全部丢失"></a>2.数据库磁盘故障的特征：<strong>数据库数据全部丢失</strong></h5><h5 id="3-恢复方法"><a href="#3-恢复方法" class="headerlink" title="3.恢复方法"></a>3.恢复方法</h5><p>①用最近备份的数据库磁盘替换掉失效的数据库磁盘；</p>
 <p>②重启数据库管理系统；</p>
 <p>③读日志文件，从文件末尾反向扫描直至<dump>记录；</dump></p>
 <p>④再顺向扫描日志记录，对有<Ti commit>记录的事务做redo(Ti)操作；</Ti></p>
 <p><strong>忽略哪些dump-故障之间未完成的事务，因为不需要处理了，数据都没了</strong></p>
-<h4 id="6-日志磁盘故障">6.日志磁盘故障</h4>
-<p>日志本来就是冗余的，只要数据库不发生故障，日志就没用场</p>
+<h4 id="6-日志磁盘故障"><a href="#6-日志磁盘故障" class="headerlink" title="6.日志磁盘故障"></a>6.日志磁盘故障</h4><p>日志本来就是冗余的，只要数据库不发生故障，日志就没用场</p>
 <p><strong>恢复方法：</strong></p>
 <p>①不再接收客户事务请求，让当前的所有活动事务执行完毕；</p>
 <p>②输出数据库缓冲区中的缓冲数据到数据库磁盘中;</p>
@@ -709,38 +610,28 @@
 <ul>
 <li>日志磁盘和数据库磁盘同时故障——<strong>无法恢复</strong></li>
 </ul>
-<h4 id="7-灾难故障-容灾">7.灾难故障(容灾)</h4>
-<p>远程备份</p>
+<h4 id="7-灾难故障-容灾"><a href="#7-灾难故障-容灾" class="headerlink" title="7.灾难故障(容灾)"></a>7.灾难故障(容灾)</h4><p>远程备份</p>
 <hr>
-<h2 id="五、性能提升">五、性能提升</h2>
-<h3 id="1-数据库性能指标">1.数据库性能指标</h3>
-<ul>
-<li>
-<p><strong>事务吞吐量</strong>**(Transaction throughput):** 单位时间中能够处理的交易(事务)数量.</p>
+<h2 id="五、性能提升"><a href="#五、性能提升" class="headerlink" title="五、性能提升"></a>五、性能提升</h2><h3 id="1-数据库性能指标"><a href="#1-数据库性能指标" class="headerlink" title="1.数据库性能指标"></a>1.数据库性能指标</h3><ul>
+<li><p><strong>事务吞吐量</strong><strong>(Transaction throughput):</strong> 单位时间中能够处理的交易(事务)数量.</p>
 </li>
-<li>
-<p><strong>响应时间</strong>**(Response time):** 完成单个交易所用的时间**.**</p>
+<li><p><strong>响应时间</strong><strong>(Response time):</strong> 完成单个交易所用的时间**.**</p>
 </li>
-<li>
-<p>**总指标：***<strong>事务吞吐量</strong> <strong>/</strong> <strong>响应时间</strong></p>
+<li><p><strong>总指标：</strong>*<strong>事务吞吐量</strong> <strong>&#x2F;</strong> <strong>响应时间</strong></p>
 </li>
 </ul>
-<h3 id="2-提高数据库性能的策略">2.提高数据库性能的策略</h3>
-<ul>
-<li>挖掘和使用：
-<ul>
+<h3 id="2-提高数据库性能的策略"><a href="#2-提高数据库性能的策略" class="headerlink" title="2.提高数据库性能的策略"></a>2.提高数据库性能的策略</h3><ul>
+<li>挖掘和使用：<ul>
 <li>数据特性</li>
 <li>硬件特性</li>
-<li>数据访问特性
-<ul>
+<li>数据访问特性<ul>
 <li>将用户<strong>访问频繁的数据</strong>放置在中央位置，把<strong>联系紧密的数据</strong>邻近存储</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="3-提高数据库性能的方法">3.提高数据库性能的方法</h3>
-<ul>
+<h3 id="3-提高数据库性能的方法"><a href="#3-提高数据库性能的方法" class="headerlink" title="3.提高数据库性能的方法"></a>3.提高数据库性能的方法</h3><ul>
 <li><strong>方法1: 排序;</strong></li>
 <li><strong>方法2: 索引 （Tree索引和哈希索引）；</strong></li>
 <li><strong>方法3: 连续的磁盘存储;</strong></li>
@@ -754,102 +645,90 @@
 <blockquote>
 <p>重点记住上面的几种方法的名称即可</p>
 </blockquote>
-<h4 id="1-索引">1.索引</h4>
-<ul>
-<li>
-<p>原理：<strong>压缩+排序</strong></p>
+<h4 id="1-索引"><a href="#1-索引" class="headerlink" title="1.索引"></a>1.索引</h4><ul>
+<li><p>原理：<strong>压缩+排序</strong></p>
 </li>
-<li>
-<p>详见之前的索引</p>
+<li><p>详见之前的索引</p>
+</li>
+<li><p>需要注意的是索引分为两类：顺序索引、散列索引(哈希)</p>
+<ul>
+<li>散列索引更适合等值类的查询，而不适合范围查询和模糊查询，因为其本身是用哈希函数来作为映射关系，故不保留原列的顺序，也没法对未知键值进行映射</li>
+</ul>
 </li>
 </ul>
-<h4 id="2-聚簇">2.聚簇</h4>
-<p>减少磁头移动路程—把关系紧密的数据临近存储——聚簇(Clustering)</p>
+<h4 id="2-聚簇"><a href="#2-聚簇" class="headerlink" title="2.聚簇"></a>2.聚簇</h4><p>减少磁头移动路程—把关系紧密的数据临近存储——聚簇(Clustering)</p>
 <ul>
-<li><strong>把关系紧密的数据临近存储</strong> <strong>—连续空间存储</strong>
-<ul>
+<li><strong>把关系紧密的数据临近存储</strong> <strong>—连续空间存储</strong><ul>
 <li>访问频繁的数据存储在中央位置</li>
 </ul>
 </li>
 </ul>
-<h4 id="3-内存缓冲-缓存">3.内存缓冲(缓存)</h4>
-<p><strong>缓存</strong>能使得<strong>批量读磁盘</strong>，<strong>批量写磁盘</strong>成为可能，<strong>可减少磁盘运输次数，也可减少磁头移动的总路程</strong>。其原理：<strong>规模效益</strong>。；</p>
-<h4 id="4-并发执行">4.并发执行</h4>
-<p>略</p>
+<h4 id="3-内存缓冲-缓存"><a href="#3-内存缓冲-缓存" class="headerlink" title="3.内存缓冲(缓存)"></a>3.内存缓冲(缓存)</h4><p><strong>缓存</strong>能使得<strong>批量读磁盘</strong>，<strong>批量写磁盘</strong>成为可能，<strong>可减少磁盘运输次数，也可减少磁头移动的总路程</strong>。其原理：<strong>规模效益</strong>。；</p>
+<h4 id="4-并发执行"><a href="#4-并发执行" class="headerlink" title="4.并发执行"></a>4.并发执行</h4><p>略</p>
 <hr>
-<h2 id="六、安全管理">六、安全管理</h2>
-<h3 id="1-DBMS安全措施">1.DBMS安全措施</h3>
-<ul>
+<h2 id="六、安全管理"><a href="#六、安全管理" class="headerlink" title="六、安全管理"></a>六、安全管理</h2><h3 id="1-DBMS安全措施"><a href="#1-DBMS安全措施" class="headerlink" title="1.DBMS安全措施"></a>1.DBMS安全措施</h3><ul>
 <li>第一道防线：账号登陆，建立连接</li>
 <li>第二道防线：权限管理</li>
 <li>威慑措施(技术手段与工具)：审计</li>
 </ul>
-<h3 id="2-权限管理">2.权限管理</h3>
-<h4 id="1-定义-4">1.定义</h4>
-<ul>
-<li>用户登录后，要访问数据库中的每一个对象，还有权限要求。权限的授予可用&lt;<strong>授予者, 对象，权限，被授予者</strong>&gt;四元组来标识。</li>
-<li>权限管理有三条准则：
-<ul>
+<h3 id="2-权限管理"><a href="#2-权限管理" class="headerlink" title="2.权限管理"></a>2.权限管理</h3><h4 id="1-定义-3"><a href="#1-定义-3" class="headerlink" title="1.定义"></a>1.定义</h4><ul>
+<li>用户登录后，要访问数据库中的每一个对象，还有权限要求。权限的授予可用&lt;**授予者, 对象，权限，被授予者**&gt;四元组来标识。</li>
+<li>权限管理有三条准则：<ul>
 <li>1）某个对象，其创建者拥有对其访问的全部权限；</li>
 <li>2）一个用户可将其拥有的权限授予给其它用户；</li>
 <li>3）授权者可收回其授予出去的权限，权限的收回具有连带性。</li>
 </ul>
 </li>
 </ul>
-<h4 id="2-实施：">2.实施：</h4>
-<ul>
-<li>在数据库中创建表，创建<strong>用户类别</strong>，然后为每个用户类别指定其能访问的对象，明确其<strong>操作权限</strong>
-<ul>
+<h4 id="2-实施："><a href="#2-实施：" class="headerlink" title="2.实施："></a>2.实施：</h4><ul>
+<li>在数据库中创建表，创建<strong>用户类别</strong>，然后为每个用户类别指定其能访问的对象，明确其<strong>操作权限</strong><ul>
 <li>在SQL语言中，<strong>用户类别</strong>被叫做<strong>角色ROLE</strong>(本质上是一个权限组)</li>
 <li>也就是在数据库中为每个用户<strong>创建</strong>一个<strong>账号</strong>，再确定其<strong>所属的用户类别</strong></li>
 </ul>
 </li>
 </ul>
-<h4 id="3-访问权限的管理粒度：">3.访问权限的管理粒度：</h4>
-<ul>
-<li>
-<p><strong>读权限</strong>：SELECT；粒度：表。</p>
+<h4 id="3-访问权限的管理粒度："><a href="#3-访问权限的管理粒度：" class="headerlink" title="3.访问权限的管理粒度："></a>3.访问权限的管理粒度：</h4><ul>
+<li><p><strong>读权限</strong>：SELECT；粒度：表。</p>
 </li>
-<li>
-<p><strong>更新权限</strong>：INSERT， UPDATE。 粒度：表，还可进一步指定列</p>
+<li><p><strong>更新权限</strong>：INSERT， UPDATE。 粒度：表，还可进一步指定列</p>
 <p>​                  DELETE；粒度：表。</p>
 </li>
-<li>
-<p><strong>DBMS中的权限管理</strong>是<strong>粗放型的</strong>。粒度并没有细化到表中的<strong>行</strong>。对于SELECT权限，也没有细化到<strong>列</strong>。<strong>并不能满足业务需求</strong>。</p>
+<li><p><strong>DBMS中的权限管理</strong>是<strong>粗放型的</strong>。粒度并没有细化到表中的<strong>行</strong>。对于SELECT权限，也没有细化到<strong>列</strong>。<strong>并不能满足业务需求</strong>。</p>
 </li>
-<li>
-<p><strong>细化的其它辅助措施</strong>：<strong>视图，存储过程，应用程序</strong></p>
+<li><p><strong>细化的其它辅助措施</strong>：<strong>视图，存储过程，应用程序</strong></p>
 </li>
 </ul>
-<h4 id="4-SQL">4.SQL</h4>
-<p>1.创建用户和角色</p>
+<h4 id="4-SQL"><a href="#4-SQL" class="headerlink" title="4.SQL"></a>4.SQL</h4><p>1.创建用户和角色</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> aaa identified <span class="keyword">by</span> <span class="string">&#x27;123&#x27;</span> <span class="comment">-- identified by 密码</span></span><br><span class="line"><span class="keyword">create</span> role teacher</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">user</span> aaa</span><br><span class="line"><span class="keyword">drop</span> role teacher</span><br></pre></td></tr></table></figure>
+
 <p>2.授权</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">select</span> <span class="keyword">on</span> dept <span class="keyword">to</span> public; <span class="comment">-- 将dept表的select权限给予public(全体)</span></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">select</span>, <span class="keyword">update</span>(salary) <span class="keyword">on</span> emp <span class="keyword">to</span> Manager, Director;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> Proj <span class="keyword">to</span> Director <span class="keyword">with</span> <span class="keyword">grant</span> option;</span><br><span class="line"><span class="comment">-- with grant option：权限可转发，=relay</span></span><br></pre></td></tr></table></figure>
+
 <p>3.收回权限</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">revoke</span> <span class="keyword">select</span> <span class="keyword">on</span> dept <span class="keyword">from</span> public;</span><br><span class="line"><span class="keyword">revoke</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> emp <span class="keyword">from</span> Director</span><br></pre></td></tr></table></figure>
-<h4 id="5-访问粒度细化">5.访问粒度细化</h4>
-<p>通过视图来增强安全——将SELECT权限细化到列</p>
+
+<h4 id="5-访问粒度细化"><a href="#5-访问粒度细化" class="headerlink" title="5.访问粒度细化"></a>5.访问粒度细化</h4><p>通过视图来增强安全——将SELECT权限细化到列</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> EmpView <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> eno, ename, title, supereno, dno <span class="keyword">FROM</span> emp；</span><br></pre></td></tr></table></figure>
+
 <p>通过视图来增强安全——将权限细化到行</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> AccountEmp <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> eno, name, title, superno, dno <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> dno <span class="operator">=</span> <span class="string">&#x27;410&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 授权</span></span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> AccountEmp <span class="keyword">TO</span> AccountStaff;</span><br></pre></td></tr></table></figure>
-<h4 id="6-访问权限管理的技巧">6.访问权限管理的技巧</h4>
-<p><strong>不要给某个用户授权，而只给角色授权。然后再将角色授予给某个用户</strong></p>
+
+<h4 id="6-访问权限管理的技巧"><a href="#6-访问权限管理的技巧" class="headerlink" title="6.访问权限管理的技巧"></a>6.访问权限管理的技巧</h4><p><strong>不要给某个用户授权，而只给角色授权。然后再将角色授予给某个用户</strong></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 给角色(role)授权,student是role</span></span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">INSERT</span>(s_no, c_no, semester) <span class="keyword">ON</span> enroll <span class="keyword">TO</span> student;</span><br><span class="line"><span class="comment">-- 将角色授予用户</span></span><br><span class="line"><span class="comment">-- WARNING：授权时，不要用用户身份授权，而应以角色身份授权</span></span><br><span class="line"><span class="keyword">SET</span> <span class="built_in">CURRENT_ROLE</span> <span class="keyword">AS</span> assistant;(assistant必须是当前登录用户的角色)</span><br><span class="line"><span class="keyword">GRANT</span> student <span class="keyword">TO</span> B GRANTED <span class="keyword">BY</span> <span class="built_in">CURRENT_ROLE</span>;</span><br><span class="line"><span class="comment">-- B可以是用户，也可以是role，这个语句出发的权限记录里，授权者是current_role，也就是assistant</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-审计">3.审计</h3>
-<ul>
-<li>
-<p>数据库中的另一种安全机制是<strong>审计(Audit)</strong>。审计就如在公共场所安装摄像机，对登录进数据库的用户的一举一动都进行记录。一旦发现安全问题，就可调阅审计记录，查清事实真相。</p>
+
+
+
+<h3 id="3-审计"><a href="#3-审计" class="headerlink" title="3.审计"></a>3.审计</h3><ul>
+<li><p>数据库中的另一种安全机制是**审计(Audit)**。审计就如在公共场所安装摄像机，对登录进数据库的用户的一举一动都进行记录。一旦发现安全问题，就可调阅审计记录，查清事实真相。</p>
 </li>
-<li>
-<p><strong>用触发器实现安全审计</strong></p>
+<li><p><strong>用触发器实现安全审计</strong></p>
 </li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> cheatingEmployee</span><br><span class="line">AFTER <span class="keyword">UPDATE</span> <span class="keyword">OF</span> salary <span class="keyword">ON</span> Emp</span><br><span class="line"><span class="keyword">REFERENCING</span> </span><br><span class="line"><span class="keyword">OLD</span> <span class="type">ROW</span> <span class="keyword">AS</span> <span class="keyword">old</span></span><br><span class="line"><span class="keyword">NEW</span> <span class="type">ROW</span> <span class="keyword">AS</span> <span class="keyword">new</span></span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="type">ROW</span></span><br><span class="line"><span class="keyword">WHEN</span> (<span class="variable">@new</span>.salary <span class="operator">&gt;</span> <span class="variable">@old</span>.salary<span class="operator">*</span><span class="number">1.1</span>)</span><br><span class="line">            <span class="keyword">INSERT</span> <span class="keyword">INTO</span> auditEmpSalary</span><br><span class="line">		<span class="keyword">VALUES</span> (get_user_id( ), get_connect_ip( ), <span class="type">timestamp</span>(now()), <span class="variable">@new</span>.eno,<span class="variable">@new</span>.salary,<span class="variable">@old</span>.salary);</span><br></pre></td></tr></table></figure>
-<h3 id="4-两种攻击">4.两种攻击</h3>
-<p>SQL注入攻击——拒绝动态拼接SQL语句</p>
+
+<h3 id="4-两种攻击"><a href="#4-两种攻击" class="headerlink" title="4.两种攻击"></a>4.两种攻击</h3><p>SQL注入攻击——拒绝动态拼接SQL语句</p>
 <p>HTML注入攻击</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://SomeFnone.github.io">魔法猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://somefnone.github.io/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-2/">http://somefnone.github.io/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SomeFnone.github.io" target="_blank">Wizard Cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><div class="post_share"><div class="social-share" data-image="/img/BWeLyHqW.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/20/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-3/" title="数据库笔记-3"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">数据库笔记-3</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-1/" title="数据库笔记-1"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数据库笔记-1</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/04/20/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-3/" title="数据库笔记-3"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-20</div><div class="title">数据库笔记-3</div></div></a></div><div><a href="/2024/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-1/" title="数据库笔记-1"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-09</div><div class="title">数据库笔记-1</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">魔法猫猫头</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SomeFnone" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1229172423@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome to my personal web note!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BA%8B%E5%8A%A1"><span class="toc-text">四、事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BA%8B%E5%8A%A1%E6%A6%82%E5%BF%B5"><span class="toc-text">1.事务概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BA%8B%E5%8A%A1%E7%89%B9%E5%BE%81"><span class="toc-text">2.事务特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%BA%8B%E5%8A%A1%E7%89%B9%E6%80%A7-ACID"><span class="toc-text">3.事务特性(ACID)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E4%BA%8B%E5%8A%A1%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE"><span class="toc-text">4.事务生命周期图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BA%8B%E5%8A%A1%E8%B0%83%E5%BA%A6"><span class="toc-text">2.事务调度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89-2"><span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%88%86%E7%B1%BB"><span class="toc-text">2.分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%8F%AF%E6%81%A2%E5%A4%8D%E8%B0%83%E5%BA%A6"><span class="toc-text">3.可恢复调度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%97%A0%E7%BA%A7%E8%81%94%E8%B0%83%E5%BA%A6"><span class="toc-text">4.无级联调度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Write-VS-Commit"><span class="toc-text">5.Write VS Commit</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E6%80%A7"><span class="toc-text">3.事务隔离性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98"><span class="toc-text">1.事务问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E6%80%A7%E7%BA%A7%E5%88%AB"><span class="toc-text">2.事务隔离性级别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%86%B2%E7%AA%81%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96"><span class="toc-text">3.冲突可串行化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%8C%87%E4%BB%A4%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="toc-text">1.指令的顺序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%86%B2%E7%AA%81%E6%8C%87%E4%BB%A4"><span class="toc-text">2.冲突指令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%86%B2%E7%AA%81%E7%AD%89%E4%BB%B7"><span class="toc-text">3.冲突等价</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%86%B2%E7%AA%81%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="toc-text">4.冲突可串行化定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%86%B2%E7%AA%81%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96%E5%88%A4%E5%AE%9A"><span class="toc-text">5.冲突可串行化判定</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E4%B8%B2%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-text">6.串行顺序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%B0%81%E9%94%81"><span class="toc-text">4.封锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89-3"><span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%9F%BA%E6%9C%AC%E9%94%81%E7%B1%BB%E5%9E%8B"><span class="toc-text">2.基本锁类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%94%81%E6%8C%81%E6%9C%89%E6%9C%9F"><span class="toc-text">3.锁持有期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%B0%81%E9%94%81%E7%B2%92%E5%BA%A6"><span class="toc-text">4.封锁粒度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%AD%BB%E9%94%81"><span class="toc-text">5.死锁</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%B9%B6%E5%8F%91%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5"><span class="toc-text">5.并发处理策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86"><span class="toc-text">6.故障处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%95%85%E9%9A%9C%E6%81%A2%E5%A4%8D%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">2.故障恢复的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%BA%8B%E5%8A%A1%E6%95%85%E9%9A%9C%E6%81%A2%E5%A4%8D"><span class="toc-text">3.事务故障恢复</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E6%95%85%E9%9A%9C"><span class="toc-text">4.系统崩溃故障</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%96%B9%E6%B3%95"><span class="toc-text">1.方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%A3%80%E6%9F%A5%E7%82%B9-%E5%8A%A0%E5%BF%AB%E6%95%85%E9%9A%9C%E6%81%A2%E5%A4%8D"><span class="toc-text">2.检查点(加快故障恢复)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%A3%81%E7%9B%98%E6%95%85%E9%9A%9C"><span class="toc-text">5.数据库磁盘故障</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%A4%84%E7%90%86%E6%89%8B%E6%AE%B5%EF%BC%9A%E5%A4%87%E4%BB%BD%E6%93%8D%E4%BD%9C-Dump"><span class="toc-text">1.处理手段：备份操作(Dump)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%A3%81%E7%9B%98%E6%95%85%E9%9A%9C%E7%9A%84%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B0%E6%8D%AE%E5%85%A8%E9%83%A8%E4%B8%A2%E5%A4%B1"><span class="toc-text">2.数据库磁盘故障的特征：数据库数据全部丢失</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95"><span class="toc-text">3.恢复方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E6%97%A5%E5%BF%97%E7%A3%81%E7%9B%98%E6%95%85%E9%9A%9C"><span class="toc-text">6.日志磁盘故障</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E7%81%BE%E9%9A%BE%E6%95%85%E9%9A%9C-%E5%AE%B9%E7%81%BE"><span class="toc-text">7.灾难故障(容灾)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%80%A7%E8%83%BD%E6%8F%90%E5%8D%87"><span class="toc-text">五、性能提升</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">1.数据库性能指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8F%90%E9%AB%98%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E7%9A%84%E7%AD%96%E7%95%A5"><span class="toc-text">2.提高数据库性能的策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%8F%90%E9%AB%98%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">3.提高数据库性能的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%B4%A2%E5%BC%95"><span class="toc-text">1.索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%81%9A%E7%B0%87"><span class="toc-text">2.聚簇</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%86%85%E5%AD%98%E7%BC%93%E5%86%B2-%E7%BC%93%E5%AD%98"><span class="toc-text">3.内存缓冲(缓存)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C"><span class="toc-text">4.并发执行</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86"><span class="toc-text">六、安全管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-DBMS%E5%AE%89%E5%85%A8%E6%8E%AA%E6%96%BD"><span class="toc-text">1.DBMS安全措施</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-text">2.权限管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89-4"><span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AE%9E%E6%96%BD%EF%BC%9A"><span class="toc-text">2.实施：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E7%AE%A1%E7%90%86%E7%B2%92%E5%BA%A6%EF%BC%9A"><span class="toc-text">3.访问权限的管理粒度：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-SQL"><span class="toc-text">4.SQL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E8%AE%BF%E9%97%AE%E7%B2%92%E5%BA%A6%E7%BB%86%E5%8C%96"><span class="toc-text">5.访问粒度细化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E7%9A%84%E6%8A%80%E5%B7%A7"><span class="toc-text">6.访问权限管理的技巧</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%A1%E8%AE%A1"><span class="toc-text">3.审计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%B8%A4%E7%A7%8D%E6%94%BB%E5%87%BB"><span class="toc-text">4.两种攻击</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/20/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-3/" title="数据库笔记-3">数据库笔记-3</a><time datetime="2024-04-20T10:47:26.000Z" title="发表于 2024-04-20 18:47:26">2024-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-2/" title="数据库笔记-2">数据库笔记-2</a><time datetime="2024-04-11T09:17:37.000Z" title="发表于 2024-04-11 17:17:37">2024-04-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-1/" title="数据库笔记-1">数据库笔记-1</a><time datetime="2024-03-09T05:32:49.000Z" title="发表于 2024-03-09 13:32:49">2024-03-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/02/Markdown%E4%BC%9A%E4%B8%8D%E4%BA%86%E4%B8%80%E7%82%B9/" title="Markdown会不了一点">Markdown会不了一点</a><time datetime="2024-03-02T09:35:21.000Z" title="发表于 2024-03-02 17:35:21">2024-03-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 魔法猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://SomeFnone.github.io">魔法猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://somefnone.github.io/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-2/">http://somefnone.github.io/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SomeFnone.github.io" target="_blank">Wizard Cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><div class="post_share"><div class="social-share" data-image="/img/BWeLyHqW.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/20/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-3/" title="数据库笔记-3"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">数据库笔记-3</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-1/" title="数据库笔记-1"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数据库笔记-1</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/04/20/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-3/" title="数据库笔记-3"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-20</div><div class="title">数据库笔记-3</div></div></a></div><div><a href="/2024/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-1/" title="数据库笔记-1"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-09</div><div class="title">数据库笔记-1</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">魔法猫猫头</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SomeFnone" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1229172423@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome to my personal web note!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BA%8B%E5%8A%A1"><span class="toc-text">四、事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BA%8B%E5%8A%A1%E6%A6%82%E5%BF%B5"><span class="toc-text">1.事务概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BA%8B%E5%8A%A1%E7%89%B9%E5%BE%81"><span class="toc-text">2.事务特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%BA%8B%E5%8A%A1%E7%89%B9%E6%80%A7-ACID"><span class="toc-text">3.事务特性(ACID)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E4%BA%8B%E5%8A%A1%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE"><span class="toc-text">4.事务生命周期图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BA%8B%E5%8A%A1%E8%B0%83%E5%BA%A6"><span class="toc-text">2.事务调度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89-1"><span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%88%86%E7%B1%BB"><span class="toc-text">2.分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%8F%AF%E6%81%A2%E5%A4%8D%E8%B0%83%E5%BA%A6"><span class="toc-text">3.可恢复调度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%97%A0%E7%BA%A7%E8%81%94%E8%B0%83%E5%BA%A6"><span class="toc-text">4.无级联调度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Write-VS-Commit"><span class="toc-text">5.Write VS Commit</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E6%80%A7"><span class="toc-text">3.事务隔离性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98"><span class="toc-text">1.事务问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E6%80%A7%E7%BA%A7%E5%88%AB"><span class="toc-text">2.事务隔离性级别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%86%B2%E7%AA%81%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96"><span class="toc-text">3.冲突可串行化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%8C%87%E4%BB%A4%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="toc-text">1.指令的顺序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%86%B2%E7%AA%81%E6%8C%87%E4%BB%A4"><span class="toc-text">2.冲突指令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%86%B2%E7%AA%81%E7%AD%89%E4%BB%B7"><span class="toc-text">3.冲突等价</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%86%B2%E7%AA%81%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="toc-text">4.冲突可串行化定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%86%B2%E7%AA%81%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96%E5%88%A4%E5%AE%9A"><span class="toc-text">5.冲突可串行化判定</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E4%B8%B2%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-text">6.串行顺序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%B0%81%E9%94%81"><span class="toc-text">4.封锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89-2"><span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%9F%BA%E6%9C%AC%E9%94%81%E7%B1%BB%E5%9E%8B"><span class="toc-text">2.基本锁类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%94%81%E6%8C%81%E6%9C%89%E6%9C%9F"><span class="toc-text">3.锁持有期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%B0%81%E9%94%81%E7%B2%92%E5%BA%A6"><span class="toc-text">4.封锁粒度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%AD%BB%E9%94%81"><span class="toc-text">5.死锁</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%B9%B6%E5%8F%91%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5"><span class="toc-text">5.并发处理策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86"><span class="toc-text">6.故障处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%88%86%E7%B1%BB"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%95%85%E9%9A%9C%E6%81%A2%E5%A4%8D%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">2.故障恢复的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%BA%8B%E5%8A%A1%E6%95%85%E9%9A%9C%E6%81%A2%E5%A4%8D"><span class="toc-text">3.事务故障恢复</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E6%95%85%E9%9A%9C"><span class="toc-text">4.系统崩溃故障</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%96%B9%E6%B3%95"><span class="toc-text">1.方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%A3%80%E6%9F%A5%E7%82%B9-%E5%8A%A0%E5%BF%AB%E6%95%85%E9%9A%9C%E6%81%A2%E5%A4%8D"><span class="toc-text">2.检查点(加快故障恢复)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%A3%81%E7%9B%98%E6%95%85%E9%9A%9C"><span class="toc-text">5.数据库磁盘故障</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%A4%84%E7%90%86%E6%89%8B%E6%AE%B5%EF%BC%9A%E5%A4%87%E4%BB%BD%E6%93%8D%E4%BD%9C-Dump"><span class="toc-text">1.处理手段：备份操作(Dump)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%A3%81%E7%9B%98%E6%95%85%E9%9A%9C%E7%9A%84%E7%89%B9%E5%BE%81%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B0%E6%8D%AE%E5%85%A8%E9%83%A8%E4%B8%A2%E5%A4%B1"><span class="toc-text">2.数据库磁盘故障的特征：数据库数据全部丢失</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95"><span class="toc-text">3.恢复方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E6%97%A5%E5%BF%97%E7%A3%81%E7%9B%98%E6%95%85%E9%9A%9C"><span class="toc-text">6.日志磁盘故障</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E7%81%BE%E9%9A%BE%E6%95%85%E9%9A%9C-%E5%AE%B9%E7%81%BE"><span class="toc-text">7.灾难故障(容灾)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%80%A7%E8%83%BD%E6%8F%90%E5%8D%87"><span class="toc-text">五、性能提升</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">1.数据库性能指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8F%90%E9%AB%98%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E7%9A%84%E7%AD%96%E7%95%A5"><span class="toc-text">2.提高数据库性能的策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%8F%90%E9%AB%98%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">3.提高数据库性能的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%B4%A2%E5%BC%95"><span class="toc-text">1.索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%81%9A%E7%B0%87"><span class="toc-text">2.聚簇</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%86%85%E5%AD%98%E7%BC%93%E5%86%B2-%E7%BC%93%E5%AD%98"><span class="toc-text">3.内存缓冲(缓存)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C"><span class="toc-text">4.并发执行</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86"><span class="toc-text">六、安全管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-DBMS%E5%AE%89%E5%85%A8%E6%8E%AA%E6%96%BD"><span class="toc-text">1.DBMS安全措施</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-text">2.权限管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89-3"><span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AE%9E%E6%96%BD%EF%BC%9A"><span class="toc-text">2.实施：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E7%AE%A1%E7%90%86%E7%B2%92%E5%BA%A6%EF%BC%9A"><span class="toc-text">3.访问权限的管理粒度：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-SQL"><span class="toc-text">4.SQL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E8%AE%BF%E9%97%AE%E7%B2%92%E5%BA%A6%E7%BB%86%E5%8C%96"><span class="toc-text">5.访问粒度细化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E7%9A%84%E6%8A%80%E5%B7%A7"><span class="toc-text">6.访问权限管理的技巧</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%A1%E8%AE%A1"><span class="toc-text">3.审计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%B8%A4%E7%A7%8D%E6%94%BB%E5%87%BB"><span class="toc-text">4.两种攻击</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/20/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-3/" title="数据库笔记-3">数据库笔记-3</a><time datetime="2024-04-20T10:47:26.000Z" title="发表于 2024-04-20 18:47:26">2024-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-2/" title="数据库笔记-2">数据库笔记-2</a><time datetime="2024-04-11T09:17:37.000Z" title="发表于 2024-04-11 17:17:37">2024-04-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-1/" title="数据库笔记-1">数据库笔记-1</a><time datetime="2024-03-09T05:32:49.000Z" title="发表于 2024-03-09 13:32:49">2024-03-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/02/Markdown%E4%BC%9A%E4%B8%8D%E4%BA%86%E4%B8%80%E7%82%B9/" title="Markdown会不了一点">Markdown会不了一点</a><time datetime="2024-03-02T09:35:21.000Z" title="发表于 2024-03-02 17:35:21">2024-03-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 魔法猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
