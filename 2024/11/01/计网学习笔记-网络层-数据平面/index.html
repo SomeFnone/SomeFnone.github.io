@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://somefnone.github.io/img/BWeLyHqW.jpg">
 <meta property="article:published_time" content="2024-11-01T06:13:27.000Z">
-<meta property="article:modified_time" content="2024-11-03T09:38:09.692Z">
+<meta property="article:modified_time" content="2024-11-15T14:20:50.553Z">
 <meta property="article:author" content="魔法猫猫头">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-11-03 17:38:09'
+  postUpdate: '2024-11-15 22:20:50'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -174,7 +174,7 @@
     document.addEventListener('pjax:send', () => { preloader.initLoading() })
     document.addEventListener('pjax:complete', () => { preloader.endLoading() })
   }
-})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/BWeLyHqW.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Wizard Cat"><span class="site-name">Wizard Cat</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计网学习笔记-网络层(数据平面)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-01T06:13:27.000Z" title="发表于 2024-11-01 14:13:27">2024-11-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-03T09:38:09.692Z" title="更新于 2024-11-03 17:38:09">2024-11-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/lesson-note/">lesson note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer">
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/BWeLyHqW.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Wizard Cat"><span class="site-name">Wizard Cat</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计网学习笔记-网络层(数据平面)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-01T06:13:27.000Z" title="发表于 2024-11-01 14:13:27">2024-11-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-15T14:20:50.553Z" title="更新于 2024-11-15 22:20:50">2024-11-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/lesson-note/">lesson note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer">
 
 <h1 id="第四章-网络层-数据平面"><a href="#第四章-网络层-数据平面" class="headerlink" title="第四章 网络层:数据平面"></a>第四章 网络层:数据平面</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h2><p><strong>网络层服务：</strong></p>
 <ul>
@@ -466,7 +466,268 @@
 <li><p>源地址、目的地址：<strong>各占4字节</strong></p>
 </li>
 </ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://SomeFnone.github.io">魔法猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://somefnone.github.io/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/">http://somefnone.github.io/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SomeFnone.github.io" target="_blank">Wizard Cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="/img/BWeLyHqW.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/10/09/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%BF%90%E8%BE%93%E5%B1%82/" title="计网学习笔记-运输层"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计网学习笔记-运输层</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/09/27/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BA%94%E7%94%A8%E5%B1%82/" title="计网学习笔记-应用层"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-10-08</div><div class="title">计网学习笔记-应用层</div></div></a></div><div><a href="/2024/10/09/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%BF%90%E8%BE%93%E5%B1%82/" title="计网学习笔记-运输层"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-10-27</div><div class="title">计网学习笔记-运输层</div></div></a></div><div><a href="/2024/09/22/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="计网学习笔记"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-11-06</div><div class="title">计网学习笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">魔法猫猫头</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SomeFnone" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1229172423@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">数据库笔记，堂堂完结!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2"><span class="toc-text">第四章 网络层:数据平面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1.概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BC%A0%E7%BB%9F%E6%96%B9%E5%BC%8F"><span class="toc-text">1.传统方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SDN%E6%96%B9%E5%BC%8F"><span class="toc-text">2.SDN方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.网络服务模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BD%91%E7%BB%9C%E5%B1%82%E6%9C%8D%E5%8A%A1"><span class="toc-text">4.网络层服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%AF%E7%94%B1%E5%99%A8%E7%BB%84%E6%88%90"><span class="toc-text">2.路由器组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%BE%93%E5%85%A5%E7%AB%AF%E5%8F%A3"><span class="toc-text">1.输入端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%9F%BA%E4%BA%8E%E7%9B%AE%E6%A0%87%E7%9A%84%E8%BD%AC%E5%8F%91"><span class="toc-text">1.基于目标的转发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BE%93%E5%85%A5%E7%AB%AF%E5%8F%A3%E7%BC%93%E5%AD%98"><span class="toc-text">2.输入端口缓存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BA%A4%E6%8D%A2%E7%BB%93%E6%9E%84"><span class="toc-text">2.交换结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%86%85%E5%AD%98%E4%BA%A4%E6%8D%A2"><span class="toc-text">1.内存交换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%80%BB%E7%BA%BF%E4%BA%A4%E6%8D%A2"><span class="toc-text">2.总线交换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%BA%92%E8%81%94%E7%BD%91%E7%BB%9C%E4%BA%A4%E6%8D%A2"><span class="toc-text">3.互联网络交换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%BE%93%E5%87%BA%E7%AB%AF%E5%8F%A3"><span class="toc-text">3.输出端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%BE%93%E5%87%BA%E7%AB%AF%E5%8F%A3%E7%BC%93%E5%AD%98"><span class="toc-text">1.输出端口缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%B0%83%E5%BA%A6%E6%9C%BA%E5%88%B6-%E4%B8%8D%E6%98%AF%E5%BE%88%E9%87%8D%E8%A6%81"><span class="toc-text">2.调度机制(不是很重要)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-FIFO"><span class="toc-text">1.FIFO</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E4%BC%98%E5%85%88%E6%9D%83%E8%B0%83%E5%BA%A6"><span class="toc-text">2.优先权调度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%BE%AA%E7%8E%AF%E8%B0%83%E5%BA%A6RR"><span class="toc-text">3.循环调度RR</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%8A%A0%E6%9D%83%E5%85%AC%E5%B9%B3%E8%B0%83%E5%BA%A6"><span class="toc-text">4.加权公平调度</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-IP-%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AE"><span class="toc-text">3.IP:网际协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-IP%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F"><span class="toc-text">1.IP数据报格式</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(数据平面)">计网学习笔记-网络层(数据平面)</a><time datetime="2024-11-01T06:13:27.000Z" title="发表于 2024-11-01 14:13:27">2024-11-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/09/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%BF%90%E8%BE%93%E5%B1%82/" title="计网学习笔记-运输层">计网学习笔记-运输层</a><time datetime="2024-10-09T02:18:13.000Z" title="发表于 2024-10-09 10:18:13">2024-10-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BA%94%E7%94%A8%E5%B1%82/" title="计网学习笔记-应用层">计网学习笔记-应用层</a><time datetime="2024-09-27T09:01:13.000Z" title="发表于 2024-09-27 17:01:13">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/22/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="计网学习笔记">计网学习笔记</a><time datetime="2024-09-22T11:08:42.000Z" title="发表于 2024-09-22 19:08:42">2024-09-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-4/" title="数据库笔记-4">数据库笔记-4</a><time datetime="2024-06-15T08:19:56.000Z" title="发表于 2024-06-15 16:19:56">2024-06-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 魔法猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<h3 id="2-分片和重组"><a href="#2-分片和重组" class="headerlink" title="2.分片和重组"></a>2.分片和重组</h3><blockquote>
+<p>我们都知道，一个链路层帧能承载的最大数据量叫<strong>MTU</strong>，即最大传送单元。IP数据报的大小不能超过MTU，否则需要分成多份</p>
+<ul>
+<li>提醒一下，MTU指的是链路层帧的有效载荷的最大值，也就是SDU的最大值，不包括帧首部</li>
+</ul>
+<p>但是仅仅在发送方端系统设置IP数据报小于当前链路层协议规定的MTU就可以吗？</p>
+</blockquote>
+<p>由于<strong>发送方与目的地路径上的每段链路可能使用不同的链路层协议</strong>，且<strong>每种协议的MTU可能各不相同</strong>：</p>
+<ul>
+<li>大的IP数据报**在网络上(路由器中)*<em>被</em>分片(fragmented)*<ul>
+<li>一个数据报被分割成若干个小的数据报<ul>
+<li>这些数据报的ID相同、偏移量不同、是否是尾部的标记不同</li>
+</ul>
+</li>
+<li><strong>重组只发生在目标主机上</strong><ul>
+<li>防止过程中还有更小的MTU，还要再拆</li>
+<li>降低链路复杂度，尤其是路由复杂度</li>
+</ul>
+</li>
+<li>IP数据报首部的<strong>标识、标志、片偏移</strong>用于标记和排序相关分片</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-标识"><a href="#1-标识" class="headerlink" title="1.标识"></a>1.标识</h4><ul>
+<li>原IP数据报的ID，由同一数据报分片出来的小数据报的<strong>标识相同</strong></li>
+<li><strong>16bit</strong></li>
+</ul>
+<h4 id="2-标志"><a href="#2-标志" class="headerlink" title="2.标志"></a>2.标志</h4><ul>
+<li><p>区分由同一数据报分片出来的若干小数据报中，哪个是<strong>末尾</strong></p>
+</li>
+<li><p><strong>3bit</strong>，分为保留位、DF、MF</p>
+<ul>
+<li>DF&#x3D;1——&gt;禁止分片</li>
+<li>MF&#x3D;0——&gt;同标识数据报的<strong>最后一个分片</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="3-片偏移"><a href="#3-片偏移" class="headerlink" title="3.片偏移"></a>3.<strong>片偏移</strong></h4><ul>
+<li>分片在原数据报中的偏移量(位置)</li>
+<li><strong>13bit</strong>，但是<strong>8字节&#x2F;单位</strong>，也就是说，每偏移8字节，片偏移+1<ul>
+<li><strong>因此，最大分片封装的数据量应该是8的整数倍</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="4-分片过程"><a href="#4-分片过程" class="headerlink" title="4.分片过程"></a>4.分片过程</h4><ul>
+<li>假设原IP分组总长度为$L$</li>
+<li>待转发链路的MTU为$M$</li>
+<li>若$L&gt;M$，且$DF&#x3D;0$，则可以&#x2F;需要分片</li>
+<li>分片时，每个分片的标识复制原IP分组的标识</li>
+<li>通常，分片时<strong>除了最后一个分片，其他分片均分为MTU允许的最大分片</strong><ul>
+<li>一个最大分片可封装的数据应该是<strong>8字节的倍数</strong><ul>
+<li>因此，假设MTU&#x3D;1501，不是8的倍数，那么分片最大是1500</li>
+</ul>
+</li>
+<li>最大分片可封装的数据为：<ul>
+<li>$$d &#x3D; \lfloor \frac{M-20}{8} \rfloor \cdot 8$$</li>
+<li>向下取整</li>
+</ul>
+</li>
+<li>需要的总片数为：<ul>
+<li>$$n &#x3D; \lceil \frac{L-20}{d} \rceil$$</li>
+<li>向上取整</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241115200427806.png" alt="image-20241115200427806"></p>
+<hr>
+<h3 id="3-IPv4编址"><a href="#3-IPv4编址" class="headerlink" title="3.IPv4编址"></a>3.IPv4编址</h3><h4 id="1-引论"><a href="#1-引论" class="headerlink" title="1.引论"></a>1.引论</h4><p><strong>接口：</strong></p>
+<ul>
+<li>主机与路由器连入网络的方法：<strong>物理链路</strong></li>
+<li>主机&#x2F;路由器与物理链路之间的边界：<strong>接口</strong><ul>
+<li>实际上，<strong>1个IP地址与1个接口相关联，而不是与包含该接口的主机&#x2F;路由器相关联</strong></li>
+<li>因此，主机的IP至少1个，路由器的IP至少2个</li>
+</ul>
+</li>
+</ul>
+<p><strong>IP地址：</strong></p>
+<ul>
+<li><strong>对主机&#x2F;路由器的接口进行编址</strong></li>
+<li>4字节，即32bit</li>
+<li><strong>点分十进制记法</strong>，每8bit用<code>.</code>隔开</li>
+</ul>
+<p><strong>接口如何连接？</strong></p>
+<ul>
+<li>有线以太网网口链接到以太网络交换机连接</li>
+<li>详情会在下两章解释，下图中右侧的就是链路层交换机，这里是以太网络交换机</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241115201851090.png" alt="image-20241115201851090"></p>
+<h4 id="2-子网"><a href="#2-子网" class="headerlink" title="2.子网"></a>2.子网</h4><blockquote>
+<p>IP地址分成两部分：</p>
+<ul>
+<li>子网部分：高位bits</li>
+<li>主机部分：低位bits</li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241115202138123.png" alt="image-20241115202138123"></p>
+<h5 id="1-什么是-子网-subnet-？"><a href="#1-什么是-子网-subnet-？" class="headerlink" title="1.什么是**子网(subnet)**？"></a>1.什么是**子网(subnet)**？</h5><ul>
+<li>子网内节点(包括主机和路由器接口)的<strong>IP地址的高位部分相同</strong></li>
+<li>子网内各主机<strong>可以物理上相互直达，无需路由器介入</strong></li>
+</ul>
+<p><em>上图中，<code>223.1.1.1</code>、<code>223.1.1.2</code>、<code>223.1.1.3</code>、<code>223.1.1.4</code>构成了一个子网</em></p>
+<h5 id="2-如何判断子网？"><a href="#2-如何判断子网？" class="headerlink" title="2.如何判断子网？"></a>2.如何<strong>判断子网</strong>？</h5><ul>
+<li>分开主机和路由器的每个接口，产生的每个<strong>隔离的网络岛</strong>就是一个<strong>子网</strong></li>
+<li>下图的网络中，就有<strong>6个子网</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241115202646761.png" alt="image-20241115202646761"></p>
+<h5 id="3-子网掩码"><a href="#3-子网掩码" class="headerlink" title="3.子网掩码"></a>3.<strong>子网掩码</strong></h5><p><strong>IP编址为上述的某个子网分配一个地址：</strong></p>
+<p><code>223.1.1.0/24</code></p>
+<ul>
+<li>其中的<code>/24</code>记法，称为<strong>子网掩码</strong>，<strong>指示了32比特中的高24位是子网部分</strong></li>
+</ul>
+<p><strong>子网掩码的另一种记法是二进制的：</strong></p>
+<ul>
+<li>32比特中，位&#x3D;1表示该位属于子网部分，位&#x3D;0表示该位属于主机部分</li>
+</ul>
+<p><code>11111111 11111111 11111111 00000000</code>即<code>/24</code></p>
+<h5 id="4-纯子网和非纯子网"><a href="#4-纯子网和非纯子网" class="headerlink" title="4.纯子网和非纯子网"></a>4.<strong>纯子网和非纯子网</strong></h5><p>我们可以看到，上述的6个子网是严格符合子网定义的，我们称之为<strong>纯子网</strong></p>
+<p>但是我们也可以看到，这6个子网的IP地址的<strong>更高部分也是相同的</strong>，都是<code>223.1</code>；只是这6个子网之间<strong>需要路由器介入</strong>来满足主机的直达，我们称这个<strong>大的网络</strong>叫做<strong>非纯子网</strong></p>
+<p><strong>非纯子网的作用在于路由聚集</strong></p>
+<hr>
+<h4 id="3-分类编址"><a href="#3-分类编址" class="headerlink" title="3.分类编址"></a>3.分类编址</h4><blockquote>
+<p>在讲解编址前，首先需要说明一件事情：为什么需要有<strong>子网</strong>这个概念？</p>
+<p>我们都知道转发表，路由器根据分组的目的地址和转发表决定分组的下一跳。那么，如果转发表的表项是IP地址，那就非常糟糕了。因为IP地址有32位，一共有2^32个IP，难道转发表也要有2^32项吗？<strong>显然不能！</strong></p>
+<p>计算机网络的设计者也清楚这点。因此，他们这样设计：</p>
+<p><strong>转发表中的表项，不是IP，而是子网(非纯子网也可)</strong></p>
+<p><strong>网络中，是以子网为单位散播子网的可达信息(也就是路径怎么走)</strong></p>
+</blockquote>
+<h5 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h5><p><strong>分类编址</strong>，指的是将IP地址的子网部分限制长度为8、16、24比特</p>
+<ul>
+<li>具有8、16、24比特子网地址的子网分别称为A、B、C类网络</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241115213548179.png" alt="image-20241115213548179"></p>
+<ul>
+<li><p>A类网络：最高位&#x3D;0，7位子网，24位主机</p>
+<ul>
+<li>总共<strong>2^7-2</strong>&#x3D;126个子网**(特殊：全0和全1不使用)**</li>
+<li>每个子网有2^24个IP地址，共<strong>2^24-2</strong>个<strong>可用主机IP(全0和全1另有它用)</strong></li>
+</ul>
+</li>
+<li><p>B类网络：最高2位&#x3D;10，14位子网，16位主机</p>
+<ul>
+<li>总共<strong>2^14</strong>个子网</li>
+<li>每个子网有2^14个IP地址，共<strong>2^14-2</strong>个<strong>可用主机IP(全0和全1另有它用)</strong></li>
+</ul>
+</li>
+<li><p>C类网络：最高位&#x3D;110，21位子网，8位主机</p>
+<ul>
+<li>总共<strong>2^21</strong>个子网</li>
+<li>每个子网有2^8个IP地址，共<strong>2^8-2</strong>个<strong>可用主机IP(全0和全1另有它用)</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="2-特殊IP地址"><a href="#2-特殊IP地址" class="headerlink" title="2.特殊IP地址"></a>2.特殊IP地址</h5><table>
+<thead>
+<tr>
+<th>子网部分</th>
+<th>主机部分</th>
+<th>作为IP分组源地址</th>
+<th>作为IP分组目的地址</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全0</td>
+<td>全0</td>
+<td>可以</td>
+<td>不可以</td>
+<td>表示网络上的全部IP，某种意义上就是指网络</td>
+</tr>
+<tr>
+<td>全0</td>
+<td>特殊值</td>
+<td>不可以</td>
+<td>可以</td>
+<td></td>
+</tr>
+<tr>
+<td>全1</td>
+<td>全1</td>
+<td>不可以</td>
+<td>不可以</td>
+<td>受限广播地址，不会被路由器转发</td>
+</tr>
+<tr>
+<td>特定值</td>
+<td>全0</td>
+<td>不可以</td>
+<td>不可以</td>
+<td>表示本主机</td>
+</tr>
+<tr>
+<td>特定值</td>
+<td>全1</td>
+<td>不可以</td>
+<td>可以</td>
+<td>表示向该子网的全部主机进行广播</td>
+</tr>
+<tr>
+<td>127</td>
+<td>非全0、非全1</td>
+<td>可以</td>
+<td>可以</td>
+<td>用于本地软件环回测试，称为环回地址。如127.0.0.1，指向自身，测试网卡是否正常</td>
+</tr>
+</tbody></table>
+<h5 id="3-私有地址"><a href="#3-私有地址" class="headerlink" title="3.私有地址"></a>3.私有地址</h5><ul>
+<li>私有地址：在互联网中<strong>不使用</strong>，<strong>仅在局域网中使用的IP地址</strong><ul>
+<li>A类：<code>10.xx.xx.xx</code></li>
+<li>B类：<code>172.16.0.0</code>到<code>172.31.255.255</code></li>
+<li>C类：<code>192.168.xx.xx</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="4-无类域间路由CIDR"><a href="#4-无类域间路由CIDR" class="headerlink" title="4.无类域间路由CIDR"></a>4.无类域间路由CIDR</h4><blockquote>
+<p>由于A、B、C类网络固定了主机数和网络数，而现实中的需求又是多变的，因此会出现冗余，这不好，资源不能浪费。</p>
+</blockquote>
+<p><strong>无类域间路由CIDR：</strong></p>
+<ul>
+<li><p>子网部分长度任意的<strong>连续地址的地址块</strong></p>
+<ul>
+<li>当然，<strong>子网内IP的网络部分仍然要相同</strong></li>
+</ul>
+</li>
+<li><p><strong>地址块</strong>格式：<code>a.b.c.d/x</code>，<code>/x</code>即子网掩码</p>
+<ul>
+<li>其中，高x位的IP地址又称之为该地址的<strong>前缀</strong>，也就是<strong>子网号(子网部分)</strong></li>
+<li>IP地址与子网掩码的按位与——得到子网号(或者通过推算)</li>
+</ul>
+</li>
+<li><p><strong>网络地址是地址块的第一个地址，广播地址是地址块的最后一个地址</strong></p>
+<ul>
+<li>主机可用地址要减去这两个部分</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>考点：</p>
+<p>网络地址：IP地址与掩码按位与</p>
+<p>IP地址范围：计算主机数(2^(32-x))</p>
+<p>主机可用地址范围：IP地址减去头尾(网络地址和广播地址)</p>
+</blockquote>
+<h4 id="5-层次划分子网"><a href="#5-层次划分子网" class="headerlink" title="5.层次划分子网"></a>5.层次划分子网</h4><blockquote>
+<p>Q:如何获得一个网络的子网部分?</p>
+<p> A:从ISP获得地址块中分配一个小地址块</p>
+</blockquote>
+<p>ISP在获得一段连续地址块后，可以<strong>将一个网络块分成几个部分供多个内部网络使用</strong>，但是对外部世界来说仍然像单个网络</p>
+<ul>
+<li>ISP的地址块是由ICANN这个机构分配的</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241115221710673.png" alt="image-20241115221710673"></p>
+<blockquote>
+<p>考点：内部网络的主机需求不同，因此子网部分长度不一。但<strong>为了保证各子网间的子网号不重复，必须注意分配连续地址块的位置</strong></p>
+</blockquote>
+<h4 id="6-路由聚合"><a href="#6-路由聚合" class="headerlink" title="6.路由聚合"></a>6.路由聚合</h4><blockquote>
+<p>在3.2节中有解释</p>
+</blockquote>
+<p>非纯子网的路由聚合，有利于减少转发表的表项数目，提高效率和性能</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241115222022325.png" alt="image-20241115222022325"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://SomeFnone.github.io">魔法猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://somefnone.github.io/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/">http://somefnone.github.io/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SomeFnone.github.io" target="_blank">Wizard Cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="/img/BWeLyHqW.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/10/09/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%BF%90%E8%BE%93%E5%B1%82/" title="计网学习笔记-运输层"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计网学习笔记-运输层</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/09/27/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BA%94%E7%94%A8%E5%B1%82/" title="计网学习笔记-应用层"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-10-08</div><div class="title">计网学习笔记-应用层</div></div></a></div><div><a href="/2024/10/09/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%BF%90%E8%BE%93%E5%B1%82/" title="计网学习笔记-运输层"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-10-27</div><div class="title">计网学习笔记-运输层</div></div></a></div><div><a href="/2024/09/22/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="计网学习笔记"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-11-06</div><div class="title">计网学习笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">魔法猫猫头</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SomeFnone" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1229172423@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">数据库笔记，堂堂完结!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2"><span class="toc-text">第四章 网络层:数据平面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1.概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BC%A0%E7%BB%9F%E6%96%B9%E5%BC%8F"><span class="toc-text">1.传统方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SDN%E6%96%B9%E5%BC%8F"><span class="toc-text">2.SDN方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.网络服务模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BD%91%E7%BB%9C%E5%B1%82%E6%9C%8D%E5%8A%A1"><span class="toc-text">4.网络层服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%AF%E7%94%B1%E5%99%A8%E7%BB%84%E6%88%90"><span class="toc-text">2.路由器组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%BE%93%E5%85%A5%E7%AB%AF%E5%8F%A3"><span class="toc-text">1.输入端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%9F%BA%E4%BA%8E%E7%9B%AE%E6%A0%87%E7%9A%84%E8%BD%AC%E5%8F%91"><span class="toc-text">1.基于目标的转发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BE%93%E5%85%A5%E7%AB%AF%E5%8F%A3%E7%BC%93%E5%AD%98"><span class="toc-text">2.输入端口缓存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BA%A4%E6%8D%A2%E7%BB%93%E6%9E%84"><span class="toc-text">2.交换结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%86%85%E5%AD%98%E4%BA%A4%E6%8D%A2"><span class="toc-text">1.内存交换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%80%BB%E7%BA%BF%E4%BA%A4%E6%8D%A2"><span class="toc-text">2.总线交换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%BA%92%E8%81%94%E7%BD%91%E7%BB%9C%E4%BA%A4%E6%8D%A2"><span class="toc-text">3.互联网络交换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%BE%93%E5%87%BA%E7%AB%AF%E5%8F%A3"><span class="toc-text">3.输出端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%BE%93%E5%87%BA%E7%AB%AF%E5%8F%A3%E7%BC%93%E5%AD%98"><span class="toc-text">1.输出端口缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%B0%83%E5%BA%A6%E6%9C%BA%E5%88%B6-%E4%B8%8D%E6%98%AF%E5%BE%88%E9%87%8D%E8%A6%81"><span class="toc-text">2.调度机制(不是很重要)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-FIFO"><span class="toc-text">1.FIFO</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E4%BC%98%E5%85%88%E6%9D%83%E8%B0%83%E5%BA%A6"><span class="toc-text">2.优先权调度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%BE%AA%E7%8E%AF%E8%B0%83%E5%BA%A6RR"><span class="toc-text">3.循环调度RR</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%8A%A0%E6%9D%83%E5%85%AC%E5%B9%B3%E8%B0%83%E5%BA%A6"><span class="toc-text">4.加权公平调度</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-IP-%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AE"><span class="toc-text">3.IP:网际协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-IP%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F"><span class="toc-text">1.IP数据报格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%86%E7%89%87%E5%92%8C%E9%87%8D%E7%BB%84"><span class="toc-text">2.分片和重组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%A0%87%E8%AF%86"><span class="toc-text">1.标识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%A0%87%E5%BF%97"><span class="toc-text">2.标志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%89%87%E5%81%8F%E7%A7%BB"><span class="toc-text">3.片偏移</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%88%86%E7%89%87%E8%BF%87%E7%A8%8B"><span class="toc-text">4.分片过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-IPv4%E7%BC%96%E5%9D%80"><span class="toc-text">3.IPv4编址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%BC%95%E8%AE%BA"><span class="toc-text">1.引论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AD%90%E7%BD%91"><span class="toc-text">2.子网</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF-%E5%AD%90%E7%BD%91-subnet-%EF%BC%9F"><span class="toc-text">1.什么是**子网(subnet)**？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%AD%90%E7%BD%91%EF%BC%9F"><span class="toc-text">2.如何判断子网？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="toc-text">3.子网掩码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E7%BA%AF%E5%AD%90%E7%BD%91%E5%92%8C%E9%9D%9E%E7%BA%AF%E5%AD%90%E7%BD%91"><span class="toc-text">4.纯子网和非纯子网</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80"><span class="toc-text">3.分类编址</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1.简介</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E7%89%B9%E6%AE%8AIP%E5%9C%B0%E5%9D%80"><span class="toc-text">2.特殊IP地址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E7%A7%81%E6%9C%89%E5%9C%B0%E5%9D%80"><span class="toc-text">3.私有地址</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%97%A0%E7%B1%BB%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1CIDR"><span class="toc-text">4.无类域间路由CIDR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%B1%82%E6%AC%A1%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91"><span class="toc-text">5.层次划分子网</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%B7%AF%E7%94%B1%E8%81%9A%E5%90%88"><span class="toc-text">6.路由聚合</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(数据平面)">计网学习笔记-网络层(数据平面)</a><time datetime="2024-11-01T06:13:27.000Z" title="发表于 2024-11-01 14:13:27">2024-11-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/09/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%BF%90%E8%BE%93%E5%B1%82/" title="计网学习笔记-运输层">计网学习笔记-运输层</a><time datetime="2024-10-09T02:18:13.000Z" title="发表于 2024-10-09 10:18:13">2024-10-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BA%94%E7%94%A8%E5%B1%82/" title="计网学习笔记-应用层">计网学习笔记-应用层</a><time datetime="2024-09-27T09:01:13.000Z" title="发表于 2024-09-27 17:01:13">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/22/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="计网学习笔记">计网学习笔记</a><time datetime="2024-09-22T11:08:42.000Z" title="发表于 2024-09-22 19:08:42">2024-09-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0-4/" title="数据库笔记-4">数据库笔记-4</a><time datetime="2024-06-15T08:19:56.000Z" title="发表于 2024-06-15 16:19:56">2024-06-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 魔法猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
