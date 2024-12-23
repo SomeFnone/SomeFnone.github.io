@@ -1,0 +1,1019 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计网学习笔记-网络层(控制平面) | Wizard Cat</title><meta name="author" content="魔法猫猫头"><meta name="copyright" content="魔法猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第五章 网络层:控制平面 1.概述 首先，我们回顾一下网络层的2个功能：  转发  数据平面实现 将分组从路由器的一个输入端口移到合适的输出端口   路由  控制平面实现 确定分组从源到目标的路径    其次，我门回顾一下构建网络控制平面功能的2种方法：  传统方式  每个路由器单独控制自己的功能实现 分布式   SDN方式(software defined networking)  一个远程控">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计网学习笔记-网络层(控制平面)">
+<meta property="og:url" content="http://somefnone.github.io/2024/12/23/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2/index.html">
+<meta property="og:site_name" content="Wizard Cat">
+<meta property="og:description" content="第五章 网络层:控制平面 1.概述 首先，我们回顾一下网络层的2个功能：  转发  数据平面实现 将分组从路由器的一个输入端口移到合适的输出端口   路由  控制平面实现 确定分组从源到目标的路径    其次，我门回顾一下构建网络控制平面功能的2种方法：  传统方式  每个路由器单独控制自己的功能实现 分布式   SDN方式(software defined networking)  一个远程控">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://somefnone.github.io/img/BWeLyHqW.jpg">
+<meta property="article:published_time" content="2024-12-23T13:23:00.000Z">
+<meta property="article:modified_time" content="2024-12-23T13:22:06.737Z">
+<meta property="article:author" content="魔法猫猫头">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://somefnone.github.io/img/BWeLyHqW.jpg"><link rel="shortcut icon" href="/img/favicon3.jpg"><link rel="canonical" href="http://somefnone.github.io/2024/12/23/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计网学习笔记-网络层(控制平面)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-12-23 21:22:06'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/BWeLyHqW.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Wizard Cat"><span class="site-name">Wizard Cat</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计网学习笔记-网络层(控制平面)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-23T13:23:00.000Z" title="发表于 2024-12-23 21:23:00">2024-12-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-23T13:22:06.737Z" title="更新于 2024-12-23 21:22:06">2024-12-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/lesson-note/">lesson note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer">
+<h1>第五章 网络层:控制平面</h1>
+<h2 id="1-概述">1.概述</h2>
+<p>首先，我们回顾一下<strong>网络层的2个功能：</strong></p>
+<ul>
+<li><strong>转发</strong>
+<ul>
+<li><strong>数据平面实现</strong></li>
+<li>将分组从路由器的一个输入端口移到合适的输出端口</li>
+</ul>
+</li>
+<li><strong>路由</strong>
+<ul>
+<li><strong>控制平面实现</strong></li>
+<li>确定分组从源到目标的路径</li>
+</ul>
+</li>
+</ul>
+<p>其次，我门回顾一下<strong>构建网络控制平面功能的2种方法：</strong></p>
+<ul>
+<li><strong>传统方式</strong>
+<ul>
+<li>每个路由器单独控制自己的功能实现</li>
+<li>分布式</li>
+</ul>
+</li>
+<li><strong>SDN方式(software defined networking)</strong>
+<ul>
+<li>一个远程控制器与本地控制代理交互</li>
+<li>逻辑上集中式</li>
+</ul>
+</li>
+</ul>
+<p>本章节就是介绍控制平面的内容，<strong>主要介绍的是传统方式及相关协议</strong></p>
+<hr>
+<h2 id="2-路由选择算法">2.路由选择算法</h2>
+<h3 id="1-概述-2">1.概述</h3>
+<h4 id="1-路由-route-概念">1.路由(route)概念</h4>
+<ul>
+<li>
+<p><strong>路由</strong></p>
+<ul>
+<li>按照某种指标(传输延迟/经过的站点数目/…)找到一条从源节点到目标节点的<strong>较好路径</strong>(不要求最好，寻找最好的代价太高)</li>
+</ul>
+</li>
+<li>
+<p>以<strong>网络</strong>为单位进行路由</p>
+<ul>
+<li>以网络为单位进行路由时，路由信息传输、计算和匹配的代价低</li>
+</ul>
+</li>
+<li>
+<p><strong>默认路由器</strong></p>
+<ul>
+<li>与主机直接相连的路由器称为<strong>默认路由器</strong></li>
+<li>源主机的默认路由器-源路由器</li>
+<li>目的主机的默认路由器-目的路由器</li>
+</ul>
+</li>
+<li>
+<p>网络到网络的路由==路由器到路由器之间的路由</p>
+<ul>
+<li>网络内部中，路由器与主机间的通信，<strong>链路层解决</strong></li>
+<li>因此，到达该网络的路由器就等同于到达该网络</li>
+</ul>
+</li>
+<li>
+<p><strong>路由选择算法</strong></p>
+<ul>
+<li>网络层软件的一部分，完成路由功能</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="2-选路算法图抽象">2.选路算法图抽象</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241218213616171.png" alt="image-20241218213616171"></p>
+<ul>
+<li>图中的节点是路由器</li>
+<li>图中的边是物理链路</li>
+<li>链路代价时延/带宽倒数/费用/拥塞等级/…</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241218213754963.png" alt="image-20241218213754963"></p>
+<ul>
+<li><strong>好的路径</strong>通常意味着最小费用的路径</li>
+</ul>
+<hr>
+<h4 id="3-选路算法原则">3.选路算法原则</h4>
+<ul>
+<li>正确性</li>
+<li>简单性</li>
+<li>健壮性：适应通信量和网络拓扑的变化</li>
+<li>稳定性</li>
+<li>公平性</li>
+<li>最优性：某个指标上的最优(实际情况下较优即可)</li>
+</ul>
+<hr>
+<h4 id="4-选路算法分类">4.选路算法分类</h4>
+<p>选路算法的分类方式有两种。</p>
+<p><strong>全局信息or分散信息(局部信息)：即路由器获得的是全局信息还是局部</strong></p>
+<ul>
+<li>全局信息
+<ul>
+<li><strong>所有</strong>的路由器拥有<strong>完整的拓扑、链路代价信息</strong></li>
+<li>代表：<strong>链路状态(LS)算法</strong></li>
+</ul>
+</li>
+<li>分散信息
+<ul>
+<li>一开始，路由器<strong>仅知道与其<em>直接相连</em>的链路的代价信息</strong></li>
+<li>迭代地与邻居交换路由信息</li>
+<li>代表：<strong>距离矢量(DV)算法</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>静态or动态：即路由是静态不变的还是动态变化的</strong></p>
+<ul>
+<li>静态
+<ul>
+<li>路由随时间缓慢变化</li>
+<li>手工配置</li>
+</ul>
+</li>
+<li>动态
+<ul>
+<li>路由变化更快
+<ul>
+<li>周期性更新</li>
+<li>根据链路代价与网络拓扑而变化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>因特网路由选择算法是<strong>负载迟钝</strong>的，链路开销<strong>不会反映</strong>当前拥塞水平</p>
+</blockquote>
+<hr>
+<h3 id="2-LS算法">2.LS算法</h3>
+<blockquote>
+<p>LS算法，全名Link State，即<strong>链路状态</strong>路由选择算法</p>
+</blockquote>
+<h4 id="1-概念">1.概念</h4>
+<p><strong>LS算法</strong>本质上是采用了<strong>Dijkstra算法</strong></p>
+<p>我们都知道，Dijkstra是需要知道所有边代价的，那么LS算法如何实现？</p>
+<ul>
+<li>所有节点知道网络拓扑、链路费用
+<ul>
+<li>经<strong>链路状态广播</strong>完成</li>
+<li>所有节点拥有相同的信息</li>
+</ul>
+</li>
+<li>从一个节点(源)到所有其他节点计算最低的费用路径
+<ul>
+<li>给出对这些节点的<strong>转发表</strong></li>
+</ul>
+</li>
+<li>**迭代：**k次迭代后，得知到k个目的地的最低费用路径</li>
+</ul>
+<p><strong>约定的参数标识：</strong></p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">C(x, y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>：从节点x到y的链路费用
+<ul>
+<li>如果x，y不是直接邻居，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">C(x, y) = \infty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord">∞</span></span></span></span></li>
+</ul>
+</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">D(v)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span>：从<strong>源到目的地v</strong>的路径的费用的<strong>当前值</strong>
+<ul>
+<li>源是一开始就定好的</li>
+</ul>
+</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">p(v)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span>：从源到目的地v的路径的<strong>前任节点</strong>
+<ul>
+<li>比如x-&gt;y-&gt;z-&gt;t-&gt;v，x是源，那么t就是x到v路径的前任节点</li>
+</ul>
+</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>N</mi><msup><mrow></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></msup></mrow><annotation encoding="application/x-tex">N^{&#x27;}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9425em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9425em;"><span style="top:-2.9425em;margin-right:0.05em;"><span class="pstrut" style="height:2.5795em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8278em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>：已知最小费用路径中的节点集合</li>
+</ul>
+<hr>
+<h4 id="2-算法">2.算法</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241219151626291.png" alt="image-20241219151626291"></p>
+<hr>
+<h4 id="3-过程">3.过程</h4>
+<ul>
+<li>第一步：发现邻接节点</li>
+<li>第二步：测量链路成本</li>
+<li>第三步：封装链路状态包</li>
+<li>第四步：广播链路状态信息</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241219152139431.png" alt="image-20241219152139431"></p>
+<hr>
+<h4 id="4-讨论">4.讨论</h4>
+<ul>
+<li>算法复杂性
+<ul>
+<li>n个节点，每次迭代检查不在N’中的所有节点w</li>
+<li>(n+1)*n/2——O(n^2)</li>
+<li>更有效的实现可以做到O(nlogn)</li>
+</ul>
+</li>
+<li><strong>路由震荡</strong>
+<ul>
+<li>路由随着链路成本的变化而来回切换</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="5-例题">5.例题</h4>
+<p>1.根据下图，给出以u为源的<strong>最短路径树</strong>和<strong>最终转发表</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/ae25db37ace2f24eed9dab9f663283f.jpg" alt="ae25db37ace2f24eed9dab9f663283f"></p>
+<p>推算<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>N</mi><msup><mrow></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></msup></mrow><annotation encoding="application/x-tex">N^{&#x27;}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9425em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9425em;"><span style="top:-2.9425em;margin-right:0.05em;"><span class="pstrut" style="height:2.5795em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8278em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>时需要注意，<strong>每次因为w被添加入N’而更新D(v)时，v一定是w的直接邻居</strong></p>
+<ul>
+<li>就比如上述推算过程中，x添加到N’，只能更新D(y)，D(z)是不动的</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241219154359742.png" alt="image-20241219154359742"></p>
+<p><strong>最短路径树</strong>和<strong>转发表</strong>如上图所示</p>
+<ul>
+<li>需要非常注意的是，<strong>转发表记录的是下一跳</strong>，因此即便目的地是z，u的转发表中也是将数据包转发给x。</li>
+</ul>
+<p>2.书P279 Problem3</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/7fac65e4f5984b93816b01810fa509e.jpg" alt="7fac65e4f5984b93816b01810fa509e"></p>
+<hr>
+<h3 id="3-DV算法">3.DV算法</h3>
+<blockquote>
+<p>DV算法，全称Distance Vector，即<strong>距离矢量</strong>算法</p>
+<ul>
+<li>DV算法适用于<strong>小型网络</strong>，现在已基本不使用了</li>
+</ul>
+</blockquote>
+<h4 id="1-概念-2">1.概念</h4>
+<p>DV算法，是一种<strong>分布式、迭代、异步算法</strong></p>
+<p><strong>约定的参数标识：</strong></p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>x</mi></msub><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">d_{x}(y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>：从x到y的最&quot;短&quot;路径(最低费用)的费用</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">C(x, y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>：从x到<strong>直接邻居</strong>y的费用</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>x</mi></msub><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">D_{x}(y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>：从x到y的最小费用的<strong>估计</strong>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>x</mi></msub><mo>=</mo><mo stretchy="false">[</mo><msub><mi>D</mi><mi>x</mi></msub><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo>:</mo><mi>y</mi><mo>∈</mo><mi>N</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">D_{x} = [D_{x}(y): y \in N]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">]</span></span></span></span>：节点x维护自己的距离矢量(DV)
+<ul>
+<li>此处N指所有节点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>i</mi><msub><mi>n</mi><mi>v</mi></msub><mo stretchy="false">{</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">min_{v}\{...\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">mi</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">{</span><span class="mord">...</span><span class="mclose">}</span></span></span></span>：对于x所有的直接邻居v的某个参数取最小值
+<ul>
+<li>上述的解释是没法单独看懂的，需要结合下面的内容</li>
+</ul>
+</li>
+</ul>
+<p><strong>DV算法</strong>是基于<strong>Bellman-Ford方程</strong>的</p>
+<p><strong>Bellman-Ford方程：</strong></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>d</mi><mi>x</mi></msub><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>m</mi><mi>i</mi><msub><mi>n</mi><mi>v</mi></msub><mo stretchy="false">{</mo><mi>C</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo><mo>+</mo><msub><mi>d</mi><mi>v</mi></msub><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">d_{x}(y) = min_{v}\{C(x, y) + d_{v}(y)\}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">mi</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)}</span></span></span></span></span></p>
+<ul>
+<li>其中，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>i</mi><msub><mi>n</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">min_{v}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8095em;vertical-align:-0.15em;"></span><span class="mord mathnormal">mi</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>指的是对于x的所有直接邻居v，取<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo><mo>+</mo><msub><mi>d</mi><mi>v</mi></msub><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">C(x, y) + d_{v}(y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>的最小值</li>
+</ul>
+<hr>
+<h4 id="2-算法-2">2.算法</h4>
+<p><strong>基本思想</strong></p>
+<ul>
+<li>
+<p>每个节点周期性的发送它自己维护的<strong>距离矢量(DV)<strong>给</strong>直接邻居</strong></p>
+<ul>
+<li>只给直接邻居，不给间接邻居——不做洪泛广播</li>
+</ul>
+</li>
+<li>
+<p>当节点x接收到来自邻居的新DV<strong>估计</strong>，它使用B-F方程更新自己维护的DV</p>
+<ul>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>x</mi></msub><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo>←</mo><mi>m</mi><mi>i</mi><msub><mi>n</mi><mi>v</mi></msub><mo stretchy="false">{</mo><mi>C</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>v</mi><mo stretchy="false">)</mo><mo>+</mo><msub><mi>D</mi><mi>v</mi></msub><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo stretchy="false">}</mo><mspace width="1em"><mi>f</mi><mi>o</mi><mi>r</mi><mi>e</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>n</mi><mi>o</mi><mi>d</mi><mi>e</mi><mspace width="1em"><mi>y</mi><mo>∈</mo><mi>N</mi></mspace></mspace></mrow><annotation encoding="application/x-tex">D_{x}(y) \leftarrow min_{v}\{C(x, v) + D_{v}(y)\} \quad for each node \quad y \in N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">mi</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)}</span><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">ore</span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span><span class="mord mathnormal">hn</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span></p>
+</li>
+<li>
+<p>这里需要注意，<strong>DV算法</strong>计算的都是<strong>最小费用估计</strong>而不是<strong>最小费用</strong>，因此是用大写D而不是小写d</p>
+</li>
+</ul>
+</li>
+<li>
+<p>在规模较小、正常的条件下，估计值<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>x</mi></msub><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">D_{x}(y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>收敛在实际最小费用<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>x</mi></msub><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">d_{x}(y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span></p>
+</li>
+</ul>
+<hr>
+<h4 id="3-过程-2">3.过程</h4>
+<p>首先，要搞清楚，每个节点维护的DV表是什么样的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241219162758554.png" alt="image-20241219162758554"></p>
+<ul>
+<li>
+<p>DV表保存的是<strong>节点自身以及直接邻居</strong>的DV</p>
+</li>
+<li>
+<p>DV表的行，是<strong>节点自身以及直接邻居</strong></p>
+<ul>
+<li>所以可以把DV表分为：<strong>自身节点DV</strong>和<strong>邻居节点DV</strong></li>
+</ul>
+</li>
+<li>
+<p>DV表的列，是<strong>网络的所有节点</strong></p>
+</li>
+</ul>
+<p>DV算法的过程：</p>
+<ul>
+<li>
+<p>第一步：初始化DV</p>
+<ul>
+<li>邻居节点DV设为空(每项都是无穷)</li>
+<li>计算自身节点DV(只有直接邻居不是无穷)</li>
+</ul>
+</li>
+<li>
+<p>第二步：等待</p>
+<ul>
+<li>等待自身与直接邻居的链路费用变化</li>
+<li>等待收到邻居的DV更新</li>
+</ul>
+</li>
+<li>
+<p>第三步：重新计算</p>
+<ul>
+<li>根据邻居发来的DV/链路变化<strong>更新自身节点DV</strong></li>
+<li>更新DV表中的邻居节点DV</li>
+</ul>
+</li>
+<li>
+<p>第四步：通知邻居</p>
+<ul>
+<li>如果DV表中<strong>自身节点DV</strong>变化，通知<strong>直接邻居</strong></li>
+<li>反之则不通知</li>
+</ul>
+</li>
+<li>
+<p>第五步：返回第二步，等待，<strong>持续迭代，直至稳定</strong></p>
+</li>
+</ul>
+<hr>
+<h4 id="4-讨论-2">4.讨论</h4>
+<h5 id="无穷计算问题"><strong>无穷计算问题</strong></h5>
+<ul>
+<li>DV算法的最大弊端在于，好消息传播的快，坏消息反应迟钝</li>
+<li>具体来说就是，如果链路代价降低，这条信息会<strong>快速迭代</strong>
+<ul>
+<li><strong>迭代次数最多为网络直径</strong></li>
+</ul>
+</li>
+<li>如果链路代价提高，这条消息会<strong>无穷迭代</strong>
+<ul>
+<li>迭代无穷，<strong>难以收敛</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241222210831371.png" alt="image-20241222210831371"></p>
+<p>从上述图中即可看到，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>y</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">D_{y}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>因为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">C(x, y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>从4变成60，经过B-F方程迭代成了<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo stretchy="false">(</mo><mi>y</mi><mo separator="true">,</mo><mi>z</mi><mo stretchy="false">)</mo><mo>+</mo><msub><mi>D</mi><mi>z</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">C(y, z) + D_{z}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.04398em;">z</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>，即5+1=6；但实际上，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>z</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">D_{z}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.04398em;">z</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>是原来的z-y-x路径产生的，现在的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>y</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">D_{y}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>实际上的路径变成了y-z-y-x，形成了事实上的<strong>路由环路</strong>，这就出现了<strong>无穷计算问题</strong>。</p>
+<p>上图中，由于<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">C(x, y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>还只是60，所以迭代44次即可。但是，如果<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">C(x, y) = \infty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord">∞</span></span></span></span>呢？那就是货真价实的<strong>无穷迭代</strong>了</p>
+<ul>
+<li>44次怎么来的？
+<ul>
+<li>只要<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>z</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">D_{z}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.04398em;">z</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>在重复迭代的过程中超过了<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>z</mi><mo stretchy="false">)</mo><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">C(x, z)=50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">50</span></span></span></span>就会稳定下来，而<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>y</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">D_{y}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>也会在下一迭代中稳定</li>
+<li>迭代多少次，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>z</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">D_{z}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.04398em;">z</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>会等于50呢？50/2 - 3 = 22</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>z</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">D_{z}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.04398em;">z</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>每变化一次，迭代2次。故迭代次数=22*2=44</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>如何解决无穷计算问题？或者退而求其次，如何缓解无穷计算问题？</p>
+</blockquote>
+<h5 id="毒性逆转"><strong>毒性逆转</strong></h5>
+<p>归根到底，无穷计算的问题在于，节点B因A,B间代价提高而选择走节点C时，节点C到A的最短路径实际上是通过节点B的。也就是，<strong>更新节点的路径时，确保节点之前不存在于新路径中</strong></p>
+<p>如何做到呢？</p>
+<p>假设，节点Z到节点X的路径是：Z-&gt;Y-&gt;X，那么，Z就会告诉Y，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>z</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">D_{z}(x)=\infty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.04398em;">z</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord">∞</span></span></span></span></p>
+<ul>
+<li>这样一来，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">C(x, y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>无穷时，Y也不会通过Z走向X，因为从Y的视角来看，走Z也是死路！</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241222212438150.png" alt="image-20241222212438150"></p>
+<blockquote>
+<p>但是，毒性逆转并不能解决无穷计算问题。</p>
+<p>毒性逆转是为了<strong>防止两个节点间通过错误的链路形成环路</strong>，但它在涉及<strong>三个或更多节点</strong>时，可能会面临“局限性”。在多节点或多路径的拓扑下，毒性逆转无法确保整个网络的收敛，因为它只对直接邻居生效，而<strong>无法阻止跨越多跳链路的错误路由信息传播</strong>。</p>
+</blockquote>
+<h5 id="最大度量">最大度量</h5>
+<p>那么，怎么去尽可能降低DV算法出错的风险？</p>
+<ul>
+<li>定义<strong>最大度量</strong>
+<ul>
+<li>即定义一个最大的有效费用值</li>
+<li>如<strong>RIP协议</strong>定义最大跳数是15跳，16跳步表示<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">\infty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord">∞</span></span></span></span></li>
+</ul>
+</li>
+</ul>
+<p><strong>但这样就限制了DV算法的使用</strong></p>
+<ul>
+<li>DV算法因此只能在<strong>小规模网络中使用</strong></li>
+</ul>
+<hr>
+<h4 id="5-例题-2">5.例题</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241222213304493.png" alt="image-20241222213304493"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241222213314965.png" alt="image-20241222213314965"></p>
+<hr>
+<h3 id="4-比较">4.比较</h3>
+<ul>
+<li>报文复杂性(DV胜出)
+<ul>
+<li>LS：对n个节点，E条链路，发送O(nE)报文</li>
+<li>DV：仅在邻居间交换</li>
+</ul>
+</li>
+<li>收敛速度(LS胜出)
+<ul>
+<li>LS：O(n^2)
+<ul>
+<li>可能具有振荡</li>
+</ul>
+</li>
+<li>DV：收敛时间变化
+<ul>
+<li>可能有选路环路，计数到无穷问题</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>健壮性(如果路由器异常会如何)(LS胜出)
+<ul>
+<li>LS：
+<ul>
+<li>节点可能通告不正确的<strong>链路</strong>费用</li>
+<li>每个节点仅计算它自己的表</li>
+</ul>
+</li>
+<li>DV：
+<ul>
+<li>DV节点通告不正确的<strong>路径</strong>费用</li>
+<li>每个节点表能由他人使用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>从整体上看，LS算法适用于大规模网络，DV算法适用于小规模网络</p>
+<hr>
+<h2 id="3-自治系统">3.自治系统</h2>
+<blockquote>
+<p>至此以来，我们对路由选择的研究都是理想的，我们认为：</p>
+<ul>
+<li>所有的路由器是等同</li>
+<li>网络&quot;扁平&quot;，互联路由器的集合</li>
+</ul>
+<p>但这在实践中<strong>并不现实</strong></p>
+<ul>
+<li>
+<p>网络具有上亿个路由目的，选路表中不能存储所有的目的地</p>
+</li>
+<li>
+<p>因此，<strong>每个ISP要控制自己网络中的选路</strong></p>
+</li>
+<li>
+<p>我们常说的**“互联网”**，本质含义就是：<strong>网络的网络</strong></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="1-概述-3">1.概述</h3>
+<p>出于<strong>管理</strong>和<strong>扩展</strong>的目的，因特网可以被分割成许多不同的<strong>自治系统(AS)</strong></p>
+<ul>
+<li><strong>自治系统</strong>是指在互联网中，一个或多个实体管辖下的所有IP网络和路由器的组合
+<ul>
+<li>在课程学习中，我们通常可以认为<strong>自治系统是路由器的组合</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241222220134536.png" alt="image-20241222220134536"></p>
+<ul>
+<li>同一AS内的路由器运行<strong>相同的路由协议(算法)</strong>
+<ul>
+<li>自治系统内的选路协议(包括RIP，OSPF等)</li>
+<li>不同AS内的路由器可以运行不同的选路协议</li>
+</ul>
+</li>
+<li><strong>网关路由器</strong>
+<ul>
+<li>位于AS&quot;边缘&quot;</li>
+<li>通过链路连接其他AS的网关路由器</li>
+<li>AS之间运行着相同的自治系统间选路协议(BGP协议)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241222220152939.png" alt="image-20241222220152939"></p>
+<hr>
+<h3 id="2-选路协议">2.选路协议</h3>
+<p>互联网采用<strong>层次路由</strong></p>
+<ul>
+<li>
+<p><strong>IGP</strong>：自治系统内部路由协议，简称<strong>内部网关协议</strong></p>
+<ul>
+<li><strong>路由信息协议RIP</strong>——使用DV算法</li>
+<li><strong>开放最短路径优先OSPF</strong>——使用LS算法</li>
+<li><strong>中间系统到中间系统IS-IS</strong>——使用LS算法</li>
+</ul>
+</li>
+<li>
+<p><strong>EGP</strong>：自治系统间接口上的路由协议，简称<strong>外部网关协议</strong></p>
+<ul>
+<li><strong>边界网关协议BGP-4</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="4-IGP之RIP协议">4.IGP之RIP协议</h2>
+<blockquote>
+<p>RIP协议，全称<strong>选路信息协议</strong>，属于IGP协议，即内部网关协议</p>
+<p>RIP协议现已弃用</p>
+<p>RIP协议是<strong>应用层协议</strong></p>
+</blockquote>
+<h3 id="1-概念-3">1.概念</h3>
+<p>RIP协议是一种<strong>分布式</strong>的基于<strong>DV算法</strong>的路由选择协议</p>
+<ul>
+<li>距离度量：跳的数量(最大=15跳)</li>
+<li>跳：从源路由器到目的子网的最短路径所经过的子网数量</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241222221037342.png" alt="image-20241222221037342"></p>
+<p><strong>使用RIP协议的路由：</strong></p>
+<ul>
+<li><strong>仅和相邻路由器</strong>交换路由选择信息
+<ul>
+<li>路由选择信息包括：<strong>目的子网、下一跳路由器、跳数</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223164023849.png" alt="image-20241223164023849"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241222221210061.png" alt="image-20241222221210061"></p>
+<ul>
+<li>
+<p>按<strong>固定的时间间隔</strong>交换路由信息(RIP响应报文/RIP通告)</p>
+</li>
+<li>
+<p>每次通告：<strong>最多25个目的子网(IP形式)</strong></p>
+</li>
+<li>
+<p>如果<strong>180秒</strong>没有收到通告——&gt;<strong>邻居/链路失效</strong></p>
+</li>
+</ul>
+<hr>
+<h3 id="2-RIP-DV">2.RIP-DV</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223164142400.png" alt="image-20241223164142400"></p>
+<hr>
+<h3 id="3-RIP表处理">3.RIP表处理</h3>
+<ul>
+<li><strong>RIP选路表</strong>由<code>route-d(守护进程)</code>的<strong>应用级进程</strong>管理</li>
+<li><strong>RIP通告/报文</strong>在<strong>UDP分组</strong>中发送，周期性重复</li>
+</ul>
+<p>因此，<strong>RIP协议</strong>是<strong>应用层协议</strong></p>
+<hr>
+<h3 id="4-RIP协议优缺点">4.RIP协议优缺点</h3>
+<p><strong>优点：</strong></p>
+<ul>
+<li>实现简单，开销较小</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>RIP限制了网络的规模，能使用的最大距离是15(16表示不可达)</li>
+<li><strong>使用RIP协议的</strong>路由器之间交换的路由信息是<strong>路由器中的完整路由表</strong>，因此随着网络规模的扩大，开销随之增加</li>
+<li>当<strong>网络出现故障</strong>时，要<strong>经过比较长的时间</strong>才能将此信息传送到所有路由器
+<ul>
+<li>无穷计算问题</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="5-例题-3">5.例题</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223164725466.png" alt="image-20241223164725466"></p>
+<hr>
+<h2 id="5-IGP之OSPF协议">5.IGP之OSPF协议</h2>
+<blockquote>
+<p>OSPF协议，全称<strong>开放最短路径优先协议</strong>，是IGP协议中应用最广、性能最好的协议</p>
+<p>OSPF协议是<strong>运输层协议</strong></p>
+</blockquote>
+<h3 id="1-概念-4">1.概念</h3>
+<p><strong>OSPF协议</strong>使用了<strong>链路状态LS算法</strong>作为选路算法</p>
+<ul>
+<li>
+<p>LS分组扩散通告**(泛洪)**</p>
+</li>
+<li>
+<p>每个路由器构造完整的网络(指的是<strong>AS</strong>)拓扑图</p>
+</li>
+<li>
+<p>利用<strong>Dijkstra算法</strong>计算路由</p>
+<ul>
+<li>实际上，在实际应用中，我们却是反过来的：先确定路由，再设置cost</li>
+</ul>
+</li>
+</ul>
+<p><strong>OSPF协议</strong>可适应大规模网络——<strong>层次OSPF</strong></p>
+<p><strong>OSPF协议</strong>的路由变化收敛速度快</p>
+<p><strong>OSPF协议</strong>还具有如下特征：</p>
+<ul>
+<li>支持路由等级划分</li>
+<li>支持组播</li>
+<li>支持验证</li>
+<li>支持(多路径)等值路由</li>
+</ul>
+<p><strong>OSPF协议</strong>是运输层协议，<strong>报文封装在IP中</strong></p>
+<hr>
+<h3 id="2-工作">2.工作</h3>
+<ul>
+<li>每个路由器通过<code>&quot;HELLO&quot;</code>报文与邻居节点<strong>形成和维持</strong>邻居关系</li>
+<li>路由器节点在与邻居的交互中掌握了本区域网络拓扑，使用Dijkstra算法完成本节点的路由计算</li>
+<li>邻居或链路状态发生变化时，将信息<strong>通过洪泛散布</strong>到整个区域</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223200214321.png" alt="image-20241223200214321"></p>
+<hr>
+<h3 id="3-层次OSPF">3.层次OSPF</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223200709321.png" alt="image-20241223200709321"></p>
+<p><strong>AS</strong>由多个<strong>区域area</strong>组成，每个区域运行自己的<strong>OSPF路由选择算法</strong></p>
+<p><strong>AS的区域area</strong>有<strong>两级层次</strong>：<strong>本地</strong>和<strong>主干</strong></p>
+<ul>
+<li>
+<p><strong>主干区域</strong>包含区域边界路由器，为AS内其他区域之间提供路由</p>
+</li>
+<li>
+<p><strong>本地区域</strong>：</p>
+<ul>
+<li>
+<p>链路状态通告<strong>仅在本地内</strong></p>
+</li>
+<li>
+<p>每个节点具有详细的<strong>区域</strong>拓扑</p>
+</li>
+<li>
+<p>每个节点仅知道<strong>到达其他区域网络的方向(最短路)，也就是下一跳</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>AS</strong>内部具有多种路由器：</p>
+<ul>
+<li><strong>区域边界路由器(area border router)</strong>
+<ul>
+<li>负责为流向区域以外的分组提供路径选择</li>
+</ul>
+</li>
+<li><strong>主干路由器(backbone router)</strong>
+<ul>
+<li>运行OSPF选路限制到主干</li>
+<li>本质上，就是提供区域与区域之间的OSPF选路</li>
+</ul>
+</li>
+<li><strong>边界路由器(boundary router)</strong>
+<ul>
+<li>连接到其他AS</li>
+<li>就是我们通常说的<strong>网关路由器</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="6-EGP之BGP协议">6.EGP之BGP协议</h2>
+<blockquote>
+<p>BGP协议，全称<strong>边界网关协议</strong>，属于EGP协议(AS间路由协议)</p>
+<p>BGP协议是<strong>应用层协议</strong></p>
+</blockquote>
+<p><strong>BGP</strong>为每个<strong>AS</strong>提供了一种手段：</p>
+<ul>
+<li>从<strong>相邻AS</strong>获得<strong>子网可达性</strong>信息</li>
+<li>向<strong>AS</strong>内部的所有路由器传播可达性信息</li>
+<li>基于可达性信息和<strong>策略</strong>，决定到子网的&quot;好路由&quot;
+<ul>
+<li>基于<strong>策略</strong>，也就是说，<strong>不一定是按照代价来决定了</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>BGP</strong>实际上允许了一个子网向因特网其他部分通告<em>我在这里</em></p>
+<hr>
+<h3 id="1-概念-5">1.概念</h3>
+<p>路由器通过<strong>TCP连接：BGP会话(iBGP和eBGP)<strong>来分发路由信息(即</strong>子网/子网集合可达信息</strong>)</p>
+<ul>
+<li>对于每条连接，位于该连接端点的两台路由器称为<strong>BGP对等方</strong></li>
+</ul>
+<p><strong>注意：BGP会话不对应着物理链路</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223204054042.png" alt="image-20241223204054042"></p>
+<hr>
+<h3 id="2-分发可达性信息">2.分发可达性信息</h3>
+<blockquote>
+<p>首先需要提醒一点，AS是IP网络与路由器的集合，不等于子网</p>
+</blockquote>
+<p>分发可达性信息的过程是怎样的？我们以下图为例</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223204301063.png" alt="image-20241223204301063"></p>
+<p>假设3b路由器所在区域有4个子网，子网集合可以表示为<code>138.16.64.0/22</code></p>
+<ul>
+<li>
+<p>在3a路由器与1c路由器之间有<strong>eBGP会话</strong>，AS3向AS1发送<strong>前缀可达性信息</strong></p>
+<ul>
+<li>前缀：指一个子网/子网集合，因为子网号可以视为IP地址的前缀</li>
+</ul>
+</li>
+<li>
+<p>1c路由器则使用<strong>iBGP会话</strong>向<strong>AS1内</strong>的所有路由器分发这个新前缀的可达信息</p>
+</li>
+<li>
+<p>当路由器知道了一个新前缀，它将在其转发表中为该前缀创建一个新表项</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-路径属性-BGP路径">3.路径属性&amp;BGP路径</h3>
+<p>在<strong>eBGP会话</strong>和<strong>iBGP会话</strong>中，当通告一个前缀(即一个可达子网)时，通告中包含了<strong>BGP属性</strong></p>
+<ul>
+<li><strong>前缀</strong> + <strong>属性</strong> = “<strong>路由</strong>”</li>
+</ul>
+<p><strong>两个重要属性：</strong></p>
+<ul>
+<li><strong>AS-PATH</strong>：包含了传递前缀的通告所经过的AS
+<ul>
+<li>AS2向AS1通告到前缀x的AS-PATH：AS2</li>
+<li>AS1向AS3通告到前缀x的AS-PATH：AS2，AS1</li>
+<li>目的是<strong>防止循环通告</strong></li>
+</ul>
+</li>
+<li><strong>下一跳</strong>：下一跳路由器的<strong>IP地址</strong>
+<ul>
+<li>方便<strong>路由器配置转发表</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>注意：<strong>当网关路由器接收了路由通告，使用</strong>输入策略</strong>来接受/拒绝(<strong>不广播通告</strong>)</p>
+<hr>
+<h3 id="4-基于策略通告信息">4.基于策略通告信息</h3>
+<p><strong>BGP协议</strong>实际上是基于<strong>策略</strong>来通告前缀可达信息的。举个例子：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223205519220.png" alt="image-20241223205519220"></p>
+<hr>
+<h3 id="5-BGP路径选择">5.BGP路径选择</h3>
+<p>因为路由器对某些前缀可能找到<strong>多于1条路由</strong>，所以<strong>路由器必须选择路由</strong></p>
+<p><strong>BGP路由选择</strong>：<strong>策略决定</strong></p>
+<ul>
+<li>最短AS-PATH</li>
+<li>热土豆选路(选择下一跳路由器)</li>
+<li>各种过滤(IP地址，接口，属性…)</li>
+</ul>
+<p>在课程学习中，我们认为，<strong>BGP路由选择遵循以下逻辑：</strong></p>
+<ul>
+<li>选<strong>AS-PATH</strong>最短</li>
+<li><strong>AS-PATH</strong>相同，使用<strong>热土豆选路</strong></li>
+</ul>
+<h4 id="1-热土豆选路">1.热土豆选路</h4>
+<p>热土豆路由选择算法可以用一句话总结：</p>
+<ul>
+<li>选择<strong>具有到达目的前缀(子网)的最低费用的网关路由器</strong>
+<ul>
+<li>最低费用的计算，是使用<strong>AS内部路由协议</strong>(IGP)计算出的<strong>目的子网到网关的最低费用</strong></li>
+<li>费用：有cost算cost，无cost算跳数</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="6-比较">6.比较</h3>
+<p><strong>AS内选路</strong>和<strong>AS间选路</strong>的不同：</p>
+<ul>
+<li>
+<p>策略</p>
+<ul>
+<li>AS间：<strong>管理员希望控制它的流量选路的方式</strong>，决定谁能通过它的网络路由
+<ul>
+<li>就比如，电信走电信的路由，而不走移动的</li>
+<li>更多的是考虑到现实因素</li>
+</ul>
+</li>
+<li>AS内：单个管理员，因此<strong>不需要策略决定</strong></li>
+</ul>
+</li>
+<li>
+<p>性能</p>
+<ul>
+<li>AS间：<strong>策略比性能更重要</strong></li>
+<li>AS内：<strong>性能更重要</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="7-例题">7.例题</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223210815704.png" alt="image-20241223210815704"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223210837380.png" alt="image-20241223210837380"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223210852124.png" alt="image-20241223210852124"></p>
+<hr>
+<h2 id="7-ICMP协议">7.ICMP协议</h2>
+<blockquote>
+<p>ICMP协议，全称<strong>互联网控制报文协议</strong></p>
+<p>ICMP协议是<strong>运输层协议</strong></p>
+</blockquote>
+<h3 id="1-概念-6">1.概念</h3>
+<p>**出现的原因：<strong>IP网络是</strong>尽力而为(不可靠)**的</p>
+<p><strong>功能：<strong>ICMP协议通过</strong>差错报文</strong>和<strong>询问报文</strong>来辅助IP网络的功能</p>
+<p><strong>具体：</strong></p>
+<ul>
+<li>
+<p>由主机和路由器用于网络级信息的通信</p>
+<ul>
+<li><strong>差错报告</strong>：不可达主机、网络、端口、协议</li>
+<li><strong>网络探寻</strong>：回声请求/回答(由<code>ping</code>使用)</li>
+</ul>
+</li>
+<li>
+<p>与IP的关系</p>
+<ul>
+<li><strong>ICMP报文作为IP的有效载荷</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223211504911.png" alt="image-20241223211504911"></p>
+<hr>
+<h3 id="2-常见编码">2.常见编码</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223211532377.png" alt="image-20241223211532377"></p>
+<hr>
+<h3 id="3-Traceroute和ICMP">3.Traceroute和ICMP</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241223211629278.png" alt="image-20241223211629278"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://SomeFnone.github.io">魔法猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://somefnone.github.io/2024/12/23/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2/">http://somefnone.github.io/2024/12/23/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SomeFnone.github.io" target="_blank">Wizard Cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="/img/BWeLyHqW.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(数据平面)"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计网学习笔记-网络层(数据平面)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(数据平面)"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-11-22</div><div class="title">计网学习笔记-网络层(数据平面)</div></div></a></div><div><a href="/2024/09/27/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BA%94%E7%94%A8%E5%B1%82/" title="计网学习笔记-应用层"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-10-08</div><div class="title">计网学习笔记-应用层</div></div></a></div><div><a href="/2024/10/09/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%BF%90%E8%BE%93%E5%B1%82/" title="计网学习笔记-运输层"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-10-27</div><div class="title">计网学习笔记-运输层</div></div></a></div><div><a href="/2024/09/22/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="计网学习笔记"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-11-06</div><div class="title">计网学习笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">魔法猫猫头</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SomeFnone" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1229172423@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">数据库笔记，堂堂完结!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第五章 网络层:控制平面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95"><span class="toc-text">2.路由选择算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0-2"><span class="toc-text">1.概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%B7%AF%E7%94%B1-route-%E6%A6%82%E5%BF%B5"><span class="toc-text">1.路由(route)概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%80%89%E8%B7%AF%E7%AE%97%E6%B3%95%E5%9B%BE%E6%8A%BD%E8%B1%A1"><span class="toc-text">2.选路算法图抽象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%80%89%E8%B7%AF%E7%AE%97%E6%B3%95%E5%8E%9F%E5%88%99"><span class="toc-text">3.选路算法原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%80%89%E8%B7%AF%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB"><span class="toc-text">4.选路算法分类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-LS%E7%AE%97%E6%B3%95"><span class="toc-text">2.LS算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%A6%82%E5%BF%B5"><span class="toc-text">1.概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%AE%97%E6%B3%95"><span class="toc-text">2.算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%BF%87%E7%A8%8B"><span class="toc-text">3.过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%AE%A8%E8%AE%BA"><span class="toc-text">4.讨论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E4%BE%8B%E9%A2%98"><span class="toc-text">5.例题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-DV%E7%AE%97%E6%B3%95"><span class="toc-text">3.DV算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%A6%82%E5%BF%B5-2"><span class="toc-text">1.概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%AE%97%E6%B3%95-2"><span class="toc-text">2.算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%BF%87%E7%A8%8B-2"><span class="toc-text">3.过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%AE%A8%E8%AE%BA-2"><span class="toc-text">4.讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%A0%E7%A9%B7%E8%AE%A1%E7%AE%97%E9%97%AE%E9%A2%98"><span class="toc-text">无穷计算问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AF%92%E6%80%A7%E9%80%86%E8%BD%AC"><span class="toc-text">毒性逆转</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%BA%A6%E9%87%8F"><span class="toc-text">最大度量</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E4%BE%8B%E9%A2%98-2"><span class="toc-text">5.例题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%AF%94%E8%BE%83"><span class="toc-text">4.比较</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%87%AA%E6%B2%BB%E7%B3%BB%E7%BB%9F"><span class="toc-text">3.自治系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0-3"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%80%89%E8%B7%AF%E5%8D%8F%E8%AE%AE"><span class="toc-text">2.选路协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-IGP%E4%B9%8BRIP%E5%8D%8F%E8%AE%AE"><span class="toc-text">4.IGP之RIP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E5%BF%B5-3"><span class="toc-text">1.概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-RIP-DV"><span class="toc-text">2.RIP-DV</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-RIP%E8%A1%A8%E5%A4%84%E7%90%86"><span class="toc-text">3.RIP表处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-RIP%E5%8D%8F%E8%AE%AE%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">4.RIP协议优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%BE%8B%E9%A2%98-3"><span class="toc-text">5.例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-IGP%E4%B9%8BOSPF%E5%8D%8F%E8%AE%AE"><span class="toc-text">5.IGP之OSPF协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E5%BF%B5-4"><span class="toc-text">1.概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B7%A5%E4%BD%9C"><span class="toc-text">2.工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B1%82%E6%AC%A1OSPF"><span class="toc-text">3.层次OSPF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-EGP%E4%B9%8BBGP%E5%8D%8F%E8%AE%AE"><span class="toc-text">6.EGP之BGP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E5%BF%B5-5"><span class="toc-text">1.概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%86%E5%8F%91%E5%8F%AF%E8%BE%BE%E6%80%A7%E4%BF%A1%E6%81%AF"><span class="toc-text">2.分发可达性信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%B7%AF%E5%BE%84%E5%B1%9E%E6%80%A7-BGP%E8%B7%AF%E5%BE%84"><span class="toc-text">3.路径属性&amp;BGP路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E9%80%9A%E5%91%8A%E4%BF%A1%E6%81%AF"><span class="toc-text">4.基于策略通告信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-BGP%E8%B7%AF%E5%BE%84%E9%80%89%E6%8B%A9"><span class="toc-text">5.BGP路径选择</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%83%AD%E5%9C%9F%E8%B1%86%E9%80%89%E8%B7%AF"><span class="toc-text">1.热土豆选路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%AF%94%E8%BE%83"><span class="toc-text">6.比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E4%BE%8B%E9%A2%98"><span class="toc-text">7.例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-ICMP%E5%8D%8F%E8%AE%AE"><span class="toc-text">7.ICMP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E5%BF%B5-6"><span class="toc-text">1.概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B8%B8%E8%A7%81%E7%BC%96%E7%A0%81"><span class="toc-text">2.常见编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Traceroute%E5%92%8CICMP"><span class="toc-text">3.Traceroute和ICMP</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/23/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(控制平面)">计网学习笔记-网络层(控制平面)</a><time datetime="2024-12-23T13:23:00.000Z" title="发表于 2024-12-23 21:23:00">2024-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(数据平面)">计网学习笔记-网络层(数据平面)</a><time datetime="2024-11-01T06:13:27.000Z" title="发表于 2024-11-01 14:13:27">2024-11-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/09/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%BF%90%E8%BE%93%E5%B1%82/" title="计网学习笔记-运输层">计网学习笔记-运输层</a><time datetime="2024-10-09T02:18:13.000Z" title="发表于 2024-10-09 10:18:13">2024-10-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/27/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BA%94%E7%94%A8%E5%B1%82/" title="计网学习笔记-应用层">计网学习笔记-应用层</a><time datetime="2024-09-27T09:01:13.000Z" title="发表于 2024-09-27 17:01:13">2024-09-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/22/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="计网学习笔记">计网学习笔记</a><time datetime="2024-09-22T11:08:42.000Z" title="发表于 2024-09-22 19:08:42">2024-09-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 魔法猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
