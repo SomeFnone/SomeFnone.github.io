@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://somefnone.github.io/img/BWeLyHqW.jpg">
 <meta property="article:published_time" content="2024-11-01T06:13:27.000Z">
-<meta property="article:modified_time" content="2024-12-30T05:30:36.093Z">
+<meta property="article:modified_time" content="2024-12-30T05:42:41.514Z">
 <meta property="article:author" content="魔法猫猫头">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-12-30 13:30:36'
+  postUpdate: '2024-12-30 13:42:41'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -174,7 +174,7 @@
     document.addEventListener('pjax:send', () => { preloader.initLoading() })
     document.addEventListener('pjax:complete', () => { preloader.endLoading() })
   }
-})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/BWeLyHqW.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Wizard Cat"><span class="site-name">Wizard Cat</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计网学习笔记-网络层(数据平面)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-01T06:13:27.000Z" title="发表于 2024-11-01 14:13:27">2024-11-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-30T05:30:36.093Z" title="更新于 2024-12-30 13:30:36">2024-12-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/lesson-note/">lesson note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer">
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/BWeLyHqW.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Wizard Cat"><span class="site-name">Wizard Cat</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计网学习笔记-网络层(数据平面)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-01T06:13:27.000Z" title="发表于 2024-11-01 14:13:27">2024-11-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-30T05:42:41.514Z" title="更新于 2024-12-30 13:42:41">2024-12-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/lesson-note/">lesson note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer">
 
 <h1 id="第四章-网络层-数据平面"><a href="#第四章-网络层-数据平面" class="headerlink" title="第四章 网络层:数据平面"></a>第四章 网络层:数据平面</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h2><p><strong>网络层服务：</strong></p>
 <ul>
@@ -468,7 +468,11 @@
 </li>
 <li><p>协议：<strong>8bit</strong></p>
 <ul>
-<li>指运输层协议，TCP:6，UDP:17，ICMP:1，IGMP:2，OSPF:89等</li>
+<li>指运输层协议&#x2F;网络层相关协议，TCP:6，UDP:17，ICMP:1，IGMP:2，OSPF:89等<ul>
+<li>TCP、UDP、OSPF是运输层协议</li>
+<li>ICMP、IGMP是网络层协议，辅助IP协议</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>首部校验和：<strong>16bit</strong>，<strong>只校验数据报的首部</strong></p>
@@ -514,8 +518,8 @@
 </li>
 <li><p><strong>3bit</strong>，分为保留位、DF、MF</p>
 <ul>
-<li>DF&#x3D;1——&gt;禁止分片</li>
-<li>MF&#x3D;0——&gt;同标识数据报的<strong>最后一个分片</strong></li>
+<li><strong>DF&#x3D;0——&gt;允许分片</strong></li>
+<li><strong>MF&#x3D;0——&gt;同标识数据报的最后一个分片</strong></li>
 </ul>
 </li>
 </ul>
@@ -534,7 +538,8 @@
 <li>通常，分片时<strong>除了最后一个分片，其他分片均分为MTU允许的最大分片</strong><ul>
 <li>一个最大分片可封装的数据应该是<strong>8字节的倍数</strong><ul>
 <li>因此，假设MTU&#x3D;1501，不是8的倍数，那么分片最大是1500</li>
-<li>准确的说，应该是：<strong>MTU-20不是8的倍数</strong></li>
+<li>因此这一要求实际应该是：<strong>最大分片字节数-20必须是8的倍数</strong>，而最大分片<strong>不必等于MTU</strong></li>
+<li><strong>最大分片-20</strong>就是IP数据报的Body部分，因为偏移量就是计算在Body部分的偏移，因此Body必须是8的倍数，而Body+20不必是</li>
 </ul>
 </li>
 <li>最大分片可封装的数据(准确说，是<strong>最大分片可封装的网络层帧的载荷</strong>)为：<ul>
