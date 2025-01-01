@@ -1,0 +1,1219 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>软件工程导论笔记-1 | Wizard Cat</title><meta name="author" content="魔法猫猫头"><meta name="copyright" content="魔法猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="软件工程导论 该部分由金敏老师讲解  1.软件工程概述1.软件的本质特点：  不可见无磨损 一致性 持续变更 日趋复杂   2.软件工程的概念与发展历程1.历程 第一阶段：程序设计阶段 时间：计算机诞生后(1946) 特点： 软件工作：代码编写 软件评估：程序&#x3D;数据结构+算法、编程技巧     第二阶段：软件工程阶段 时间：大容量、高速度计算机出现，NL、OS、DB出现 特点：上述情">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件工程导论笔记-1">
+<meta property="og:url" content="http://somefnone.github.io/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/index.html">
+<meta property="og:site_name" content="Wizard Cat">
+<meta property="og:description" content="软件工程导论 该部分由金敏老师讲解  1.软件工程概述1.软件的本质特点：  不可见无磨损 一致性 持续变更 日趋复杂   2.软件工程的概念与发展历程1.历程 第一阶段：程序设计阶段 时间：计算机诞生后(1946) 特点： 软件工作：代码编写 软件评估：程序&#x3D;数据结构+算法、编程技巧     第二阶段：软件工程阶段 时间：大容量、高速度计算机出现，NL、OS、DB出现 特点：上述情">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://somefnone.github.io/img/BWeLyHqW.jpg">
+<meta property="article:published_time" content="2024-12-31T11:04:58.000Z">
+<meta property="article:modified_time" content="2025-01-01T12:51:41.935Z">
+<meta property="article:author" content="魔法猫猫头">
+<meta property="article:tag" content="软件工程导论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://somefnone.github.io/img/BWeLyHqW.jpg"><link rel="shortcut icon" href="/img/favicon3.jpg"><link rel="canonical" href="http://somefnone.github.io/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '软件工程导论笔记-1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-01 20:51:41'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/BWeLyHqW.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Wizard Cat"><span class="site-name">Wizard Cat</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">软件工程导论笔记-1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-31T11:04:58.000Z" title="发表于 2024-12-31 19:04:58">2024-12-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-01T12:51:41.935Z" title="更新于 2025-01-01 20:51:41">2025-01-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/lesson-note/">lesson note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer">
+
+<h1 id="软件工程导论"><a href="#软件工程导论" class="headerlink" title="软件工程导论"></a>软件工程导论</h1><blockquote>
+<p>该部分由金敏老师讲解</p>
+</blockquote>
+<h2 id="1-软件工程概述"><a href="#1-软件工程概述" class="headerlink" title="1.软件工程概述"></a>1.软件工程概述</h2><h3 id="1-软件的本质"><a href="#1-软件的本质" class="headerlink" title="1.软件的本质"></a>1.软件的本质</h3><p>特点：</p>
+<ul>
+<li>不可见无磨损</li>
+<li>一致性</li>
+<li>持续变更</li>
+<li>日趋复杂</li>
+</ul>
+<hr>
+<h3 id="2-软件工程的概念与发展历程"><a href="#2-软件工程的概念与发展历程" class="headerlink" title="2.软件工程的概念与发展历程"></a>2.软件工程的概念与发展历程</h3><h4 id="1-历程"><a href="#1-历程" class="headerlink" title="1.历程"></a>1.历程</h4><ul>
+<li>第一阶段：<strong>程序设计</strong>阶段<ul>
+<li>时间：计算机诞生后(1946)</li>
+<li>特点：<ul>
+<li>软件工作：代码编写</li>
+<li>软件评估：<strong>程序&#x3D;数据结构+算法</strong>、<strong>编程技巧</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>第二阶段：<strong>软件工程</strong>阶段<ul>
+<li>时间：大容量、高速度计算机出现，NL、OS、DB出现</li>
+<li>特点：<strong>上述情况导致了软件危机，催生了软件工程</strong><ul>
+<li>软件工作：<ul>
+<li>代码编写+需求分析、测试、维护——软件工程</li>
+<li>系统化、规范、可度量的工程化方法应用于软件</li>
+</ul>
+</li>
+<li>软件评估：<ul>
+<li><strong>可读性、可理解性、可测试性和易修改性</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-例题"><a href="#2-例题" class="headerlink" title="2.例题"></a>2.例题</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231191352253.png" alt="image-20241231191352253"></p>
+<blockquote>
+<p>D</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231191358134.png" alt="image-20241231191358134"></p>
+<blockquote>
+<p>ABCD</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231191423069.png" alt="image-20241231191423069"></p>
+<blockquote>
+<p>C</p>
+</blockquote>
+<hr>
+<h3 id="3-软件过程概念与软件过程模型"><a href="#3-软件过程概念与软件过程模型" class="headerlink" title="3.软件过程概念与软件过程模型"></a>3.软件过程概念与软件过程模型</h3><h4 id="1-历程-1"><a href="#1-历程-1" class="headerlink" title="1.历程"></a>1.历程</h4><ul>
+<li>第三阶段：<strong>软件过程</strong>阶段<ul>
+<li>时间：互联网、物联网广泛应用后</li>
+<li>特点：<strong>快速变化的需求、技术、市场</strong><ul>
+<li>软件工作：<ul>
+<li>流程活动(时序逻辑关系)</li>
+<li>流程活动各要素(如人员、方法、产品等)</li>
+</ul>
+</li>
+<li>软件评估：<ul>
+<li>多目标函数(软件质量、开发效率、开发成本)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="2-定义"><a href="#2-定义" class="headerlink" title="2.定义"></a>2.定义</h4><p><strong>软件过程是从软件项目需求定义开始直至软件经使用后废弃为止的跨越软件整个生存期内的系统开发、运行和维护等全部活动及其相关项的总和</strong></p>
+<hr>
+<h4 id="3-软件过程框架"><a href="#3-软件过程框架" class="headerlink" title="3.软件过程框架"></a>3.软件过程框架</h4><p>软件过程框架，分为<strong>四项基本活动</strong></p>
+<ul>
+<li>软件需求分析&#x2F;软件规格说明</li>
+<li>软件开发</li>
+<li>软件确认</li>
+<li>软件演化</li>
+</ul>
+<hr>
+<h4 id="4-软件过程模型"><a href="#4-软件过程模型" class="headerlink" title="4.软件过程模型"></a>4.软件过程模型</h4><h5 id="1-瀑布模型"><a href="#1-瀑布模型" class="headerlink" title="1.瀑布模型"></a>1.瀑布模型</h5><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231192143312.png" alt="image-20241231192143312"></p>
+<h5 id="2-原型模型"><a href="#2-原型模型" class="headerlink" title="2.原型模型"></a>2.原型模型</h5><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231192157819.png" alt="image-20241231192157819"></p>
+<h5 id="3-螺旋模型"><a href="#3-螺旋模型" class="headerlink" title="3.螺旋模型"></a>3.螺旋模型</h5><blockquote>
+<p>螺旋模型是绕不开的重点</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231192208790.png" alt="image-20241231192208790"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231192238104.png" alt="image-20241231192238104"></p>
+<h5 id="4-增量模型"><a href="#4-增量模型" class="headerlink" title="4.增量模型"></a>4.增量模型</h5><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231192248254.png" alt="image-20241231192248254"></p>
+<hr>
+<h4 id="5-软件能力评估标准"><a href="#5-软件能力评估标准" class="headerlink" title="5.软件能力评估标准"></a>5.软件能力评估标准</h4><ul>
+<li>CMM</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231192428898.png" alt="image-20241231192428898"></p>
+<ul>
+<li>CMMI</li>
+</ul>
+<hr>
+<h4 id="6-小结"><a href="#6-小结" class="headerlink" title="6.小结"></a>6.小结</h4><ul>
+<li>软件过程模型<ul>
+<li>瀑布模型：需求较明确、且较稳定</li>
+<li>原型模型：需求不明确</li>
+<li>螺旋模型：需求不明确、不稳定</li>
+<li>增量模型：需求不稳定、强调快速交付</li>
+</ul>
+</li>
+<li>软件发展历程<ul>
+<li>第一阶段：计算机诞生后——<strong>程序设计</strong>——个体软件</li>
+<li>第二阶段：高速计算机&#x2F;OS——<strong>软件工程</strong>——大规模软件</li>
+<li>第三阶段：互联网&#x2F;物联网——<strong>软件过程</strong>——变化的复杂软件</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-例题"><a href="#4-例题" class="headerlink" title="4.例题"></a>4.例题</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231192805776.png" alt="image-20241231192805776"></p>
+<blockquote>
+<p>C</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231192815436.png" alt="image-20241231192815436"></p>
+<blockquote>
+<p>AD</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231192829544.png" alt="image-20241231192829544"></p>
+<blockquote>
+<p>B</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231192840147.png" alt="image-20241231192840147"></p>
+<blockquote>
+<p>BCD</p>
+</blockquote>
+<hr>
+<h2 id="2-需求工程概述"><a href="#2-需求工程概述" class="headerlink" title="2.需求工程概述"></a>2.需求工程概述</h2><h3 id="1-需求的定义"><a href="#1-需求的定义" class="headerlink" title="1.需求的定义"></a>1.需求的定义</h3><p><strong>定义</strong>：</p>
+<p>需求就是以一种<strong>清晰、简洁、一致、无二义性</strong>的方式，对一个待开发软件系统中各个有意义功能和性能等方面的陈述的集合</p>
+<p><strong>需求的基本性质</strong></p>
+<ul>
+<li>必要性</li>
+<li>无歧义性</li>
+<li>可测试性</li>
+<li>可跟踪性</li>
+<li>可测量性</li>
+</ul>
+<hr>
+<h3 id="2-需求的意义"><a href="#2-需求的意义" class="headerlink" title="2.需求的意义"></a>2.需求的意义</h3><ul>
+<li><p>需求体现软件价值、决定软件命运</p>
+<ul>
+<li><p>需求本质反映的是如何为客户和用户等利益相关者拟定新的目标组织前景</p>
+</li>
+<li><p>错误与缺乏创新的需求将导致软件的失败</p>
+</li>
+</ul>
+</li>
+<li><p>需求是软件项目和产品的<strong>根源</strong>，是后续设计、实现、测试、维护等所有活动的依据</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-需求的层次"><a href="#3-需求的层次" class="headerlink" title="3.需求的层次"></a>3.需求的层次</h3><ul>
+<li>业务需求<ul>
+<li>对应<strong>前景与范围文档</strong></li>
+</ul>
+</li>
+<li>用户需求<ul>
+<li>对应<strong>用户需求文档(用例文档)</strong></li>
+</ul>
+</li>
+<li>系统需求<ul>
+<li>对应<strong>软件需求规格说明文档(系统需求规格SRS)</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231202518140.png" alt="image-20241231202518140"></p>
+<blockquote>
+<p>C</p>
+</blockquote>
+<hr>
+<h3 id="4-需求的类型"><a href="#4-需求的类型" class="headerlink" title="4.需求的类型"></a>4.需求的类型</h3><ul>
+<li><strong>功能性需求</strong><ul>
+<li>解释：是对系统应该提供的服务、系统应该如何响应特定的输入、系统在特定的情形中应该如何表现等的陈述</li>
+<li>在某些情况下，功能性需求还可以明确的陈述系统**”不应该做什么”**</li>
+</ul>
+</li>
+<li><strong>非功能性需求</strong><ul>
+<li><strong>业务规则</strong><ul>
+<li>公司政策、政府法规、工业标准、计算算法……</li>
+</ul>
+</li>
+<li><strong>质量属性</strong><ul>
+<li>外部质量<ul>
+<li>可靠性<ul>
+<li>成熟性、容错性、可恢复性</li>
+</ul>
+</li>
+<li>易用性<ul>
+<li>易理解性、易学性、易操作性、吸引性</li>
+</ul>
+</li>
+<li>效率&#x2F;性能<ul>
+<li>时间特性、资源利用、安全性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>内部质量<ul>
+<li>可维护性<ul>
+<li>易分析性、易改变行、稳定性、易测试性</li>
+</ul>
+</li>
+<li>可移植性<ul>
+<li>适应性、易安装行、共存性、替换行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>外部接口</strong><ul>
+<li>系统接口：描述一个应用如何与系统的其他应用交互</li>
+<li>用户接口：规约了软件产品与用户之间接口的逻辑特性</li>
+<li>硬件接口：系统所要求的支持和协议类型</li>
+<li>软件接口：允许与其他软件产品交互</li>
+<li>内存约束：易失性存储和永久性存储的特性和限制</li>
+<li>操作：规约用户如何使系统进入正常和异常的运行，以及在系统正常和异常运行下如何与系统进行交互</li>
+<li>地点需求：描述系统安装以及如何调整一个地点，以适应新的系统</li>
+</ul>
+</li>
+<li><strong>设计约束</strong><ul>
+<li>限制系统或系统构件的设计方案</li>
+<li>设计约束本身，对其进行权衡调整很困难，甚至不可能</li>
+<li>示例：<ul>
+<li>系统必须用C++或其他面向对象语言编写</li>
+<li>特定应用消耗算力平均不超过50%</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="5-层次与类型的关系"><a href="#5-层次与类型的关系" class="headerlink" title="5.层次与类型的关系"></a>5.层次与类型的关系</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231203620209.png" alt="image-20241231203620209"></p>
+<hr>
+<h3 id="6-需求工程过程"><a href="#6-需求工程过程" class="headerlink" title="6.需求工程过程"></a>6.需求工程过程</h3><h4 id="1-需求工程"><a href="#1-需求工程" class="headerlink" title="1.需求工程"></a>1.需求工程</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231203757509.png" alt="image-20241231203757509"></p>
+<hr>
+<h4 id="2-需求工程过程"><a href="#2-需求工程过程" class="headerlink" title="2.需求工程过程"></a>2.需求工程过程</h4><p>使用<strong>螺旋迭代过程</strong></p>
+<ul>
+<li>需求获取+需求分析</li>
+<li>需求规格说明</li>
+<li>需求确认</li>
+<li>系统需求文档</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231203917603.png" alt="image-20241231203917603"></p>
+<h4 id="3-需求工程方法"><a href="#3-需求工程方法" class="headerlink" title="3.需求工程方法"></a>3.需求工程方法</h4><p><strong>方法使用原则：</strong></p>
+<ul>
+<li>从低到高、先易后难</li>
+<li>方法有效性判定</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231203938831.png" alt="image-20241231203938831"></p>
+<hr>
+<h3 id="7-例题"><a href="#7-例题" class="headerlink" title="7.例题"></a>7.例题</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231204103855.png" alt="image-20241231204103855"></p>
+<blockquote>
+<p>D</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231204115445.png" alt="image-20241231204115445"></p>
+<blockquote>
+<p>B</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231204125059.png" alt="image-20241231204125059"></p>
+<blockquote>
+<p>A</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231204135294.png" alt="image-20241231204135294"></p>
+<blockquote>
+<p>B</p>
+</blockquote>
+<h2 id="3-需求获取与分析"><a href="#3-需求获取与分析" class="headerlink" title="3.需求获取与分析"></a>3.需求获取与分析</h2><blockquote>
+<p>需求螺旋迭代过程的第一部分</p>
+</blockquote>
+<h3 id="1-基本路径与方法"><a href="#1-基本路径与方法" class="headerlink" title="1.基本路径与方法"></a>1.基本路径与方法</h3><ul>
+<li><strong>用户调研</strong><ul>
+<li>基本方法包括</li>
+<li>用户访谈</li>
+<li>调查问卷</li>
+<li>用户反馈</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-面临的挑战"><a href="#2-面临的挑战" class="headerlink" title="2.面临的挑战"></a>2.面临的挑战</h3><ul>
+<li>需求的<strong>模糊性和隐蔽性</strong></li>
+<li>需求的<strong>多样性</strong></li>
+<li>需求的<strong>领域专业性</strong></li>
+<li>需求的<strong>易变性</strong></li>
+</ul>
+<hr>
+<h3 id="3-获取与分析方法"><a href="#3-获取与分析方法" class="headerlink" title="3.获取与分析方法"></a>3.获取与分析方法</h3><h4 id="1-用户调研"><a href="#1-用户调研" class="headerlink" title="1.用户调研"></a>1.用户调研</h4><p>目的是解决<strong>需求的模糊性</strong>(说不清楚要什么)</p>
+<p>最有效的方法：</p>
+<ul>
+<li><p><strong>原型法</strong></p>
+<ul>
+<li><p>用户调研+原型法——解决<strong>需求的模糊性</strong></p>
+</li>
+<li><p>原型既可以是可操作的软件界面，也可以是草图原型等</p>
+</li>
+<li><p>根据运用原型的目的与方式不同，可分为：</p>
+<ul>
+<li><p>快速原型</p>
+</li>
+<li><p>进化原型</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-深入观察与挖掘"><a href="#2-深入观察与挖掘" class="headerlink" title="2.深入观察与挖掘"></a>2.深入观察与挖掘</h4><p>目的是解决<strong>需求的隐蔽性</strong>(客户告知的需求是表象&#x2F;客户不愿告知&#x2F;客户未知)</p>
+<p>方法包括：</p>
+<ul>
+<li>现场观察与挖掘</li>
+<li>数据分析</li>
+<li>市场行业分析</li>
+<li>竞品分析</li>
+<li>头脑风暴</li>
+<li>群体化方法</li>
+</ul>
+<p>最有效的方法(理论)：</p>
+<ul>
+<li><strong>扎根蘑菇群理论</strong></li>
+<li><strong>黄金圈理论</strong><ul>
+<li>都属于<strong>现场观察与挖掘</strong>方法</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231205730694.png" alt="image-20241231205730694"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231205721846.png" alt="image-20241231205721846"></p>
+<h4 id="3-用例"><a href="#3-用例" class="headerlink" title="3.用例"></a>3.用例</h4><p>目的是解决<strong>需求的多样性</strong></p>
+<p>方法：</p>
+<ul>
+<li>针对不同用户的不同需求，回答：<ul>
+<li>系统应该为每个用户做什么<ul>
+<li>从每个用户case或story进行各项需求评判</li>
+</ul>
+</li>
+<li>有效界定系统范围，为整个用户提供最大价值</li>
+</ul>
+</li>
+</ul>
+<p>步骤：</p>
+<ul>
+<li>识别User类型</li>
+<li>Case&#x2F;Story构建(为所有用户)</li>
+<li>汇总、协商确定与优先级排序</li>
+</ul>
+<hr>
+<h3 id="4-例题-1"><a href="#4-例题-1" class="headerlink" title="4.例题"></a>4.例题</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231210002380.png" alt="image-20241231210002380"></p>
+<blockquote>
+<p>C</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231210011501.png" alt="image-20241231210011501"></p>
+<blockquote>
+<p>AB</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231210019979.png" alt="image-20241231210019979"></p>
+<blockquote>
+<p>BD</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231210027334.png" alt="image-20241231210027334"></p>
+<blockquote>
+<p>C</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231210933065.png" alt="image-20241231210933065"></p>
+<blockquote>
+<p>D</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231210943463.png" alt="image-20241231210943463"></p>
+<blockquote>
+<p>D</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231210951459.png" alt="image-20241231210951459"></p>
+<blockquote>
+<p>AD</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231211002068.png" alt="image-20241231211002068"></p>
+<blockquote>
+<p>ABCD</p>
+</blockquote>
+<hr>
+<h2 id="4-需求文档编写"><a href="#4-需求文档编写" class="headerlink" title="4.需求文档编写"></a>4.需求文档编写</h2><blockquote>
+<p>需求螺旋迭代过程的第二部分</p>
+</blockquote>
+<h3 id="1-需求规格说明的作用与要求"><a href="#1-需求规格说明的作用与要求" class="headerlink" title="1.需求规格说明的作用与要求"></a>1.需求规格说明的作用与要求</h3><p><strong>软件需求规格说明</strong>，简称<strong>SRS</strong>，也称为<strong>功能规格说明、产品规格说明、需求文档</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231211213825.png" alt="image-20241231211213825"></p>
+<h4 id="1-作用"><a href="#1-作用" class="headerlink" title="1.作用"></a>1.作用</h4><ul>
+<li>记录共识</li>
+<li>确认共识</li>
+<li>完整正确地传递共识给开发人员</li>
+</ul>
+<hr>
+<h4 id="2-撰写要求"><a href="#2-撰写要求" class="headerlink" title="2.撰写要求"></a>2.撰写要求</h4><p>撰写要求需要符合<strong>文档的软工原则</strong></p>
+<ul>
+<li>完整性<ul>
+<li>三个需求层次的需求都要在SRS中有对应的文档信息</li>
+<li>应涵盖需求两大类型</li>
+<li>涵盖不同用户需求</li>
+</ul>
+</li>
+<li>一致性<ul>
+<li>同一文档的需求一致</li>
+<li>不同用户的需求不相互矛盾</li>
+<li>不同层次需求的一致性</li>
+</ul>
+</li>
+<li>可阅读性<ul>
+<li>长度适当，版面规整，条理清楚，层次分明</li>
+</ul>
+</li>
+<li>无二义性<ul>
+<li>字面意思</li>
+</ul>
+</li>
+<li>可修改性<ul>
+<li>能依据该需求成功设计测试用例</li>
+</ul>
+</li>
+<li>可跟踪性</li>
+<li>可测试性</li>
+<li>可维护性</li>
+</ul>
+<hr>
+<h3 id="2-需求规格说明的撰写方法"><a href="#2-需求规格说明的撰写方法" class="headerlink" title="2.需求规格说明的撰写方法"></a>2.需求规格说明的撰写方法</h3><p>一般性方法：<strong>套用模板法</strong></p>
+<p>步骤：</p>
+<ul>
+<li>第一步：选择文档模板<ul>
+<li>行业内认可度高的模板&#x2F;企业已有模板</li>
+</ul>
+</li>
+<li>第二步：裁剪文档模板</li>
+<li>第三步：选择描述语言，进行文档写作<ul>
+<li>满足SRS的一般性要求</li>
+<li>描述语言包括<ul>
+<li>自然语言</li>
+<li>结构化语言(例如标准化的表格模板)</li>
+<li><strong>图形化的建模语言(如UML)</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-业务需求规格说明"><a href="#1-业务需求规格说明" class="headerlink" title="1.业务需求规格说明"></a>1.业务需求规格说明</h4><ul>
+<li>模板：<strong>项目前景与范围文档</strong></li>
+<li>来源：微软开发过程&#x2F;统一过程</li>
+<li>描述语言：<ul>
+<li>自然语言</li>
+<li>结构化自然语言(如标准化的表格模板)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231212037087.png" alt="image-20241231212037087"></p>
+<h4 id="2-用户需求规格说明"><a href="#2-用户需求规格说明" class="headerlink" title="2.用户需求规格说明"></a>2.用户需求规格说明</h4><ul>
+<li>模板：<strong>用例文档</strong></li>
+<li>来源：统一过程RUP的模板</li>
+<li>描述语言：<ul>
+<li>自然语言</li>
+<li>结构化自然语言</li>
+<li>图形化建模语言——UML</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231212126429.png" alt="image-20241231212126429"></p>
+<h4 id="3-系统需求规格说明"><a href="#3-系统需求规格说明" class="headerlink" title="3.系统需求规格说明"></a>3.系统需求规格说明</h4><ul>
+<li>模板：<strong>系统需求规格说明(系统SRS)</strong></li>
+<li>来源：IEEE 830-1998</li>
+<li>描述语言<ul>
+<li>自然语言</li>
+<li>结构化自然语言(如标准化的表格模板)</li>
+<li>图形(如用户界面原型图)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231212234587.png" alt="image-20241231212234587"></p>
+<hr>
+<h4 id="4-小结"><a href="#4-小结" class="headerlink" title="4.小结"></a>4.小结</h4><p>SRS的高效撰写</p>
+<ul>
+<li>方法：<strong>套用模板+UML可视化建模</strong></li>
+<li>对模板内容的深入理解<ul>
+<li>三个层次需求文档的依赖关系</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-需求分析建模与统一建模语言UML"><a href="#3-需求分析建模与统一建模语言UML" class="headerlink" title="3.需求分析建模与统一建模语言UML"></a>3.需求分析建模与统一建模语言UML</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231214112754.png" alt="image-20241231214112754"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231214119606.png" alt="image-20241231214119606"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231214130110.png" alt="image-20241231214130110"></p>
+<blockquote>
+<p>现在最新的UML标准是UML2.5</p>
+</blockquote>
+<p>具体的UML绘图会在后续章节讲述，此处省略</p>
+<hr>
+<h3 id="4-例题-2"><a href="#4-例题-2" class="headerlink" title="4.例题"></a>4.例题</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231214234759.png" alt="image-20241231214234759"></p>
+<blockquote>
+<p>D</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231214241696.png" alt="image-20241231214241696"></p>
+<blockquote>
+<p>C</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231214305121.png" alt="image-20241231214305121"></p>
+<blockquote>
+<p>C</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231214312172.png" alt="image-20241231214312172"></p>
+<blockquote>
+<p>A</p>
+</blockquote>
+<hr>
+<h2 id="5-需求验证与变更"><a href="#5-需求验证与变更" class="headerlink" title="5.需求验证与变更"></a>5.需求验证与变更</h2><h3 id="1-需求验证"><a href="#1-需求验证" class="headerlink" title="1.需求验证"></a>1.需求验证</h3><h4 id="1-意义"><a href="#1-意义" class="headerlink" title="1.意义"></a>1.意义</h4><p>需求验证的<strong>重要性</strong>：如果后续开发或系统投入使用时才发现需求文档中的错误，那么<strong>返工的代价更大</strong></p>
+<hr>
+<h4 id="2-任务"><a href="#2-任务" class="headerlink" title="2.任务"></a>2.任务</h4><p><strong>验证需求文档，发现错误&#x2F;伪需求并修改</strong></p>
+<ul>
+<li>有效性检查</li>
+<li>一致性检查</li>
+<li>完备性检查</li>
+<li>现实性检查&#x2F;可行性分析</li>
+</ul>
+<hr>
+<h4 id="3-方法"><a href="#3-方法" class="headerlink" title="3.方法"></a>3.方法</h4><ul>
+<li>需求评审<ul>
+<li>正式技术评审、非正式技术评审</li>
+<li>参与评审人员：用户&#x2F;客户、开发人员、测试人员、文档编写人员，项目经理等，7人左右</li>
+</ul>
+</li>
+<li>原型法<ul>
+<li>确定合适原型</li>
+<li>将需求验证涉及的<strong>业务过程或场景</strong>定义出来</li>
+<li>原型法与用例法结合</li>
+</ul>
+</li>
+<li>需求验证漏斗<ul>
+<li><strong>依据黄金圈法则</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231214814521.png" alt="image-20241231214814521"></p>
+<ul>
+<li>需求强调评估<ul>
+<li><strong>需求强度&#x3D;潜在用户数+使用频率</strong></li>
+</ul>
+</li>
+<li>编写测试用例</li>
+<li>编写用户手册</li>
+<li>自动的一致性分析(如CASE工具)</li>
+</ul>
+<hr>
+<h3 id="2-需求签约"><a href="#2-需求签约" class="headerlink" title="2.需求签约"></a>2.需求签约</h3><h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h4><p>需求验证结束后的重要工作——<strong>需求签约</strong></p>
+<ul>
+<li>软件需求签约，是<strong>软件项目最关键的一步</strong></li>
+<li>强调签约的必要性、权威性、严肃性、实用性是软件成功的基本保证</li>
+</ul>
+<h4 id="2-意义与内容"><a href="#2-意义与内容" class="headerlink" title="2.意义与内容"></a>2.意义与内容</h4><p><strong>意义：</strong></p>
+<ul>
+<li>对需求分析不断沟通完善的<strong>过程</strong>和过程产生的<strong>结果SRS</strong>的<strong>确认</strong></li>
+<li>签约一旦生效，表明：<ul>
+<li>同意了这份文档代表此刻对项目需求的最佳理解</li>
+<li>被确认的SRS是<strong>软件需求的基线</strong>，是<strong>后续软件开发和验收的依据</strong></li>
+</ul>
+</li>
+<li>对未来可能出现的需求变化的<strong>应对指南</strong><ul>
+<li>进一步变更将在此<strong>基线</strong>的基础上，依照项目的<strong>变更过程</strong>进行</li>
+<li>变更批准后，<strong>重新协商</strong>项目成本、资源、进度的约定</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-需求变更管理"><a href="#3-需求变更管理" class="headerlink" title="3.需求变更管理"></a>3.需求变更管理</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231215243053.png" alt="image-20241231215243053"></p>
+<hr>
+<h3 id="4-例题-3"><a href="#4-例题-3" class="headerlink" title="4.例题"></a>4.例题</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231215256022.png" alt="image-20241231215256022"></p>
+<blockquote>
+<p>A</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231215318031.png" alt="image-20241231215318031"></p>
+<blockquote>
+<p>D</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231215325316.png" alt="image-20241231215325316"></p>
+<blockquote>
+<p>C</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231215332655.png" alt="image-20241231215332655"></p>
+<blockquote>
+<p>AD</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241231215342284.png" alt="image-20241231215342284"></p>
+<blockquote>
+<p>D</p>
+</blockquote>
+<hr>
+<h2 id="6-统一过程"><a href="#6-统一过程" class="headerlink" title="6.统一过程"></a>6.统一过程</h2><blockquote>
+<p>统一过程，全称<strong>Rational Unified Process</strong>，即<strong>RUP</strong></p>
+<p>基于UML的过程框架</p>
+</blockquote>
+<h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><ul>
+<li>提出者：Rational公司+UML的创立者</li>
+<li><strong>RUP内容及特点</strong><ul>
+<li>一种典型完整的软件过程模式<ul>
+<li><strong>生命周期模型(过程模型)</strong></li>
+<li>人员</li>
+<li>方法</li>
+<li>产品</li>
+</ul>
+</li>
+<li>一种软件过程产品<ul>
+<li>Rational&#x2F;IBM开发维护</li>
+<li>与Rational一系列其他软件开发工具集成</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-RUP软件过程模型"><a href="#2-RUP软件过程模型" class="headerlink" title="2.RUP软件过程模型"></a>2.RUP软件过程模型</h3><h4 id="1-概要"><a href="#1-概要" class="headerlink" title="1.概要"></a>1.概要</h4><p><strong>迭代与增量的生命周期结构</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101193532446.png" alt="image-20250101193532446"></p>
+<ul>
+<li>横轴<ul>
+<li>时间组织</li>
+<li>体现动态结构<ul>
+<li><strong>生命周期中的动态结构——四个阶段</strong></li>
+</ul>
+</li>
+<li>术语：阶段、里程碑、迭代和增量<ul>
+<li>四个阶段：<strong>先启阶段</strong>，<strong>精化阶段</strong>，<strong>构建阶段</strong>，<strong>产品化阶段</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101193748180.png" alt="image-20250101193748180"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101193940309.png" alt="image-20250101193940309"></p>
+<ul>
+<li>纵轴<ul>
+<li>内容组织为<strong>逻辑活动</strong></li>
+<li>体现静态结构<ul>
+<li><strong>生命周期中的静态结构——9个核心工作流程</strong></li>
+</ul>
+</li>
+<li>术语：工作流程、活动、角色、工件<ul>
+<li>工作流程代表了所有角色、活动与工件的逻辑分组情况，即<strong>软件过程模式中的3个要素</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101194152360.png" alt="image-20250101194152360"></p>
+<hr>
+<h4 id="2-核心工作流程"><a href="#2-核心工作流程" class="headerlink" title="2.核心工作流程"></a>2.核心工作流程</h4><blockquote>
+<p><strong>生命周期中的静态结构——9个核心工作流程</strong></p>
+</blockquote>
+<p><strong>核心工作流程组成：</strong></p>
+<ul>
+<li><strong>核心过程工作流程</strong>：前6个<ul>
+<li>业务建模</li>
+<li>需求</li>
+<li>分析设计</li>
+<li>实施</li>
+<li>测试</li>
+<li>部署</li>
+</ul>
+</li>
+<li><strong>核心支持工作流程</strong>：后3个<ul>
+<li>配置与变更管理</li>
+<li>项目管理</li>
+<li>环境</li>
+</ul>
+</li>
+</ul>
+<p><strong>表示方法：</strong></p>
+<ul>
+<li>UML中：协同图、时序图、活动图</li>
+<li>RUP中：<strong>活动图</strong></li>
+</ul>
+<p><strong>内容：</strong></p>
+<ul>
+<li>一套完整的UML全色i官方使用指南</li>
+</ul>
+<hr>
+<h5 id="1-业务建模"><a href="#1-业务建模" class="headerlink" title="1.业务建模"></a>1.业务建模</h5><p>意义：</p>
+<ul>
+<li>打造软件核心竞争力</li>
+<li>不同的业务建模决定软件不同的命运</li>
+</ul>
+<p>启示：</p>
+<ul>
+<li>创新能力</li>
+<li>具备不同行业专业领域的专业知识</li>
+</ul>
+<h5 id="2-需求"><a href="#2-需求" class="headerlink" title="2.需求"></a>2.需求</h5><p>捕获需求，并使开发人员与客户就该需求达成共识</p>
+<p>使用<strong>用例方法</strong>——对需要的功能和约束进行提取、组织、文档化，理解系统所解决问题的定义和范围</p>
+<h5 id="3-分析设计"><a href="#3-分析设计" class="headerlink" title="3.分析设计"></a>3.分析设计</h5><p>将需求转化为未来系统的设计</p>
+<p><strong>以架构设计为核心</strong>——产品的适应性、可扩展性</p>
+<h5 id="7-配置与变更管理"><a href="#7-配置与变更管理" class="headerlink" title="7.配置与变更管理"></a>7.配置与变更管理</h5><p>描述如何再多个成员组成的项目中控制大量的产物，并提供了准则来管理演化系统中的多个变体，跟踪软件创建过程中的版本</p>
+<h5 id="8-项目管理"><a href="#8-项目管理" class="headerlink" title="8.项目管理"></a>8.项目管理</h5><p>平衡竞争的目标、管理风险、克服各种约束，从而成功交付使用户满意的产品</p>
+<h5 id="9-环境"><a href="#9-环境" class="headerlink" title="9.环境"></a>9.环境</h5><p>向软件开发组织提供软件开发的环境，包括过程和CASE工具</p>
+<hr>
+<h4 id="3-四个阶段"><a href="#3-四个阶段" class="headerlink" title="3.四个阶段"></a>3.四个阶段</h4><blockquote>
+<p><strong>生命周期中的动态结构——四个阶段</strong></p>
+</blockquote>
+<ul>
+<li>每个阶段：由1次或多次迭代完成</li>
+<li>迭代过程是受控的：<ul>
+<li>项目计划中：制定<ul>
+<li>迭代的次数</li>
+<li>每次迭代的持续时间</li>
+<li>每次迭代的目标</li>
+</ul>
+</li>
+<li>详细迭代计划中：制定<ul>
+<li>具体的工作流程</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-先启阶段"><a href="#1-先启阶段" class="headerlink" title="1.先启阶段"></a>1.先启阶段</h5><ul>
+<li>目标：建立业务用例、确定项目的范围和边界</li>
+<li>结束里程碑：<strong>生命周期目标里程碑</strong></li>
+<li>评审标准：</li>
+</ul>
+<h5 id="2-精化阶段"><a href="#2-精化阶段" class="headerlink" title="2.精化阶段"></a>2.精化阶段</h5><ul>
+<li>目标：建立稳定的架构、编址项目计划、淘汰项目中最高风险元素</li>
+<li>结束里程碑：<strong>生命周期架构里程碑</strong></li>
+<li>评审标准：</li>
+</ul>
+<h5 id="3-构建阶段"><a href="#3-构建阶段" class="headerlink" title="3.构建阶段"></a>3.构建阶段</h5><ul>
+<li>目标：所有构件和应用程序功能被开发并集成为产品、所有功能被详尽的测试</li>
+<li>结束里程碑：<strong>最初操作性能里程碑</strong></li>
+<li>评审标准：</li>
+</ul>
+<h5 id="4-产品化阶段"><a href="#4-产品化阶段" class="headerlink" title="4.产品化阶段"></a>4.产品化阶段</h5><ul>
+<li>目标：将软件产品交付给用户群体</li>
+<li>结束里程碑：<strong>产品发布里程碑</strong></li>
+<li>评审标准：</li>
+</ul>
+<hr>
+<h3 id="3-RUP与螺旋模型异同"><a href="#3-RUP与螺旋模型异同" class="headerlink" title="3.RUP与螺旋模型异同"></a>3.RUP与螺旋模型异同</h3><p><strong>相似点：</strong></p>
+<ul>
+<li><strong>迭代与增量：</strong>都采用迭代和增量式开发</li>
+<li><strong>风险管理</strong>：高度重视风险管理</li>
+</ul>
+<p><strong>不同点：</strong></p>
+<ul>
+<li><strong>生命周期的结构：</strong><ul>
+<li>RUP的生命周期模型分了4个阶段</li>
+<li>螺旋模型采用螺旋式的周期结构</li>
+</ul>
+</li>
+<li><strong>开发进程的管理方式：</strong><ul>
+<li>RUP采用相对严格的迭代流程，一个迭代周期内，多个工作流程可以并行</li>
+<li>螺旋模型强调串行的活动和连续的反馈</li>
+</ul>
+</li>
+<li><strong>关注的重点：</strong><ul>
+<li>RUP重视过程和质量管理</li>
+<li>螺旋模型重视风险管理</li>
+</ul>
+</li>
+<li><strong>适用范围与灵活性</strong><ul>
+<li>RUP适合中到大型的软件开发项目，特别适用于有多个团队协作的复杂项目</li>
+<li>螺旋模型适用于风险较高的项目，特别是在需求不确定或项目规模较大时</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-例题-4"><a href="#4-例题-4" class="headerlink" title="4.例题"></a>4.例题</h3><blockquote>
+<p>在统一过程的九大核心工作流程中，第一项工作流程为什么不是<strong>需求</strong>？是否与软件过程框架冲突？</p>
+</blockquote>
+<ul>
+<li>统一过程强调的不仅是技术问题，还涉及商业和组织方面的考虑。<strong>业务建模优先的稳定性强</strong></li>
+<li>RUP中，<strong>通过业务建模提前确保开发工作与业务需求保持一致，是一种增强需求管理的方式</strong>，不冲突</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101200630699.png" alt="image-20250101200630699"></p>
+<blockquote>
+<p>B</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101200639209.png" alt="image-20250101200639209"></p>
+<blockquote>
+<p>B</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101200646351.png" alt="image-20250101200646351"></p>
+<blockquote>
+<p>ACD</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101200739676.png" alt="image-20250101200739676"></p>
+<blockquote>
+<p>并行的关键在于，第n步的设计是基于第n-1步需求的，这样才能<strong>并行</strong></p>
+</blockquote>
+<h2 id="7-敏捷过程"><a href="#7-敏捷过程" class="headerlink" title="7.敏捷过程"></a>7.敏捷过程</h2><blockquote>
+<p><strong>敏捷过程</strong>，全称<strong>Agile Process</strong>，即<strong>AP</strong>，中文名又称<strong>敏捷开发&#x2F;敏捷实践</strong></p>
+</blockquote>
+<h3 id="1-概述-1"><a href="#1-概述-1" class="headerlink" title="1.概述"></a>1.概述</h3><ul>
+<li><p>AP的提出</p>
+<ul>
+<li>互联网广泛应用后</li>
+<li>为了矫正繁琐的软件过程</li>
+<li><strong>2001年2月正式发布敏捷软件宣言</strong></li>
+</ul>
+</li>
+<li><p>AP内容及特点</p>
+<ul>
+<li><strong>软件开发宣言</strong><ul>
+<li><strong>使用AP的软件团队具有快速工作、快速响应变化的能力</strong></li>
+</ul>
+</li>
+<li><strong>4条基本价值观+12条原则</strong><ul>
+<li>过程模型+人员+方法+产品及关系</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>AP旗下的敏捷型软件过程流派</p>
+<ul>
+<li>重点讲述<strong>SCRUM</strong>和<strong>极限编程XP(eXtreme Programming)</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101201240320.png" alt="image-20250101201240320"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101201256723.png" alt="image-20250101201256723"></p>
+<ul>
+<li>AP的掌握与应用<ul>
+<li>思想方式较为<strong>前卫</strong></li>
+<li><strong>宣言定义的只是偏好，并不是说完全排斥某些东西，而是更重视一方</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-敏捷过程的价值观与原则"><a href="#2-敏捷过程的价值观与原则" class="headerlink" title="2.敏捷过程的价值观与原则"></a>2.敏捷过程的价值观与原则</h3><h4 id="1-12条原则"><a href="#1-12条原则" class="headerlink" title="1.12条原则"></a>1.12条原则</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101201445449.png" alt="image-20250101201445449"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101201456253.png" alt="image-20250101201456253"></p>
+<hr>
+<h4 id="2-4条价值观"><a href="#2-4条价值观" class="headerlink" title="2.4条价值观"></a>2.4条价值观</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101201537241.png" alt="image-20250101201537241"></p>
+<ul>
+<li><strong>个体和交互</strong>胜过<strong>过程和工具</strong><ul>
+<li>人是最重要因素</li>
+<li>当然不用过程和工具也很蠢</li>
+</ul>
+</li>
+<li><strong>可以工作的软件</strong>胜过<strong>面面俱到的文档</strong><ul>
+<li>软件开发的主要目标，是交付给用户可以工作的软件</li>
+<li><strong>过多</strong>的面面俱到文档比<strong>过少</strong>的文档更糟<ul>
+<li>耗费时间精力，甚至与代码不同步时产生误导</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>客户合作</strong>胜过<strong>合同谈判</strong><ul>
+<li>客户不可能一次性把需求全搞清楚发给乙方</li>
+</ul>
+</li>
+<li><strong>响应变化</strong>胜过<strong>遵循计划</strong><ul>
+<li>变化是事实</li>
+<li><strong>响应变化胜过遵循计划的意义在于——变更代表机遇</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-例题"><a href="#3-例题" class="headerlink" title="3.例题"></a>3.例题</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101201959159.png" alt="image-20250101201959159"></p>
+<blockquote>
+<p>AB</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101202009564.png" alt="image-20250101202009564"></p>
+<blockquote>
+<p>A</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101202047695.png" alt="image-20250101202047695"></p>
+<blockquote>
+<p>B</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101202103360.png" alt="image-20250101202103360"></p>
+<blockquote>
+<p>D</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101202109298.png" alt="image-20250101202109298"></p>
+<blockquote>
+<p>A</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101202114672.png" alt="image-20250101202114672"></p>
+<blockquote>
+<p>AD</p>
+</blockquote>
+<h3 id="4-极限编程"><a href="#4-极限编程" class="headerlink" title="4.极限编程"></a>4.极限编程</h3><blockquote>
+<p>极限编程，全称<strong>eXtreme Programming</strong>，即<strong>XP</strong></p>
+<ul>
+<li>敏捷过程模型+方法技术</li>
+</ul>
+</blockquote>
+<h4 id="1-过程模型"><a href="#1-过程模型" class="headerlink" title="1.过程模型"></a>1.过程模型</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101202312113.png" alt="image-20250101202312113"></p>
+<hr>
+<h4 id="2-技术方法"><a href="#2-技术方法" class="headerlink" title="2.技术方法"></a>2.技术方法</h4><p><strong>提出了14项最佳实践(技术方法)</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101202352420.png" alt="image-20250101202352420"></p>
+<ul>
+<li><p>用户素材与用户故事</p>
+<ul>
+<li>用户素材<ul>
+<li>正在进行的关于需求谈话的<strong>助记符</strong></li>
+<li>一个<strong>计划工具</strong>，客户使用它并根据它的优先级和估算代价来安排实现该需求的时间</li>
+</ul>
+</li>
+<li>用户故事(User Story)<ul>
+<li>将故事分解为任务用于规划系统迭代</li>
+<li>类似于RUP的User Case</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>结对编程</p>
+<ul>
+<li>两个开发人员，同一台电脑，一个编程，一个保证代码正确性可读性</li>
+<li>作用：<strong>非正式的同级评审-代码复审</strong></li>
+<li>注意：结对编程是加强开发人员沟通评审的一种方式，但<strong>不唯一</strong></li>
+</ul>
+</li>
+<li><p>测试驱动开发</p>
+<ul>
+<li><strong>XP强调测试先行</strong><ul>
+<li>编码前，先把测试写好</li>
+</ul>
+</li>
+<li><strong>测试自动化是测试先行的必要条件</strong></li>
+<li>与RUP相比：<ul>
+<li>RUP和XP对测试都很重视，但是<strong>两者对于测试在整个项目开发周期内首先出现的位置的处理不同</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>重构</p>
+<ul>
+<li>调整、优化系统内部结构，减少复杂性、消除冗余、增加灵活性、提高性能</li>
+<li><strong>运用方法：</strong><ul>
+<li>代码重构与<strong>简单化设计思想</strong>一脉相承</li>
+<li>注意不要过分依赖重构，而轻视设计</li>
+</ul>
+</li>
+<li>对比RUP：RUP<strong>以构架为中心</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="3-内核"><a href="#3-内核" class="headerlink" title="3.内核"></a>3.内核</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101203032473.png" alt="image-20250101203032473"></p>
+<hr>
+<h3 id="5-SCRUM"><a href="#5-SCRUM" class="headerlink" title="5.SCRUM"></a>5.SCRUM</h3><h4 id="1-概述-2"><a href="#1-概述-2" class="headerlink" title="1.概述"></a>1.概述</h4><ul>
+<li>发展史：<ul>
+<li>1980，两个人在IBM项目合作中诞生SCRUM</li>
+</ul>
+</li>
+<li>内容：<ul>
+<li><strong>包括一系列实践的过程框架和预定义角色</strong></li>
+</ul>
+</li>
+<li>目的：<ul>
+<li><strong>一定程度上提供敏捷项目进展状况的外部可见性</strong></li>
+</ul>
+</li>
+<li>影响力：<ul>
+<li>被PLOP作为组织和过程模式的标准</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="2-过程模型"><a href="#2-过程模型" class="headerlink" title="2.过程模型"></a>2.过程模型</h4><p><strong>SCRUM过程模型也是一种迭代式增量的过程</strong></p>
+<ul>
+<li>SCRUM的生命周期是<strong>不停循环</strong>的</li>
+<li>整个生命周期在<strong>固定的时间段内完成</strong>，称为<strong>Sprint</strong><ul>
+<li><strong>Sprint</strong>通常需要2-4周</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101203530183.png" alt="image-20250101203530183"></p>
+<h5 id="1-计划和体系结构设计"><a href="#1-计划和体系结构设计" class="headerlink" title="1.计划和体系结构设计"></a>1.计划和体系结构设计</h5><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101203543527.png" alt="image-20250101203543527"></p>
+<hr>
+<h5 id="2-Sprint"><a href="#2-Sprint" class="headerlink" title="2.Sprint"></a>2.Sprint</h5><ul>
+<li>Sprint周期在<strong>2-4周</strong></li>
+<li>Spring产出是可用的、潜在可发布的产品增量</li>
+<li>Sprint迭代周期长度<strong>一旦确定就保持不变</strong></li>
+<li>Sprint进行过程中，<strong>开发目标、质量验收标准、团队构成不再变化</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101203551006.png" alt="image-20250101203551006"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101203641452.png" alt="image-20250101203641452"></p>
+<hr>
+<h5 id="3-交付和巩固"><a href="#3-交付和巩固" class="headerlink" title="3.交付和巩固"></a>3.交付和巩固</h5><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101203722844.png" alt="image-20250101203722844"></p>
+<hr>
+<h5 id="4-SCRUM特点"><a href="#4-SCRUM特点" class="headerlink" title="4.SCRUM特点"></a>4.SCRUM特点</h5><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101203834211.png" alt="image-20250101203834211"></p>
+<h4 id="3-与螺旋模型的对比"><a href="#3-与螺旋模型的对比" class="headerlink" title="3.与螺旋模型的对比"></a>3.与螺旋模型的对比</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101203903251.png" alt="image-20250101203903251"></p>
+<h4 id="4-角色"><a href="#4-角色" class="headerlink" title="4.角色"></a>4.角色</h4><p>分为了<strong>猪组角色和鸡组角色</strong></p>
+<ul>
+<li>猪组：无退路，开发人员</li>
+<li>鸡组：参与项目，失败了损失不大，用户、客户等</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101203923636.png" alt="image-20250101203923636"></p>
+<hr>
+<h3 id="6-例题2"><a href="#6-例题2" class="headerlink" title="6.例题2"></a>6.例题2</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101204043059.png" alt="image-20250101204043059"></p>
+<blockquote>
+<p>C</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101204057314.png" alt="image-20250101204057314"></p>
+<blockquote>
+<p>A</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250101204103311.png" alt="image-20250101204103311"></p>
+<blockquote>
+<p>ABC</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://SomeFnone.github.io">魔法猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://somefnone.github.io/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/">http://somefnone.github.io/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SomeFnone.github.io" target="_blank">Wizard Cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a></div><div class="post_share"><div class="social-share" data-image="/img/BWeLyHqW.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/12/24/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%B7%AF%E5%B1%82/" title="计网学习笔记-链路层"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计网学习笔记-链路层</div></div></a></div><div class="next-post pull-right"><a href="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/" title="软件工程导论笔记-2"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">软件工程导论笔记-2</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">魔法猫猫头</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SomeFnone" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1229172423@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">计算机网络笔记,堂堂完结!接下来赶到战场的是完全没做笔记的软工导论!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA"><span class="toc-text">软件工程导论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E6%A6%82%E8%BF%B0"><span class="toc-text">1.软件工程概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%BD%AF%E4%BB%B6%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-text">1.软件的本质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-text">2.软件工程的概念与发展历程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8E%86%E7%A8%8B"><span class="toc-text">1.历程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BE%8B%E9%A2%98"><span class="toc-text">2.例题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B%E6%A6%82%E5%BF%B5%E4%B8%8E%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.软件过程概念与软件过程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8E%86%E7%A8%8B-1"><span class="toc-text">1.历程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AE%9A%E4%B9%89"><span class="toc-text">2.定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B%E6%A1%86%E6%9E%B6"><span class="toc-text">3.软件过程框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.软件过程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">1.瀑布模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">2.原型模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E8%9E%BA%E6%97%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.螺旋模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%A2%9E%E9%87%8F%E6%A8%A1%E5%9E%8B"><span class="toc-text">4.增量模型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E8%BD%AF%E4%BB%B6%E8%83%BD%E5%8A%9B%E8%AF%84%E4%BC%B0%E6%A0%87%E5%87%86"><span class="toc-text">5.软件能力评估标准</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%B0%8F%E7%BB%93"><span class="toc-text">6.小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BE%8B%E9%A2%98"><span class="toc-text">4.例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B%E6%A6%82%E8%BF%B0"><span class="toc-text">2.需求工程概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%9C%80%E6%B1%82%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">1.需求的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%9C%80%E6%B1%82%E7%9A%84%E6%84%8F%E4%B9%89"><span class="toc-text">2.需求的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%9C%80%E6%B1%82%E7%9A%84%E5%B1%82%E6%AC%A1"><span class="toc-text">3.需求的层次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%9C%80%E6%B1%82%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">4.需求的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%B1%82%E6%AC%A1%E4%B8%8E%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">5.层次与类型的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B%E8%BF%87%E7%A8%8B"><span class="toc-text">6.需求工程过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B"><span class="toc-text">1.需求工程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B%E8%BF%87%E7%A8%8B"><span class="toc-text">2.需求工程过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B%E6%96%B9%E6%B3%95"><span class="toc-text">3.需求工程方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E4%BE%8B%E9%A2%98"><span class="toc-text">7.例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%9C%80%E6%B1%82%E8%8E%B7%E5%8F%96%E4%B8%8E%E5%88%86%E6%9E%90"><span class="toc-text">3.需求获取与分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E8%B7%AF%E5%BE%84%E4%B8%8E%E6%96%B9%E6%B3%95"><span class="toc-text">1.基本路径与方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%98"><span class="toc-text">2.面临的挑战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%8E%B7%E5%8F%96%E4%B8%8E%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-text">3.获取与分析方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%94%A8%E6%88%B7%E8%B0%83%E7%A0%94"><span class="toc-text">1.用户调研</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%B7%B1%E5%85%A5%E8%A7%82%E5%AF%9F%E4%B8%8E%E6%8C%96%E6%8E%98"><span class="toc-text">2.深入观察与挖掘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%94%A8%E4%BE%8B"><span class="toc-text">3.用例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BE%8B%E9%A2%98-1"><span class="toc-text">4.例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%E7%BC%96%E5%86%99"><span class="toc-text">4.需求文档编写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E8%A6%81%E6%B1%82"><span class="toc-text">1.需求规格说明的作用与要求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BD%9C%E7%94%A8"><span class="toc-text">1.作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%92%B0%E5%86%99%E8%A6%81%E6%B1%82"><span class="toc-text">2.撰写要求</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E%E7%9A%84%E6%92%B0%E5%86%99%E6%96%B9%E6%B3%95"><span class="toc-text">2.需求规格说明的撰写方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%B8%9A%E5%8A%A1%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E"><span class="toc-text">1.业务需求规格说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E"><span class="toc-text">2.用户需求规格说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%B3%BB%E7%BB%9F%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E"><span class="toc-text">3.系统需求规格说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%B0%8F%E7%BB%93"><span class="toc-text">4.小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%BB%BA%E6%A8%A1%E4%B8%8E%E7%BB%9F%E4%B8%80%E5%BB%BA%E6%A8%A1%E8%AF%AD%E8%A8%80UML"><span class="toc-text">3.需求分析建模与统一建模语言UML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BE%8B%E9%A2%98-2"><span class="toc-text">4.例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%9C%80%E6%B1%82%E9%AA%8C%E8%AF%81%E4%B8%8E%E5%8F%98%E6%9B%B4"><span class="toc-text">5.需求验证与变更</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%9C%80%E6%B1%82%E9%AA%8C%E8%AF%81"><span class="toc-text">1.需求验证</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%84%8F%E4%B9%89"><span class="toc-text">1.意义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BB%BB%E5%8A%A1"><span class="toc-text">2.任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%96%B9%E6%B3%95"><span class="toc-text">3.方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%9C%80%E6%B1%82%E7%AD%BE%E7%BA%A6"><span class="toc-text">2.需求签约</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%84%8F%E4%B9%89%E4%B8%8E%E5%86%85%E5%AE%B9"><span class="toc-text">2.意义与内容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%9C%80%E6%B1%82%E5%8F%98%E6%9B%B4%E7%AE%A1%E7%90%86"><span class="toc-text">3.需求变更管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BE%8B%E9%A2%98-3"><span class="toc-text">4.例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E7%BB%9F%E4%B8%80%E8%BF%87%E7%A8%8B"><span class="toc-text">6.统一过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-RUP%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">2.RUP软件过程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%A6%82%E8%A6%81"><span class="toc-text">1.概要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%A0%B8%E5%BF%83%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-text">2.核心工作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%B8%9A%E5%8A%A1%E5%BB%BA%E6%A8%A1"><span class="toc-text">1.业务建模</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%9C%80%E6%B1%82"><span class="toc-text">2.需求</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%88%86%E6%9E%90%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.分析设计</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-%E9%85%8D%E7%BD%AE%E4%B8%8E%E5%8F%98%E6%9B%B4%E7%AE%A1%E7%90%86"><span class="toc-text">7.配置与变更管理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86"><span class="toc-text">8.项目管理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-%E7%8E%AF%E5%A2%83"><span class="toc-text">9.环境</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%9B%9B%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="toc-text">3.四个阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%85%88%E5%90%AF%E9%98%B6%E6%AE%B5"><span class="toc-text">1.先启阶段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E7%B2%BE%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="toc-text">2.精化阶段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E6%9E%84%E5%BB%BA%E9%98%B6%E6%AE%B5"><span class="toc-text">3.构建阶段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E4%BA%A7%E5%93%81%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="toc-text">4.产品化阶段</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-RUP%E4%B8%8E%E8%9E%BA%E6%97%8B%E6%A8%A1%E5%9E%8B%E5%BC%82%E5%90%8C"><span class="toc-text">3.RUP与螺旋模型异同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BE%8B%E9%A2%98-4"><span class="toc-text">4.例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%95%8F%E6%8D%B7%E8%BF%87%E7%A8%8B"><span class="toc-text">7.敏捷过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0-1"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%95%8F%E6%8D%B7%E8%BF%87%E7%A8%8B%E7%9A%84%E4%BB%B7%E5%80%BC%E8%A7%82%E4%B8%8E%E5%8E%9F%E5%88%99"><span class="toc-text">2.敏捷过程的价值观与原则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-12%E6%9D%A1%E5%8E%9F%E5%88%99"><span class="toc-text">1.12条原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4%E6%9D%A1%E4%BB%B7%E5%80%BC%E8%A7%82"><span class="toc-text">2.4条价值观</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BE%8B%E9%A2%98"><span class="toc-text">3.例题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%9E%81%E9%99%90%E7%BC%96%E7%A8%8B"><span class="toc-text">4.极限编程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">1.过程模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%8A%80%E6%9C%AF%E6%96%B9%E6%B3%95"><span class="toc-text">2.技术方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%86%85%E6%A0%B8"><span class="toc-text">3.内核</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-SCRUM"><span class="toc-text">5.SCRUM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0-2"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">2.过程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E8%AE%A1%E5%88%92%E5%92%8C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">1.计划和体系结构设计</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-Sprint"><span class="toc-text">2.Sprint</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BA%A4%E4%BB%98%E5%92%8C%E5%B7%A9%E5%9B%BA"><span class="toc-text">3.交付和巩固</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-SCRUM%E7%89%B9%E7%82%B9"><span class="toc-text">4.SCRUM特点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%B8%8E%E8%9E%BA%E6%97%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-text">3.与螺旋模型的对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%A7%92%E8%89%B2"><span class="toc-text">4.角色</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%BE%8B%E9%A2%982"><span class="toc-text">6.例题2</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/" title="软件工程导论笔记-2">软件工程导论笔记-2</a><time datetime="2025-01-01T12:53:31.000Z" title="发表于 2025-01-01 20:53:31">2025-01-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1">软件工程导论笔记-1</a><time datetime="2024-12-31T11:04:58.000Z" title="发表于 2024-12-31 19:04:58">2024-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/24/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%B7%AF%E5%B1%82/" title="计网学习笔记-链路层">计网学习笔记-链路层</a><time datetime="2024-12-24T06:49:00.000Z" title="发表于 2024-12-24 14:49:00">2024-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/23/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(控制平面)">计网学习笔记-网络层(控制平面)</a><time datetime="2024-12-23T13:23:00.000Z" title="发表于 2024-12-23 21:23:00">2024-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(数据平面)">计网学习笔记-网络层(数据平面)</a><time datetime="2024-11-01T06:13:27.000Z" title="发表于 2024-11-01 14:13:27">2024-11-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 魔法猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
