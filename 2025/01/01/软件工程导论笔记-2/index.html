@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>软件工程导论笔记-2 | Wizard Cat</title><meta name="author" content="魔法猫猫头"><meta name="copyright" content="魔法猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="软件工程导论 该部分由胡军老师负责讲解  1.软件设计基础1.概述 何为软件设计？ 针对软件需求，综合考虑各种制约因素，探究软件实现的解决方案   设计前提：软件需求 软件设计就是要给出软件需求实现的解决方案   设计考虑：制约因素 资源：时间、人力、财力 技术：技术平台，如DBMS还是文件系统     2.软件设计层次 3.软件设计的质量需求 设计的多样性何差异性：质量   4.软件设计过程">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>软件工程导论笔记-2 | Wizard Cat</title><meta name="author" content="魔法猫猫头"><meta name="copyright" content="魔法猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="软件工程导论  该部分由胡军老师负责讲解  1.软件设计基础 1.概述  何为软件设计？  针对软件需求，综合考虑各种制约因素，探究软件实现的解决方案   设计前提：软件需求  软件设计就是要给出软件需求实现的解决方案   设计考虑：制约因素  资源：时间、人力、财力 技术：技术平台，如DBMS还是文件系统     2.软件设计层次  3.软件设计的质量需求  设计的多样性何差异性：质量   4">
 <meta property="og:type" content="article">
 <meta property="og:title" content="软件工程导论笔记-2">
 <meta property="og:url" content="http://somefnone.github.io/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/index.html">
 <meta property="og:site_name" content="Wizard Cat">
-<meta property="og:description" content="软件工程导论 该部分由胡军老师负责讲解  1.软件设计基础1.概述 何为软件设计？ 针对软件需求，综合考虑各种制约因素，探究软件实现的解决方案   设计前提：软件需求 软件设计就是要给出软件需求实现的解决方案   设计考虑：制约因素 资源：时间、人力、财力 技术：技术平台，如DBMS还是文件系统     2.软件设计层次 3.软件设计的质量需求 设计的多样性何差异性：质量   4.软件设计过程">
+<meta property="og:description" content="软件工程导论  该部分由胡军老师负责讲解  1.软件设计基础 1.概述  何为软件设计？  针对软件需求，综合考虑各种制约因素，探究软件实现的解决方案   设计前提：软件需求  软件设计就是要给出软件需求实现的解决方案   设计考虑：制约因素  资源：时间、人力、财力 技术：技术平台，如DBMS还是文件系统     2.软件设计层次  3.软件设计的质量需求  设计的多样性何差异性：质量   4">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://somefnone.github.io/img/BWeLyHqW.jpg">
 <meta property="article:published_time" content="2025-01-01T12:53:31.000Z">
-<meta property="article:modified_time" content="2025-01-02T12:19:24.930Z">
+<meta property="article:modified_time" content="2025-01-02T12:40:45.540Z">
 <meta property="article:author" content="魔法猫猫头">
 <meta property="article:tag" content="软件工程导论">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2025-01-02 20:19:24'
+  postUpdate: '2025-01-02 20:40:45'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -174,62 +174,84 @@
     document.addEventListener('pjax:send', () => { preloader.initLoading() })
     document.addEventListener('pjax:complete', () => { preloader.endLoading() })
   }
-})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/BWeLyHqW.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Wizard Cat"><span class="site-name">Wizard Cat</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">软件工程导论笔记-2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-01T12:53:31.000Z" title="发表于 2025-01-01 20:53:31">2025-01-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-02T12:19:24.930Z" title="更新于 2025-01-02 20:19:24">2025-01-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/lesson-note/">lesson note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer">
-
-<h1 id="软件工程导论"><a href="#软件工程导论" class="headerlink" title="软件工程导论"></a>软件工程导论</h1><blockquote>
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/BWeLyHqW.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Wizard Cat"><span class="site-name">Wizard Cat</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">软件工程导论笔记-2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-01T12:53:31.000Z" title="发表于 2025-01-01 20:53:31">2025-01-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-02T12:40:45.540Z" title="更新于 2025-01-02 20:40:45">2025-01-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/lesson-note/">lesson note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer">
+<h1>软件工程导论</h1>
+<blockquote>
 <p>该部分由胡军老师负责讲解</p>
 </blockquote>
-<h2 id="1-软件设计基础"><a href="#1-软件设计基础" class="headerlink" title="1.软件设计基础"></a>1.软件设计基础</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><ul>
-<li>何为软件设计？<ul>
+<h2 id="1-软件设计基础">1.软件设计基础</h2>
+<h3 id="1-概述">1.概述</h3>
+<ul>
+<li>何为软件设计？
+<ul>
 <li>针对软件需求，综合考虑各种制约因素，探究软件实现的解决方案</li>
 </ul>
 </li>
-<li>设计前提：<strong>软件需求</strong><ul>
+<li>设计前提：<strong>软件需求</strong>
+<ul>
 <li>软件设计就是要给出软件需求实现的解决方案</li>
 </ul>
 </li>
-<li>设计考虑：<strong>制约因素</strong><ul>
+<li>设计考虑：<strong>制约因素</strong>
+<ul>
 <li>资源：时间、人力、财力</li>
 <li>技术：技术平台，如DBMS还是文件系统</li>
 </ul>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194131506.png" alt="image-20250102194131506"></p>
-<h3 id="2-软件设计层次"><a href="#2-软件设计层次" class="headerlink" title="2.软件设计层次"></a>2.软件设计层次</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194216034.png" alt="image-20250102194216034"></p>
-<h3 id="3-软件设计的质量需求"><a href="#3-软件设计的质量需求" class="headerlink" title="3.软件设计的质量需求"></a>3.软件设计的质量需求</h3><ul>
+<h3 id="2-软件设计层次">2.软件设计层次</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194216034.png" alt="image-20250102194216034"></p>
+<h3 id="3-软件设计的质量需求">3.软件设计的质量需求</h3>
+<ul>
 <li><strong>设计的多样性何差异性：质量</strong></li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194312298.png" alt="image-20250102194312298"></p>
-<h3 id="4-软件设计过程"><a href="#4-软件设计过程" class="headerlink" title="4.软件设计过程"></a>4.软件设计过程</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194330033.png" alt="image-20250102194330033"></p>
-<h4 id="1-软件体系结构设计"><a href="#1-软件体系结构设计" class="headerlink" title="1.软件体系结构设计"></a>1.软件体系结构设计</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194347217.png" alt="image-20250102194347217"></p>
+<h3 id="4-软件设计过程">4.软件设计过程</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194330033.png" alt="image-20250102194330033"></p>
+<h4 id="1-软件体系结构设计">1.软件体系结构设计</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194347217.png" alt="image-20250102194347217"></p>
 <ul>
-<li>风格包括：<ul>
+<li>风格包括：
+<ul>
 <li>分层体系结构风格</li>
 </ul>
 </li>
 </ul>
-<h4 id="2-用户界面设计"><a href="#2-用户界面设计" class="headerlink" title="2.用户界面设计"></a>2.用户界面设计</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194431972.png" alt="image-20250102194431972"></p>
-<h4 id="3-软件详细设计"><a href="#3-软件详细设计" class="headerlink" title="3.软件详细设计"></a>3.软件详细设计</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194445793.png" alt="image-20250102194445793"></p>
-<h4 id="4-其他工作"><a href="#4-其他工作" class="headerlink" title="4.其他工作"></a>4.其他工作</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194527214.png" alt="image-20250102194527214"></p>
-<h3 id="5-常用设计概念"><a href="#5-常用设计概念" class="headerlink" title="5.常用设计概念"></a>5.常用设计概念</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194544408.png" alt="image-20250102194544408"></p>
-<h4 id="1-分解与抽象"><a href="#1-分解与抽象" class="headerlink" title="1.分解与抽象"></a>1.分解与抽象</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194714259.png" alt="image-20250102194714259"></p>
-<h4 id="2-关注点分离"><a href="#2-关注点分离" class="headerlink" title="2.关注点分离"></a>2.关注点分离</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194728607.png" alt="image-20250102194728607"></p>
+<h4 id="2-用户界面设计">2.用户界面设计</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194431972.png" alt="image-20250102194431972"></p>
+<h4 id="3-软件详细设计">3.软件详细设计</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194445793.png" alt="image-20250102194445793"></p>
+<h4 id="4-其他工作">4.其他工作</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194527214.png" alt="image-20250102194527214"></p>
+<h3 id="5-常用设计概念">5.常用设计概念</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194544408.png" alt="image-20250102194544408"></p>
+<h4 id="1-分解与抽象">1.分解与抽象</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194714259.png" alt="image-20250102194714259"></p>
+<h4 id="2-关注点分离">2.关注点分离</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194728607.png" alt="image-20250102194728607"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194742562.png" alt="image-20250102194742562"></p>
-<h4 id="3-模块化"><a href="#3-模块化" class="headerlink" title="3.模块化"></a>3.模块化</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194757203.png" alt="image-20250102194757203"></p>
+<h4 id="3-模块化">3.模块化</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194757203.png" alt="image-20250102194757203"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201912588.png" alt="image-20250102201912588"></p>
 <p><strong>衡量模块独立性的是：内聚度何耦合度</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194827975.png" alt="image-20250102194827975"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194834948.png" alt="image-20250102194834948"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194841887.png" alt="image-20250102194841887"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194846035.png" alt="image-20250102194846035"></p>
-<h4 id="4-信息隐藏"><a href="#4-信息隐藏" class="headerlink" title="4.信息隐藏"></a>4.信息隐藏</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194906381.png" alt="image-20250102194906381"></p>
+<h4 id="4-信息隐藏">4.信息隐藏</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194906381.png" alt="image-20250102194906381"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194912796.png" alt="image-20250102194912796"></p>
-<h4 id="5-重构"><a href="#5-重构" class="headerlink" title="5.重构"></a>5.重构</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194925634.png" alt="image-20250102194925634"></p>
-<h4 id="6-复用"><a href="#6-复用" class="headerlink" title="6.复用"></a>6.复用</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194935647.png" alt="image-20250102194935647"></p>
-<h3 id="6-面向对象软件设计方法学"><a href="#6-面向对象软件设计方法学" class="headerlink" title="6.面向对象软件设计方法学"></a>6.面向对象软件设计方法学</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194957940.png" alt="image-20250102194957940"></p>
+<h4 id="5-重构">5.重构</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194925634.png" alt="image-20250102194925634"></p>
+<h4 id="6-复用">6.复用</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194935647.png" alt="image-20250102194935647"></p>
+<h3 id="6-面向对象软件设计方法学">6.面向对象软件设计方法学</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194957940.png" alt="image-20250102194957940"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195009342.png" alt="image-20250102195009342"></p>
 <ul>
-<li><strong>面向对象软件设计的优势</strong><ul>
+<li><strong>面向对象软件设计的优势</strong>
+<ul>
 <li>高层抽象与自然过渡</li>
 <li>多种形式和粗粒度的软件重用</li>
 <li>系统化的软件设计</li>
@@ -237,43 +259,59 @@
 </ul>
 </li>
 </ul>
-<h3 id="7-软件设计输出及评审"><a href="#7-软件设计输出及评审" class="headerlink" title="7.软件设计输出及评审"></a>7.软件设计输出及评审</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195139625.png" alt="image-20250102195139625"></p>
+<h3 id="7-软件设计输出及评审">7.软件设计输出及评审</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195139625.png" alt="image-20250102195139625"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195158662.png" alt="image-20250102195158662"></p>
-<h3 id="8-小结"><a href="#8-小结" class="headerlink" title="8.小结"></a>8.小结</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195212849.png" alt="image-20250102195212849"></p>
+<h3 id="8-小结">8.小结</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195212849.png" alt="image-20250102195212849"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195234041.png" alt="image-20250102195234041"></p>
 <blockquote>
 <p>C</p>
 </blockquote>
-<h2 id="2-软件体系结构设计"><a href="#2-软件体系结构设计" class="headerlink" title="2.软件体系结构设计"></a>2.软件体系结构设计</h2><h3 id="1-概述-1"><a href="#1-概述-1" class="headerlink" title="1.概述"></a>1.概述</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195409305.png" alt="image-20250102195409305"></p>
+<h2 id="2-软件体系结构设计">2.软件体系结构设计</h2>
+<h3 id="1-概述-2">1.概述</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195409305.png" alt="image-20250102195409305"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195416604.png" alt="1"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195427207.png" alt="image-20250102195427207"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195440512.png" alt="image-20250102195440512"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195445344.png" alt="image-20250102195445344"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195453096.png" alt="image-20250102195453096"></p>
-<h3 id="2-软件体系结构的设计元素"><a href="#2-软件体系结构的设计元素" class="headerlink" title="2.软件体系结构的设计元素"></a>2.软件体系结构的设计元素</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195518302.png" alt="image-20250102195518302"></p>
+<h3 id="2-软件体系结构的设计元素">2.软件体系结构的设计元素</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195518302.png" alt="image-20250102195518302"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195525118.png" alt="image-20250102195525118"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195536408.png" alt="image-20250102195536408"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195546304.png" alt="image-20250102195546304"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195553942.png" alt="image-20250102195553942"></p>
-<h3 id="3-体系结构视图"><a href="#3-体系结构视图" class="headerlink" title="3.体系结构视图"></a>3.体系结构视图</h3><h4 id="1-包图"><a href="#1-包图" class="headerlink" title="1.包图"></a>1.包图</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195642773.png" alt="image-20250102195642773"></p>
+<h3 id="3-体系结构视图">3.体系结构视图</h3>
+<h4 id="1-包图">1.包图</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195642773.png" alt="image-20250102195642773"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195629920.png" alt="image-20250102195629920"></p>
-<h4 id="2-构件图"><a href="#2-构件图" class="headerlink" title="2.构件图"></a>2.构件图</h4><p><img src="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/Users\Roeland\AppData\Roaming\Typora\typora-user-images\image-20250102195724177.png" alt="image-20250102195724177"></p>
+<h4 id="2-构件图">2.构件图</h4>
+<p><img src="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/C:%5CUsers%5CRoeland%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20250102195724177.png" alt="image-20250102195724177"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195735093.png" alt="image-20250102195735093"></p>
-<h4 id="3-部署视图"><a href="#3-部署视图" class="headerlink" title="3.部署视图"></a>3.部署视图</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195749093.png" alt="image-20250102195749093"></p>
+<h4 id="3-部署视图">3.部署视图</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195749093.png" alt="image-20250102195749093"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195755755.png" alt="image-20250102195755755"></p>
-<h4 id="4-运行视图"><a href="#4-运行视图" class="headerlink" title="4.运行视图"></a>4.运行视图</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195812386.png" alt="image-20250102195812386"></p>
-<h3 id="4-软件体系结构风格"><a href="#4-软件体系结构风格" class="headerlink" title="4.软件体系结构风格"></a>4.软件体系结构风格</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195855862.png" alt="image-20250102195855862"></p>
+<h4 id="4-运行视图">4.运行视图</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195812386.png" alt="image-20250102195812386"></p>
+<h3 id="4-软件体系结构风格">4.软件体系结构风格</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195855862.png" alt="image-20250102195855862"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195905907.png" alt="image-20250102195905907"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195912325.png" alt="image-20250102195912325"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195920839.png" alt="image-20250102195920839"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195926604.png" alt="image-20250102195926604"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195930849.png" alt="image-20250102195930849"></p>
-<h3 id="5-体系结构设计任务"><a href="#5-体系结构设计任务" class="headerlink" title="5.体系结构设计任务"></a>5.体系结构设计任务</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195950231.png" alt="image-20250102195950231"></p>
+<h3 id="5-体系结构设计任务">5.体系结构设计任务</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195950231.png" alt="image-20250102195950231"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200003769.png" alt="image-20250102200003769"></p>
-<h4 id="1-目标"><a href="#1-目标" class="headerlink" title="1.目标"></a>1.目标</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200032366.png" alt="image-20250102200032366"></p>
-<h4 id="2-对比"><a href="#2-对比" class="headerlink" title="2.对比"></a>2.对比</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200041722.png" alt="image-20250102200041722"></p>
-<h4 id="3-重要性"><a href="#3-重要性" class="headerlink" title="3.重要性"></a>3.重要性</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200054085.png" alt="image-20250102200054085"></p>
-<h4 id="4-过程"><a href="#4-过程" class="headerlink" title="4.过程"></a>4.过程</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200107295.png" alt="image-20250102200107295"></p>
+<h4 id="1-目标">1.目标</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200032366.png" alt="image-20250102200032366"></p>
+<h4 id="2-对比">2.对比</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200041722.png" alt="image-20250102200041722"></p>
+<h4 id="3-重要性">3.重要性</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200054085.png" alt="image-20250102200054085"></p>
+<h4 id="4-过程">4.过程</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200107295.png" alt="image-20250102200107295"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200219189.png" alt="image-20250102200219189"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200224838.png" alt="image-20250102200224838"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200231037.png" alt="image-20250102200231037"></p>
@@ -288,14 +326,18 @@
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200322670.png" alt="image-20250102200322670"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200329260.png" alt="image-20250102200329260"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200341048.png" alt="image-20250102200341048"></p>
-<h2 id="3-软件详细设计-1"><a href="#3-软件详细设计-1" class="headerlink" title="3.软件详细设计"></a>3.软件详细设计</h2><h3 id="1-面向对象的设计原则"><a href="#1-面向对象的设计原则" class="headerlink" title="1.面向对象的设计原则"></a>1.面向对象的设计原则</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200500153.png" alt="image-20250102200500153"></p>
+<h2 id="3-软件详细设计-2">3.软件详细设计</h2>
+<h3 id="1-面向对象的设计原则">1.面向对象的设计原则</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200500153.png" alt="image-20250102200500153"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200507945.png" alt="image-20250102200507945"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200512546.png" alt="image-20250102200512546"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200517525.png" alt="image-20250102200517525"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200523191.png" alt="image-20250102200523191"></p>
-<h4 id="1-基本设计原则"><a href="#1-基本设计原则" class="headerlink" title="1.基本设计原则"></a>1.基本设计原则</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200541474.png" alt="image-20250102200541474"></p>
+<h4 id="1-基本设计原则">1.基本设计原则</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200541474.png" alt="image-20250102200541474"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200613465.png" alt="image-20250102200613465"></p>
-<h3 id="2-例题"><a href="#2-例题" class="headerlink" title="2.例题"></a>2.例题</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200650786.png" alt="image-20250102200650786"></p>
+<h3 id="2-例题">2.例题</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200650786.png" alt="image-20250102200650786"></p>
 <blockquote>
 <p>D</p>
 </blockquote>
@@ -303,21 +345,30 @@
 <blockquote>
 <p>AC</p>
 </blockquote>
-<h3 id="3-软件设计模式"><a href="#3-软件设计模式" class="headerlink" title="3.软件设计模式"></a>3.软件设计模式</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200730170.png" alt="image-20250102200730170"></p>
+<h3 id="3-软件设计模式">3.软件设计模式</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200730170.png" alt="image-20250102200730170"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200743797.png" alt="image-20250102200743797"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200750681.png" alt="image-20250102200750681"></p>
-<h2 id="4-用户界面设计"><a href="#4-用户界面设计" class="headerlink" title="4.用户界面设计"></a>4.用户界面设计</h2><h3 id="1-用户界面不同形式"><a href="#1-用户界面不同形式" class="headerlink" title="1.用户界面不同形式"></a>1.用户界面不同形式</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200855569.png" alt="image-20250102200855569"></p>
-<h3 id="2-用户界面布局管理"><a href="#2-用户界面布局管理" class="headerlink" title="2.用户界面布局管理"></a>2.用户界面布局管理</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200912288.png" alt="image-20250102200912288"></p>
-<h4 id="1-网页布局"><a href="#1-网页布局" class="headerlink" title="1.网页布局"></a>1.网页布局</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200932328.png" alt="image-20250102200932328"></p>
-<h4 id="2-APP布局"><a href="#2-APP布局" class="headerlink" title="2.APP布局"></a>2.APP布局</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200959784.png" alt="image-20250102200959784"></p>
-<h4 id="3-桌面应用布局"><a href="#3-桌面应用布局" class="headerlink" title="3.桌面应用布局"></a>3.桌面应用布局</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201015562.png" alt="image-20250102201015562"></p>
+<h2 id="4-用户界面设计">4.用户界面设计</h2>
+<h3 id="1-用户界面不同形式">1.用户界面不同形式</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200855569.png" alt="image-20250102200855569"></p>
+<h3 id="2-用户界面布局管理">2.用户界面布局管理</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200912288.png" alt="image-20250102200912288"></p>
+<h4 id="1-网页布局">1.网页布局</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200932328.png" alt="image-20250102200932328"></p>
+<h4 id="2-APP布局">2.APP布局</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200959784.png" alt="image-20250102200959784"></p>
+<h4 id="3-桌面应用布局">3.桌面应用布局</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201015562.png" alt="image-20250102201015562"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201034755.png" alt="image-20250102201034755"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201041852.png" alt="image-20250102201041852"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201046911.png" alt="image-20250102201046911"></p>
-<h3 id="3-用户界面设计原则"><a href="#3-用户界面设计原则" class="headerlink" title="3.用户界面设计原则"></a>3.用户界面设计原则</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201104158.png" alt="image-20250102201104158"></p>
+<h3 id="3-用户界面设计原则">3.用户界面设计原则</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201104158.png" alt="image-20250102201104158"></p>
 <p>除了上述4个，还有：</p>
 <ul>
-<li>保持始终如一<ul>
+<li>保持始终如一
+<ul>
 <li>相同软件在不同设备的一致性</li>
 <li>页面风格</li>
 <li>行为一致</li>
@@ -326,8 +377,10 @@
 </li>
 <li>保持有用反馈</li>
 </ul>
-<h3 id="4-用户界面设计方法"><a href="#4-用户界面设计方法" class="headerlink" title="4.用户界面设计方法"></a>4.用户界面设计方法</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201221102.png" alt="image-20250102201221102"></p>
-<h3 id="5-用户界面审查"><a href="#5-用户界面审查" class="headerlink" title="5.用户界面审查"></a>5.用户界面审查</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201240825.png" alt="image-20250102201240825"></p>
+<h3 id="4-用户界面设计方法">4.用户界面设计方法</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201221102.png" alt="image-20250102201221102"></p>
+<h3 id="5-用户界面审查">5.用户界面审查</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201240825.png" alt="image-20250102201240825"></p>
 <ul>
 <li>两阶段用户界面走查</li>
 </ul>
@@ -341,7 +394,144 @@
 <li>界面元素走查</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201422248.png" alt="image-20250102201422248"></p>
-<h2 id="5-用户体验与可用性"><a href="#5-用户体验与可用性" class="headerlink" title="5.用户体验与可用性"></a>5.用户体验与可用性</h2></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://SomeFnone.github.io">魔法猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://somefnone.github.io/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/">http://somefnone.github.io/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SomeFnone.github.io" target="_blank">Wizard Cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a></div><div class="post_share"><div class="social-share" data-image="/img/BWeLyHqW.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">软件工程导论笔记-1</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2025-01-01</div><div class="title">软件工程导论笔记-1</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">魔法猫猫头</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SomeFnone" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1229172423@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">计算机网络笔记,堂堂完结!接下来赶到战场的是完全没做笔记的软工导论!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA"><span class="toc-text">软件工程导论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80"><span class="toc-text">1.软件设计基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B1%82%E6%AC%A1"><span class="toc-text">2.软件设计层次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%B4%A8%E9%87%8F%E9%9C%80%E6%B1%82"><span class="toc-text">3.软件设计的质量需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B"><span class="toc-text">4.软件设计过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">1.软件体系结构设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1"><span class="toc-text">2.用户界面设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%BD%AF%E4%BB%B6%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.软件详细设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%85%B6%E4%BB%96%E5%B7%A5%E4%BD%9C"><span class="toc-text">4.其他工作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A6%82%E5%BF%B5"><span class="toc-text">5.常用设计概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%88%86%E8%A7%A3%E4%B8%8E%E6%8A%BD%E8%B1%A1"><span class="toc-text">1.分解与抽象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%85%B3%E6%B3%A8%E7%82%B9%E5%88%86%E7%A6%BB"><span class="toc-text">2.关注点分离</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-text">3.模块化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F"><span class="toc-text">4.信息隐藏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E9%87%8D%E6%9E%84"><span class="toc-text">5.重构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%A4%8D%E7%94%A8"><span class="toc-text">6.复用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E5%AD%A6"><span class="toc-text">6.面向对象软件设计方法学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E8%BE%93%E5%87%BA%E5%8F%8A%E8%AF%84%E5%AE%A1"><span class="toc-text">7.软件设计输出及评审</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%B0%8F%E7%BB%93"><span class="toc-text">8.小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">2.软件体系结构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0-1"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%85%83%E7%B4%A0"><span class="toc-text">2.软件体系结构的设计元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%A7%86%E5%9B%BE"><span class="toc-text">3.体系结构视图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8C%85%E5%9B%BE"><span class="toc-text">1.包图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%9E%84%E4%BB%B6%E5%9B%BE"><span class="toc-text">2.构件图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%83%A8%E7%BD%B2%E8%A7%86%E5%9B%BE"><span class="toc-text">3.部署视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%BF%90%E8%A1%8C%E8%A7%86%E5%9B%BE"><span class="toc-text">4.运行视图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%A3%8E%E6%A0%BC"><span class="toc-text">4.软件体系结构风格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%BB%BB%E5%8A%A1"><span class="toc-text">5.体系结构设计任务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%9B%AE%E6%A0%87"><span class="toc-text">1.目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AF%B9%E6%AF%94"><span class="toc-text">2.对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-text">3.重要性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%BF%87%E7%A8%8B"><span class="toc-text">4.过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%BD%AF%E4%BB%B6%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1-1"><span class="toc-text">3.软件详细设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-text">1.面向对象的设计原则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-text">1.基本设计原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BE%8B%E9%A2%98"><span class="toc-text">2.例题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">3.软件设计模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1"><span class="toc-text">4.用户界面设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E4%B8%8D%E5%90%8C%E5%BD%A2%E5%BC%8F"><span class="toc-text">1.用户界面不同形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86"><span class="toc-text">2.用户界面布局管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80"><span class="toc-text">1.网页布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-APP%E5%B8%83%E5%B1%80"><span class="toc-text">2.APP布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E5%B8%83%E5%B1%80"><span class="toc-text">3.桌面应用布局</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-text">3.用户界面设计原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95"><span class="toc-text">4.用户界面设计方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%AE%A1%E6%9F%A5"><span class="toc-text">5.用户界面审查</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E4%B8%8E%E5%8F%AF%E7%94%A8%E6%80%A7"><span class="toc-text">5.用户体验与可用性</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/" title="软件工程导论笔记-2">软件工程导论笔记-2</a><time datetime="2025-01-01T12:53:31.000Z" title="发表于 2025-01-01 20:53:31">2025-01-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1">软件工程导论笔记-1</a><time datetime="2024-12-31T11:04:58.000Z" title="发表于 2024-12-31 19:04:58">2024-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/24/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%B7%AF%E5%B1%82/" title="计网学习笔记-链路层">计网学习笔记-链路层</a><time datetime="2024-12-24T06:49:00.000Z" title="发表于 2024-12-24 14:49:00">2024-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/23/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(控制平面)">计网学习笔记-网络层(控制平面)</a><time datetime="2024-12-23T13:23:00.000Z" title="发表于 2024-12-23 21:23:00">2024-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(数据平面)">计网学习笔记-网络层(数据平面)</a><time datetime="2024-11-01T06:13:27.000Z" title="发表于 2024-11-01 14:13:27">2024-11-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 魔法猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<h2 id="5-用户体验与可用性">5.用户体验与可用性</h2>
+<h3 id="1-用户体验">1.用户体验</h3>
+<p><strong>什么是用户体验</strong></p>
+<ul>
+<li>
+<p>“用户体验”涵盖了终端用户与公司、其服务及其产品互动的所有方面。</p>
+<ul>
+<li>出色用户体验的首要要求是<strong>准确满足客户的需求</strong>，无需麻烦或困扰。</li>
+<li>其次是<strong>简洁和优雅</strong>，让产品成为一种<strong>拥有的乐趣，使用的乐趣</strong>。</li>
+<li>真正的用户体验<strong>远远超出</strong>仅仅提供客户所说的需求或清单式功能。</li>
+</ul>
+</li>
+<li>
+<p>为了在公司产品中实现高质量的用户体验，必须将多学科的服务<strong>无缝融合</strong>：</p>
+<ul>
+<li>
+<p><strong>工程学</strong></p>
+</li>
+<li>
+<p><strong>市场营销</strong></p>
+</li>
+<li>
+<p><strong>图形与工业设计</strong></p>
+</li>
+<li>
+<p><strong>界面设计</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>设计的三个层次</strong></p>
+<ul>
+<li>本能层次设计
+<ul>
+<li>Visceral design</li>
+</ul>
+</li>
+<li>行为层次设计
+<ul>
+<li>Behavioral design</li>
+</ul>
+</li>
+<li>反思层次设计
+<ul>
+<li>Reflective design</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-可用性">2.可用性</h3>
+<h4 id="1-定义">1.定义</h4>
+<p><strong>可用性</strong>是一种开发方法，融入了用户反馈，贯穿整个开发周期，以减少成本，并创建符合用户需求的产品和工具</p>
+<p>“可用性实际上是确保某个东西能<strong>良好运行</strong>：即使是普通或低于普通能力和经验的人，也可以毫无挫败感地将该事物用于其预定的用途。”</p>
+<h4 id="2-属性与目标">2.属性与目标</h4>
+<ul>
+<li>有效性</li>
+<li>效率性</li>
+<li>可学习性</li>
+<li>满意度</li>
+</ul>
+<h4 id="3-重要性-2">3.重要性</h4>
+<p><strong>为什么可用性重要？（Why Does Usability Matter?）</strong></p>
+<ol>
+<li><strong>可用性有时关系到生死存亡。</strong>
+<ul>
+<li>说明在一些关键场景中（例如医疗设备、飞行仪表等），设计的可用性直接影响到用户的生命安全。一个不直观或容易出错的设计可能导致严重后果。</li>
+</ul>
+</li>
+<li><strong>可用性在我们的生活中发挥了比大多数人意识到的更广泛的作用。</strong>
+<ul>
+<li>许多人可能没有意识到，可用性设计对我们日常生活的便利性、效率和安全性有着深远影响。从手机界面到自动售票机，可用性贯穿我们生活的方方面面。</li>
+</ul>
+</li>
+<li><strong>可用性每天都影响着每一个人。</strong>
+<ul>
+<li>无论是专业工具还是日常用品，每个人在使用产品时都会受到可用性的影响。一个好的可用性设计可以提高我们的工作效率，减少困惑和挫折感。</li>
+</ul>
+</li>
+</ol>
+<p><strong>用户体验 vs 可用性</strong></p>
+<ul>
+<li><strong>可用性</strong>通常被认为是用户使用某一产品成功完成任务的能力。</li>
+<li><strong>用户体验</strong>则具有更广泛的视角，关注用户与产品的整个交互过程，以及从这种交互中产生的思想、感受和感知。</li>
+</ul>
+<h3 id="3-用户画像">3.用户画像</h3>
+<p><strong>什么是用户画像</strong></p>
+<ul>
+<li>用户画像是为了代表目标用户群中的不同用户类型而创造的虚拟角色。</li>
+<li>用户画像在考虑用户的目标、需求和限制时非常有用，从而帮助产品决策。</li>
+<li>用户画像最常用作用户中心设计的一部分。</li>
+</ul>
+<p><strong>用户画像的目的</strong></p>
+<ul>
+<li>帮助设计团队理解目标受众。</li>
+<li>为讨论用户需求建立共同的语言。</li>
+<li>帮助设计团队做出与设计相关的决策。</li>
+</ul>
+<p><strong>用户画像和目标</strong></p>
+<ul>
+<li>用户的三种目标与Norman提出的本能、行为和反思三个层次相对应：
+<ul>
+<li><strong>生活目标</strong>：用户希望成为怎样的人。</li>
+<li><strong>体验目标</strong>：用户希望感受到什么。</li>
+<li><strong>终极目标</strong>：用户希望完成什么。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-UCD">4.UCD</h3>
+<p><strong>以用户为中心的设计（UCD）</strong></p>
+<ul>
+<li>以用户为中心的设计是一种以产品的最终用户为核心的开发方法。</li>
+<li>其理念是：<strong>产品应该适应用户，而不是让用户去适应产品</strong>。</li>
+<li>通过在产品生命周期中采用技术、流程和方法来实现这一点。</li>
+</ul>
+<p><strong>以用户为中心设计的活动（UCD Activities）</strong></p>
+<ul>
+<li>理解用户的愿望、需求、动机和使用场景。</li>
+<li>理解商业、技术和领域内的机会、需求和限制。</li>
+<li>将这些知识作为基础，用于制定计划，设计出形式、内容和行为都<strong>有用、可用且令人满意</strong>的产品，同时确保经济可行和技术可行。</li>
+</ul>
+<p><strong>以用户为中心设计的生命周期（UCD Lifecycle）</strong></p>
+<p><strong>1. Concept（概念阶段）</strong></p>
+<ul>
+<li><strong>目标：</strong> 确定用户的需求和产品开发的总体方向。</li>
+</ul>
+<p><strong>2. Design（设计阶段）</strong></p>
+<ul>
+<li><strong>目标：</strong> 将用户需求转化为实际的产品设计。</li>
+</ul>
+<p><strong>3. Develop（开发阶段）</strong></p>
+<ul>
+<li><strong>目标：</strong> 将设计转化为实际的产品，同时确保可用性和质量。</li>
+</ul>
+<p><strong>4. Release（发布阶段）</strong></p>
+<ul>
+<li><strong>目标：</strong> 将产品发布给用户，并进行最终验证。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102203941294.png" alt="image-20250102203941294"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://SomeFnone.github.io">魔法猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://somefnone.github.io/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/">http://somefnone.github.io/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SomeFnone.github.io" target="_blank">Wizard Cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a></div><div class="post_share"><div class="social-share" data-image="/img/BWeLyHqW.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">软件工程导论笔记-1</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2025-01-01</div><div class="title">软件工程导论笔记-1</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">魔法猫猫头</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SomeFnone" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1229172423@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">计算机网络笔记,堂堂完结!接下来赶到战场的是完全没做笔记的软工导论!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">软件工程导论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80"><span class="toc-text">1.软件设计基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B1%82%E6%AC%A1"><span class="toc-text">2.软件设计层次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%B4%A8%E9%87%8F%E9%9C%80%E6%B1%82"><span class="toc-text">3.软件设计的质量需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B"><span class="toc-text">4.软件设计过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">1.软件体系结构设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1"><span class="toc-text">2.用户界面设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%BD%AF%E4%BB%B6%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.软件详细设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%85%B6%E4%BB%96%E5%B7%A5%E4%BD%9C"><span class="toc-text">4.其他工作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A6%82%E5%BF%B5"><span class="toc-text">5.常用设计概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%88%86%E8%A7%A3%E4%B8%8E%E6%8A%BD%E8%B1%A1"><span class="toc-text">1.分解与抽象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%85%B3%E6%B3%A8%E7%82%B9%E5%88%86%E7%A6%BB"><span class="toc-text">2.关注点分离</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-text">3.模块化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F"><span class="toc-text">4.信息隐藏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E9%87%8D%E6%9E%84"><span class="toc-text">5.重构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%A4%8D%E7%94%A8"><span class="toc-text">6.复用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E5%AD%A6"><span class="toc-text">6.面向对象软件设计方法学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E8%BE%93%E5%87%BA%E5%8F%8A%E8%AF%84%E5%AE%A1"><span class="toc-text">7.软件设计输出及评审</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%B0%8F%E7%BB%93"><span class="toc-text">8.小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">2.软件体系结构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0-2"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%85%83%E7%B4%A0"><span class="toc-text">2.软件体系结构的设计元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%A7%86%E5%9B%BE"><span class="toc-text">3.体系结构视图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8C%85%E5%9B%BE"><span class="toc-text">1.包图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%9E%84%E4%BB%B6%E5%9B%BE"><span class="toc-text">2.构件图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%83%A8%E7%BD%B2%E8%A7%86%E5%9B%BE"><span class="toc-text">3.部署视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%BF%90%E8%A1%8C%E8%A7%86%E5%9B%BE"><span class="toc-text">4.运行视图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%A3%8E%E6%A0%BC"><span class="toc-text">4.软件体系结构风格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%BB%BB%E5%8A%A1"><span class="toc-text">5.体系结构设计任务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%9B%AE%E6%A0%87"><span class="toc-text">1.目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AF%B9%E6%AF%94"><span class="toc-text">2.对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-text">3.重要性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%BF%87%E7%A8%8B"><span class="toc-text">4.过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%BD%AF%E4%BB%B6%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1-2"><span class="toc-text">3.软件详细设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-text">1.面向对象的设计原则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-text">1.基本设计原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BE%8B%E9%A2%98"><span class="toc-text">2.例题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">3.软件设计模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1"><span class="toc-text">4.用户界面设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E4%B8%8D%E5%90%8C%E5%BD%A2%E5%BC%8F"><span class="toc-text">1.用户界面不同形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86"><span class="toc-text">2.用户界面布局管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80"><span class="toc-text">1.网页布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-APP%E5%B8%83%E5%B1%80"><span class="toc-text">2.APP布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E5%B8%83%E5%B1%80"><span class="toc-text">3.桌面应用布局</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-text">3.用户界面设计原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95"><span class="toc-text">4.用户界面设计方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%AE%A1%E6%9F%A5"><span class="toc-text">5.用户界面审查</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E4%B8%8E%E5%8F%AF%E7%94%A8%E6%80%A7"><span class="toc-text">5.用户体验与可用性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C"><span class="toc-text">1.用户体验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8F%AF%E7%94%A8%E6%80%A7"><span class="toc-text">2.可用性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%B1%9E%E6%80%A7%E4%B8%8E%E7%9B%AE%E6%A0%87"><span class="toc-text">2.属性与目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%87%8D%E8%A6%81%E6%80%A7-2"><span class="toc-text">3.重要性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F"><span class="toc-text">3.用户画像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-UCD"><span class="toc-text">4.UCD</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/" title="软件工程导论笔记-2">软件工程导论笔记-2</a><time datetime="2025-01-01T12:53:31.000Z" title="发表于 2025-01-01 20:53:31">2025-01-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1">软件工程导论笔记-1</a><time datetime="2024-12-31T11:04:58.000Z" title="发表于 2024-12-31 19:04:58">2024-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/24/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%B7%AF%E5%B1%82/" title="计网学习笔记-链路层">计网学习笔记-链路层</a><time datetime="2024-12-24T06:49:00.000Z" title="发表于 2024-12-24 14:49:00">2024-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/23/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(控制平面)">计网学习笔记-网络层(控制平面)</a><time datetime="2024-12-23T13:23:00.000Z" title="发表于 2024-12-23 21:23:00">2024-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(数据平面)">计网学习笔记-网络层(数据平面)</a><time datetime="2024-11-01T06:13:27.000Z" title="发表于 2024-11-01 14:13:27">2024-11-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 魔法猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
