@@ -1,0 +1,687 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>编译原理-1 | Wizard Cat</title><meta name="author" content="魔法猫猫头"><meta name="copyright" content="魔法猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第一章 引论 1.编译器概述  笼统来说，编译器是用来完成从程序设计语言翻译到能被计算机执行的语言的软件系统  定义：  编译器是可以读入源语言编写的程序，并把该程序翻译成等价的、用目标语言编写的程序，同时报告在翻译过程中发现的源程序的错误的程序  源语言：广义上不定义，狭义上指高级程序设计语言  示例：C&#x2F;C++，Java，C#，html，SQL…   目标语言：广义上不定义，狭义上指汇编语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译原理-1">
+<meta property="og:url" content="http://somefnone.github.io/2025/02/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1/index.html">
+<meta property="og:site_name" content="Wizard Cat">
+<meta property="og:description" content="第一章 引论 1.编译器概述  笼统来说，编译器是用来完成从程序设计语言翻译到能被计算机执行的语言的软件系统  定义：  编译器是可以读入源语言编写的程序，并把该程序翻译成等价的、用目标语言编写的程序，同时报告在翻译过程中发现的源程序的错误的程序  源语言：广义上不定义，狭义上指高级程序设计语言  示例：C&#x2F;C++，Java，C#，html，SQL…   目标语言：广义上不定义，狭义上指汇编语言">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://somefnone.github.io/img/BWeLyHqW.jpg">
+<meta property="article:published_time" content="2025-02-20T12:24:40.000Z">
+<meta property="article:modified_time" content="2025-02-20T12:24:55.456Z">
+<meta property="article:author" content="魔法猫猫头">
+<meta property="article:tag" content="编译原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://somefnone.github.io/img/BWeLyHqW.jpg"><link rel="shortcut icon" href="/img/favicon3.jpg"><link rel="canonical" href="http://somefnone.github.io/2025/02/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '编译原理-1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-02-20 20:24:55'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/BWeLyHqW.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Wizard Cat"><span class="site-name">Wizard Cat</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">编译原理-1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-02-20T12:24:40.000Z" title="发表于 2025-02-20 20:24:40">2025-02-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-20T12:24:55.456Z" title="更新于 2025-02-20 20:24:55">2025-02-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/lesson-note/">lesson note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer">
+<h1>第一章 引论</h1>
+<h2 id="1-编译器概述">1.编译器概述</h2>
+<blockquote>
+<p>笼统来说，编译器是用来完成从<strong>程序设计语言翻译到能被计算机执行的语言</strong>的<strong>软件系统</strong></p>
+</blockquote>
+<p><strong>定义：</strong></p>
+<ul>
+<li>编译器是可以<strong>读入源语言编写的程序</strong>，并把该程序<strong>翻译</strong>成<strong>等价的、用目标语言编写的程序</strong>，同时<strong>报告在翻译过程中发现的源程序的错误</strong>的<strong>程序</strong>
+<ul>
+<li><strong>源语言</strong>：广义上不定义，狭义上指<strong>高级程序设计语言</strong>
+<ul>
+<li>示例：C/C++，Java，C#，html，SQL…</li>
+</ul>
+</li>
+<li><strong>目标语言</strong>：广义上不定义，狭义上指<strong>汇编语言/机器语言</strong>
+<ul>
+<li>示例：x86，IA64，ARM，MIPS…</li>
+</ul>
+</li>
+<li><strong>等价</strong>：指<strong>功能上等价</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>主要功能：</strong></p>
+<ul>
+<li>翻译</li>
+<li>报错</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/35e0e44a7062c0c19f11af008f7201f.jpg" alt="35e0e44a7062c0c19f11af008f7201f"></p>
+<p><strong>计算机语言翻译方式：</strong></p>
+<ul>
+<li><strong>解释程序(interpreter)：每次执行都需要翻译</strong>
+<ul>
+<li>每接受高级语言的<strong>一个语句输入</strong>，<strong>立即</strong>进行解释并控制计算机执行，马上得到执行结果，再执行下一语句</li>
+<li><strong>程序执行效率低</strong></li>
+<li><strong>在线方式online</strong></li>
+<li>示例：Python</li>
+</ul>
+</li>
+<li><strong>编译程序(compiler)：只需一次编译</strong>
+<ul>
+<li>将高级语言程序<strong>整体</strong>转换成低级语言程序(<strong>保存为程序，如exe</strong>)，再执行</li>
+<li><strong>程序执行效率高</strong></li>
+<li><strong>离线方式offline</strong></li>
+<li>示例：C，Java</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250220134703918.png" alt="image-20250220134703918"></p>
+<blockquote>
+<p>使用编译器的运行过程就如上图所示。经过<strong>静态计算</strong>，也就是<strong>不执行语句内容，仅作翻译</strong>，得到目标程序(如x86汇编语言程序/bytecode字节码程序(java))，再经由<strong>计算机</strong>(可能是实际计算机，如x86；也可能是JVM虚拟机)<strong>动态计算</strong>得到计算结果</p>
+</blockquote>
+<p><strong>如何从源语言程序翻译到目标语言程序？</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/e60410f6c7e31761c094194d07d0d55.jpg" alt="e60410f6c7e31761c094194d07d0d55"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/1ceb9de996716d6db6805a36dd01f8d.jpg" alt="1ceb9de996716d6db6805a36dd01f8d"></p>
+<hr>
+<h2 id="2-编译器结构">2.编译器结构</h2>
+<blockquote>
+<p>编译器实际上的功能在于，把源程序<strong>映射</strong>为<strong>在语义上等价</strong>的目标程序。</p>
+<p>而这个映射过程，也就是<strong>编译过程</strong>，可以分解为<strong>多个步骤</strong>：</p>
+<p><strong>词法分析</strong>——<strong>语法分析</strong>——<strong>语义分析</strong>——<strong>中间代码生成</strong>——<strong>代码优化</strong>——<strong>代码生成</strong></p>
+</blockquote>
+<h3 id="1-结构概述">1.结构概述</h3>
+<p>完整的编译器结构如下面2张图所示：</p>
+<img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/6c28325d50dfcb2257765839335ca59.jpg" alt="6c28325d50dfcb2257765839335ca59" style="zoom:50%;">
+<img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/1e3cc8c6bef1338a0821bbd6f984d93.png" alt="1e3cc8c6bef1338a0821bbd6f984d93" style="zoom:50%;">
+<p>总体而言，编译器的结构是<strong>6+2</strong>，即<strong>词法分析、语法分析、语义分析、中间代码生成、代码优化、目标代码生成+符号表、错误检查</strong></p>
+<ul>
+<li>上两图的区别在于，<strong>代码优化</strong>实际上确实是分成两部分的，也就是<strong>机器无关代码优化</strong>与<strong>机器相关代码优化</strong>。</li>
+<li>所以可以认为，在实际操作的时候是做区分，在做概念的时候不做区分</li>
+</ul>
+<hr>
+<h3 id="2-词法分析">2.词法分析</h3>
+<blockquote>
+<p>编译器的第一个步骤称为<strong>词法分析</strong>，输入是<strong>字符流</strong>，输出是<strong>符号流</strong></p>
+</blockquote>
+<p><strong>作用：</strong></p>
+<ul>
+<li>读入组成源程序的<strong>字符流</strong>，将它们组织成为有意义的<strong>词素</strong>的<strong>序列</strong>，也就是<strong>符号流</strong>
+<ul>
+<li><strong>词素</strong>，指源代码中具有独立意义的字符序列
+<ul>
+<li>示例：<code>a[index]=4+2</code>，词素分别为：<code>a, [, index, ], =, 4, +, 2</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对于每个词素，词法分析器产生<strong>词法单元token</strong>作为输出
+<ul>
+<li><strong>词法单元</strong>，又称<strong>记号</strong>，即<strong>token</strong>，高级语言中有意义的最小语法单位</li>
+<li><strong>token</strong>由两部分组成：<code>&lt;class, value&gt;</code>
+<ul>
+<li><strong>class：</strong> <strong>token</strong>的<strong>类型</strong>，用整数表示</li>
+<li><strong>value：</strong> <strong>token</strong>的<strong>指针</strong>，指向保存<strong>token</strong>实际值的存储空间，通常为<strong>符号表条目</strong></li>
+</ul>
+</li>
+<li>示例：<code>a[index]=4+2</code>
+<ul>
+<li><code>a</code>被映射为token1:<code>&lt;id, 1&gt;</code>
+<ul>
+<li><code>id</code>指<code>a</code>的类型是<strong>标识符</strong>(a标识这个变量)，<code>1</code>指向符号表中<code>a</code>对应的条目</li>
+<li><strong>标识符对应的符号表条目存放着该标识符有关信息，比如名字和类型</strong></li>
+<li>其他标识符同理</li>
+</ul>
+</li>
+<li><code>[</code>被映射为token2:<code>&lt;[&gt;</code>
+<ul>
+<li>该词法单元不需要属性值，故忽略value</li>
+<li><strong>为标记上的方便，使用词素本身作为抽象符号的名字</strong></li>
+<li>这类符号<strong>不计入符号表</strong></li>
+<li><code>+</code>、<code>=</code>等符号同理</li>
+</ul>
+</li>
+<li><code>4</code>被映射为token6:<code>&lt;4&gt;</code>
+<ul>
+<li>从技术上讲，词法单元<code>4</code>应该建立一个形如<code>&lt;number, 3&gt;</code>的词法单元，这里因为没有深入学习，所以偷懒省略一下</li>
+</ul>
+</li>
+<li>最终整个语句被映射为如下的<strong>词法单元序列</strong>：<code>&lt;id,1&gt; &lt;[&gt; &lt;id,2&gt; &lt;]&gt; &lt;=&gt; &lt;4&gt; &lt;+&gt; &lt;2&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li><strong>分隔词素的空格会被词法分析器忽略</strong></li>
+<li><strong>换行符、EOF符不会被忽略</strong></li>
+</ul>
+<p><strong>错误处理：</strong></p>
+<ul>
+<li>词法分析器的错误处理很简单，词素是否有<strong>拼写问题</strong>对应着是否有错</li>
+</ul>
+<hr>
+<h3 id="3-语法分析">3.语法分析</h3>
+<blockquote>
+<p>编译器的第二个步骤称为<strong>语法分析</strong>或<strong>解析</strong>，输入是<strong>符号流</strong>，输出是<strong>语法树</strong></p>
+</blockquote>
+<p><strong>作用：</strong></p>
+<ul>
+<li>
+<p>语法分析器使用词法分析器生成的各个词法单元(token)创建树形的中间表示，<strong>该中间表示给出了词法单元流的语法结构</strong></p>
+<ul>
+<li>**语法特征：**各成分的形式/结构</li>
+<li>如果特征不符，则有误</li>
+</ul>
+</li>
+<li>
+<p>一种常见的表示方法是<strong>语法树</strong></p>
+<ul>
+<li>树中的每个<strong>内部节点</strong>表示一个<strong>运算</strong>，每个<strong>子节点</strong>表示<strong>该运算的分量</strong></li>
+<li>语法树的构建是<strong>逻辑上构建</strong>，不要求构建出物理上的语法树</li>
+<li>示例：<code>position = initial + rate * 60</code></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/3e8dc9821899629c9fe7bfbe86ef7f2.jpg" alt="3e8dc9821899629c9fe7bfbe86ef7f2"></p>
+<p><strong>错误处理：</strong></p>
+<ul>
+<li>如果某个语句<strong>不能生成语法树</strong>，那么该语句存在<strong>语法错误</strong></li>
+</ul>
+<hr>
+<h3 id="4-语义分析">4.语义分析</h3>
+<blockquote>
+<p>编译器的第三个步骤称为<strong>语义分析</strong>，输入是<strong>语法树</strong>，输出是<strong>语法树</strong></p>
+</blockquote>
+<p><strong>作用：</strong></p>
+<ul>
+<li>语义分析器使用<strong>语法树</strong>和<strong>符号表中的信息</strong>来检查源程序是否和语言定义的<strong>语义</strong>一致，同时<strong>收集类型信息</strong>
+<ul>
+<li><strong>语义特征</strong>：各语法成分的<strong>含义与功能</strong>，也就是规定下的<strong>属性</strong>或者<strong>执行时应进行的操作</strong></li>
+<li>语义处理尚无公认方法，暂时使用<strong>语法制导翻译</strong>(机器式的对应)</li>
+</ul>
+</li>
+<li>语义分析的重要部分是<strong>类型检查</strong>和<strong>声明检查</strong>
+<ul>
+<li>类型检查：检查每个运算符是否具有<strong>匹配的运算分量</strong>
+<ul>
+<li>比如，很多语言规定数组下标必须是<strong>整数</strong>，若源程序中以浮点数作为下标，则会报错；</li>
+<li>再比如乘法，两个运算元规定为<strong>浮点数</strong>，若源程序中以整数作为运算分量，则会<strong>进行自动类型转换</strong>
+<ul>
+<li>比如下图中，经过语义分析后，将<code>&lt;60&gt;</code>转换成<code>inttofloat-&lt;60&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/2c8c6987373b59f810117e7ff124729.jpg" alt="2c8c6987373b59f810117e7ff124729"></p>
+<p><strong>错误处理：</strong></p>
+<ul>
+<li><strong>类型不匹配时</strong>，产生报错</li>
+</ul>
+<hr>
+<h3 id="5-中间代码生成">5.中间代码生成</h3>
+<blockquote>
+<p>编译器的第四个步骤称为<strong>中间代码生成</strong>，输入是<strong>语法树</strong>，输出是<strong>中间表示形式(中间代码)</strong></p>
+</blockquote>
+<p><strong>作用：</strong></p>
+<ul>
+<li>为处理方便、便于代码优化</li>
+</ul>
+<p><strong>类型：</strong></p>
+<ul>
+<li><strong>三地址代码(四元表示)</strong>：本课程使用的中间代码类型
+<ul>
+<li>这种中间表示由一组<strong>类似于汇编语言的指令</strong>组成，<strong>每个指令具有3个运算分量</strong></li>
+<li>每个<strong>三地址赋值指令</strong>的<strong>右部最多只有一个运算符</strong></li>
+<li>编译器应该<strong>生成一个临时名字以存放一个三地址指令计算得到的值</strong></li>
+<li>有些<strong>三地址指令的运算分量可以少于3个</strong></li>
+<li>示例：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t1 = inttofloat(60)</span><br><span class="line">t2 = id3 * t1</span><br><span class="line">t3 = id2 + t2</span><br><span class="line">id1 = t3</span><br></pre></td></tr></table></figure>
+<ul>
+<li>后缀表示、前缀表示、三元表示……</li>
+</ul>
+<hr>
+<h3 id="6-代码优化">6.代码优化</h3>
+<blockquote>
+<p>编译器的第五个步骤称为<strong>代码优化</strong>，输入是<strong>中间代码/目标代码</strong>，输出是<strong>中间代码/目标代码</strong></p>
+</blockquote>
+<p><strong>作用：</strong></p>
+<ul>
+<li><strong>提高运行速度</strong></li>
+<li><strong>节省存储空间</strong></li>
+</ul>
+<p><strong>目的：</strong></p>
+<ul>
+<li>使<strong>执行指令尽可能少</strong></li>
+<li><strong>使用的存储空间尽可能少</strong></li>
+</ul>
+<p><strong>优化方法分类：</strong></p>
+<ul>
+<li><strong>机器无关优化</strong>：常量合并、强度削减、代码外提
+<ul>
+<li>机器无关优化是在<strong>中间代码生成</strong>步骤后进行的</li>
+<li>核心思想是，<strong>可由编译器直接计算的，不必保留让计算机每次执行时都算一次</strong>
+<ul>
+<li>示例：
+<ul>
+<li><code>t1=inttofloat(60)</code>——&gt;<code>t1=60.0</code>，不要每次都转换</li>
+<li><code>t3 = id2 + t2 id1 = t3</code>——&gt;<code>id1 = id2 + t2</code>，省略一个非必须的临时变量</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/4c1df42d9437526d3e0fe30ace3052e.jpg" alt="4c1df42d9437526d3e0fe30ace3052e"></p>
+<ul>
+<li><strong>机器相关优化</strong>：寄存器分配、存储策略、任务划分
+<ul>
+<li>机器相关优化是在<strong>目标代码生成</strong>步骤后进行的</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="7-代码生成">7.代码生成</h3>
+<blockquote>
+<p>编译器的第六个步骤称为<strong>代码生成</strong>，即<strong>目标代码生成</strong>，输入是<strong>中间代码(中间表示形式)</strong>，输出是<strong>目标机器语言</strong></p>
+</blockquote>
+<p><strong>作用：</strong></p>
+<ul>
+<li>代码生成器以源程序的中间表示形式作为输入，并把它映射到目标语言</li>
+</ul>
+<hr>
+<h3 id="8-符号表管理">8.符号表管理</h3>
+<blockquote>
+<p>编译器的辅助模块之一是<strong>符号表管理</strong></p>
+</blockquote>
+<p><strong>作用：</strong></p>
+<ul>
+<li>
+<p>符号表数据结构为每个<strong>变量名字</strong>创建了一个记录条目，记录的字段是名字的<strong>各个属性</strong></p>
+<ul>
+<li>这些属性可以提供一个名字的<strong>存储分配、类型、作用域</strong>等信息</li>
+<li>对于过程名字(函数)，这些信息还包括：<strong>它的参数数量和类型，每个参数的传递方法(比如传值或传引用)以及返回类型</strong></li>
+</ul>
+</li>
+<li>
+<p>该数据结构允许编译器<strong>迅速查找到每个名字的记录，并向记录中快速存放和获取记录中的数据</strong></p>
+</li>
+</ul>
+<p><strong>类型：</strong></p>
+<ul>
+<li>符号表包括：常数表、变量表、关键字表……</li>
+</ul>
+<hr>
+<h3 id="9-错误处理">9.错误处理</h3>
+<blockquote>
+<p>编译器的另一个辅助模块是<strong>错误检查和处理</strong></p>
+</blockquote>
+<ul>
+<li>程序中出现错误是难免的，编译器6个步骤都能检查出不同类型的问题
+<ul>
+<li>词法分析：拼写</li>
+<li>语法分析：语句结构、表达式结构</li>
+<li>语义分析：类型不匹配</li>
+</ul>
+</li>
+<li>错误处理程序能够<strong>准确报告源程序中错误的种类、位置</strong></li>
+<li>错误处理程序能够<strong>生成一些附加的注释信息，有助于调试程序</strong></li>
+</ul>
+<hr>
+<h3 id="10-多步骤组成">10.多步骤组成</h3>
+<p>编译器的<strong>遍(pass)</strong></p>
+<ul>
+<li>编译器将若干阶段组合起来，对源程序进行一次处理的过程</li>
+<li><strong>单遍编译：适用于小程序</strong>
+<ul>
+<li>编译速度快、效率高</li>
+<li>编译程序复杂、占用存储空间大</li>
+<li><strong>目标程序不优化</strong>——<strong>最大的问题</strong></li>
+</ul>
+</li>
+<li><strong>多遍编译：适用于大程序</strong>
+<ul>
+<li>编译程序较容易、存储空间节省</li>
+<li>目标程序优化</li>
+<li><strong>有重复工作、效率低、耗时长</strong>——<strong>问题所在</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3-编译器相关程序">3.编译器相关程序</h2>
+<blockquote>
+<p>一个完整的语言开发环境除了编译器之外，往往还有很多其他程序辅助开发者工作</p>
+</blockquote>
+<ul>
+<li>编辑器editor</li>
+<li>预处理器preprocessor</li>
+<li>编译器compiler</li>
+<li>汇编器assembler</li>
+<li>连接器linker</li>
+<li>装入器loader</li>
+<li>调试程序debugger</li>
+<li>描述器profiler</li>
+<li>项目管理程序project manager</li>
+</ul>
+<hr>
+<h2 id="4-编译器用语">4.编译器用语</h2>
+<ul>
+<li>
+<p>编译器的<strong>分析-综合模型</strong></p>
+<ul>
+<li>
+<p>分析部分：<strong>分析源程序以计算其特性的编译器操作</strong></p>
+<ul>
+<li>把源程序分解成为多个组成要素，并在这些要素之上加上语法结构</li>
+<li>再使用该结构来创建该源程序的一个<strong>中间表示</strong></li>
+<li>收集有关源程序的信息，并把信息存放在<strong>符号表</strong>数据结构中</li>
+<li>符号表和中间表示形式(中间代码)一起传送给综合部分</li>
+</ul>
+</li>
+<li>
+<p>综合部分：<strong>生成翻译代码时所涉及到的操作</strong></p>
+<ul>
+<li>根据中间表示和符号表中的信息来构造目标程序</li>
+</ul>
+</li>
+<li>
+<p><strong>词法分析、语法分析、语义分析、机器无关代码优化——分析部分</strong></p>
+</li>
+<li>
+<p><strong>中间代码生成、目标代码生成、机器相关代码优化——综合部分</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p>编译器的<strong>前端-后端划分</strong></p>
+<ul>
+<li>前端：<strong>只依赖于源语言代码，与目标机器独立</strong>
+<ul>
+<li>包括：<strong>词法分析、语法分析、语义分析、中间代码生成、机器无关代码优化、符号表建立、相关错误处理</strong></li>
+</ul>
+</li>
+<li>后端：<strong>只依赖于目标机器</strong>
+<ul>
+<li>包括：<strong>机器相关代码优化、目标代码生成、符号表操作、相关错误处理</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>编译器<strong>前后端划分作用</strong></p>
+<ul>
+<li>便于编译器的<strong>移植与改写</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="5-自举和移植">5.自举和移植</h2>
+<blockquote>
+<p>编译器本身是一个<strong>程序</strong>，它本身也是用某种语言编写(高级语言)，<strong>也需要编译</strong></p>
+<p>那么问题来了：</p>
+<p>A.第一个编译器如何编译得到的？</p>
+<p>B.有了A语言在H机器上的编译器，如何得到B语言在H机器上的编译器？</p>
+<p>C.有了A语言在H机器上的编译器，如何得到A语言在M机器上的编译器？</p>
+<p>D.有了A语言在H机器上的编译器，如何得到B语言在M机器上的编译器？</p>
+</blockquote>
+<p>在回答上述问题前，首先给出<strong>编译器的T型图表示</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250220194809380.png" alt="image-20250220194809380"></p>
+<ul>
+<li>该T形表示图表示：任何<strong>以S语言编写的程序都可以用此编译器编译</strong>，包括<strong>用S语言编写的新编译器</strong></li>
+</ul>
+<h3 id="1-Question-A">1.Question A</h3>
+<blockquote>
+<p>Q:第一个编译器如何编译得到的？</p>
+<p>A:<strong>自举</strong></p>
+</blockquote>
+<ul>
+<li>用<strong>汇编或机器语言手工编写</strong>了一个<strong>不完善</strong>的S语言的编译器</li>
+<li>用该编译器来编译用<strong>S语言编写</strong>的S语言编译器，即<strong>自举</strong>，多次重复后得到一个完善的编译器</li>
+</ul>
+<p><strong>自举过程推理：</strong></p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">S_{1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>经过<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">H_{0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>编译成<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">H_{1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">S_{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>经过<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">H_{1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>编译成<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">H_{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，以此类推……</p>
+<ul>
+<li>机器语言编写的编译器<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">H_{i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，S语言编写的编译器代码<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">S_{i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，其中<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">H_{0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是手工编写的</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/72d9e725b656d4aaa5dd36a0e247c56.jpg" alt="72d9e725b656d4aaa5dd36a0e247c56"></p>
+<hr>
+<p>2.Question B</p>
+<blockquote>
+<p>Q:有了A语言在H机器上的编译器，如何得到B语言在H机器上的编译器？</p>
+</blockquote>
+<p><strong>移植过程推理：</strong></p>
+<ul>
+<li>由题可知，我们有编译器<code>A——H——H(格式：S——I——T)</code></li>
+<li>我们可以<strong>用A语言编写一个源语言为B，目标语言为H的编译器</strong>，即<code>B——A——H</code></li>
+<li>这个<code>BAH</code>编译器经过<code>AHH</code>编译器编译后，得到<code>BHH</code>编译器</li>
+<li>由此，我们得到了<strong>H语言编写的源语言为B，目标语言为H的编译器</strong>，即<code>BHH</code></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/10294ff1a42ad419a76f92980ed6eac.jpg" alt="10294ff1a42ad419a76f92980ed6eac"></p>
+<hr>
+<h3 id="3-Question-C">3.Question C</h3>
+<blockquote>
+<p>Q:有了A语言在H机器上的编译器，如何得到A语言在M机器上的编译器？</p>
+</blockquote>
+<p><strong>移植过程推理：</strong></p>
+<ul>
+<li>由题可知，我们有编译器<code>A——H——H(格式：S——I——T)</code></li>
+<li>我们<strong>用A语言编写一个源语言为A语言，目标语言为M语言的编译器</strong>，即<code>AAM</code></li>
+<li>我们将<code>AAM</code>编译器通过<code>AHH</code>编译器转换为<strong>H语言编写的源语言为A语言，目标语言为M语言的编译器</strong>，即<code>AHM</code></li>
+<li>我们再将<code>AAM</code>编译器通过<code>AHM</code>编译器转换为<strong>M语言编写的源语言为A语言，目标语言为M语言的编译器</strong>，即<code>AMM</code></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/0da7a964af09c509de966e72a7e4828.jpg" alt="0da7a964af09c509de966e72a7e4828"></p>
+<hr>
+<h3 id="4-Question-D">4.Question D</h3>
+<blockquote>
+<p>Q:有了A语言在H机器上的编译器，如何得到B语言在M机器上的编译器？</p>
+</blockquote>
+<p><strong>移植过程推理：</strong></p>
+<ul>
+<li>
+<p>由题可知，我们有编译器<code>A——H——H(格式：S——I——T)</code></p>
+</li>
+<li>
+<p>我们<strong>用A语言编写一个源语言为B语言，目标语言为M语言的编译器</strong>，即<code>BAM</code></p>
+</li>
+<li>
+<p>我们将<code>BAM</code>编译器通过<code>AHH</code>编译器转换为<strong>H语言编写的源语言为B语言，目标语言为M语言的编译器</strong>，即<code>BHM</code></p>
+</li>
+<li>
+<p>我们<strong>再用B语言编写一个源语言为B语言，目标语言为M语言的编译器</strong>，即<code>BBM</code></p>
+</li>
+<li>
+<p>我们再将<code>BBM</code>编译器通过<code>BHM</code>编译器转换为<strong>M语言编写的源语言为B语言，目标语言为M语言的编译器</strong>，即<code>BMM</code></p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/68de21eb33f999526d44e540c4cacb7.jpg" alt="68de21eb33f999526d44e540c4cacb7"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://SomeFnone.github.io">魔法猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://somefnone.github.io/2025/02/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1/">http://somefnone.github.io/2025/02/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SomeFnone.github.io" target="_blank">Wizard Cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a></div><div class="post_share"><div class="social-share" data-image="/img/BWeLyHqW.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/" title="软件工程导论笔记-2"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">软件工程导论笔记-2</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">魔法猫猫头</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SomeFnone" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1229172423@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">计算机网络笔记,堂堂完结!接下来赶到战场的是完全没做笔记的软工导论!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第一章 引论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%BC%96%E8%AF%91%E5%99%A8%E6%A6%82%E8%BF%B0"><span class="toc-text">1.编译器概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BC%96%E8%AF%91%E5%99%A8%E7%BB%93%E6%9E%84"><span class="toc-text">2.编译器结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0"><span class="toc-text">1.结构概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-text">2.词法分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-text">3.语法分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%AF%AD%E4%B9%89%E5%88%86%E6%9E%90"><span class="toc-text">4.语义分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="toc-text">5.中间代码生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96"><span class="toc-text">6.代码优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="toc-text">7.代码生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E7%AC%A6%E5%8F%B7%E8%A1%A8%E7%AE%A1%E7%90%86"><span class="toc-text">8.符号表管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-text">9.错误处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E5%A4%9A%E6%AD%A5%E9%AA%A4%E7%BB%84%E6%88%90"><span class="toc-text">10.多步骤组成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BC%96%E8%AF%91%E5%99%A8%E7%9B%B8%E5%85%B3%E7%A8%8B%E5%BA%8F"><span class="toc-text">3.编译器相关程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%BC%96%E8%AF%91%E5%99%A8%E7%94%A8%E8%AF%AD"><span class="toc-text">4.编译器用语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%87%AA%E4%B8%BE%E5%92%8C%E7%A7%BB%E6%A4%8D"><span class="toc-text">5.自举和移植</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Question-A"><span class="toc-text">1.Question A</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Question-C"><span class="toc-text">3.Question C</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Question-D"><span class="toc-text">4.Question D</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1/" title="编译原理-1">编译原理-1</a><time datetime="2025-02-20T12:24:40.000Z" title="发表于 2025-02-20 20:24:40">2025-02-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/" title="软件工程导论笔记-2">软件工程导论笔记-2</a><time datetime="2025-01-01T12:53:31.000Z" title="发表于 2025-01-01 20:53:31">2025-01-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1">软件工程导论笔记-1</a><time datetime="2024-12-31T11:04:58.000Z" title="发表于 2024-12-31 19:04:58">2024-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/24/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%B7%AF%E5%B1%82/" title="计网学习笔记-链路层">计网学习笔记-链路层</a><time datetime="2024-12-24T06:49:00.000Z" title="发表于 2024-12-24 14:49:00">2024-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/23/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(控制平面)">计网学习笔记-网络层(控制平面)</a><time datetime="2024-12-23T13:23:00.000Z" title="发表于 2024-12-23 21:23:00">2024-12-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 魔法猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
