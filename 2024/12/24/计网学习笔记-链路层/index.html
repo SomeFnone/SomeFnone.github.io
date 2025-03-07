@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计网学习笔记-链路层 | Wizard Cat</title><meta name="author" content="魔法猫猫头"><meta name="copyright" content="魔法猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第六章 链路层和局域网1.概述与服务1.网络层与链路层 网络层：提供主机之间的通信服务，将传输层报文段从源主机传送到目的主机 能够在各段**链路层提供异构服务(不同协议)**的情况下，完成端到端的工作   链路层：提供节点之间的通信服务，将网络层数据报从一个节点传送到下一个节点 不同的链路采用不同的链路层协议，提供的服务不同     2.链路层信道类型链路层信道分为：广播链路和点对点通信链路">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计网学习笔记-链路层 | Wizard Cat</title><meta name="author" content="魔法猫猫头"><meta name="copyright" content="魔法猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第六章 链路层和局域网 1.概述与服务 1.网络层与链路层  网络层：提供主机之间的通信服务，将传输层报文段从源主机传送到目的主机  能够在各段**链路层提供异构服务(不同协议)**的情况下，完成端到端的工作   链路层：提供节点之间的通信服务，将网络层数据报从一个节点传送到下一个节点  不同的链路采用不同的链路层协议，提供的服务不同     2.链路层信道类型 链路层信道分为：广播链路和点对点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计网学习笔记-链路层">
 <meta property="og:url" content="http://somefnone.github.io/2024/12/24/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%B7%AF%E5%B1%82/index.html">
 <meta property="og:site_name" content="Wizard Cat">
-<meta property="og:description" content="第六章 链路层和局域网1.概述与服务1.网络层与链路层 网络层：提供主机之间的通信服务，将传输层报文段从源主机传送到目的主机 能够在各段**链路层提供异构服务(不同协议)**的情况下，完成端到端的工作   链路层：提供节点之间的通信服务，将网络层数据报从一个节点传送到下一个节点 不同的链路采用不同的链路层协议，提供的服务不同     2.链路层信道类型链路层信道分为：广播链路和点对点通信链路">
+<meta property="og:description" content="第六章 链路层和局域网 1.概述与服务 1.网络层与链路层  网络层：提供主机之间的通信服务，将传输层报文段从源主机传送到目的主机  能够在各段**链路层提供异构服务(不同协议)**的情况下，完成端到端的工作   链路层：提供节点之间的通信服务，将网络层数据报从一个节点传送到下一个节点  不同的链路采用不同的链路层协议，提供的服务不同     2.链路层信道类型 链路层信道分为：广播链路和点对点">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://somefnone.github.io/img/BWeLyHqW.jpg">
 <meta property="article:published_time" content="2024-12-24T06:49:00.000Z">
@@ -175,24 +175,31 @@
     document.addEventListener('pjax:complete', () => { preloader.endLoading() })
   }
 })()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/BWeLyHqW.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Wizard Cat"><span class="site-name">Wizard Cat</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计网学习笔记-链路层</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-24T06:49:00.000Z" title="发表于 2024-12-24 14:49:00">2024-12-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-31T05:17:40.249Z" title="更新于 2024-12-31 13:17:40">2024-12-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/lesson-note/">lesson note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer">
-
-<h1 id="第六章-链路层和局域网"><a href="#第六章-链路层和局域网" class="headerlink" title="第六章 链路层和局域网"></a>第六章 链路层和局域网</h1><h2 id="1-概述与服务"><a href="#1-概述与服务" class="headerlink" title="1.概述与服务"></a>1.概述与服务</h2><h3 id="1-网络层与链路层"><a href="#1-网络层与链路层" class="headerlink" title="1.网络层与链路层"></a>1.网络层与链路层</h3><ul>
-<li>网络层：提供<strong>主机之间</strong>的通信服务，将传输层报文段<strong>从源主机传送到目的主机</strong><ul>
+<h1>第六章 链路层和局域网</h1>
+<h2 id="1-概述与服务">1.概述与服务</h2>
+<h3 id="1-网络层与链路层">1.网络层与链路层</h3>
+<ul>
+<li>网络层：提供<strong>主机之间</strong>的通信服务，将传输层报文段<strong>从源主机传送到目的主机</strong>
+<ul>
 <li>能够在各段**链路层提供异构服务(不同协议)**的情况下，完成端到端的工作</li>
 </ul>
 </li>
-<li>链路层：提供<strong>节点之间</strong>的通信服务，将网络层数据报<strong>从一个节点传送到下一个节点</strong><ul>
+<li>链路层：提供<strong>节点之间</strong>的通信服务，将网络层数据报<strong>从一个节点传送到下一个节点</strong>
+<ul>
 <li><strong>不同的链路采用不同的链路层协议</strong>，提供的服务不同</li>
 </ul>
 </li>
 </ul>
 <hr>
-<h3 id="2-链路层信道类型"><a href="#2-链路层信道类型" class="headerlink" title="2.链路层信道类型"></a>2.链路层信道类型</h3><p>链路层信道分为：<strong>广播链路</strong>和<strong>点对点通信链路</strong></p>
+<h3 id="2-链路层信道类型">2.链路层信道类型</h3>
+<p>链路层信道分为：<strong>广播链路</strong>和<strong>点对点通信链路</strong></p>
 <p><strong>广播链路(共享线路或媒体)：</strong></p>
 <ul>
-<li>许多主机被<strong>连接到相同的通信信道</strong><ul>
-<li>需要**媒体访问协议(MAC)**来协调传输和避免”碰撞”</li>
-<li>链路层协议及其实现包括：<ul>
+<li>许多主机被<strong>连接到相同的通信信道</strong>
+<ul>
+<li>需要**媒体访问协议(MAC)**来协调传输和避免&quot;碰撞&quot;</li>
+<li>链路层协议及其实现包括：
+<ul>
 <li><strong>以太网</strong>：802.3协议的实现</li>
 <li><strong>无线局域网</strong>：802.11协议的实现</li>
 <li><strong>卫星网</strong>等</li>
@@ -204,7 +211,8 @@
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224153718256.png" alt="image-20241224153718256"></p>
 <p><strong>点对点通信链路：</strong></p>
 <ul>
-<li><strong>直接链接2个节点的链路，每一端有一个节点</strong><ul>
+<li><strong>直接链接2个节点的链路，每一端有一个节点</strong>
+<ul>
 <li>访问控制简单</li>
 <li>主要解决的问题：成帧、可靠数据传输、差错检测、流量控制</li>
 </ul>
@@ -212,9 +220,11 @@
 <li>常用于两台路由器之间的通信链路，拨号调制解调器与ISP路由器之间的通信链路</li>
 </ul>
 <hr>
-<h3 id="3-一些术语"><a href="#3-一些术语" class="headerlink" title="3.一些术语"></a>3.一些术语</h3><ul>
+<h3 id="3-一些术语">3.一些术语</h3>
+<ul>
 <li>主机和路由器是<strong>节点</strong></li>
-<li>连接了沿通信路径的相邻节点的路径是<strong>链路</strong><ul>
+<li>连接了沿通信路径的相邻节点的路径是<strong>链路</strong>
+<ul>
 <li>分为：有线链路，无线链路</li>
 </ul>
 </li>
@@ -222,60 +232,71 @@
 </ul>
 <p><strong>数据链路层具有经一条链路从 <em>一个节点</em> 传输数据到 <em>相邻节点</em> 的能力</strong></p>
 <ul>
-<li>不同的链路会采用不同的<strong>链路层协议</strong>，这些协议包括<ul>
+<li>不同的链路会采用不同的<strong>链路层协议</strong>，这些协议包括
+<ul>
 <li>以太网(802.3协议)</li>
 <li>帧中继</li>
 <li>无线局域网(802.11协议)</li>
 <li>…</li>
 </ul>
 </li>
-<li>每个链路协议提供不同的服务<ul>
+<li>每个链路协议提供不同的服务
+<ul>
 <li>可靠数据传输</li>
 <li>不可靠数据传输</li>
 </ul>
 </li>
 </ul>
 <hr>
-<h3 id="4-链路层服务"><a href="#4-链路层服务" class="headerlink" title="4.链路层服务"></a>4.链路层服务</h3><p>链路层的<strong>基本服务</strong>：将网络层数据报通过单一通信链路从一个节点移动到<strong>相邻节点</strong></p>
+<h3 id="4-链路层服务">4.链路层服务</h3>
+<p>链路层的<strong>基本服务</strong>：将网络层数据报通过单一通信链路从一个节点移动到<strong>相邻节点</strong></p>
 <p>具体服务如下：</p>
 <ul>
-<li><p><strong>成帧，链路访问</strong></p>
+<li>
+<p><strong>成帧，链路访问</strong></p>
 <ul>
 <li>将数据报封装进<strong>帧</strong>，加上<strong>首部</strong>和<strong>尾部</strong></li>
 <li>如果是<strong>共享媒体</strong>，<strong>MAC协议</strong>协调多路访问</li>
-<li>位于帧首部的**”MAC地址”**标识源、目的地<ul>
+<li>位于帧首部的**“MAC地址”**标识源、目的地
+<ul>
 <li><strong>MAC地址与IP地址不同</strong></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>相连节点间的可靠交付</p>
+<li>
+<p>相连节点间的可靠交付</p>
 <ul>
 <li>可靠交付保证的是帧能够无差错的从节点A传输到下一个节点B</li>
 <li>这在比特差错低的链路很少使用(如光纤，部分双绞线)</li>
-<li><strong>无线链路</strong>：<strong>高差错率</strong><ul>
+<li><strong>无线链路</strong>：<strong>高差错率</strong>
+<ul>
 <li>需要差错检测、纠错功能</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>流量控制</p>
+<li>
+<p>流量控制</p>
 <ul>
 <li>相邻发送和接收节点的步调一致</li>
 </ul>
 </li>
-<li><p>差错检测</p>
+<li>
+<p>差错检测</p>
 <ul>
 <li>差错由信号衰减、噪声所致</li>
 <li><strong>接收方检测差错的存在(即确认)，发送方负责重传</strong></li>
 </ul>
 </li>
-<li><p>纠错</p>
+<li>
+<p>纠错</p>
 <ul>
 <li><strong>接收方纠正比特差错，不采取重传</strong></li>
 </ul>
 </li>
-<li><p>半双工+全双工</p>
+<li>
+<p>半双工+全双工</p>
 <ul>
 <li>半双工：通信设备可以<strong>双向传输数据</strong>，但<strong>只能在某一时刻</strong>进行发送或接收，而不能同时进行发送和接收。</li>
 </ul>
@@ -298,7 +319,8 @@
 <p><strong>以太网协议是无连接的不可靠服务</strong></p>
 </blockquote>
 <hr>
-<h3 id="5-网络适配器"><a href="#5-网络适配器" class="headerlink" title="5.网络适配器"></a>5.网络适配器</h3><p>每个节点是通过什么来实现链路层通信的？</p>
+<h3 id="5-网络适配器">5.网络适配器</h3>
+<p>每个节点是通过什么来实现链路层通信的？</p>
 <p>——<strong>网络适配器</strong></p>
 <p>节点在**适配器(NIC)**中实现链路层</p>
 <ul>
@@ -311,53 +333,66 @@
 </ul>
 <p><strong>接收侧适配器</strong></p>
 <ul>
-<li><p>提取数据报，传递到接收节点</p>
+<li>
+<p>提取数据报，传递到接收节点</p>
 </li>
-<li><p>查找差错，可靠数据传输，流量控制</p>
+<li>
+<p>查找差错，可靠数据传输，流量控制</p>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224160304249.png" alt="image-20241224160304249"></p>
 <hr>
-<h2 id="2-差错检测和纠错"><a href="#2-差错检测和纠错" class="headerlink" title="2.差错检测和纠错"></a>2.差错检测和纠错</h2><h3 id="1-基本原理"><a href="#1-基本原理" class="headerlink" title="1.基本原理"></a>1.基本原理</h3><p>发送方在信息数据(<strong>帧</strong>)的<strong>尾部</strong>添加冗余数据<strong>EDC</strong>用于差错检测和纠正</p>
+<h2 id="2-差错检测和纠错">2.差错检测和纠错</h2>
+<h3 id="1-基本原理">1.基本原理</h3>
+<p>发送方在信息数据(<strong>帧</strong>)的<strong>尾部</strong>添加冗余数据<strong>EDC</strong>用于差错检测和纠正</p>
 <p>接收方检查帧与EDC之间的关系，发现差错</p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224160709347.png" alt="image-20241224160709347"></p>
 <hr>
-<h3 id="2-奇偶校验"><a href="#2-奇偶校验" class="headerlink" title="2.奇偶校验"></a>2.奇偶校验</h3><h4 id="1-单比特奇偶校验"><a href="#1-单比特奇偶校验" class="headerlink" title="1.单比特奇偶校验"></a>1.单比特奇偶校验</h4><p>单比特奇偶校验的EDC&#x3D;1位，用它来使<code>D+EDC</code>中<code>1</code>的个数为奇数&#x2F;偶数</p>
+<h3 id="2-奇偶校验">2.奇偶校验</h3>
+<h4 id="1-单比特奇偶校验">1.单比特奇偶校验</h4>
+<p>单比特奇偶校验的EDC=1位，用它来使<code>D+EDC</code>中<code>1</code>的个数为奇数/偶数</p>
 <ul>
 <li>奇校验：<code>D+EDC</code>的<code>1</code>的个数为奇数</li>
 <li>偶校验：<code>D+EDC</code>的<code>1</code>的个数为偶数</li>
 </ul>
 <p><strong>单比特奇偶校验错误率为50%</strong></p>
 <hr>
-<h4 id="2-二维比特奇偶校验"><a href="#2-二维比特奇偶校验" class="headerlink" title="2.二维比特奇偶校验"></a>2.二维比特奇偶校验</h4><p>二维比特奇偶校验，可以<strong>检测2个比特差错</strong>，<strong>纠正单个比特差错</strong></p>
+<h4 id="2-二维比特奇偶校验">2.二维比特奇偶校验</h4>
+<p>二维比特奇偶校验，可以<strong>检测2个比特差错</strong>，<strong>纠正单个比特差错</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224161159102.png" alt="image-20241224161159102"></p>
 <hr>
-<h3 id="3-Internet校验和"><a href="#3-Internet校验和" class="headerlink" title="3.Internet校验和"></a>3.Internet校验和</h3><p>这个差错检验方式在TCP，UDP，IP的校验和字段都使用过，此处不再详述，只是再强调一下过程：</p>
+<h3 id="3-Internet校验和">3.Internet校验和</h3>
+<p>这个差错检验方式在TCP，UDP，IP的校验和字段都使用过，此处不再详述，只是再强调一下过程：</p>
 <ul>
 <li>求和</li>
 <li>回卷(高位溢出，回卷)</li>
 <li>取反</li>
 </ul>
 <hr>
-<h3 id="4-循环冗余码校验CRC"><a href="#4-循环冗余码校验CRC" class="headerlink" title="4.循环冗余码校验CRC"></a>4.循环冗余码校验CRC</h3><p>循环冗余校验码CRC是计算机网络和数据通信中使用最为广泛的检错码之一</p>
+<h3 id="4-循环冗余码校验CRC">4.循环冗余码校验CRC</h3>
+<p>循环冗余校验码CRC是计算机网络和数据通信中使用最为广泛的检错码之一</p>
 <p><strong>原理：</strong></p>
 <ul>
-<li>发送方和接收方约定一个**<code>r+1</code>比特的生成多项式G(x)**<ul>
-<li>G(x)可以看成系数为0&#x2F;1的多项式</li>
+<li>发送方和接收方约定一个**<code>r+1</code>比特的生成多项式G(x)**
+<ul>
+<li>G(x)可以看成系数为0/1的多项式</li>
 <li>以下图为例，考题可能会以多项式的形式给出G(x)，转换为二进制即可</li>
 </ul>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224161628390.png" alt="image-20241224161628390"></p>
 <ul>
-<li><p>发送方用<strong>帧信息D</strong>对<strong>G(x)<strong>进行</strong>模2除法</strong>，得到余数，并首部补0扩充为**<code>r</code>比特的校验和R**</p>
+<li>
+<p>发送方用<strong>帧信息D</strong>对<strong>G(x)<strong>进行</strong>模2除法</strong>，得到余数，并首部补0扩充为**<code>r</code>比特的校验和R**</p>
 <ul>
-<li>模2运算：加减法不进位&#x2F;借位(可以当成每一位的异或运算)</li>
+<li>模2运算：加减法不进位/借位(可以当成每一位的异或运算)</li>
 </ul>
 </li>
-<li><p>发送方在<strong>帧信息D</strong>的末尾添加<strong>校验和R</strong>，得到带CRC校验和的帧<strong>DR</strong></p>
+<li>
+<p>发送方在<strong>帧信息D</strong>的末尾添加<strong>校验和R</strong>，得到带CRC校验和的帧<strong>DR</strong></p>
 </li>
-<li><p>接收方收到后，用<strong>DR’<strong>对</strong>G(x)<strong>进行</strong>模2除法</strong>，若不能整除，则传输有错</p>
+<li>
+<p>接收方收到后，用<strong>DR’<strong>对</strong>G(x)<strong>进行</strong>模2除法</strong>，若不能整除，则传输有错</p>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224162216104.png" alt="image-20241224162216104"></p>
@@ -374,7 +409,8 @@
 <p>Question3：何时能够检查两位比特错误？</p>
 <ul>
 <li>CRC 校验能够 <strong>检测到两位比特错误</strong>，但这取决于选择的 <strong>生成多项式</strong></li>
-<li>如果生成多项式的度数较高（如 CRC-16 或 CRC-32），则能够有效检测到两位比特错误<ul>
+<li>如果生成多项式的度数较高（如 CRC-16 或 CRC-32），则能够有效检测到两位比特错误
+<ul>
 <li><strong>CRC-16</strong>：生成多项式通常是 <code>x^16 + x^12 + x^5 + 1</code>（即 <code>11000000000000101</code>），通常可以检测到 <strong>两位比特错误</strong></li>
 <li><strong>CRC-32</strong>：生成多项式通常是 <code>x^32 + x^26 + x^23 + x^22 + x^16 + x^12 + x^11 + x^10 + x^8 + x^7 + x^5 + x^4 + x^2 + x + 1</code>（即 <code>11000000000000000000000000011011</code>），能够有效检测出 <strong>两位比特错误</strong> 以及更多种类的错误</li>
 </ul>
@@ -382,7 +418,8 @@
 </ul>
 </blockquote>
 <hr>
-<h2 id="3-多路访问协议"><a href="#3-多路访问协议" class="headerlink" title="3.多路访问协议"></a>3.多路访问协议</h2><p>前文中我们提到，链路有两种类型：<strong>广播</strong>和<strong>点对点</strong></p>
+<h2 id="3-多路访问协议">3.多路访问协议</h2>
+<p>前文中我们提到，链路有两种类型：<strong>广播</strong>和<strong>点对点</strong></p>
 <p>点对点链路只有2个节点，不存在多节点共享信道的情况，因此不在这一节的讨论范围。我们要讨论的就是<strong>广播链路</strong>引起的<strong>共享信道问题</strong></p>
 <p>如果一个信道由多个节点共享，那么一个问题势必出现：<strong>碰撞</strong></p>
 <ul>
@@ -390,13 +427,16 @@
 <li>一旦碰撞，没有节点可以获得有效帧，造成信道浪费</li>
 </ul>
 <p>于是乎，<strong>多路访问协议MAC</strong>应运而生</p>
-<h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1.概念"></a>1.概念</h3><p><strong>多路访问协议MAC：</strong></p>
+<h3 id="1-概念">1.概念</h3>
+<p><strong>多路访问协议MAC：</strong></p>
 <ul>
-<li>决定节点怎样共享信道的<strong>分布式算法</strong>	<ul>
+<li>决定节点怎样共享信道的<strong>分布式算法</strong>
+<ul>
 <li>如决定何时节点能够传输</li>
 </ul>
 </li>
-<li>必须基于信道本身，由通信信道共享协调信息<ul>
+<li>必须基于信道本身，由通信信道共享协调信息
+<ul>
 <li>无带外信道用于协调</li>
 </ul>
 </li>
@@ -404,8 +444,9 @@
 <p>理想中的MAC协议，支持一个R bps的广播信道：</p>
 <ul>
 <li>效率：节点传输，可以R bps传输</li>
-<li>公平：M个节点发送，每个有 R&#x2F;M bps</li>
-<li>全分散：<ul>
+<li>公平：M个节点发送，每个有 R/M bps</li>
+<li>全分散：
+<ul>
 <li>无特殊节点协调传输</li>
 <li>无同步时钟、时隙</li>
 </ul>
@@ -413,22 +454,26 @@
 <li>简单</li>
 </ul>
 <hr>
-<h3 id="2-分类"><a href="#2-分类" class="headerlink" title="2.分类"></a>2.分类</h3><ul>
-<li><p><strong>信道划分</strong></p>
+<h3 id="2-分类">2.分类</h3>
 <ul>
-<li>将信道划分为较小的”段”(如：<strong>时隙</strong>，<strong>频率</strong>，<strong>编码</strong>)</li>
+<li>
+<p><strong>信道划分</strong></p>
+<ul>
+<li>将信道划分为较小的&quot;段&quot;(如：<strong>时隙</strong>，<strong>频率</strong>，<strong>编码</strong>)</li>
 <li>为节点分配一部分专用</li>
 <li>示例：TDMA(时隙)，FDMA(频率)，CDMA(编码)</li>
 </ul>
 </li>
-<li><p><strong>随机访问</strong></p>
+<li>
+<p><strong>随机访问</strong></p>
 <ul>
 <li>不划分信道，允许碰撞</li>
 <li>从碰撞中恢复</li>
-<li>示例：时隙ALOHA，纯ALOHA，CSMA，CSMA&#x2F;CD</li>
+<li>示例：时隙ALOHA，纯ALOHA，CSMA，CSMA/CD</li>
 </ul>
 </li>
-<li><p><strong>轮流协议</strong></p>
+<li>
+<p><strong>轮流协议</strong></p>
 <ul>
 <li>节点轮流，无碰撞</li>
 <li>兼顾效率和公平</li>
@@ -437,21 +482,26 @@
 </li>
 </ul>
 <hr>
-<h3 id="3-信道划分"><a href="#3-信道划分" class="headerlink" title="3.信道划分"></a>3.信道划分</h3><ul>
+<h3 id="3-信道划分">3.信道划分</h3>
+<ul>
 <li><strong>优势：在高负载时高效、公平地共享信道</strong></li>
-<li><strong>劣势：低负载时低效：信道访问中延时，当1个活跃节点时，甚至仅有分配了 1&#x2F;N 带宽!</strong></li>
+<li><strong>劣势：低负载时低效：信道访问中延时，当1个活跃节点时，甚至仅有分配了 1/N 带宽!</strong></li>
 </ul>
-<h4 id="1-TDMA"><a href="#1-TDMA" class="headerlink" title="1.TDMA"></a>1.TDMA</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224165217971.png" alt="image-20241224165217971"></p>
-<h4 id="2-FDMA"><a href="#2-FDMA" class="headerlink" title="2.FDMA"></a>2.FDMA</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224165233627.png" alt="image-20241224165233627"></p>
+<h4 id="1-TDMA">1.TDMA</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224165217971.png" alt="image-20241224165217971"></p>
+<h4 id="2-FDMA">2.FDMA</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224165233627.png" alt="image-20241224165233627"></p>
 <hr>
-<h3 id="4-随机访问"><a href="#4-随机访问" class="headerlink" title="4.随机访问"></a>4.随机访问</h3><p>随机访问类型的MAC协议，在节点有分组要发送时：</p>
+<h3 id="4-随机访问">4.随机访问</h3>
+<p>随机访问类型的MAC协议，在节点有分组要发送时：</p>
 <ul>
 <li>以信道全部速率R传输</li>
 <li>没有事先的节点间协调</li>
 </ul>
 <p><strong>优势：低负载时有效：单个节点能够全面利用信道</strong></p>
 <p><strong>劣势：高负载：碰撞开销</strong></p>
-<h4 id="1-时隙ALOHA"><a href="#1-时隙ALOHA" class="headerlink" title="1.时隙ALOHA"></a>1.时隙ALOHA</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224165415701.png" alt="image-20241224165415701"></p>
+<h4 id="1-时隙ALOHA">1.时隙ALOHA</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224165415701.png" alt="image-20241224165415701"></p>
 <p><strong>优点：</strong></p>
 <ul>
 <li>单个活跃节点能够连续地以信道的全速传输</li>
@@ -464,17 +514,19 @@
 <li>空闲时隙(下个时隙都不传)</li>
 <li>时钟同步麻烦</li>
 </ul>
-<p><strong>效率：</strong>当有许多节点，且每个都有许多帧要发送时，成功时隙与总时隙的长期比值</p>
+<p>**效率：**当有许多节点，且每个都有许多帧要发送时，成功时隙与总时隙的长期比值</p>
 <ul>
 <li>采用时隙ALOHA协议的信道，用于有效传输的时间效率是<strong>37%</strong></li>
 </ul>
 <hr>
-<h4 id="2-纯ALOHA"><a href="#2-纯ALOHA" class="headerlink" title="2.纯ALOHA"></a>2.纯ALOHA</h4><blockquote>
+<h4 id="2-纯ALOHA">2.纯ALOHA</h4>
+<blockquote>
 <p>纯ALOHA，即<strong>非时隙ALOHA</strong></p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224165717845.png" alt="image-20241224165717845"></p>
 <hr>
-<h4 id="3-CSMA"><a href="#3-CSMA" class="headerlink" title="3.CSMA"></a>3.CSMA</h4><p>CSMA协议，意思是<strong>在传输前侦听</strong></p>
+<h4 id="3-CSMA">3.CSMA</h4>
+<p>CSMA协议，意思是<strong>在传输前侦听</strong></p>
 <ul>
 <li>如果侦听到信道空闲：传输整个帧</li>
 <li>如果侦听到信道繁忙：<strong>推迟传输</strong></li>
@@ -496,15 +548,18 @@
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224170040988.png" alt="image-20241224170040988"></p>
 <hr>
-<h4 id="4-CSMA-CD"><a href="#4-CSMA-CD" class="headerlink" title="4.CSMA&#x2F;CD"></a>4.CSMA&#x2F;CD</h4><blockquote>
-<p>CSMA&#x2F;CD：带碰撞检测的载波侦听多路访问协议</p>
+<h4 id="4-CSMA-CD">4.CSMA/CD</h4>
+<blockquote>
+<p>CSMA/CD：带碰撞检测的载波侦听多路访问协议</p>
 </blockquote>
-<p><strong>CSMA&#x2F;CD：</strong></p>
+<p><strong>CSMA/CD：</strong></p>
 <ul>
 <li>载波侦听</li>
-<li>碰撞检测<ul>
+<li>碰撞检测
+<ul>
 <li>检测到碰撞，<strong>立刻停止传输</strong></li>
-<li>等待一段<strong>随机时间</strong>后，继续侦听<ul>
+<li>等待一段<strong>随机时间</strong>后，继续侦听
+<ul>
 <li>如果侦听到信道繁忙，还要<strong>继续等待直到信道空闲</strong></li>
 </ul>
 </li>
@@ -514,42 +569,49 @@
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224170226584.png" alt="image-20241224170226584"></p>
 <p><strong>1.确定等待的随机时间：</strong></p>
 <ul>
-<li>需要注意的是：<strong>二进制指数后退算法</strong>是有上限的，也就是图中的<strong>n&lt;&#x3D;10</strong>。如果碰撞次数大于10，<strong>都按照10来计算</strong></li>
+<li>需要注意的是：<strong>二进制指数后退算法</strong>是有上限的，也就是图中的<strong>n&lt;=10</strong>。如果碰撞次数大于10，<strong>都按照10来计算</strong></li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224170318733.png" alt="image-20241224170318733"></p>
 <blockquote>
-<p>Question:CSMA&#x2F;CD在第5次碰撞之后，选择K&#x3D;4的概率是多少？结果K&#x3D;4在10Mbps以太网上对应多少秒时延？</p>
-<p><strong>第5次碰撞后，2^n-1&#x3D;2^5-1&#x3D;31，p(k&#x3D;4) &#x3D; 1&#x2F;32</strong></p>
-<p><strong>总比特时间&#x3D;4*512&#x3D;2048 比特时间</strong></p>
-<p><strong>比特时间&#x3D;1&#x2F;传输速率&#x3D;1&#x2F;10Mbps &#x3D; 10^-7 s&#x2F;bit</strong></p>
-<p><strong>时延&#x3D;2048*10^-7&#x3D;2*10^-4&#x3D;0.2ms</strong></p>
+<p>Question:CSMA/CD在第5次碰撞之后，选择K=4的概率是多少？结果K=4在10Mbps以太网上对应多少秒时延？</p>
+<p><strong>第5次碰撞后，2^n-1=2^5-1=31，p(k=4) = 1/32</strong></p>
+<p><strong>总比特时间=4*512=2048 比特时间</strong></p>
+<p><strong>比特时间=1/传输速率=1/10Mbps = 10^-7 s/bit</strong></p>
+<p><strong>时延=2048*10^-7=2*10^-4=0.2ms</strong></p>
 </blockquote>
-<p><strong>2.传播时延对CSMA&#x2F;CD的影响</strong></p>
+<p><strong>2.传播时延对CSMA/CD的影响</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224170409405.png" alt="image-20241224170409405"></p>
 <blockquote>
-<p>Question:假设节点A和B在10Mbps的广播信道上，传播时延为325比特时间。如果传输一个帧需要576比特时间，通过CSMA&#x2F;CD是否无法检查碰撞？</p>
+<p>Question:假设节点A和B在10Mbps的广播信道上，传播时延为325比特时间。如果传输一个帧需要576比特时间，通过CSMA/CD是否无法检查碰撞？</p>
 <p><strong>无法检查到碰撞！</strong></p>
-<p><strong>传播时延&#x3D;325，2*传播时延&#x3D;650 &gt; 576, 检测到碰撞时，帧已传输完毕！</strong></p>
+<p><strong>传播时延=325，2*传播时延=650 &gt; 576, 检测到碰撞时，帧已传输完毕！</strong></p>
 </blockquote>
 <p><strong>3.例题</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224171423901.png" alt="image-20241224171423901"></p>
 <hr>
-<h3 id="5-轮流协议"><a href="#5-轮流协议" class="headerlink" title="5.轮流协议"></a>5.轮流协议</h3><p>兼有信道划分和随机访问MAC协议的优点</p>
-<h4 id="1-轮询协议"><a href="#1-轮询协议" class="headerlink" title="1.轮询协议"></a>1.轮询协议</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224171706643.png" alt="image-20241224171706643"></p>
+<h3 id="5-轮流协议">5.轮流协议</h3>
+<p>兼有信道划分和随机访问MAC协议的优点</p>
+<h4 id="1-轮询协议">1.轮询协议</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224171706643.png" alt="image-20241224171706643"></p>
 <hr>
-<h4 id="2-令牌协议"><a href="#2-令牌协议" class="headerlink" title="2.令牌协议"></a>2.令牌协议</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224171725259.png" alt="image-20241224171725259"></p>
-<h2 id="4-以太网"><a href="#4-以太网" class="headerlink" title="4.以太网"></a>4.以太网</h2><blockquote>
+<h4 id="2-令牌协议">2.令牌协议</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224171725259.png" alt="image-20241224171725259"></p>
+<h2 id="4-以太网">4.以太网</h2>
+<blockquote>
 <p>以太网标准协议：802.3</p>
 <p><strong>以太网技术提供的是无连接的不可靠服务</strong></p>
 </blockquote>
-<h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><p>以太网是目前<strong>最流行</strong>的LAN技术，市场占有率98%</p>
+<h3 id="1-概述">1.概述</h3>
+<p>以太网是目前<strong>最流行</strong>的LAN技术，市场占有率98%</p>
 <p>以太网的网络拓扑：</p>
 <ul>
-<li>总线：上世纪90年代中期流行<ul>
+<li>总线：上世纪90年代中期流行
+<ul>
 <li>存储转发技术尚未发明</li>
 </ul>
 </li>
-<li>星型：目前最主流<ul>
+<li>星型：目前最主流
+<ul>
 <li>连接选择：switch(交换机)为中心</li>
 <li>每个节点以及相连的交换机端口使用（独立的）以太网协议（不会 和其他节点的发送产生碰撞）</li>
 <li>使用的是<strong>存储转发交换机</strong>，解决了<strong>共享信道碰撞的问题</strong></li>
@@ -558,43 +620,50 @@
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224172529437.png" alt="image-20241224172529437"></p>
-<p>传统的以太网(指使用集线器&#x2F;HUB的以太网)采用的是<strong>广播链路</strong>，所有连接在同一物理网络上的设备（主机、路由器、交换机等）共享一个通信信道</p>
+<p>传统的以太网(指使用集线器/HUB的以太网)采用的是<strong>广播链路</strong>，所有连接在同一物理网络上的设备（主机、路由器、交换机等）共享一个通信信道</p>
 <ul>
 <li>因此，该以太网下，主机A发给主机B的帧，实际上链路上的<strong>所有节点都收到了</strong>，但<strong>只有目的节点的适配器会将帧的数据(数据报)发给网络层</strong></li>
 </ul>
 <hr>
-<h3 id="2-以太网帧结构"><a href="#2-以太网帧结构" class="headerlink" title="2.以太网帧结构"></a>2.以太网帧结构</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224172935129.png" alt="image-20241224172935129"></p>
+<h3 id="2-以太网帧结构">2.以太网帧结构</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224172935129.png" alt="image-20241224172935129"></p>
 <ul>
-<li><p><strong>前导码(preamble)</strong></p>
+<li>
+<p><strong>前导码(preamble)</strong></p>
 <ul>
 <li><strong>8字节</strong>，<strong>不算在以太网帧的大小内</strong></li>
 <li>模式为<code>10101010</code> 的7个字节，后跟模式为 <code>10101011</code> 的一个字节</li>
 <li>用于同步接收方，发送方时钟速率</li>
 </ul>
 </li>
-<li><p><strong>MAC地址</strong></p>
+<li>
+<p><strong>MAC地址</strong></p>
 <ul>
 <li><strong>6字节</strong>，目的MAC地址6字节，源MAC地址6字节</li>
 <li>如果适配器接收具有匹配的目的地址或广播地址的帧, 它将帧中的数据提交给网络层协议</li>
 <li>否则, 适配器丢弃帧</li>
 </ul>
 </li>
-<li><p><strong>类型(type)</strong></p>
+<li>
+<p><strong>类型(type)</strong></p>
 <ul>
-<li><strong>2字节</strong>，指示较高层协议(如：IP&#x2F;AppleTalk&#x2F;Novell IPX)</li>
+<li><strong>2字节</strong>，指示较高层协议(如：IP/AppleTalk/Novell IPX)</li>
 </ul>
 </li>
-<li><p><strong>数据字段(data)</strong></p>
+<li>
+<p><strong>数据字段(data)</strong></p>
 <ul>
 <li><strong>46字节到1500字节</strong>，存储IP数据报</li>
 <li>最大长度1500字节：<strong>以太网的MTU是1500字节，超过该大小将被分片</strong></li>
-<li>最小长度46字节：发送data&#x3D;46字节的以太网帧时，L&#x2F;R正好等于2倍传播时延。<strong>为了能够在传输结束前检测到冲突</strong>，最小长度设定在46字节。不足46字节，则末尾填充0<ul>
+<li>最小长度46字节：发送data=46字节的以太网帧时，L/R正好等于2倍传播时延。<strong>为了能够在传输结束前检测到冲突</strong>，最小长度设定在46字节。不足46字节，则末尾填充0
+<ul>
 <li>该值是一个经验值，基于实际链路的传输速率和链路长度决定</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><strong>循环冗余校验码</strong></p>
+<li>
+<p><strong>循环冗余校验码</strong></p>
 <ul>
 <li><strong>4字节</strong></li>
 <li>检测到差错，丢弃该帧</li>
@@ -603,7 +672,8 @@
 </li>
 </ul>
 <hr>
-<h3 id="3-802-3"><a href="#3-802-3" class="headerlink" title="3.802.3"></a>3.802.3</h3><p>实际上，虽然协议都是802.3，但是有着很多<strong>不同的以太网标准</strong></p>
+<h3 id="3-802-3">3.802.3</h3>
+<p>实际上，虽然协议都是802.3，但是有着很多<strong>不同的以太网标准</strong></p>
 <ul>
 <li>相同的MAC协议(介质访问控制)和帧结构</li>
 <li>不同的速率：2Mbps，10Mbps，100Mbps，1Gbps，10Gbps…</li>
@@ -612,29 +682,35 @@
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224173951240.png" alt="image-20241224173951240"></p>
 <hr>
-<h2 id="5-链路层编址"><a href="#5-链路层编址" class="headerlink" title="5.链路层编址"></a>5.链路层编址</h2><h3 id="1-IP地址与MAC地址"><a href="#1-IP地址与MAC地址" class="headerlink" title="1.IP地址与MAC地址"></a>1.IP地址与MAC地址</h3><p>每个<strong>节点</strong>的<strong>接口</strong>有<strong>网络层地址</strong>和<strong>链路层地址</strong></p>
+<h2 id="5-链路层编址">5.链路层编址</h2>
+<h3 id="1-IP地址与MAC地址">1.IP地址与MAC地址</h3>
+<p>每个<strong>节点</strong>的<strong>接口</strong>有<strong>网络层地址</strong>和<strong>链路层地址</strong></p>
 <ul>
-<li>网络层地址：节点接口在互连网络中动态分配的一个IP地址<ul>
+<li>网络层地址：节点接口在互连网络中动态分配的一个IP地址
+<ul>
 <li>用于把分组送到目的IP网络</li>
 </ul>
 </li>
-<li>链路层地址：MAC地址写入网卡(适配器)的ROM中<ul>
+<li>链路层地址：MAC地址写入网卡(适配器)的ROM中
+<ul>
 <li>用于把数据帧从一个节点传送到另一个节点(<strong>同一网络中</strong>)</li>
 </ul>
 </li>
 </ul>
 <blockquote>
 <p>有一个一直没有提及的点：<strong>交换机</strong></p>
-<p><strong>交换机不具备MAC地址，可以将之视为不存在&#x2F;透明</strong></p>
+<p><strong>交换机不具备MAC地址，可以将之视为不存在/透明</strong></p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224175153159.png" alt="image-20241224175153159"></p>
 <hr>
-<h3 id="2-MAC地址"><a href="#2-MAC地址" class="headerlink" title="2.MAC地址"></a>2.MAC地址</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224174619544.png" alt="image-20241224174619544"></p>
+<h3 id="2-MAC地址">2.MAC地址</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224174619544.png" alt="image-20241224174619544"></p>
 <p><strong>MAC地址：</strong></p>
 <ul>
 <li>6字节，每个字节用1个16进制数表示</li>
-<li>是网卡的唯一标识，不会变化<ul>
-<li>特殊：MAC地址&#x3D;<code>FF-FF-FF-FF-FF-FF</code>，即<strong>广播地址</strong></li>
+<li>是网卡的唯一标识，不会变化
+<ul>
+<li>特殊：MAC地址=<code>FF-FF-FF-FF-FF-FF</code>，即<strong>广播地址</strong></li>
 </ul>
 </li>
 </ul>
@@ -646,11 +722,14 @@
 </ul>
 </blockquote>
 <hr>
-<h3 id="3-地址转换问题"><a href="#3-地址转换问题" class="headerlink" title="3.地址转换问题"></a>3.地址转换问题</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224174926452.png" alt="image-20241224174926452"></p>
+<h3 id="3-地址转换问题">3.地址转换问题</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224174926452.png" alt="image-20241224174926452"></p>
 <ul>
-<li><p>两台机器A和B,它们IP地址分别是IP1、 IP6 ，物理地址分别是PA和PB。</p>
+<li>
+<p>两台机器A和B,它们IP地址分别是IP1、 IP6 ，物理地址分别是PA和PB。</p>
 </li>
-<li><p>高层程序仅希望与IP地址交往，而实际通信必须使用物理地址</p>
+<li>
+<p>高层程序仅希望与IP地址交往，而实际通信必须使用物理地址</p>
 <ul>
 <li>端到端IP寻址——&gt;链路节点之间的MAC地址通信</li>
 </ul>
@@ -658,41 +737,49 @@
 </ul>
 <p><em>如何从节点的IP地址得到它的物理地址？</em></p>
 <hr>
-<h2 id="6-ARP协议"><a href="#6-ARP协议" class="headerlink" title="6.ARP协议"></a>6.ARP协议</h2><blockquote>
+<h2 id="6-ARP协议">6.ARP协议</h2>
+<blockquote>
 <p>ARP协议，全称<strong>地址解析协议</strong></p>
 <p>ARP协议是<strong>链路层协议</strong></p>
 </blockquote>
-<h3 id="1-ARP表"><a href="#1-ARP表" class="headerlink" title="1.ARP表"></a>1.ARP表</h3><p>LAN(局域网)上的每个<strong>节点</strong>(主机&#x2F;路由器)都有ARP表</p>
+<h3 id="1-ARP表">1.ARP表</h3>
+<p>LAN(局域网)上的每个<strong>节点</strong>(主机/路由器)都有ARP表</p>
 <ul>
 <li>ARP表：对某些局域网节点的<code>IP/MAC</code>地址映射</li>
-<li>ARP表表项：<code>&lt;IP地址；MAC地址；TTL&gt;</code><ul>
+<li>ARP表表项：<code>&lt;IP地址；MAC地址；TTL&gt;</code>
+<ul>
 <li>TTL：<code>time to live</code>，该映射的寿命。通常为20分钟</li>
 </ul>
 </li>
 </ul>
 <hr>
-<h3 id="2-ARP协议"><a href="#2-ARP协议" class="headerlink" title="2.ARP协议"></a>2.ARP协议</h3><p>ARP协议的功能在于：<strong>为同一子网上的节点解析IP地址</strong></p>
+<h3 id="2-ARP协议">2.ARP协议</h3>
+<p>ARP协议的功能在于：<strong>为同一子网上的节点解析IP地址</strong></p>
 <ul>
-<li>再次强调——“<strong>同一子网</strong>“</li>
+<li>再次强调——“<strong>同一子网</strong>”</li>
 </ul>
 <blockquote>
 <p><strong>情景1：主机A、B在同一子网中</strong></p>
 <p>如果主机A的ARP表中没有B的ARP映射，但现在A需要知道B的MAC地址，获取的流程是？</p>
 </blockquote>
 <ul>
-<li>首先，A<strong>广播</strong> **ARP查询分组(实际是链路层帧)**，包含B的IP地址<ul>
+<li>首先，A<strong>广播</strong> <strong>ARP查询分组(实际是链路层帧)</strong>，包含B的IP地址
+<ul>
 <li>ARP查询分组样例：<code>(IP.A，IP.B，MAC.A，MAC.Dest)</code></li>
-<li>目的MAC地址，即<code>MAC.Dest = FF-FF-FF-FF-FF-FF</code><ul>
+<li>目的MAC地址，即<code>MAC.Dest = FF-FF-FF-FF-FF-FF</code>
+<ul>
 <li>该MAC地址为局域网内广播地址</li>
 </ul>
 </li>
-<li>在LAN上的<strong>所有节点</strong>都会收到该ARP请求<ul>
+<li>在LAN上的<strong>所有节点</strong>都会收到该ARP请求
+<ul>
 <li>但是看到IP不是自己的，其他节点就会丢弃该分组</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>于是B收到了ARP查询分组，并向A<strong>单播</strong> <strong>ARP响应分组</strong><ul>
+<li>于是B收到了ARP查询分组，并向A<strong>单播</strong> <strong>ARP响应分组</strong>
+<ul>
 <li>ARP响应分组样例：<code>(IP.A，IP.B，MAC.A，MAC.B)</code></li>
 <li>因为<strong>单播</strong>，LAN中只有A节点收到了该分组</li>
 </ul>
@@ -706,7 +793,8 @@
 </blockquote>
 <ul>
 <li>当两台主机在同一个子网，数据报可以从发送方直接交付接收方</li>
-<li>当两台主机在不同子网<ul>
+<li>当两台主机在不同子网
+<ul>
 <li>源主机-源路由器间接交付</li>
 <li>路由器之间间接交付</li>
 <li>目的路由器与目的主机直接交付</li>
@@ -717,20 +805,23 @@
 <ul>
 <li>同时还有一点值得注意：<strong>路由器会屏蔽广播的ARP查询分组，因为ARP分组是链路层帧，不是IP数据报，且不同子网不使用ARP来解析MAC</strong></li>
 </ul>
-<p>我们假设A的ARP表中也没有路由器的IP&#x2F;MAC映射</p>
+<p>我们假设A的ARP表中也没有路由器的IP/MAC映射</p>
 <p>具体过程：</p>
 <ul>
 <li>第一步，主机A通过ARP询问获得路由器的MAC地址(详细步骤如上所示)</li>
-<li>第二步，A发送帧给路由器R<ul>
+<li>第二步，A发送帧给路由器R
+<ul>
 <li><code>(MAC.A，MAC.R，IP.A，IP.B)</code></li>
-<li>为什么帧中，目的MAC不是MAC.B？<ul>
+<li>为什么帧中，目的MAC不是MAC.B？
+<ul>
 <li>这就回到了链路层概念。链路层是提供了<strong>节点到节点的交付</strong>，主机A和主机B不是节点邻居，主机A和路由器R才是(忽略透明的交换机)</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>第三步，路由器R从帧中获取目的IP地址，查询转发表确定输出端口</li>
-<li>第四步，路由器R发送帧到主机B<ul>
+<li>第四步，路由器R发送帧到主机B
+<ul>
 <li><code>(MAC.R，MAC.B，IP.A，IP.B)</code></li>
 <li>这里我们假设了AB之间只有一个路由器，路径如果更复杂，还会有更多的间接交付。但无论如何交付，都要记住一点：<strong>以太网帧中，只有源MAC地址和目的MAC地址一致在变，因为链路层是节点与节点间的交付；源IP和目的IP是始终不变的(抛开NAT不谈的情况下)</strong></li>
 </ul>
@@ -738,27 +829,32 @@
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224193544996.png" alt="image-20241224193544996"></p>
 <hr>
-<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h3><p>地址间的转换：</p>
+<h3 id="3-总结">3.总结</h3>
+<p>地址间的转换：</p>
 <p>主机名————&gt;IP地址————&gt;MAC地址</p>
 <ul>
-<li>DNS域名系统：将主机名解析到IP地址<ul>
+<li>DNS域名系统：将主机名解析到IP地址
+<ul>
 <li>DNS可以为<strong>因特网中任何地方的主机</strong>解析主机名</li>
 </ul>
 </li>
-<li>ARP地址解析协议：将IP地址解析到MAC地址<ul>
+<li>ARP地址解析协议：将IP地址解析到MAC地址
+<ul>
 <li>ARP只为<strong>在同一LAN下的节点</strong>解析IP地址</li>
 <li>不同子网间解析IP地址，需要<strong>间接交付</strong></li>
 </ul>
 </li>
 </ul>
 <hr>
-<h3 id="4-细节"><a href="#4-细节" class="headerlink" title="4.细节"></a>4.细节</h3><ul>
+<h3 id="4-细节">4.细节</h3>
+<ul>
 <li>ARP将保存在高速缓存中的每一映射地址项目都设置生存时间，凡是超过生存时间的项目就从高速缓存中删掉</li>
 <li>从IP地址到硬件地址的解析是自动进行的，主机的用户对这种地址解析过程是不知道的</li>
 <li>ARP 是解决同一个子网中的主机或路由器的 IP 地址和硬件地址的映射问题</li>
 </ul>
 <hr>
-<h3 id="5-风险"><a href="#5-风险" class="headerlink" title="5.风险"></a>5.风险</h3><ul>
+<h3 id="5-风险">5.风险</h3>
+<ul>
 <li>ARP欺骗</li>
 <li>ARP泛洪攻击</li>
 <li>欺骗主机攻击</li>
@@ -767,7 +863,8 @@
 <li>…</li>
 </ul>
 <hr>
-<h3 id="6-例题"><a href="#6-例题" class="headerlink" title="6.例题"></a>6.例题</h3><p>1.书P333-14</p>
+<h3 id="6-例题">6.例题</h3>
+<p>1.书P333-14</p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224202253000.png" alt="image-20241224202253000"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224202523976.png" alt="image-20241224202523976"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/54a22996137d5a803bf2664afd3aa77.jpg" alt="54a22996137d5a803bf2664afd3aa77"></p>
@@ -775,24 +872,29 @@
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224194752038.png" alt="image-20241224194752038"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/aebf13240b741e8282074dbe2435b6e.jpg" alt="aebf13240b741e8282074dbe2435b6e"></p>
 <p>这道例题提到了一个一直被忽视的点：<strong>交换机的转发表</strong></p>
-<h2 id="7-交换机"><a href="#7-交换机" class="headerlink" title="7.交换机"></a>7.交换机</h2><h3 id="1-概述-1"><a href="#1-概述-1" class="headerlink" title="1.概述"></a>1.概述</h3><p>交换机的任务是接收<strong>入链路层</strong>的帧，并将它们转发到<strong>出链路</strong>。</p>
+<h2 id="7-交换机">7.交换机</h2>
+<h3 id="1-概述-2">1.概述</h3>
+<p>交换机的任务是接收<strong>入链路层</strong>的帧，并将它们转发到<strong>出链路</strong>。</p>
 <p>交换机对于子网中的主机和路由器来说是<strong>透明</strong>的！</p>
 <ul>
 <li>过滤：决定一个帧是应该转发到某个接口还是丢弃！</li>
 <li>转发：决定帧应该被导向哪个接口。</li>
 </ul>
 <p>特色：即插即用，自学习</p>
-<h4 id="2-交换机表"><a href="#2-交换机表" class="headerlink" title="2.交换机表"></a>2.交换机表</h4><p>交换机的转发表通常包含以下几部分内容：</p>
+<h4 id="2-交换机表">2.交换机表</h4>
+<p>交换机的转发表通常包含以下几部分内容：</p>
 <ul>
 <li><strong>MAC地址</strong>：每个连接到交换机的设备的物理地址（即网卡的MAC地址）</li>
 <li><strong>端口号</strong>：交换机上对应的端口号，表示该MAC地址所在的设备通过哪个端口连接到交换机</li>
 <li><strong>时间戳</strong>：记录该条目被添加到转发表中的时间，帮助交换机决定是否清除过期的条目。</li>
 </ul>
 <hr>
-<h4 id="2-转发-过滤"><a href="#2-转发-过滤" class="headerlink" title="2.转发&#x2F;过滤"></a>2.转发&#x2F;过滤</h4><p>当交换机接收到一个数据帧时，它会检查帧的目标MAC地址，然后查看转发表中是否有该MAC地址的映射。</p>
+<h4 id="2-转发-过滤">2.转发/过滤</h4>
+<p>当交换机接收到一个数据帧时，它会检查帧的目标MAC地址，然后查看转发表中是否有该MAC地址的映射。</p>
 <ul>
-<li>如果找到了对应的端口，交换机会将数据帧转发到该端口<ul>
-<li><strong>如果表中对应的端口&#x3D;接收端口，则过滤该帧</strong>（很重要！！！）</li>
+<li>如果找到了对应的端口，交换机会将数据帧转发到该端口
+<ul>
+<li><strong>如果表中对应的端口=接收端口，则过滤该帧</strong>（很重要！！！）</li>
 </ul>
 </li>
 <li>如果没有找到，交换机会进行广播，将帧发送到所有其他端口（除了接收端口）</li>
@@ -802,16 +904,18 @@
 <li>交换机会直接进行广播，将帧发送到所有其他端口（除了接收端口，避免重复发送）</li>
 </ul>
 <hr>
-<h4 id="3-转发表更新"><a href="#3-转发表更新" class="headerlink" title="3.转发表更新"></a>3.转发表更新</h4><p>交换机的转发表是动态更新的，它会根据接收到的数据帧来更新。当交换机收到数据帧时，它会检查数据帧的源MAC地址，并记录下源MAC地址与接收到该帧的端口之间的映射关系。具体更新过程如下：</p>
+<h4 id="3-转发表更新">3.转发表更新</h4>
+<p>交换机的转发表是动态更新的，它会根据接收到的数据帧来更新。当交换机收到数据帧时，它会检查数据帧的源MAC地址，并记录下源MAC地址与接收到该帧的端口之间的映射关系。具体更新过程如下：</p>
 <ul>
 <li><strong>接收数据帧</strong>：交换机接收到数据帧后，会提取源MAC地址和目标MAC地址。</li>
-<li><strong>记录源MAC地址和端口号</strong>：交换机会将源MAC地址和接收到该帧的端口号存储到转发表中。<ul>
+<li><strong>记录源MAC地址和端口号</strong>：交换机会将源MAC地址和接收到该帧的端口号存储到转发表中。
+<ul>
 <li>如果该MAC地址已经存在于转发表中，交换机会更新该条目，以确保源MAC地址与最新端口映射保持一致。</li>
 <li>如果该MAC地址不存在于转发表中，交换机会新增一条映射记录。</li>
 </ul>
 </li>
 </ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://SomeFnone.github.io">魔法猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://somefnone.github.io/2024/12/24/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%B7%AF%E5%B1%82/">http://somefnone.github.io/2024/12/24/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%B7%AF%E5%B1%82/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SomeFnone.github.io" target="_blank">Wizard Cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="/img/BWeLyHqW.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/12/23/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(控制平面)"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计网学习笔记-网络层(控制平面)</div></div></a></div><div class="next-post pull-right"><a href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">软件工程导论笔记-1</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/09/27/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BA%94%E7%94%A8%E5%B1%82/" title="计网学习笔记-应用层"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-12-30</div><div class="title">计网学习笔记-应用层</div></div></a></div><div><a href="/2024/12/23/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(控制平面)"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-12-30</div><div class="title">计网学习笔记-网络层(控制平面)</div></div></a></div><div><a href="/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(数据平面)"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-12-30</div><div class="title">计网学习笔记-网络层(数据平面)</div></div></a></div><div><a href="/2024/09/22/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="计网学习笔记"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2025-02-17</div><div class="title">计网学习笔记</div></div></a></div><div><a href="/2024/10/09/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%BF%90%E8%BE%93%E5%B1%82/" title="计网学习笔记-运输层"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-12-30</div><div class="title">计网学习笔记-运输层</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">魔法猫猫头</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SomeFnone" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1229172423@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">计算机网络笔记,堂堂完结!接下来赶到战场的是完全没做笔记的软工导论!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E9%93%BE%E8%B7%AF%E5%B1%82%E5%92%8C%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">第六章 链路层和局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0%E4%B8%8E%E6%9C%8D%E5%8A%A1"><span class="toc-text">1.概述与服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BD%91%E7%BB%9C%E5%B1%82%E4%B8%8E%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-text">1.网络层与链路层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%93%BE%E8%B7%AF%E5%B1%82%E4%BF%A1%E9%81%93%E7%B1%BB%E5%9E%8B"><span class="toc-text">2.链路层信道类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%80%E4%BA%9B%E6%9C%AF%E8%AF%AD"><span class="toc-text">3.一些术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%93%BE%E8%B7%AF%E5%B1%82%E6%9C%8D%E5%8A%A1"><span class="toc-text">4.链路层服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%BD%91%E7%BB%9C%E9%80%82%E9%85%8D%E5%99%A8"><span class="toc-text">5.网络适配器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B%E5%92%8C%E7%BA%A0%E9%94%99"><span class="toc-text">2.差错检测和纠错</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-text">1.基本原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C"><span class="toc-text">2.奇偶校验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8D%95%E6%AF%94%E7%89%B9%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C"><span class="toc-text">1.单比特奇偶校验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BA%8C%E7%BB%B4%E6%AF%94%E7%89%B9%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C"><span class="toc-text">2.二维比特奇偶校验</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Internet%E6%A0%A1%E9%AA%8C%E5%92%8C"><span class="toc-text">3.Internet校验和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E7%A0%81%E6%A0%A1%E9%AA%8CCRC"><span class="toc-text">4.循环冗余码校验CRC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A4%9A%E8%B7%AF%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE"><span class="toc-text">3.多路访问协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E5%BF%B5"><span class="toc-text">1.概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%86%E7%B1%BB"><span class="toc-text">2.分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BF%A1%E9%81%93%E5%88%92%E5%88%86"><span class="toc-text">3.信道划分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-TDMA"><span class="toc-text">1.TDMA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-FDMA"><span class="toc-text">2.FDMA</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%9A%8F%E6%9C%BA%E8%AE%BF%E9%97%AE"><span class="toc-text">4.随机访问</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%97%B6%E9%9A%99ALOHA"><span class="toc-text">1.时隙ALOHA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%BA%AFALOHA"><span class="toc-text">2.纯ALOHA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-CSMA"><span class="toc-text">3.CSMA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-CSMA-CD"><span class="toc-text">4.CSMA&#x2F;CD</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%BD%AE%E6%B5%81%E5%8D%8F%E8%AE%AE"><span class="toc-text">5.轮流协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%BD%AE%E8%AF%A2%E5%8D%8F%E8%AE%AE"><span class="toc-text">1.轮询协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BB%A4%E7%89%8C%E5%8D%8F%E8%AE%AE"><span class="toc-text">2.令牌协议</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-text">4.以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B8%A7%E7%BB%93%E6%9E%84"><span class="toc-text">2.以太网帧结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-802-3"><span class="toc-text">3.802.3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%93%BE%E8%B7%AF%E5%B1%82%E7%BC%96%E5%9D%80"><span class="toc-text">5.链路层编址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-IP%E5%9C%B0%E5%9D%80%E4%B8%8EMAC%E5%9C%B0%E5%9D%80"><span class="toc-text">1.IP地址与MAC地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-MAC%E5%9C%B0%E5%9D%80"><span class="toc-text">2.MAC地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E9%97%AE%E9%A2%98"><span class="toc-text">3.地址转换问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-ARP%E5%8D%8F%E8%AE%AE"><span class="toc-text">6.ARP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-ARP%E8%A1%A8"><span class="toc-text">1.ARP表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-ARP%E5%8D%8F%E8%AE%AE"><span class="toc-text">2.ARP协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%80%BB%E7%BB%93"><span class="toc-text">3.总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BB%86%E8%8A%82"><span class="toc-text">4.细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%A3%8E%E9%99%A9"><span class="toc-text">5.风险</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%BE%8B%E9%A2%98"><span class="toc-text">6.例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-text">7.交换机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0-1"><span class="toc-text">1.概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%A1%A8"><span class="toc-text">2.交换机表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BD%AC%E5%8F%91-%E8%BF%87%E6%BB%A4"><span class="toc-text">2.转发&#x2F;过滤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%BD%AC%E5%8F%91%E8%A1%A8%E6%9B%B4%E6%96%B0"><span class="toc-text">3.转发表更新</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/04/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/" title="深度学习-预备知识">深度学习-预备知识</a><time datetime="2025-03-04T05:57:35.000Z" title="发表于 2025-03-04 13:57:35">2025-03-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-2/" title="编译原理-2">编译原理-2</a><time datetime="2025-02-27T08:19:30.000Z" title="发表于 2025-02-27 16:19:30">2025-02-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1/" title="编译原理-1">编译原理-1</a><time datetime="2025-02-20T12:24:40.000Z" title="发表于 2025-02-20 20:24:40">2025-02-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/" title="软件工程导论笔记-2">软件工程导论笔记-2</a><time datetime="2025-01-01T12:53:31.000Z" title="发表于 2025-01-01 20:53:31">2025-01-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1">软件工程导论笔记-1</a><time datetime="2024-12-31T11:04:58.000Z" title="发表于 2024-12-31 19:04:58">2024-12-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 魔法猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://SomeFnone.github.io">魔法猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://somefnone.github.io/2024/12/24/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%B7%AF%E5%B1%82/">http://somefnone.github.io/2024/12/24/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%93%BE%E8%B7%AF%E5%B1%82/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SomeFnone.github.io" target="_blank">Wizard Cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="/img/BWeLyHqW.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/12/23/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(控制平面)"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计网学习笔记-网络层(控制平面)</div></div></a></div><div class="next-post pull-right"><a href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">软件工程导论笔记-1</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/09/27/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BA%94%E7%94%A8%E5%B1%82/" title="计网学习笔记-应用层"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-12-30</div><div class="title">计网学习笔记-应用层</div></div></a></div><div><a href="/2024/12/23/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(控制平面)"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-12-30</div><div class="title">计网学习笔记-网络层(控制平面)</div></div></a></div><div><a href="/2024/11/01/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2/" title="计网学习笔记-网络层(数据平面)"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-12-30</div><div class="title">计网学习笔记-网络层(数据平面)</div></div></a></div><div><a href="/2024/10/09/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%BF%90%E8%BE%93%E5%B1%82/" title="计网学习笔记-运输层"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-12-30</div><div class="title">计网学习笔记-运输层</div></div></a></div><div><a href="/2024/09/22/%E8%AE%A1%E7%BD%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="计网学习笔记"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2025-02-17</div><div class="title">计网学习笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">魔法猫猫头</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SomeFnone" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1229172423@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">计算机网络笔记,堂堂完结!接下来赶到战场的是完全没做笔记的软工导论!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第六章 链路层和局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0%E4%B8%8E%E6%9C%8D%E5%8A%A1"><span class="toc-text">1.概述与服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BD%91%E7%BB%9C%E5%B1%82%E4%B8%8E%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-text">1.网络层与链路层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%93%BE%E8%B7%AF%E5%B1%82%E4%BF%A1%E9%81%93%E7%B1%BB%E5%9E%8B"><span class="toc-text">2.链路层信道类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%80%E4%BA%9B%E6%9C%AF%E8%AF%AD"><span class="toc-text">3.一些术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%93%BE%E8%B7%AF%E5%B1%82%E6%9C%8D%E5%8A%A1"><span class="toc-text">4.链路层服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%BD%91%E7%BB%9C%E9%80%82%E9%85%8D%E5%99%A8"><span class="toc-text">5.网络适配器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B%E5%92%8C%E7%BA%A0%E9%94%99"><span class="toc-text">2.差错检测和纠错</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-text">1.基本原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C"><span class="toc-text">2.奇偶校验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8D%95%E6%AF%94%E7%89%B9%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C"><span class="toc-text">1.单比特奇偶校验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BA%8C%E7%BB%B4%E6%AF%94%E7%89%B9%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C"><span class="toc-text">2.二维比特奇偶校验</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Internet%E6%A0%A1%E9%AA%8C%E5%92%8C"><span class="toc-text">3.Internet校验和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E7%A0%81%E6%A0%A1%E9%AA%8CCRC"><span class="toc-text">4.循环冗余码校验CRC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A4%9A%E8%B7%AF%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE"><span class="toc-text">3.多路访问协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E5%BF%B5"><span class="toc-text">1.概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%86%E7%B1%BB"><span class="toc-text">2.分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BF%A1%E9%81%93%E5%88%92%E5%88%86"><span class="toc-text">3.信道划分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-TDMA"><span class="toc-text">1.TDMA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-FDMA"><span class="toc-text">2.FDMA</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%9A%8F%E6%9C%BA%E8%AE%BF%E9%97%AE"><span class="toc-text">4.随机访问</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%97%B6%E9%9A%99ALOHA"><span class="toc-text">1.时隙ALOHA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%BA%AFALOHA"><span class="toc-text">2.纯ALOHA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-CSMA"><span class="toc-text">3.CSMA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-CSMA-CD"><span class="toc-text">4.CSMA&#x2F;CD</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%BD%AE%E6%B5%81%E5%8D%8F%E8%AE%AE"><span class="toc-text">5.轮流协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%BD%AE%E8%AF%A2%E5%8D%8F%E8%AE%AE"><span class="toc-text">1.轮询协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BB%A4%E7%89%8C%E5%8D%8F%E8%AE%AE"><span class="toc-text">2.令牌协议</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-text">4.以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B8%A7%E7%BB%93%E6%9E%84"><span class="toc-text">2.以太网帧结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-802-3"><span class="toc-text">3.802.3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%93%BE%E8%B7%AF%E5%B1%82%E7%BC%96%E5%9D%80"><span class="toc-text">5.链路层编址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-IP%E5%9C%B0%E5%9D%80%E4%B8%8EMAC%E5%9C%B0%E5%9D%80"><span class="toc-text">1.IP地址与MAC地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-MAC%E5%9C%B0%E5%9D%80"><span class="toc-text">2.MAC地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E9%97%AE%E9%A2%98"><span class="toc-text">3.地址转换问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-ARP%E5%8D%8F%E8%AE%AE"><span class="toc-text">6.ARP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-ARP%E8%A1%A8"><span class="toc-text">1.ARP表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-ARP%E5%8D%8F%E8%AE%AE"><span class="toc-text">2.ARP协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%80%BB%E7%BB%93"><span class="toc-text">3.总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BB%86%E8%8A%82"><span class="toc-text">4.细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%A3%8E%E9%99%A9"><span class="toc-text">5.风险</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%BE%8B%E9%A2%98"><span class="toc-text">6.例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-text">7.交换机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0-2"><span class="toc-text">1.概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%A1%A8"><span class="toc-text">2.交换机表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BD%AC%E5%8F%91-%E8%BF%87%E6%BB%A4"><span class="toc-text">2.转发&#x2F;过滤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%BD%AC%E5%8F%91%E8%A1%A8%E6%9B%B4%E6%96%B0"><span class="toc-text">3.转发表更新</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/04/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/" title="深度学习-预备知识">深度学习-预备知识</a><time datetime="2025-03-04T05:57:35.000Z" title="发表于 2025-03-04 13:57:35">2025-03-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-2/" title="编译原理-2">编译原理-2</a><time datetime="2025-02-27T08:19:30.000Z" title="发表于 2025-02-27 16:19:30">2025-02-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1/" title="编译原理-1">编译原理-1</a><time datetime="2025-02-20T12:24:40.000Z" title="发表于 2025-02-20 20:24:40">2025-02-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/" title="软件工程导论笔记-2">软件工程导论笔记-2</a><time datetime="2025-01-01T12:53:31.000Z" title="发表于 2025-01-01 20:53:31">2025-01-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1">软件工程导论笔记-1</a><time datetime="2024-12-31T11:04:58.000Z" title="发表于 2024-12-31 19:04:58">2024-12-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 魔法猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],

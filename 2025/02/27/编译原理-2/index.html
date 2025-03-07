@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>编译原理-2 | Wizard Cat</title><meta name="author" content="魔法猫猫头"><meta name="copyright" content="魔法猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第三章 词法分析 第二章”一个简单的语法制导编译器”上课跳过，回头把这部分的书看一下即可  词法分析是编译的第一阶段，负责将字符流转换成记号流  一套描述记号结构的格式说明(一套格式结构) 以格式说明为依据的识别方法(对格式结构进行匹配)  词法分析的本质是：模式识别&#x2F;匹配 1.词法分析器功能词法分析的主要任务：输入源程序，输出记号(token)  把构成源程序的字符串转换为记号的序">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>编译原理-2 | Wizard Cat</title><meta name="author" content="魔法猫猫头"><meta name="copyright" content="魔法猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第三章 词法分析  第二章&quot;一个简单的语法制导编译器&quot;上课跳过，回头把这部分的书看一下即可  词法分析是编译的第一阶段，负责将字符流转换成记号流  一套描述记号结构的格式说明(一套格式结构) 以格式说明为依据的识别方法(对格式结构进行匹配)  词法分析的本质是：模式识别&#x2F;匹配 1.词法分析器功能 词法分析的主要任务：输入源程序，输出记号(token)  把构成源程序的字符串转">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理-2">
 <meta property="og:url" content="http://somefnone.github.io/2025/02/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-2/index.html">
 <meta property="og:site_name" content="Wizard Cat">
-<meta property="og:description" content="第三章 词法分析 第二章”一个简单的语法制导编译器”上课跳过，回头把这部分的书看一下即可  词法分析是编译的第一阶段，负责将字符流转换成记号流  一套描述记号结构的格式说明(一套格式结构) 以格式说明为依据的识别方法(对格式结构进行匹配)  词法分析的本质是：模式识别&#x2F;匹配 1.词法分析器功能词法分析的主要任务：输入源程序，输出记号(token)  把构成源程序的字符串转换为记号的序">
+<meta property="og:description" content="第三章 词法分析  第二章&quot;一个简单的语法制导编译器&quot;上课跳过，回头把这部分的书看一下即可  词法分析是编译的第一阶段，负责将字符流转换成记号流  一套描述记号结构的格式说明(一套格式结构) 以格式说明为依据的识别方法(对格式结构进行匹配)  词法分析的本质是：模式识别&#x2F;匹配 1.词法分析器功能 词法分析的主要任务：输入源程序，输出记号(token)  把构成源程序的字符串转">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://somefnone.github.io/img/BWeLyHqW.jpg">
 <meta property="article:published_time" content="2025-02-27T08:19:30.000Z">
@@ -175,51 +175,59 @@
     document.addEventListener('pjax:complete', () => { preloader.endLoading() })
   }
 })()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/BWeLyHqW.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Wizard Cat"><span class="site-name">Wizard Cat</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">编译原理-2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-02-27T08:19:30.000Z" title="发表于 2025-02-27 16:19:30">2025-02-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-03-02T15:35:47.399Z" title="更新于 2025-03-02 23:35:47">2025-03-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/lesson-note/">lesson note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer">
-
-<h1 id="第三章-词法分析"><a href="#第三章-词法分析" class="headerlink" title="第三章 词法分析"></a>第三章 词法分析</h1><blockquote>
-<p>第二章”一个简单的语法制导编译器”上课跳过，回头把这部分的书看一下即可</p>
+<h1>第三章 词法分析</h1>
+<blockquote>
+<p>第二章&quot;一个简单的语法制导编译器&quot;上课跳过，回头把这部分的书看一下即可</p>
 </blockquote>
 <p>词法分析是编译的<strong>第一阶段</strong>，负责将<strong>字符流</strong>转换成<strong>记号流</strong></p>
 <ul>
 <li>一套描述记号结构的格式说明(<strong>一套格式结构</strong>)</li>
 <li>以格式说明为依据的识别方法(<strong>对格式结构进行匹配</strong>)</li>
 </ul>
-<p>词法分析的<strong>本质</strong>是：<strong>模式识别&#x2F;匹配</strong></p>
-<h2 id="1-词法分析器功能"><a href="#1-词法分析器功能" class="headerlink" title="1.词法分析器功能"></a>1.词法分析器功能</h2><p>词法分析的<strong>主要任务</strong>：<strong>输入源程序，输出记号(token)</strong></p>
+<p>词法分析的<strong>本质</strong>是：<strong>模式识别/匹配</strong></p>
+<h2 id="1-词法分析器功能">1.词法分析器功能</h2>
+<p>词法分析的<strong>主要任务</strong>：<strong>输入源程序，输出记号(token)</strong></p>
 <ul>
 <li>把构成源程序的字符串转换为<em>记号的序列</em></li>
 <li>记号是编译器的后续处理的<strong>逻辑单元</strong></li>
 </ul>
-<p>词法分析的<strong>次要&#x2F;辅助任务</strong>：</p>
+<p>词法分析的<strong>次要/辅助任务</strong>：</p>
 <ul>
 <li>过滤源程序中的无效字符(注释、空格、制表符、换行符)</li>
 <li>检测、处理词法错误</li>
 <li>出错位置记录</li>
 </ul>
 <hr>
-<h3 id="1使用方式"><a href="#1使用方式" class="headerlink" title="1使用方式"></a>1使用方式</h3><p>使用方式包括：<strong>单独一遍扫描</strong>、<strong>作为语法分析器的子程序</strong>、<strong>并行方式</strong></p>
+<h3 id="1使用方式">1使用方式</h3>
+<p>使用方式包括：<strong>单独一遍扫描</strong>、<strong>作为语法分析器的子程序</strong>、<strong>并行方式</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250228195723878.png" alt="image-20250228195723878"></p>
 <blockquote>
 <p>划分词法分析和语法分析的意义：</p>
 <ul>
-<li><p>简化编译器的设计</p>
+<li>
+<p>简化编译器的设计</p>
 </li>
-<li><p>提高编译器的效率</p>
+<li>
+<p>提高编译器的效率</p>
 </li>
-<li><p>增强编译器的可移植性</p>
+<li>
+<p>增强编译器的可移植性</p>
 </li>
-<li><p>便于使用工具来自动构造</p>
+<li>
+<p>便于使用工具来自动构造</p>
 </li>
 </ul>
 </blockquote>
 <hr>
-<h3 id="2-记号-token"><a href="#2-记号-token" class="headerlink" title="2.记号(token)"></a>2.记号(token)</h3><p><strong>定义：</strong> 高级语言中有实际意义的<strong>最小语法单位</strong></p>
+<h3 id="2-记号-token">2.记号(token)</h3>
+<p><strong>定义：</strong> 高级语言中有实际意义的<strong>最小语法单位</strong></p>
 <ul>
 <li>编译器的以后部分(通常是分析程序)处理的逻辑单元，也被称为<strong>单词</strong>、<strong>词法单元</strong></li>
 </ul>
 <p><strong>形式：</strong><code>&lt;class, value&gt;</code>二元组</p>
 <ul>
-<li><strong>class：</strong>记号类型（如关键字、标识符、操作符等）<ul>
+<li>**class：**记号类型（如关键字、标识符、操作符等）
+<ul>
 <li>关键字(保留字、基本字)</li>
 <li>if、while</li>
 <li>运算符： +、-、*</li>
@@ -228,11 +236,14 @@
 <li>常数：5，a，3.1416</li>
 </ul>
 </li>
-<li><strong>value：</strong>属性值（记录与记号有关的信息）<ul>
+<li>**value：**属性值（记录与记号有关的信息）
+<ul>
 <li>实现时通常为<strong>指向符号表中某表项的指针</strong>(一个属性)</li>
-<li>与记号有关的信息保存在该表项中<ul>
+<li>与记号有关的信息保存在该表项中
+<ul>
 <li><strong>词素</strong></li>
-<li><strong>词素第一次出现的行号</strong><ul>
+<li><strong>词素第一次出现的行号</strong>
+<ul>
 <li>对应其<strong>定义</strong>，后续编译过程会用，比如存储空间大小的设置等(根据类型定义决定)</li>
 </ul>
 </li>
@@ -243,29 +254,33 @@
 </ul>
 <p><strong>记号、模式、词素：</strong></p>
 <ul>
-<li><strong>记号（Token)<strong>：词法分析器输出的基本元素，</strong>包含类型和属性值</strong></li>
+<li><strong>记号（Token)</strong>：词法分析器输出的基本元素，<strong>包含类型和属性值</strong></li>
 <li><strong>词素（Lexeme）</strong>：源代码中<strong>实际的字符序列</strong>，与记号对应。具体而言，指源代码中与特定记号对应的字符序列。例如，对于标识符记号，其词素可能是<code>sum</code>、<code>total</code>等。</li>
 <li><strong>模式（Patten）</strong>：定义<strong>词素形式的规则</strong>。描述某类词素可能形式的规则。对于关键字，模式就是具体的字符序列；对于标识符，模式可能是由字母和数字组成的字符串，以字母开头。</li>
 </ul>
 <blockquote>
-<p>因此，<strong>记号 &#x3D; 记号的类别 + 记号的词素</strong></p>
+<p>因此，<strong>记号 = 记号的类别 + 记号的词素</strong></p>
 </blockquote>
 <hr>
-<h3 id="3-词法错误"><a href="#3-词法错误" class="headerlink" title="3.词法错误"></a>3.词法错误</h3><ul>
-<li><p>词法层能发现的错误很有限</p>
+<h3 id="3-词法错误">3.词法错误</h3>
+<ul>
+<li>
+<p>词法层能发现的错误很有限</p>
 <ul>
 <li><code>fi ( a = = f(x) ) …</code></li>
 <li><code>fi</code> 是拼写错误？合法的标识符？</li>
 </ul>
 </li>
-<li><p><strong>“紧急方式&#x2F;恐慌模式”错误恢复策略</strong></p>
+<li>
+<p><strong>“紧急方式/恐慌模式”错误恢复策略</strong></p>
 <ul>
 <li><strong>反复删除剩余输入最前面的字符</strong></li>
 </ul>
 </li>
 </ul>
 <hr>
-<h3 id="4-词法分析器的实现方案"><a href="#4-词法分析器的实现方案" class="headerlink" title="4.词法分析器的实现方案"></a>4.词法分析器的实现方案</h3><ol>
+<h3 id="4-词法分析器的实现方案">4.词法分析器的实现方案</h3>
+<ol>
 <li>编制词法说明，使用工具<strong>自动生成</strong></li>
 <li>使用<strong>高级程序设计</strong>语言编写词法分析器</li>
 <li>使用<strong>汇编语言</strong>编写词法分析器</li>
@@ -275,13 +290,15 @@
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250228203343355.png" alt="image-20250228203343355"></p>
 <hr>
-<h2 id="2-输入缓冲"><a href="#2-输入缓冲" class="headerlink" title="2.输入缓冲"></a>2.输入缓冲</h2><blockquote>
+<h2 id="2-输入缓冲">2.输入缓冲</h2>
+<blockquote>
 <p><strong>输入缓冲</strong>是词法分析器用来<strong>逐个读入、分析字符流</strong>的结构</p>
 </blockquote>
 <p>输入缓冲出现的<strong>原因</strong>：词法分析器需要逐个读入分析源程序的字符流</p>
 <ul>
 <li>频繁的磁盘读写操作</li>
-<li>超前扫描需要回退<ul>
+<li>超前扫描需要回退
+<ul>
 <li>例如：<strong>双字符运算符</strong>，如<code>**, /*, :=, ...</code></li>
 </ul>
 </li>
@@ -293,16 +310,19 @@
 <p>整个输入缓冲的结构示意如上所示。问题来了：<strong>缓冲如何更新？</strong></p>
 </blockquote>
 <hr>
-<h3 id="1-双缓冲区方案"><a href="#1-双缓冲区方案" class="headerlink" title="1.双缓冲区方案"></a>1.双缓冲区方案</h3><blockquote>
+<h3 id="1-双缓冲区方案">1.双缓冲区方案</h3>
+<blockquote>
 <p>又名：<strong>缓冲区对</strong>方案</p>
 </blockquote>
 <ul>
 <li>一个缓冲区分为两个部分，每部分容纳N个字符</li>
-<li>一个读命令向缓冲区某个部分读入N个字符，即<strong>一次性读入N个字符</strong>，而非一个一个读<ul>
+<li>一个读命令向缓冲区某个部分读入N个字符，即<strong>一次性读入N个字符</strong>，而非一个一个读
+<ul>
 <li>输入不足N时将读入<code>EOF</code></li>
 </ul>
 </li>
-<li>设置两个指针跟踪字符位置<ul>
+<li>设置两个指针跟踪字符位置
+<ul>
 <li><code>lexemeBegin</code>指针：词素开始指针</li>
 <li><code>forward</code>指针：前向指针，一直向前扫描，<strong>直到发现某个模式被匹配</strong></li>
 </ul>
@@ -315,7 +335,8 @@
 <li><strong>缓解办法是：哨兵标记！</strong></li>
 </ul>
 <hr>
-<h3 id="2-哨兵标记"><a href="#2-哨兵标记" class="headerlink" title="2.哨兵标记"></a>2.哨兵标记</h3><blockquote>
+<h3 id="2-哨兵标记">2.哨兵标记</h3>
+<blockquote>
 <p>哨兵标记的目的是，将<strong>检查是否到达缓冲区末尾</strong>与<strong>检查当前字符</strong>合二为一</p>
 </blockquote>
 <p>如何做到合二为一？——<strong>在缓冲区末尾加上一个EOF字符！</strong></p>
@@ -325,10 +346,11 @@
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250228211013814.png" alt="image-20250228211013814"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250228211019619.png" alt="image-20250228211019619"></p>
 <hr>
-<h2 id="3-记号描述"><a href="#3-记号描述" class="headerlink" title="3.记号描述"></a>3.记号描述</h2><p>我们回顾一下<strong>词法分析的定义</strong>：<strong>一套描述记号结构的格式说明</strong></p>
+<h2 id="3-记号描述">3.记号描述</h2>
+<p>我们回顾一下<strong>词法分析的定义</strong>：<strong>一套描述记号结构的格式说明</strong></p>
 <p>那么，记号结构，或者严谨的说，<strong>词素形式</strong>，或者说<strong>模式</strong>，到底要如何表示？</p>
 <p>了解模式的表示方法，就可以方便的对记号进行描述，<strong>因为模式正是词素形式的表示规则啊</strong></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://SomeFnone.github.io">魔法猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://somefnone.github.io/2025/02/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-2/">http://somefnone.github.io/2025/02/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SomeFnone.github.io" target="_blank">Wizard Cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a></div><div class="post_share"><div class="social-share" data-image="/img/BWeLyHqW.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/02/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1/" title="编译原理-1"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">编译原理-1</div></div></a></div><div class="next-post pull-right"><a href="/2025/03/04/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/" title="深度学习-预备知识"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">深度学习-预备知识</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/02/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1/" title="编译原理-1"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2025-02-20</div><div class="title">编译原理-1</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">魔法猫猫头</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SomeFnone" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1229172423@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">计算机网络笔记,堂堂完结!接下来赶到战场的是完全没做笔记的软工导论!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-text">第三章 词法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E5%8A%9F%E8%83%BD"><span class="toc-text">1.词法分析器功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">1使用方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%AE%B0%E5%8F%B7-token"><span class="toc-text">2.记号(token)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%AF%8D%E6%B3%95%E9%94%99%E8%AF%AF"><span class="toc-text">3.词法错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="toc-text">4.词法分析器的实现方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%BE%93%E5%85%A5%E7%BC%93%E5%86%B2"><span class="toc-text">2.输入缓冲</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8F%8C%E7%BC%93%E5%86%B2%E5%8C%BA%E6%96%B9%E6%A1%88"><span class="toc-text">1.双缓冲区方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%93%A8%E5%85%B5%E6%A0%87%E8%AE%B0"><span class="toc-text">2.哨兵标记</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%AE%B0%E5%8F%B7%E6%8F%8F%E8%BF%B0"><span class="toc-text">3.记号描述</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/04/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/" title="深度学习-预备知识">深度学习-预备知识</a><time datetime="2025-03-04T05:57:35.000Z" title="发表于 2025-03-04 13:57:35">2025-03-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-2/" title="编译原理-2">编译原理-2</a><time datetime="2025-02-27T08:19:30.000Z" title="发表于 2025-02-27 16:19:30">2025-02-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1/" title="编译原理-1">编译原理-1</a><time datetime="2025-02-20T12:24:40.000Z" title="发表于 2025-02-20 20:24:40">2025-02-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/" title="软件工程导论笔记-2">软件工程导论笔记-2</a><time datetime="2025-01-01T12:53:31.000Z" title="发表于 2025-01-01 20:53:31">2025-01-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1">软件工程导论笔记-1</a><time datetime="2024-12-31T11:04:58.000Z" title="发表于 2024-12-31 19:04:58">2024-12-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 魔法猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://SomeFnone.github.io">魔法猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://somefnone.github.io/2025/02/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-2/">http://somefnone.github.io/2025/02/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://SomeFnone.github.io" target="_blank">Wizard Cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a></div><div class="post_share"><div class="social-share" data-image="/img/BWeLyHqW.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/02/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1/" title="编译原理-1"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">编译原理-1</div></div></a></div><div class="next-post pull-right"><a href="/2025/03/04/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/" title="深度学习-预备知识"><img class="cover" src="/img/BWeLyHqW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">深度学习-预备知识</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/02/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1/" title="编译原理-1"><img class="cover" src="/img/BWeLyHqW.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2025-02-20</div><div class="title">编译原理-1</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">魔法猫猫头</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SomeFnone" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1229172423@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">计算机网络笔记,堂堂完结!接下来赶到战场的是完全没做笔记的软工导论!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第三章 词法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E5%8A%9F%E8%83%BD"><span class="toc-text">1.词法分析器功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">1使用方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%AE%B0%E5%8F%B7-token"><span class="toc-text">2.记号(token)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%AF%8D%E6%B3%95%E9%94%99%E8%AF%AF"><span class="toc-text">3.词法错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="toc-text">4.词法分析器的实现方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%BE%93%E5%85%A5%E7%BC%93%E5%86%B2"><span class="toc-text">2.输入缓冲</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8F%8C%E7%BC%93%E5%86%B2%E5%8C%BA%E6%96%B9%E6%A1%88"><span class="toc-text">1.双缓冲区方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%93%A8%E5%85%B5%E6%A0%87%E8%AE%B0"><span class="toc-text">2.哨兵标记</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%AE%B0%E5%8F%B7%E6%8F%8F%E8%BF%B0"><span class="toc-text">3.记号描述</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/04/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/" title="深度学习-预备知识">深度学习-预备知识</a><time datetime="2025-03-04T05:57:35.000Z" title="发表于 2025-03-04 13:57:35">2025-03-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-2/" title="编译原理-2">编译原理-2</a><time datetime="2025-02-27T08:19:30.000Z" title="发表于 2025-02-27 16:19:30">2025-02-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1/" title="编译原理-1">编译原理-1</a><time datetime="2025-02-20T12:24:40.000Z" title="发表于 2025-02-20 20:24:40">2025-02-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-2/" title="软件工程导论笔记-2">软件工程导论笔记-2</a><time datetime="2025-01-01T12:53:31.000Z" title="发表于 2025-01-01 20:53:31">2025-01-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/31/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-1/" title="软件工程导论笔记-1">软件工程导论笔记-1</a><time datetime="2024-12-31T11:04:58.000Z" title="发表于 2024-12-31 19:04:58">2024-12-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 魔法猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
