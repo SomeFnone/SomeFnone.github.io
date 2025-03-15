@@ -1,0 +1,1348 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="软件工程导论笔记-2, 愚者的盥洗室">
+    <meta name="description" content="Part 2">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>软件工程导论笔记-2 | 愚者的盥洗室</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">愚者的盥洗室</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">愚者的盥洗室</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">软件工程导论笔记-2</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">
+                                <span class="chip bg-color">软件工程导论</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" class="post-category">
+                                软件工程导论
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-01-01
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-03-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    6 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <meta name="referrer" content="no-referrer"/>
+
+<h1 id="软件工程导论"><a href="#软件工程导论" class="headerlink" title="软件工程导论"></a>软件工程导论</h1><blockquote>
+<p>该部分由胡军老师负责讲解</p>
+</blockquote>
+<h2 id="1-软件设计基础"><a href="#1-软件设计基础" class="headerlink" title="1.软件设计基础"></a>1.软件设计基础</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><ul>
+<li>何为软件设计？<ul>
+<li>针对软件需求，综合考虑各种制约因素，探究软件实现的解决方案</li>
+</ul>
+</li>
+<li>设计前提：<strong>软件需求</strong><ul>
+<li>软件设计就是要给出软件需求实现的解决方案</li>
+</ul>
+</li>
+<li>设计考虑：<strong>制约因素</strong><ul>
+<li>资源：时间、人力、财力</li>
+<li>技术：技术平台，如DBMS还是文件系统</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194131506.png" alt="image-20250102194131506"></p>
+<h3 id="2-软件设计层次"><a href="#2-软件设计层次" class="headerlink" title="2.软件设计层次"></a>2.软件设计层次</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194216034.png" alt="image-20250102194216034"></p>
+<h3 id="3-软件设计的质量需求"><a href="#3-软件设计的质量需求" class="headerlink" title="3.软件设计的质量需求"></a>3.软件设计的质量需求</h3><ul>
+<li><strong>设计的多样性何差异性：质量</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194312298.png" alt="image-20250102194312298"></p>
+<h3 id="4-软件设计过程"><a href="#4-软件设计过程" class="headerlink" title="4.软件设计过程"></a>4.软件设计过程</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194330033.png" alt="image-20250102194330033"></p>
+<h4 id="1-软件体系结构设计"><a href="#1-软件体系结构设计" class="headerlink" title="1.软件体系结构设计"></a>1.软件体系结构设计</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194347217.png" alt="image-20250102194347217"></p>
+<ul>
+<li>风格包括：<ul>
+<li>分层体系结构风格</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-用户界面设计"><a href="#2-用户界面设计" class="headerlink" title="2.用户界面设计"></a>2.用户界面设计</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194431972.png" alt="image-20250102194431972"></p>
+<h4 id="3-软件详细设计"><a href="#3-软件详细设计" class="headerlink" title="3.软件详细设计"></a>3.软件详细设计</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194445793.png" alt="image-20250102194445793"></p>
+<h4 id="4-其他工作"><a href="#4-其他工作" class="headerlink" title="4.其他工作"></a>4.其他工作</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194527214.png" alt="image-20250102194527214"></p>
+<h3 id="5-常用设计概念"><a href="#5-常用设计概念" class="headerlink" title="5.常用设计概念"></a>5.常用设计概念</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194544408.png" alt="image-20250102194544408"></p>
+<h4 id="1-分解与抽象"><a href="#1-分解与抽象" class="headerlink" title="1.分解与抽象"></a>1.分解与抽象</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194714259.png" alt="image-20250102194714259"></p>
+<h4 id="2-关注点分离"><a href="#2-关注点分离" class="headerlink" title="2.关注点分离"></a>2.关注点分离</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194728607.png" alt="image-20250102194728607"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194742562.png" alt="image-20250102194742562"></p>
+<h4 id="3-模块化"><a href="#3-模块化" class="headerlink" title="3.模块化"></a>3.模块化</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194757203.png" alt="image-20250102194757203"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201912588.png" alt="image-20250102201912588"></p>
+<p><strong>衡量模块独立性的是：内聚度何耦合度</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194827975.png" alt="image-20250102194827975"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194834948.png" alt="image-20250102194834948"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194841887.png" alt="image-20250102194841887"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194846035.png" alt="image-20250102194846035"></p>
+<h4 id="4-信息隐藏"><a href="#4-信息隐藏" class="headerlink" title="4.信息隐藏"></a>4.信息隐藏</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194906381.png" alt="image-20250102194906381"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194912796.png" alt="image-20250102194912796"></p>
+<h4 id="5-重构"><a href="#5-重构" class="headerlink" title="5.重构"></a>5.重构</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194925634.png" alt="image-20250102194925634"></p>
+<h4 id="6-复用"><a href="#6-复用" class="headerlink" title="6.复用"></a>6.复用</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194935647.png" alt="image-20250102194935647"></p>
+<h3 id="6-面向对象软件设计方法学"><a href="#6-面向对象软件设计方法学" class="headerlink" title="6.面向对象软件设计方法学"></a>6.面向对象软件设计方法学</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102194957940.png" alt="image-20250102194957940"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195009342.png" alt="image-20250102195009342"></p>
+<ul>
+<li><strong>面向对象软件设计的优势</strong><ul>
+<li>高层抽象与自然过渡</li>
+<li>多种形式和粗粒度的软件重用</li>
+<li>系统化的软件设计</li>
+<li>支持软件扩展、变更</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-软件设计输出及评审"><a href="#7-软件设计输出及评审" class="headerlink" title="7.软件设计输出及评审"></a>7.软件设计输出及评审</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195139625.png" alt="image-20250102195139625"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195158662.png" alt="image-20250102195158662"></p>
+<h3 id="8-小结"><a href="#8-小结" class="headerlink" title="8.小结"></a>8.小结</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195212849.png" alt="image-20250102195212849"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195234041.png" alt="image-20250102195234041"></p>
+<blockquote>
+<p>C</p>
+</blockquote>
+<h2 id="2-软件体系结构设计"><a href="#2-软件体系结构设计" class="headerlink" title="2.软件体系结构设计"></a>2.软件体系结构设计</h2><h3 id="1-概述-1"><a href="#1-概述-1" class="headerlink" title="1.概述"></a>1.概述</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195409305.png" alt="image-20250102195409305"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195416604.png" alt="1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195427207.png" alt="image-20250102195427207"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195440512.png" alt="image-20250102195440512"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195445344.png" alt="image-20250102195445344"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195453096.png" alt="image-20250102195453096"></p>
+<h3 id="2-软件体系结构的设计元素"><a href="#2-软件体系结构的设计元素" class="headerlink" title="2.软件体系结构的设计元素"></a>2.软件体系结构的设计元素</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195518302.png" alt="image-20250102195518302"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195525118.png" alt="image-20250102195525118"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195536408.png" alt="image-20250102195536408"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195546304.png" alt="image-20250102195546304"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195553942.png" alt="image-20250102195553942"></p>
+<h3 id="3-体系结构视图"><a href="#3-体系结构视图" class="headerlink" title="3.体系结构视图"></a>3.体系结构视图</h3><h4 id="1-包图"><a href="#1-包图" class="headerlink" title="1.包图"></a>1.包图</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195642773.png" alt="image-20250102195642773"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195629920.png" alt="image-20250102195629920"></p>
+<h4 id="2-构件图"><a href="#2-构件图" class="headerlink" title="2.构件图"></a>2.构件图</h4><p><img src="C:\Users\Roeland\AppData\Roaming\Typora\typora-user-images\image-20250102195724177.png" alt="image-20250102195724177"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195735093.png" alt="image-20250102195735093"></p>
+<h4 id="3-部署视图"><a href="#3-部署视图" class="headerlink" title="3.部署视图"></a>3.部署视图</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195749093.png" alt="image-20250102195749093"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195755755.png" alt="image-20250102195755755"></p>
+<h4 id="4-运行视图"><a href="#4-运行视图" class="headerlink" title="4.运行视图"></a>4.运行视图</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195812386.png" alt="image-20250102195812386"></p>
+<h3 id="4-软件体系结构风格"><a href="#4-软件体系结构风格" class="headerlink" title="4.软件体系结构风格"></a>4.软件体系结构风格</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195855862.png" alt="image-20250102195855862"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195905907.png" alt="image-20250102195905907"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195912325.png" alt="image-20250102195912325"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195920839.png" alt="image-20250102195920839"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195926604.png" alt="image-20250102195926604"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195930849.png" alt="image-20250102195930849"></p>
+<h3 id="5-体系结构设计任务"><a href="#5-体系结构设计任务" class="headerlink" title="5.体系结构设计任务"></a>5.体系结构设计任务</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102195950231.png" alt="image-20250102195950231"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200003769.png" alt="image-20250102200003769"></p>
+<h4 id="1-目标"><a href="#1-目标" class="headerlink" title="1.目标"></a>1.目标</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200032366.png" alt="image-20250102200032366"></p>
+<h4 id="2-对比"><a href="#2-对比" class="headerlink" title="2.对比"></a>2.对比</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200041722.png" alt="image-20250102200041722"></p>
+<h4 id="3-重要性"><a href="#3-重要性" class="headerlink" title="3.重要性"></a>3.重要性</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200054085.png" alt="image-20250102200054085"></p>
+<h4 id="4-过程"><a href="#4-过程" class="headerlink" title="4.过程"></a>4.过程</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200107295.png" alt="image-20250102200107295"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200219189.png" alt="image-20250102200219189"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200224838.png" alt="image-20250102200224838"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200231037.png" alt="image-20250102200231037"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200236329.png" alt="image-20250102200236329"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200241319.png" alt="image-20250102200241319"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200247109.png" alt="image-20250102200247109"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200251431.png" alt="image-20250102200251431"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200255651.png" alt="image-20250102200255651"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200301068.png" alt="image-20250102200301068"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200313072.png" alt="image-20250102200313072"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200318754.png" alt="image-20250102200318754"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200322670.png" alt="image-20250102200322670"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200329260.png" alt="image-20250102200329260"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200341048.png" alt="image-20250102200341048"></p>
+<h2 id="3-软件详细设计-1"><a href="#3-软件详细设计-1" class="headerlink" title="3.软件详细设计"></a>3.软件详细设计</h2><h3 id="1-面向对象的设计原则"><a href="#1-面向对象的设计原则" class="headerlink" title="1.面向对象的设计原则"></a>1.面向对象的设计原则</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200500153.png" alt="image-20250102200500153"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200507945.png" alt="image-20250102200507945"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200512546.png" alt="image-20250102200512546"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200517525.png" alt="image-20250102200517525"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200523191.png" alt="image-20250102200523191"></p>
+<h4 id="1-基本设计原则"><a href="#1-基本设计原则" class="headerlink" title="1.基本设计原则"></a>1.基本设计原则</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200541474.png" alt="image-20250102200541474"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200613465.png" alt="image-20250102200613465"></p>
+<h3 id="2-例题"><a href="#2-例题" class="headerlink" title="2.例题"></a>2.例题</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200650786.png" alt="image-20250102200650786"></p>
+<blockquote>
+<p>D</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200659963.png" alt="image-20250102200659963"></p>
+<blockquote>
+<p>AC</p>
+</blockquote>
+<h3 id="3-软件设计模式"><a href="#3-软件设计模式" class="headerlink" title="3.软件设计模式"></a>3.软件设计模式</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200730170.png" alt="image-20250102200730170"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200743797.png" alt="image-20250102200743797"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200750681.png" alt="image-20250102200750681"></p>
+<h2 id="4-用户界面设计"><a href="#4-用户界面设计" class="headerlink" title="4.用户界面设计"></a>4.用户界面设计</h2><h3 id="1-用户界面不同形式"><a href="#1-用户界面不同形式" class="headerlink" title="1.用户界面不同形式"></a>1.用户界面不同形式</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200855569.png" alt="image-20250102200855569"></p>
+<h3 id="2-用户界面布局管理"><a href="#2-用户界面布局管理" class="headerlink" title="2.用户界面布局管理"></a>2.用户界面布局管理</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200912288.png" alt="image-20250102200912288"></p>
+<h4 id="1-网页布局"><a href="#1-网页布局" class="headerlink" title="1.网页布局"></a>1.网页布局</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200932328.png" alt="image-20250102200932328"></p>
+<h4 id="2-APP布局"><a href="#2-APP布局" class="headerlink" title="2.APP布局"></a>2.APP布局</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102200959784.png" alt="image-20250102200959784"></p>
+<h4 id="3-桌面应用布局"><a href="#3-桌面应用布局" class="headerlink" title="3.桌面应用布局"></a>3.桌面应用布局</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201015562.png" alt="image-20250102201015562"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201034755.png" alt="image-20250102201034755"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201041852.png" alt="image-20250102201041852"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201046911.png" alt="image-20250102201046911"></p>
+<h3 id="3-用户界面设计原则"><a href="#3-用户界面设计原则" class="headerlink" title="3.用户界面设计原则"></a>3.用户界面设计原则</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201104158.png" alt="image-20250102201104158"></p>
+<p>除了上述4个，还有：</p>
+<ul>
+<li>保持始终如一<ul>
+<li>相同软件在不同设备的一致性</li>
+<li>页面风格</li>
+<li>行为一致</li>
+<li>错误提示</li>
+</ul>
+</li>
+<li>保持有用反馈</li>
+</ul>
+<h3 id="4-用户界面设计方法"><a href="#4-用户界面设计方法" class="headerlink" title="4.用户界面设计方法"></a>4.用户界面设计方法</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201221102.png" alt="image-20250102201221102"></p>
+<h3 id="5-用户界面审查"><a href="#5-用户界面审查" class="headerlink" title="5.用户界面审查"></a>5.用户界面审查</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201240825.png" alt="image-20250102201240825"></p>
+<ul>
+<li>两阶段用户界面走查</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201246643.png" alt="image-20250102201246643"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201251623.png" alt="image-20250102201251623"></p>
+<ul>
+<li>用户功能走查</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201325585.png" alt="image-20250102201325585"></p>
+<ul>
+<li>界面元素走查</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102201422248.png" alt="image-20250102201422248"></p>
+<h2 id="5-用户体验与可用性"><a href="#5-用户体验与可用性" class="headerlink" title="5.用户体验与可用性"></a>5.用户体验与可用性</h2><h3 id="1-用户体验"><a href="#1-用户体验" class="headerlink" title="1.用户体验"></a>1.用户体验</h3><p><strong>什么是用户体验</strong></p>
+<ul>
+<li><p>“用户体验”涵盖了终端用户与公司、其服务及其产品互动的所有方面。</p>
+<ul>
+<li>出色用户体验的首要要求是<strong>准确满足客户的需求</strong>，无需麻烦或困扰。</li>
+<li>其次是<strong>简洁和优雅</strong>，让产品成为一种<strong>拥有的乐趣，使用的乐趣</strong>。</li>
+<li>真正的用户体验<strong>远远超出</strong>仅仅提供客户所说的需求或清单式功能。</li>
+</ul>
+</li>
+<li><p>为了在公司产品中实现高质量的用户体验，必须将多学科的服务<strong>无缝融合</strong>：</p>
+<ul>
+<li><p><strong>工程学</strong></p>
+</li>
+<li><p><strong>市场营销</strong></p>
+</li>
+<li><p><strong>图形与工业设计</strong></p>
+</li>
+<li><p><strong>界面设计</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>设计的三个层次</strong></p>
+<ul>
+<li>本能层次设计<ul>
+<li>Visceral design</li>
+</ul>
+</li>
+<li>行为层次设计<ul>
+<li>Behavioral design</li>
+</ul>
+</li>
+<li>反思层次设计<ul>
+<li>Reflective design</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-可用性"><a href="#2-可用性" class="headerlink" title="2.可用性"></a>2.可用性</h3><h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h4><p><strong>可用性</strong>是一种开发方法，融入了用户反馈，贯穿整个开发周期，以减少成本，并创建符合用户需求的产品和工具</p>
+<p>“可用性实际上是确保某个东西能<strong>良好运行</strong>：即使是普通或低于普通能力和经验的人，也可以毫无挫败感地将该事物用于其预定的用途。”</p>
+<h4 id="2-属性与目标"><a href="#2-属性与目标" class="headerlink" title="2.属性与目标"></a>2.属性与目标</h4><ul>
+<li>有效性</li>
+<li>效率性</li>
+<li>可学习性</li>
+<li>满意度</li>
+</ul>
+<h4 id="3-重要性-1"><a href="#3-重要性-1" class="headerlink" title="3.重要性"></a>3.重要性</h4><p><strong>为什么可用性重要？（Why Does Usability Matter?）</strong></p>
+<ol>
+<li><strong>可用性有时关系到生死存亡。</strong><ul>
+<li>说明在一些关键场景中（例如医疗设备、飞行仪表等），设计的可用性直接影响到用户的生命安全。一个不直观或容易出错的设计可能导致严重后果。</li>
+</ul>
+</li>
+<li><strong>可用性在我们的生活中发挥了比大多数人意识到的更广泛的作用。</strong><ul>
+<li>许多人可能没有意识到，可用性设计对我们日常生活的便利性、效率和安全性有着深远影响。从手机界面到自动售票机，可用性贯穿我们生活的方方面面。</li>
+</ul>
+</li>
+<li><strong>可用性每天都影响着每一个人。</strong><ul>
+<li>无论是专业工具还是日常用品，每个人在使用产品时都会受到可用性的影响。一个好的可用性设计可以提高我们的工作效率，减少困惑和挫折感。</li>
+</ul>
+</li>
+</ol>
+<p><strong>用户体验 vs 可用性</strong></p>
+<ul>
+<li><strong>可用性</strong>通常被认为是用户使用某一产品成功完成任务的能力。</li>
+<li><strong>用户体验</strong>则具有更广泛的视角，关注用户与产品的整个交互过程，以及从这种交互中产生的思想、感受和感知。</li>
+</ul>
+<h3 id="3-用户画像"><a href="#3-用户画像" class="headerlink" title="3.用户画像"></a>3.用户画像</h3><p><strong>什么是用户画像</strong></p>
+<ul>
+<li>用户画像是为了代表目标用户群中的不同用户类型而创造的虚拟角色。</li>
+<li>用户画像在考虑用户的目标、需求和限制时非常有用，从而帮助产品决策。</li>
+<li>用户画像最常用作用户中心设计的一部分。</li>
+</ul>
+<p><strong>用户画像的目的</strong></p>
+<ul>
+<li>帮助设计团队理解目标受众。</li>
+<li>为讨论用户需求建立共同的语言。</li>
+<li>帮助设计团队做出与设计相关的决策。</li>
+</ul>
+<p><strong>用户画像和目标</strong></p>
+<ul>
+<li>用户的三种目标与Norman提出的本能、行为和反思三个层次相对应：<ul>
+<li><strong>生活目标</strong>：用户希望成为怎样的人。</li>
+<li><strong>体验目标</strong>：用户希望感受到什么。</li>
+<li><strong>终极目标</strong>：用户希望完成什么。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-UCD"><a href="#4-UCD" class="headerlink" title="4.UCD"></a>4.UCD</h3><p><strong>以用户为中心的设计（UCD）</strong></p>
+<ul>
+<li>以用户为中心的设计是一种以产品的最终用户为核心的开发方法。</li>
+<li>其理念是：<strong>产品应该适应用户，而不是让用户去适应产品</strong>。</li>
+<li>通过在产品生命周期中采用技术、流程和方法来实现这一点。</li>
+</ul>
+<p><strong>以用户为中心设计的活动（UCD Activities）</strong></p>
+<ul>
+<li>理解用户的愿望、需求、动机和使用场景。</li>
+<li>理解商业、技术和领域内的机会、需求和限制。</li>
+<li>将这些知识作为基础，用于制定计划，设计出形式、内容和行为都<strong>有用、可用且令人满意</strong>的产品，同时确保经济可行和技术可行。</li>
+</ul>
+<p><strong>以用户为中心设计的生命周期（UCD Lifecycle）</strong></p>
+<p><strong>1. Concept（概念阶段）</strong></p>
+<ul>
+<li><strong>目标：</strong> 确定用户的需求和产品开发的总体方向。</li>
+</ul>
+<p><strong>2. Design（设计阶段）</strong></p>
+<ul>
+<li><strong>目标：</strong> 将用户需求转化为实际的产品设计。</li>
+</ul>
+<p><strong>3. Develop（开发阶段）</strong></p>
+<ul>
+<li><strong>目标：</strong> 将设计转化为实际的产品，同时确保可用性和质量。</li>
+</ul>
+<p><strong>4. Release（发布阶段）</strong></p>
+<ul>
+<li><strong>目标：</strong> 将产品发布给用户，并进行最终验证。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250102203941294.png" alt="image-20250102203941294"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Roeland</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://somefnone.github.io/2025/01/01/ruan-jian-gong-cheng-dao-lun-bi-ji-2/">https://somefnone.github.io/2025/01/01/ruan-jian-gong-cheng-dao-lun-bi-ji-2/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Roeland</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">
+                                    <span class="chip bg-color">软件工程导论</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/02/20/bian-yi-yuan-li-1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="编译原理-1">
+                        
+                        <span class="card-title">编译原理-1</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            引论
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-02-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="post-category">
+                                    编译原理
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                        <span class="chip bg-color">编译原理</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/12/31/ruan-jian-gong-cheng-dao-lun-bi-ji-1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="软件工程导论笔记-1">
+                        
+                        <span class="card-title">软件工程导论笔记-1</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Part 1
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-12-31
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" class="post-category">
+                                    软件工程导论
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">
+                        <span class="chip bg-color">软件工程导论</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 愚者的盥洗室<br />'
+            + '文章作者: Roeland<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Roeland</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">103.3k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "3";
+                        var startDate = "16";
+                        var startHour = "0";
+                        var startMinute = "56";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SomeFnone" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1229172423@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1229172423" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1229172423" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

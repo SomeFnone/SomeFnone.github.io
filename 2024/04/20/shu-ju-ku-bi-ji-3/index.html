@@ -1,0 +1,1730 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="数据库笔记-3, 愚者的盥洗室">
+    <meta name="description" content="数据库设计">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>数据库笔记-3 | 愚者的盥洗室</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">愚者的盥洗室</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">愚者的盥洗室</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据库笔记-3</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" class="post-category">
+                                数据库原理
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-03-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    24 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <meta name="referrer" content="no-referrer"/>
+
+<h2 id="七、数据库设计"><a href="#七、数据库设计" class="headerlink" title="七、数据库设计"></a>七、数据库设计</h2><h3 id="一、需求分析"><a href="#一、需求分析" class="headerlink" title="一、需求分析"></a>一、需求分析</h3><h4 id="1-数据库设计含义"><a href="#1-数据库设计含义" class="headerlink" title="1.数据库设计含义"></a>1.数据库设计含义</h4><ul>
+<li><strong>数据库设计的诉求</strong>：根据一个数据模型而制定数据的组织形式<ul>
+<li>具体一点来说</li>
+<li>(1)设计者决定存储哪些数据，以及数据之间如何关联和交互</li>
+<li>(2)基于(1)中的信息，将数据用数据模型表达</li>
+<li>(3)最后由一个数据库管理系统，结合设计要求，来对数据进行存储管理</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-数据库设计过程"><a href="#2-数据库设计过程" class="headerlink" title="2.数据库设计过程"></a>2.<strong>数据库设计过程</strong></h4><ul>
+<li><p>(0)<strong>需求分析</strong>：确定存储哪些数据，建立哪些应用，常用的操作，对象有哪些</p>
+</li>
+<li><p>(1)<strong>概念数据建模</strong>：确定数据的理论模式(概念数据模型,如ER-model)，用概念模式输出表达(ER-diagram)</p>
+<ul>
+<li>ER-model是对数据关系的一种抽象，ER-diagram则是用来可视化表示ER-model的工具</li>
+</ul>
+</li>
+<li><p>(2)<strong>逻辑数据建模</strong>：概念建模的映射，用逻辑结构来细化表达数据，将概念模型所描述的数据映射为某个特定的DBMS模式数据</p>
+</li>
+<li><p>(3)<strong>物理层面设计</strong>：确定数据库配置、存储媒介、数据元素与类型、安全性、冗余备份、性能……</p>
+</li>
+<li><p>当然，还有一种对数据库设计过程的划分：概念阶段&#x2F;逻辑阶段&#x2F;实现阶段(定义表等)&#x2F;物理阶段(索引、磁盘组织)</p>
+</li>
+</ul>
+<h4 id="3-数据库设计目标"><a href="#3-数据库设计目标" class="headerlink" title="3.数据库设计目标"></a>3.数据库设计目标</h4><blockquote>
+<p>设计目标，也就是需要解决的问题</p>
+</blockquote>
+<ul>
+<li><strong>需求覆盖</strong>：满足和全覆盖所有业务需求，要求需求获取全面，分析到位<ul>
+<li>覆盖：实体、属性、关联</li>
+<li><strong>全局性</strong>：从列来看，一个类，在业务中凡是要用到的属性， 都要包含；从行来看，一个类的所有实例对象都在一个表中</li>
+<li><strong>严格按类分表存储</strong>：一个类对应一个表；属于不同类的数据不能混合存储在一个表中</li>
+<li><strong>属性</strong>：<strong>标示性属性</strong>(主键），<strong>联系属性</strong>(外键)，特征属性</li>
+</ul>
+</li>
+<li><strong>数据正确性</strong>：尽量少的冗余，无数据更新异常，数据一致，要求使用正确的设计方法<ul>
+<li><strong>没有更新异常</strong></li>
+<li><strong>输出的数据正确</strong></li>
+<li><strong>尽量少的冗余</strong></li>
+</ul>
+</li>
+<li><strong>可伸展性</strong>：只要数据库中存在源头数据，任何业务需求想要的业务表单都能组合出来<ul>
+<li>能够基于现有数据衍生出各种新的数据视图，服务于不断发展的业务</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-数据库设计挑战"><a href="#4-数据库设计挑战" class="headerlink" title="4.数据库设计挑战"></a>4.数据库设计挑战</h4><ul>
+<li><strong>业务表单和数据库中表的不一致</strong><ul>
+<li>业务表单中通常包含的是综合信息</li>
+<li>而数据库中的一个表只能存储单一类别的信息</li>
+</ul>
+</li>
+<li><strong>需求获取时，见到的和听到的都是<em>局部</em>，而数据库设计需要站在<em>全局</em>来考虑</strong></li>
+</ul>
+<blockquote>
+<p>P.S.数据库表与业务表的区别：</p>
+<ul>
+<li>数据库表：严格按类概念，分类存储</li>
+<li>业务表：由分布在多个表中列组合而成</li>
+</ul>
+</blockquote>
+<h4 id="5-关系型数据库"><a href="#5-关系型数据库" class="headerlink" title="5.关系型数据库"></a>5.关系型数据库</h4><ul>
+<li>实质：<strong>表与表之间存在联系</strong></li>
+</ul>
+<h4 id="6-数据库设计专业性"><a href="#6-数据库设计专业性" class="headerlink" title="6.数据库设计专业性"></a>6.数据库设计专业性</h4><p>原因：</p>
+<ul>
+<li>业务需求发现技巧</li>
+<li>不合理的数据库设计导致<ul>
+<li>数据冗余</li>
+<li>更新异常</li>
+</ul>
+</li>
+<li>设计必须基于业务特性，迎合业务特性，覆盖业务需求</li>
+<li><strong>设计方法学</strong>(步骤)<ul>
+<li>需求表述</li>
+<li>E-R建模</li>
+<li>将ER-model映射为relation model</li>
+<li>采用一个数据库管理系统，实现一个数据库，搭建起一个数据库服务器</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-数据库设计包含方面"><a href="#7-数据库设计包含方面" class="headerlink" title="7.数据库设计包含方面"></a>7.数据库设计包含方面</h4><ul>
+<li><strong>覆盖</strong>业务需求</li>
+<li>数据的<strong>组织要合理</strong>(涵盖了正确性和可伸缩性)</li>
+</ul>
+<h4 id="8-获取需求"><a href="#8-获取需求" class="headerlink" title="8.获取需求"></a>8.获取需求</h4><p><strong>需要了解的业务</strong>：</p>
+<ol>
+<li>things (entity（实体&#x2F;事实）);</li>
+<li>activity&#x2F;event(活动&#x2F;事件）</li>
+<li>involved persons(相关人员);</li>
+<li>procedure(过程)</li>
+<li>record (记录);</li>
+<li>业务特征与特性，发展态势;</li>
+</ol>
+<p><strong>五个获取业务需求的途径</strong>：</p>
+<p>①查看业务规章制度的文档;</p>
+<p>②收集已有的业务表单;</p>
+<p>③面对面沟通交流；</p>
+<p>④观察业务的运转情况；</p>
+<p>⑤分析，推理，研究，归纳提炼；</p>
+<h4 id="9-判断设计合理性"><a href="#9-判断设计合理性" class="headerlink" title="9.判断设计合理性"></a>9.判断设计合理性</h4><ul>
+<li><p>程序的<strong>鲁棒性</strong>(稳健,坚韧)：</p>
+<p>1）函数调用是否成功；</p>
+<p>2）结果是否为空；</p>
+<p>3）不为空时，才允许读结果</p>
+</li>
+<li><p>数据的<strong>正确性</strong>; <strong>完整性</strong>; <strong>安全性</strong>; 操作的<strong>简单性</strong>; 数据处理的<strong>高效性</strong></p>
+</li>
+<li><p>系统的<strong>可维护性</strong>：系统的<strong>模块化</strong>，<strong>层次化</strong>，接口的<strong>标准化</strong>：<strong>邦联性</strong>，<strong>可组合性</strong></p>
+</li>
+</ul>
+<hr>
+<h3 id="二、ER建模"><a href="#二、ER建模" class="headerlink" title="二、ER建模"></a>二、ER建模</h3><h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1.基本概念"></a>1.基本概念</h4><ul>
+<li><p>实体(Entity)</p>
+<ul>
+<li><strong>客观存在</strong>并可<strong>相互区分</strong>的事务叫做——实体</li>
+</ul>
+</li>
+<li><p>属性(Attribute)</p>
+<ul>
+<li>实体所具有的某一特性</li>
+<li>一个实体可以由若干个属性来刻画</li>
+</ul>
+</li>
+<li><p>域(domain)</p>
+<ul>
+<li>属性的取值范围</li>
+</ul>
+</li>
+<li><p>实体型(Entity Type)</p>
+<ul>
+<li>实体名与其属性名的集合共同构成实体型</li>
+<li>例，学生（学号、姓名、年龄、性别、系、年级）</li>
+<li>注意实体型与实体（值）之间的区别，后者是前者的一个特例</li>
+</ul>
+</li>
+<li><p>实体集(Entity Set)</p>
+<ul>
+<li>同型实体的集合——实体集</li>
+<li>如，全体学生</li>
+</ul>
+</li>
+<li><p>联系(Relationship)</p>
+<ul>
+<li>实体之间的相互关联</li>
+<li>联系也可以有属性，比如选课是一个联系，成绩可作为其属性</li>
+<li>也可以称之为实体之间的”关系”</li>
+</ul>
+</li>
+<li><p>元或度(Degree)</p>
+<ul>
+<li>参与联系的实体集的个数称为联系的元</li>
+<li>一元联系：递归联系</li>
+</ul>
+</li>
+<li><p>键或码(Key)</p>
+<ul>
+<li>唯一标识实体的属性或属性组称作超键</li>
+<li>超键的任意超集也是超键</li>
+<li>其任意真子集都不能成为超键的最小超键称为候选码</li>
+<li>从所有候选键中选定一个用来区别同一实体集中的不同实体，称作主键</li>
+<li>一个实体集中任意两个实体在主键上的取值不能相同</li>
+</ul>
+</li>
+<li><p>参与(Participation)</p>
+<ul>
+<li>实体集之间的关联称为参与，即实体参与联系</li>
+<li>如王军选修“数据库基础”，表示实体“王军”与 “数据库基础”参与了联系“选修”</li>
+<li>如果实体集E中的每个实体都参与到联系集R中的至少一个联系，则称E全部参与R</li>
+<li>如果实体集E中只有部分实体参与到联系集R的联系中，则称E部分参与R</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-属性的类型"><a href="#2-属性的类型" class="headerlink" title="2.属性的类型"></a>2.属性的类型</h4><ul>
+<li>简单属性<ul>
+<li>不可再分</li>
+</ul>
+</li>
+<li>复合属性<ul>
+<li>可以划分为更小的属性</li>
+<li>把相关属性聚集起来以反映更高层次的概念，可以使模型更清晰</li>
+<li>如电话号码&#x3D;区号+本地号码</li>
+</ul>
+</li>
+<li>单值属性<ul>
+<li>每一个特定的实体在该属性上的取值唯一</li>
+</ul>
+</li>
+<li>多值属性<ul>
+<li>某个特定的实体在该属性上的有多于一个的取值</li>
+</ul>
+</li>
+<li>NULL属性(两种情况)<ul>
+<li>null表示“无意义”，当实体在某个属性上没有值时设为null</li>
+<li>null表示“值未知”，即值存在，但目前没有获得该信息</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-联系的种类"><a href="#3-联系的种类" class="headerlink" title="3.联系的种类"></a>3.联系的种类</h4><ul>
+<li>实体之间的联系的数量，即一个实体通过一个联系集能与另一实体集相关联的实体的数目</li>
+<li>可以有一对一的（1:1），一对多的（1:m），多对多的（m:n）几种情况</li>
+</ul>
+<h4 id="4-E-R图-旧"><a href="#4-E-R图-旧" class="headerlink" title="4.E-R图(旧)"></a>4.E-R图(旧)</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240420212537974.png" alt="image-20240420212537974"></p>
+<h4 id="5-概念数据库设计-ER-modeling"><a href="#5-概念数据库设计-ER-modeling" class="headerlink" title="5.概念数据库设计(ER modeling)"></a>5.概念数据库设计(ER modeling)</h4><ul>
+<li><p>基本概念和要素：</p>
+<ul>
+<li><p>实体——(抽象)——实体类</p>
+</li>
+<li><p>联系——(抽象)——联系类</p>
+</li>
+</ul>
+</li>
+<li><p>实体：有类型(type)和实例(instance)两个概念</p>
+<ul>
+<li>符号表示：实体类型用长方形表示，其名称放在长方形中.其名称用单数名称，第一个字母大写</li>
+</ul>
+</li>
+<li><p>联系(关系)：</p>
+<ul>
+<li>有类型(type)和实例(instance)两个概念</li>
+<li>例如，WorksOn 是员工类型(Employee)和项目类型(Project)之间的一种关系。而(E1,P1)： ‘E1’ works on project ‘P1’ 是该关系类型的一个实例</li>
+<li><strong>在两个实体之间可能存在多个联系</strong><ul>
+<li>一个实体可以充当不同角色，比如A管理B，B拥有A(例如部门与经理)</li>
+</ul>
+</li>
+<li><strong>关系的度</strong>：一个关系类型涉及的实体类型的数量</li>
+<li><strong>符号表示</strong>：In UML, 两个实体类型之间的一条边线表示一个关系类型，边上标签为关系类型的名称，附加上一个箭头来表达关系的逻辑<ul>
+<li>度&lt;3，用箭头表示关系</li>
+<li>度&gt;&#x3D;3，用菱形表示关系类型</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240420215550796.png" alt="image-20240420215550796"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240420215745648.png" alt="image-20240420215745648"></p>
+<ul>
+<li><p>约束</p>
+<ul>
+<li><p>作用于<strong>实体类型</strong>的约束：标识属性</p>
+</li>
+<li><p>作用于<strong>关系类型</strong>的约束：</p>
+<ul>
+<li>对于二元关系，一共3类：1对1，1对多，多对多</li>
+<li>进一步细化为两级：参(participation)和基(cardinality)<ul>
+<li>参：实体集中，该实体是否参与，是否必须参与</li>
+<li>基：描述两个实体集之间的关系数量，1vs1,1 vs many,many vs many</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>关联标注(UML格式)</p>
+<ul>
+<li>关联标注指的就是关系边线两侧的数值，基本格式为<code>i..j(i &lt;= j)</code></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240420220450028.png" alt="image-20240420220450028"></p>
+<ul>
+<li>以上图为例，<code>0..N</code>靠近person，就是person的关联标注，表示<strong>当location实体集只有1个实体参与联系时，person实体集中可以有0~N个实体参与联系</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240420220900898.png" alt="image-20240420220900898"></p>
+<ul>
+<li>1对1关系</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240420221010038.png" alt="image-20240420221010038"></p>
+<ul>
+<li>1对多关系</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240420221025605.png" alt="image-20240420221025605"></p>
+<ul>
+<li>多对多关系<ul>
+<li><strong>注意，这里的一对一和一对多中的“一”，都是指自己，也就是箭头发出的一方是<code>0..1</code></strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>多元关系下的约束标记</strong>：</p>
+<ul>
+<li>标记某一端的约束时，其它端的实例对象数都设为1，然后从最悲观和最乐观视角来确定约束</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240420221129789.png" alt="image-20240420221129789"></p>
+<h4 id="6-ER建模步骤"><a href="#6-ER建模步骤" class="headerlink" title="6.ER建模步骤"></a>6.ER建模步骤</h4><blockquote>
+<p>注意，以下的ER图是UML格式的，该课程ER图设置为UML格式，但还存在其他格式，本课程内不考虑，不讨论</p>
+</blockquote>
+<p><strong>第一步：标识实体</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240420213846921.png" alt="image-20240420213846921"></p>
+<p><strong>第二步：标识关系</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240420213918230.png" alt="image-20240420213918230"></p>
+<p><strong>第三步：标识属性</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240420213955041.png" alt="image-20240420213955041"></p>
+<p><strong>第四步：标识实体约束</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240420214033132.png" alt="image-20240420214033132"></p>
+<p><strong>第五步：标识关系约束</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240420214101017.png" alt="image-20240420214101017"></p>
+<h4 id="7-扩展E-R-强实体类型和弱实体类型"><a href="#7-扩展E-R-强实体类型和弱实体类型" class="headerlink" title="7.扩展E-R:强实体类型和弱实体类型"></a>7.扩展E-R:强实体类型和弱实体类型</h4><p>①<strong>强实体类型</strong>：它的实例的存在<strong>不依赖于任何其它实体类型</strong>的实例</p>
+<ul>
+<li>强实体类型在模式（Schema)上不依赖于任何其它实体类型</li>
+<li>它有<strong>自己独立的主键</strong>，唯一性地标识它的实例<ul>
+<li>换句话说，它实例的存在不依赖于其它实体的判断标准就是：是否有独立的主键</li>
+<li>例如，信用卡类型是不是一个强实体类型？<ul>
+<li>当然是！信用卡虽然需要有人的信息(身份证，手机)，但信用卡的主键是<strong>信用卡号</strong>，这个可是一个<strong>独立主键</strong>！</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>②<strong>弱实体类型</strong>：它的实例的存在<strong>依赖于任何其它实体类型</strong>的实例</p>
+<p>弱实体类型，是指<strong>它自身的所有属性都无法构成主码</strong>的实体类型，因此弱实体的主键必须由外键和一部分自身属性所构成，这个外键往往是弱实体所依赖的实体的主键。</p>
+<ul>
+<li>弱实体的主键包括两个部分：<ul>
+<li>它所依赖的实体类型的主键</li>
+<li>在此基础上，再加上它自己的标识性属性</li>
+</ul>
+</li>
+</ul>
+<p><strong>WARNING:<code>强实体与弱实体的联系只能是1：1或者1：N</code></strong></p>
+<ul>
+<li>原因：有一个强实体，就有一个主键，可以构成弱实体的主键。再多的强实体也只是锦上添花。所以不能是N：1或者N：M</li>
+</ul>
+<p>③<strong>弱实体集与存在依赖</strong></p>
+<ul>
+<li>弱实体集必然存在依赖于强实体集（Strong Entity Set) 即其拥有者</li>
+<li>弱实体集与其拥有者之间的联系称作标识性联系(identifying relationship)</li>
+<li>存在依赖并不总会导致一个弱实体集，从属实体集可以有自己的主键<ul>
+<li>如实体集信用卡（信用卡号，客户帐号，金额），它存在依赖于客户帐号实体集，但信用卡有自己的主码信用卡号</li>
+</ul>
+</li>
+</ul>
+<p>④<strong>分辨符</strong></p>
+<ul>
+<li>弱实体集中用于区别依赖于某个特定强实体集的属性集合。也称作<strong>部分码（partial key)</strong><ul>
+<li>如“还款”中的还款号</li>
+</ul>
+</li>
+<li>弱实体集的主码由该弱实体集所存在依赖的强实体集的主码和该弱实体集的分辨符组成<ul>
+<li>如“还款”主码＝贷款号＋还款号</li>
+</ul>
+</li>
+</ul>
+<p>⑤<strong>为什么使用弱实体集</strong></p>
+<p>通过为弱实体集加上合适的属性，可转变为强实体集，为什么还要使用弱实体集？</p>
+<ul>
+<li><p>避免数据冗余（强实体集码重复），以及因此带来的数据的不一致性</p>
+</li>
+<li><p>弱实体集反映了一个实体对其它实体依赖的逻辑结构</p>
+</li>
+<li><p>弱实体集可以随它们的强实体集的删除而自动删除</p>
+</li>
+<li><p>弱实体集可以物理地随它们的强实体集存储</p>
+</li>
+</ul>
+<p>⑥<strong>E-R图表示</strong></p>
+<p>弱实体集在E-R图中的表示</p>
+<ul>
+<li><p>弱实体集以双边框的矩形表示</p>
+</li>
+<li><p>标识性联系以双边框的菱形表示</p>
+</li>
+<li><p>从联系集用双线（全部参与）连接弱实体集，用箭头（一对多联系）指向强实体集</p>
+</li>
+<li><p>弱实体集的分辨符用下划虚线标明</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613212937020.png" alt="image-20240613212937020"></p>
+<h4 id="8-建模陷井"><a href="#8-建模陷井" class="headerlink" title="8.建模陷井"></a>8.建模陷井</h4><h5 id="1-扇子陷井"><a href="#1-扇子陷井" class="headerlink" title="1.扇子陷井"></a>1.扇子陷井</h5><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613213211660.png" alt="image-20240613213211660"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613213249978.png" alt="image-20240613213249978"></p>
+<p>但是，<strong>通过关系传递推导出的关系不一定正确</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613213313105.png" alt="image-20240613213313105"></p>
+<h5 id="2-裂口陷井"><a href="#2-裂口陷井" class="headerlink" title="2.裂口陷井"></a>2.裂口陷井</h5><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613213335171.png" alt="image-20240613213335171"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613213426183.png" alt="image-20240613213426183"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613213433778.png" alt="image-20240613213433778"></p>
+<p>但是，<strong>通过关系传递推导出的结果不一定正确</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613213445378.png" alt="image-20240613213445378"></p>
+<h4 id="9-注意事项"><a href="#9-注意事项" class="headerlink" title="9.注意事项"></a>9.注意事项</h4><ul>
+<li><p><strong>避免冗余，不要在多处出现指向同一个概念的属性，实体，关系</strong></p>
+</li>
+<li><p><strong>能用属性表达的地方不要用实体来表达</strong></p>
+</li>
+</ul>
+<p>示例：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613213701989.png" alt="image-20240613213701989"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613213713279.png" alt="image-20240613213713279"></p>
+<h4 id="10-处理多元关系"><a href="#10-处理多元关系" class="headerlink" title="10.处理多元关系"></a>10.处理多元关系</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613215009332.png" alt="image-20240613215009332"></p>
+<p><strong>把多元关系模型化成弱实体，变成二元关系处理</strong></p>
+<p>——<strong>把其中一个联系转换成实体再做依赖</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613215300735.png" alt="image-20240613215300735"></p>
+<p>这里，我们将联系<code>enroll</code>转换成实体<code>enrollment</code>，再将<code>class_no</code>属性拎出来转换成实体<code>class</code>，重新构造关系：Teacher——teach——Class</p>
+<p>Enrollment——assign(指定)——Class</p>
+<p><strong>当要在多对多的二元联系上再建立联系时，将联系模型化成弱实体</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613215629326.png" alt="image-20240613215629326"></p>
+<h4 id="11-时间实体-空间实体"><a href="#11-时间实体-空间实体" class="headerlink" title="11.时间实体&#x2F;空间实体"></a>11.时间实体&#x2F;空间实体</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613215747503.png" alt="image-20240613215747503"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613215755670.png" alt="image-20240613215755670"></p>
+<h4 id="12-对一对一关系的认识"><a href="#12-对一对一关系的认识" class="headerlink" title="12.对一对一关系的认识"></a>12.对一对一关系的认识</h4><p>将一对一关系所涉及的两个实体所对应的两个关系模式，将其一的主键加入到另一个关系模式中，作为外键，以此表达一对一关系。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240613220001974.png" alt="image-20240613220001974"></p>
+<p>这里可以这么理解：<br>首先，<code>0..1——1..1</code>这种约束不可能出现在强实体与弱实体之间，因为强实体：弱实体&#x3D;1：N，所以<strong>如果强实体弱实体之间有约束，也应该是<code>1..1——0..*</code></strong></p>
+<p>那么，<code>0..1——1..1</code>这种约束又代表了什么呢？很显然，<code>0..1</code>这一方是不一定存在的，也就是说，它是<code>1..1</code>这一方的补充，故而，<strong><code>0..1</code>这一实体不存在主键，它的主键就是<code>1..1</code>的主键</strong></p>
+<p>而<code>0..1——0..1</code>这一约束正如上述所言，在转关系模式时按照这种方式去转即可</p>
+<p><code>1..1——1..1</code>这一约束不可能出现，因为既然A有1个的时候B只有1个，反之亦然的时候，那么B就可以作为A的属性了(或者A做B的属性)</p>
+<h3 id="三、ER模型转关系模型"><a href="#三、ER模型转关系模型" class="headerlink" title="三、ER模型转关系模型"></a>三、ER模型转关系模型</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614185748540.png" alt="image-20240614185748540"></p>
+<h4 id="第一步：将每个强实体转换成一个关系-Relation"><a href="#第一步：将每个强实体转换成一个关系-Relation" class="headerlink" title="第一步：将每个强实体转换成一个关系(Relation)"></a><strong>第一步：将每个强实体转换成一个关系(Relation)</strong></h4><ul>
+<li>对多值属性，在第6步处理</li>
+<li>强实体的主键，也是关系的主键</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614191831657.png" alt="image-20240614191831657"></p>
+<h4 id="第二步：将每个弱实体转换成一个关系"><a href="#第二步：将每个弱实体转换成一个关系" class="headerlink" title="第二步：将每个弱实体转换成一个关系"></a><strong>第二步：将每个弱实体转换成一个关系</strong></h4><ul>
+<li>将弱实体所依赖的强实体的主键加入弱实体对应的关系中，作为关系主键的组成部分</li>
+<li>如何辨别强弱实体？注意约束：<code>1..1——0..*</code>，是这个约束的，很可能就是弱实体与强实体</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614192141701.png" alt="image-20240614192141701"></p>
+<h4 id="第三步：处理一对一关系"><a href="#第三步：处理一对一关系" class="headerlink" title="第三步：处理一对一关系"></a><strong>第三步：处理一对一关系</strong></h4><p>一对一关系有三种情况，分别处理：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614192447331.png" alt="image-20240614192447331"></p>
+<ul>
+<li><code>0..1——1..1</code>：将<code>1..1</code>的实体的主键加到**额外角色<code>0..1</code>**上，额外角色的主键就是<code>1..1</code>实体的主键</li>
+<li><code>0..1——0..1</code>：哪一端的属性少，就把另一端的主键加到属性少的关系里作为外键</li>
+<li><code>1..1——1..1</code>：不可能出现，不考虑</li>
+</ul>
+<p><strong>实际上，通过对下面对一对一关系的处理可以看到，如果联系也存在属性时，也要把联系属性加入属性少的实体中作为关系属性；或者可以这么说——先构建出联系的关系模型，再将联系的关系模型属性放入属性少的实体的关系模型中</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614193027153.png" alt="image-20240614193027153"></p>
+<h4 id="第四步：处理一对多关系"><a href="#第四步：处理一对多关系" class="headerlink" title="第四步：处理一对多关系"></a><strong>第四步：处理一对多关系</strong></h4><p>将一对多关系所涉及的两个实体所对应的两个关系模式，将”<strong>一</strong>”那边的主键加入到**”多”**那边的关系模式中，作为外键，以此表达一对多关系。</p>
+<ul>
+<li><strong>实际上还是和一对一类似，将联系的关系模型构造出(两边实体的主键+自身属性)，再将联系的关系模型属性给到”多”(<code>0..*</code>)那边的关系模式中</strong></li>
+<li>再强调一遍，是把<code>1</code>的主键给<code>多</code>！</li>
+<li>另外，如何辨别一对多关系？严格的一对多，<code>1</code>是指<code>1..1</code>，<code>多</code>指最多是<code>*</code>即可。</li>
+<li>另外要注意，<code>1</code>的主键给到<code>多</code>，也就是<code>多</code>的<strong>主键的一部分</strong>了，那么<code>多</code>再作为<code>1对多</code>关系的<code>1</code>端时，要把<strong>更新后的主键全部给到另一个”多”关系</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614193330923.png" alt="image-20240614193330923"></p>
+<p><strong>WARNING：实体自己构成一对多关系，属性还是加在自己身上</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614193500400.png" alt="image-20240614193500400"></p>
+<h4 id="第五步：处理多对多关系"><a href="#第五步：处理多对多关系" class="headerlink" title="第五步：处理多对多关系"></a><strong>第五步：处理多对多关系</strong></h4><p>单独创建一个关系(Relation)来表达多对多关系(Relationship)，将多对多关系所涉及的两个实体所对应的两个关系(Relation)的主键加入到新创建的关系中，作为该关系主键的组成部分，自然也是外键，以此表达多对多关系。</p>
+<p><strong>实际上就是，将联系转换成一个单独的关系模式，独立于两个实体转成的关系模式之外</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614193555199.png" alt="image-20240614193555199"></p>
+<p><strong>完成5步后得到的关系模式</strong></p>
+<p>箭头指向外键所在的原本关系的属性</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614193721583.png" alt="image-20240614193721583"></p>
+<h4 id="第六步：处理多值属性"><a href="#第六步：处理多值属性" class="headerlink" title="第六步：处理多值属性"></a><strong>第六步：处理多值属性</strong></h4><p>对多值属性，单独创建一个关系(Relation)来表达，将其所属的关系(Relation)的主键，加进所创建的关系中，作为主键的组成部分，自然也是外键</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614193832830.png" alt="image-20240614193832830"></p>
+<h4 id="第七步：处理度-3的关系"><a href="#第七步：处理度-3的关系" class="headerlink" title="第七步：处理度&gt;&#x3D;3的关系"></a><strong>第七步：处理度&gt;&#x3D;3的关系</strong></h4><p>仍然是单独创建一个关系来表达，这个关系就是联系转换成的关系，关系的主键是各实体的主键</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614194001029.png" alt="image-20240614194001029"></p>
+<h4 id="最终得到的关系模式："><a href="#最终得到的关系模式：" class="headerlink" title="最终得到的关系模式："></a><strong>最终得到的关系模式：</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614194028925.png" alt="image-20240614194028925"></p>
+<hr>
+<h3 id="四、数据库设计验证"><a href="#四、数据库设计验证" class="headerlink" title="四、数据库设计验证"></a>四、数据库设计验证</h3><h4 id="1-关系模式设计"><a href="#1-关系模式设计" class="headerlink" title="1.关系模式设计"></a>1.关系模式设计</h4><h5 id="设计问题"><a href="#设计问题" class="headerlink" title="设计问题"></a><strong>设计问题</strong></h5><ul>
+<li><strong>信息的不可表示问题</strong><ul>
+<li><strong>插入异常</strong>：如果没有职工具有8级工资，则8级工资的工资数额就难以插入</li>
+<li><strong>删除异常</strong>：如果仅有职工赵明具有4级工资，如果将赵明删除，则有关4级工资的工资数额信息也随之删除了</li>
+</ul>
+</li>
+<li><strong>信息的冗余问题</strong><ul>
+<li><strong>数据冗余</strong>：职工很多，工资级别有限，每一级别的工资数额反复存储多次</li>
+<li><strong>更新异常</strong>：如果将5级工资的工资数额调为620，则需要找到每个具有5级工资的职工，逐一修改</li>
+</ul>
+</li>
+</ul>
+<h5 id="期望的关系模式特性"><a href="#期望的关系模式特性" class="headerlink" title="期望的关系模式特性"></a><strong>期望的关系模式特性</strong></h5><ol>
+<li>一个关系(relation）：<strong>表达</strong>一个<strong>实体（Entity）</strong>，或者一个<strong>多对多</strong>的<strong>二元联系，<strong>或者</strong>多元</strong>联系。它由一组逻辑上相关联的属性构成。</li>
+<li><strong>无损联接性</strong>是指将一个关系(relation）分解成2个或多个关系(relation）之后，原有的关系能够通过做<strong>自然联接</strong>来<strong>复原</strong>。</li>
+<li><strong>依赖保留性</strong>指将一个关系分解成2个或多个关系，<strong>分解前的函数依赖性在分解之后仍然存在</strong>，其具体情况看后面的BC范式</li>
+</ol>
+<h4 id="2-函数依赖"><a href="#2-函数依赖" class="headerlink" title="2.函数依赖"></a>2.函数依赖</h4><blockquote>
+<p>函数依赖 ≠ 约束，函数依赖在表上成立，约束则是在业务规则上符合指定要求</p>
+</blockquote>
+<p>定义：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614212328882.png"></p>
+<h5 id="2-1平凡函数依赖"><a href="#2-1平凡函数依赖" class="headerlink" title="2.1平凡函数依赖"></a>2.1平凡函数依赖</h5><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614212654849.png" alt="image-20240614212654849"></p>
+<ul>
+<li>课后思考：一个关系模式有n个属性，那么在它上面成立的所有可能的函数依赖有多少个？非平凡的函数依赖又有多少个？<ul>
+<li>n个属性，则属性集有2^n个，X-&gt;Y，X,Y都是2^n的属性集，故属性依赖有2^n * 2^n &#x3D; 2^2n</li>
+<li>平凡函数依赖有2^n个，故非平凡的有2^2n-2^n</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-2部分函数依赖"><a href="#2-2部分函数依赖" class="headerlink" title="2.2部分函数依赖"></a>2.2部分函数依赖</h5><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614212839943.png" alt="image-20240614212839943"></p>
+<p><strong>候选键——f</strong></p>
+<p><strong>超键——p</strong></p>
+<h5 id="2-3传递函数依赖"><a href="#2-3传递函数依赖" class="headerlink" title="2.3传递函数依赖"></a>2.3传递函数依赖</h5><ul>
+<li>注意传递函数依赖的条件：<ul>
+<li>Y函数依赖于X，但是<strong>X并不函数依赖于Y</strong></li>
+<li><strong>Z不是Y的子集</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614213126933.png" alt="image-20240614213126933"></p>
+<h5 id="2-4键与主属性"><a href="#2-4键与主属性" class="headerlink" title="2.4键与主属性"></a>2.4键与主属性</h5><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614213311978.png" alt="image-20240614213311978"></p>
+<h4 id="3-范式"><a href="#3-范式" class="headerlink" title="3.范式"></a>3.范式</h4><h5 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h5><ul>
+<li>范式是对关系的不同数据依赖程度的要求</li>
+<li>通过模式分解，将一个低级范式转换成若干个高级范式的过程称作<strong>规范化</strong><ul>
+<li>实际上，可以把范式粗略地理解为数据表结构所需要符合的<strong>某种标准级别</strong>，低级范式就是低级级别，高级范式就是高级级别</li>
+<li>高级范式一定满足低级范式</li>
+</ul>
+</li>
+<li>范式分为6个：1NF，2NF，3NF，BCNF，4NF，5NF</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614213540938.png" alt="image-20240614213540938"></p>
+<h5 id="2-1NF"><a href="#2-1NF" class="headerlink" title="2.1NF"></a>2.1NF</h5><p><strong>本质：关系中不能有多值属性</strong></p>
+<p>定义：关系中的<strong>每一分量不可再分</strong>(不能有多值属性)。即不能以集合、序列等作为属性值</p>
+<ul>
+<li>分量是否可再分，取决于业务逻辑。如果用到值的一部分，那就需要进一步分隔，也就是提高原子粒度<ul>
+<li>原子粒度一般越细越好，更方便约束</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614213944597.png" alt="image-20240614213944597"></p>
+<h5 id="3-2NF"><a href="#3-2NF" class="headerlink" title="3.2NF"></a>3.2NF</h5><p><strong>本质：消除非主属性对候选键的部份依赖</strong></p>
+<p>定义：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614214057418.png" alt="image-20240614214057418"></p>
+<p>改造：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614214122916.png" alt="image-20240614214122916"></p>
+<p>例子：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614214206103.png" alt="image-20240614214206103"></p>
+<h5 id="4-3NF"><a href="#4-3NF" class="headerlink" title="4.3NF"></a>4.3NF</h5><p><strong>本质：消除非主属性对候选键的传递依赖</strong></p>
+<p>定义：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614214311366.png" alt="image-20240614214311366"></p>
+<p>另一种定义：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614214439167.png" alt="image-20240614214439167"></p>
+<p>改造：</p>
+<ul>
+<li>实际上是把传递依赖的Y——Z部分单独拎出来做个表</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614214331585.png" alt="image-20240614214331585"></p>
+<h5 id="5-BCNF"><a href="#5-BCNF" class="headerlink" title="5.BCNF"></a>5.BCNF</h5><p><strong>本质：消除主属性对候选键的部分依赖和传递依赖</strong></p>
+<p>定义：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614214608732.png" alt="image-20240614214608732"></p>
+<p>另一种定义：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614214623556.png" alt="image-20240614214623556"></p>
+<p>满足3NF但不满足BCNF的情况：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240614215256920.png" alt="image-20240614215256920"></p>
+<h4 id="4-函数依赖的推理"><a href="#4-函数依赖的推理" class="headerlink" title="4.函数依赖的推理"></a>4.函数依赖的推理</h4><h5 id="1-逻辑蕴涵"><a href="#1-逻辑蕴涵" class="headerlink" title="1.逻辑蕴涵"></a>1.逻辑蕴涵</h5><ul>
+<li>定义<ul>
+<li>关系模式R，F是其函数依赖，X，Y是其属性子集，如果从F的函数依赖能够推出X→Y，则称F<strong>逻辑蕴涵</strong>X→Y，记作F├ X→Y</li>
+<li>被F所逻辑蕴涵的函数依赖的全体所构成的集合称作F的<strong>闭包</strong>，记作F+ &#x3D; {X→Y | F├ X→Y}</li>
+</ul>
+</li>
+<li>示例</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240615150317417.png" alt="image-20240615150317417"></p>
+<ul>
+<li><strong>注意</strong><ul>
+<li>F包含于F+，如果F&#x3D;F+，则F为函数依赖的一个完备集</li>
+<li>规定：若X为U的子集，X→Φ 属于F+</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-Armstrong公理"><a href="#2-Armstrong公理" class="headerlink" title="2.Armstrong公理"></a>2.Armstrong公理</h5><ul>
+<li><strong>3条公理</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240615150442916.png" alt="image-20240615150442916"></p>
+<ul>
+<li><strong>推导公理</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240615150525544.png" alt="image-20240615150525544"></p>
+<ul>
+<li><p>Armstrong公理的正确性与完备性</p>
+<p>A &#x3D; { f | 可用Armstrong公理从F中导出的函数依赖f}</p>
+<p>B &#x3D; {f | 被F所逻辑蕴涵的函数依赖f}</p>
+<ul>
+<li><strong>正确性</strong>：用Armstrong公理从F中导出的函数依赖必为F所蕴涵，即A$\subseteq$B</li>
+<li><strong>完备性</strong>：F所蕴涵的函数依赖都能用Armstrong公理从F中导出，即B$\subseteq$A</li>
+</ul>
+</li>
+<li><p>引理：</p>
+<ul>
+<li>引理一：X→A1A2…Ak成立⇔X→Ai成立(i&#x3D;1,2,…k)</li>
+<li>引理二：X→Y能由Armstrong公理导出⇔Y$\subseteq$$X_{F}^{+}$</li>
+</ul>
+</li>
+<li><p><strong>属性集的闭包</strong></p>
+<ul>
+<li>设F为属性集U上的一组函数依赖，X$\subseteq$U，$X_{F}^{+}$&#x3D;{属性A | X→A能由F根据Armstrong公理导出}，那么称$X_{F}^{+}$为属性集X关于函数依赖集F的闭包</li>
+<li>WARNING:区分好属性集闭包$X_{F}^{+}$和依赖集闭包$F^{+}$！！！！$X_{F}^{+}$的元素是属性，$F^{+}$的元素是依赖！！！</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-应用"><a href="#3-应用" class="headerlink" title="3.应用"></a>3.应用</h5><h6 id="1-判断函数依赖是否成立"><a href="#1-判断函数依赖是否成立" class="headerlink" title="1.判断函数依赖是否成立"></a>1.判断函数依赖是否成立</h6><p>当要判定一个<strong>函数依赖</strong> <strong>X → Y</strong> <strong>是否成立</strong>时，就只要计算 $X^{+}$ ，如果Y$\subset$$X^{+}$，那么函数依赖 X → Y就成立</p>
+<p>也就是，计算X的属性集闭包，若Y在闭包中，则函数依赖成立</p>
+<ul>
+<li>如何求出属性集X的闭包$X^{+}$？</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">Let X<span class="token operator">+</span> <span class="token operator">=</span> X
+ Repeat
+如果F中有某个<span class="token function">FD</span><span class="token punctuation">(</span>函数依赖<span class="token punctuation">)</span>，它的左边是X<span class="token operator">+</span>的子集，那么就将该FD的右边的属性合并到 X<span class="token operator">+</span><span class="token punctuation">;</span>
+ <span class="token function">Until</span> <span class="token punctuation">(</span> X<span class="token operator">+</span> 不发生改变 or  X<span class="token operator">+</span> <span class="token operator">=</span> U<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>如果$X^{+}$&#x3D;$X$，则称<strong>X是封闭的</strong></li>
+</ul>
+<h6 id="2-求函数依赖集F的闭包F"><a href="#2-求函数依赖集F的闭包F" class="headerlink" title="2.求函数依赖集F的闭包F+"></a>2.求函数依赖集F的闭包F+</h6><ul>
+<li>记得考虑X→Φ ！！！比如X→Φ ，XY→Φ都算在函数依赖集的闭包中！</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240615152014344.png" alt="image-20240615152014344"></p>
+<h6 id="3-判断属性集X是否是R的候选键"><a href="#3-判断属性集X是否是R的候选键" class="headerlink" title="3.判断属性集X是否是R的候选键"></a>3.判断属性集X是否是R的候选键</h6><p><strong>候选键的定义</strong>：如果X→A成立，但X的任一真子集$X^{-}$→A都不成立，那么X才是关系R的候选键</p>
+<p>对于关系R，它的属性集合A，函数依赖集F，对于属性集合 X， X$\subset$A：</p>
+<p> <strong>判断方式</strong>：如果 $X^{+}$ &#x3D; A；然后计算X的所有真子集的闭包，如果它们都不等于A；那么X是R的候选键，否则不是；</p>
+<p><strong>候选键计算</strong>：</p>
+<p>前置定义：</p>
+<ul>
+<li>定义<ul>
+<li>左部属性，只出现在F左边的属性</li>
+<li>右部属性，只出现在F 右边的属性</li>
+<li>双部属性，出现在F 两边的属性</li>
+<li>外部属性，不出现在F 中的属性</li>
+</ul>
+</li>
+<li>定理<ul>
+<li>左部属性一定出现在任何候选码中</li>
+<li>右部属性一定不出现在任何候选码中</li>
+<li>外部属性一定出现在任何候选码中</li>
+</ul>
+</li>
+</ul>
+<p><strong>如何通过给出的U和F找出关系R的所有候选码？</strong></p>
+<ol>
+<li>通过依赖集F找出<strong>左部属性、右部属性、双部属性</strong></li>
+<li>先尝试求<strong>左部属性的子集的闭包</strong>，是否符合候选键的定义</li>
+<li>如果都不符合，<strong>再加上双部属性求闭包</strong>，看是否符合候选键定义</li>
+</ol>
+<p>示例：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240615152828517.png" alt="image-20240615152828517"></p>
+<h6 id="4-函数依赖集的等价与覆盖"><a href="#4-函数依赖集的等价与覆盖" class="headerlink" title="4.函数依赖集的等价与覆盖"></a>4.函数依赖集的等价与覆盖</h6><ul>
+<li><p>函数依赖集的等价性</p>
+<ul>
+<li>函数依赖集F，G，若$F^{+}&#x3D;G^{+}$，则称F和G等价</li>
+<li>$F^{+}&#x3D;G^{+}$⇔$F \subseteq G^{+}$，$G \subseteq F^{+}$​</li>
+</ul>
+</li>
+<li><p>函数依赖集的覆盖</p>
+<ul>
+<li><p>函数依赖集F，E，对E中的每一个函数依赖X → Y ，基于F，计算X+(也就是$X_{F}^{+}$)，然后检查Y是否在$X_{F}^{+}$中；</p>
+<p>如果全部成立，那么F覆盖E；</p>
+</li>
+</ul>
+</li>
+<li><p>最小覆盖$F_{min}$</p>
+<ul>
+<li>**单属性化：**F中任一函数依赖X→A，A必是单属性</li>
+<li>**无冗余化：**F中不存在这样的函数依赖X → A，使得F与F - {X → A}等价</li>
+<li>**既约化：**F中不存在这样的函数依赖X→A，在X中有真子集Z，使得F与F - {X → A}$\cup${Z → A}等价</li>
+</ul>
+</li>
+<li><p>求解最小覆盖$F_{min}$​</p>
+<ul>
+<li>通过下面的算法可以得出这样的结论：<ul>
+<li>首先，将依赖右部的多值属性拆成单值</li>
+<li>接着，删去一个依赖做左属性的属性集闭包，如右属性存在于闭包中，则删除这个依赖</li>
+<li>最后，若$A \subseteq (X-Bi)_{F}^{+}$，那么就用$(X-Bi)-&gt;A$代替$X-&gt;A$<ul>
+<li><strong>注意</strong>：$(X-Bi)_{F}^{+}$的计算是基于<strong>原依赖集F</strong>的，也就是在计算属性集闭包时，X-&gt;A的依赖还是存在的！</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240615153553387.png" alt="image-20240615153553387"></p>
+<h4 id="5-模式分解"><a href="#5-模式分解" class="headerlink" title="5.模式分解"></a>5.模式分解</h4><ul>
+<li>定义</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240615153704878.png" alt="image-20240615153704878"></p>
+<ul>
+<li>示例</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240615153723844.png" alt="image-20240615153723844"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Roeland</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://somefnone.github.io/2024/04/20/shu-ju-ku-bi-ji-3/">https://somefnone.github.io/2024/04/20/shu-ju-ku-bi-ji-3/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Roeland</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/06/15/shu-ju-ku-bi-ji-4/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="数据库笔记-4">
+                        
+                        <span class="card-title">数据库笔记-4</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            数据库应用程序开发与数据库技术的发展
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-06-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" class="post-category">
+                                    数据库原理
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/04/11/shu-ju-ku-bi-ji-2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="数据库笔记-2">
+                        
+                        <span class="card-title">数据库笔记-2</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            事务、性能与安全
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" class="post-category">
+                                    数据库原理
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 愚者的盥洗室<br />'
+            + '文章作者: Roeland<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Roeland</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">103.3k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "3";
+                        var startDate = "16";
+                        var startHour = "0";
+                        var startMinute = "56";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SomeFnone" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1229172423@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1229172423" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1229172423" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

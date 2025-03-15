@@ -1,0 +1,1906 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="深度学习-预备知识, 愚者的盥洗室">
+    <meta name="description" content="数据操作与数学基础">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>深度学习-预备知识 | 愚者的盥洗室</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">愚者的盥洗室</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">愚者的盥洗室</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">深度学习-预备知识</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">深度学习</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                深度学习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-03-04
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-03-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    12k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    47 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <meta name="referrer" content="no-referrer"/>
+
+<h1 id="1-数据操作"><a href="#1-数据操作" class="headerlink" title="1.数据操作"></a>1.数据操作</h1><blockquote>
+<p>本篇笔记的所有代码，都是以<strong>PyTorch</strong>为框架来写的。MXNET、TensorFlow、Paddle略过</p>
+</blockquote>
+<p>数据操作的元素是<strong>张量(tensor)</strong>，也就是通常意义上的<strong>n维数组</strong></p>
+<p>在PyTorch、TensorFlow框架下，<em>张量类</em>称为<strong>tensor</strong>；MXNet框架下为<strong>ndarray</strong></p>
+<ul>
+<li>深度学习框架下的张量类与Numpy的ndarray类似，但功能更多，包括：<strong>GPU支持张量类加速计算，张量类支持自动微分</strong></li>
+</ul>
+<hr>
+<h2 id="1-入门"><a href="#1-入门" class="headerlink" title="1.入门"></a>1.入门</h2><h3 id="1-导入Pytorch"><a href="#1-导入Pytorch" class="headerlink" title="1.导入Pytorch"></a>1.<strong>导入Pytorch</strong></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> torch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>张量表示一个由数值组成的数组，这个数组可能有多个维度。 <strong>具有一个轴的张量</strong>对应数学上的<strong>向量</strong>（vector）； <strong>具有两个轴的张量</strong>对应数学上的<strong>矩阵</strong>（matrix）； 具有两个轴以上的张量没有特殊的数学名称。</p>
+<h3 id="2-创建行向量"><a href="#2-创建行向量" class="headerlink" title="2.创建行向量"></a>2.<strong>创建行向量</strong></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span>
+x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>首先，我们可以使用 <code>arange</code> 创建一个行向量 <code>x</code>。这个行向量包含<strong>以0开始</strong>的前12个整数，它们<strong>默认创建为整数</strong>。也可指定创建类型为浮点数。张量中的每个值都称为张量的 <em>元素</em>（element）。例如，张量 <code>x</code> 中有 12 个元素。除非额外指定，新的张量将<strong>存储在内存中，并采用基于CPU的计算</strong>。</p>
+<ul>
+<li>实际上，<code>torch.arange</code>创建的张量，其元素类型默认取决于<strong>步长</strong><ul>
+<li>若<code>step</code>为整数(默认是<code>1</code>)，则<code>dtype</code>&#x3D;<code>torch.int64</code></li>
+<li>若<code>step</code>为浮点数，则<code>dtype</code>&#x3D;<code>torch.float32</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-访问张量形状"><a href="#3-访问张量形状" class="headerlink" title="3.访问张量形状"></a>3.<strong>访问张量形状</strong></h3><p>可以通过张量的<code>shape</code>属性来访问张量（<strong>沿每个轴的长度</strong>）的<em>形状</em> 。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x<span class="token punctuation">.</span>shape<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">torch.Size([12])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="4-获取张量元素总数"><a href="#4-获取张量元素总数" class="headerlink" title="4.获取张量元素总数"></a>4.<strong>获取张量元素总数</strong></h3><p>张量中元素的总数，即形状的所有元素乘积，可以检查它的大小（size）</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x<span class="token punctuation">.</span>numel<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">12<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="5-改变张量形状"><a href="#5-改变张量形状" class="headerlink" title="5.改变张量形状"></a>5.<strong>改变张量形状</strong></h3><p>要想改变一个张量的形状而<strong>不改变元素数量和元素值</strong>，可以调用<code>reshape</code>函数。 例如，可以把张量<code>x</code>从形状为（12,）的行向量转换为形状为（3,4）的矩阵。 这个新的张量包含与转换前相同的值，但是它被看成一个3行4列的矩阵。 要重点说明一下，虽然张量的形状发生了改变，但其元素值并没有变。 注意，通过改变张量的形状，张量的大小不会改变。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> x<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([[ 0, 1, 2, 3],
+		[ 4, 5, 6, 7],
+		[ 8, 9, 10, 11]])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>我们不需要通过手动指定每个维度来改变形状。 也就是说，如果我们的目标形状是（高度,宽度）， 那么在<strong>知道宽度后，高度会被自动计算得出，不必我们自己做除法</strong>。 在上面的例子中，为了获得一个3行的矩阵，我们手动指定了它有3行和4列。 幸运的是，我们<strong>可以通过<code>-1</code>来调用此自动计算出维度的功能</strong>。 即我们可以用<code>x.reshape(-1,4)</code>或<code>x.reshape(3,-1)</code>来取代<code>x.reshape(3,4)</code>。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> x<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="6-全0张量"><a href="#6-全0张量" class="headerlink" title="6.全0张量"></a>6.全0张量</h3><p>全0张量的元素类型，默认是<code>torch.float32</code>，即浮点数。与正常<code>arange</code>创建张量不同</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">torch<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([[[0., 0., 0., 0.],
+         [0., 0., 0., 0.],
+         [0., 0., 0., 0.]],
+
+<span class="token code keyword">        [[0., 0., 0., 0.],
+         [0., 0., 0., 0.],
+         [0., 0., 0., 0.]]])</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="7-全1张量"><a href="#7-全1张量" class="headerlink" title="7.全1张量"></a>7.全1张量</h3><p>全1张量的元素类型，默认是<code>torch.float32</code>，即浮点数。与正常<code>arange</code>创建张量不同</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([[[1., 1., 1., 1.],
+         [1., 1., 1., 1.],
+         [1., 1., 1., 1.]],
+
+<span class="token code keyword">        [[1., 1., 1., 1.],
+         [1., 1., 1., 1.],
+         [1., 1., 1., 1.]]])</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="8-随机采样矩阵"><a href="#8-随机采样矩阵" class="headerlink" title="8.随机采样矩阵"></a>8.随机采样矩阵</h3><p>有时我们想通过从某个特定的概率分布中随机采样来得到张量中每个元素的值。 例如，当我们构造数组来作为神经网络中的参数时，我们通常会随机初始化参数的值。 以下代码创建一个形状为（3,4）的张量。 其中的每个元素都<strong>从均值为0、标准差为1的标准高斯分布（正态分布）中随机采样</strong>。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">torch<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([[-0.0135,  0.0665,  0.0912,  0.3212],
+        [ 1.4653,  0.1843, -1.6995, -0.3036],
+        [ 1.7646,  1.0450,  0.2457, -0.7732]])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="9-给定值初始化"><a href="#9-给定值初始化" class="headerlink" title="9.给定值初始化"></a>9.给定值初始化</h3><p>我们还可以通过提供包含数值的Python列表（或嵌套列表），来为所需张量中的每个元素赋予确定值。 在这里，最外层的列表对应于轴0，内层的列表对应于轴1。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([[2, 1, 4, 3],
+        [1, 2, 3, 4],
+        [4, 3, 2, 1]])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="2-运算符"><a href="#2-运算符" class="headerlink" title="2.运算符"></a>2.运算符</h2><h3 id="1-按元素计算"><a href="#1-按元素计算" class="headerlink" title="1.按元素计算"></a>1.按元素计算</h3><blockquote>
+<p>这里特指：<strong>在形状相同的张量上</strong>按元素操作</p>
+</blockquote>
+<p>对于任意具有相同形状的张量， 常见的标准算术运算符（<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>和<code>**</code>）都可以被升级为按元素运算。 我们可以在同一形状的任意两个张量上调用按元素操作。 在下面的例子中，我们使用逗号来表示一个具有5个元素的元组，其中每个元素都是按元素操作的结果。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+x<span class="token operator">+</span>y<span class="token punctuation">,</span> x<span class="token operator">-</span>y<span class="token punctuation">,</span> x<span class="token operator">*</span>y<span class="token punctuation">,</span> x<span class="token operator">/</span>y<span class="token punctuation">,</span> x<span class="token operator">**</span>y <span class="token comment"># **运算符是求幂运算</span>
+torch<span class="token punctuation">.</span>exp<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([ 3.,  4.,  6., 10.]),
+tensor([-1.,  0.,  2.,  6.]),
+tensor([ 2.,  4.,  8., 16.]),
+tensor([0.5000, 1.0000, 2.0000, 4.0000]),
+tensor([ 1.,  4., 16., 64.])
+tensor([2.7183e+00, 7.3891e+00, 5.4598e+01, 2.9810e+03])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-线性代数运算"><a href="#2-线性代数运算" class="headerlink" title="2.线性代数运算"></a>2.线性代数运算</h3><p>详见第3节</p>
+<h3 id="3-连结-concatenate"><a href="#3-连结-concatenate" class="headerlink" title="3.连结(concatenate)"></a>3.连结(concatenate)</h3><p>我们也可以把多个张量<em>连结</em>（concatenate）在一起， 把它们端对端地叠起来形成一个更大的张量。 我们只需要提供张量列表，并给出沿哪个轴连结。</p>
+<ul>
+<li><strong>行</strong>，即<strong>轴0</strong>，<strong>形状(shape)的第一个元素</strong></li>
+<li><strong>列</strong>，即<strong>轴1</strong>，<strong>形状(shape)的第二个元素</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>torch<span class="token punctuation">.</span>float32<span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">2.0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># 按行连结</span>
+torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">,</span> dim<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token comment"># 按列连结</span>
+torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">,</span> dim<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([[ 0.,  1.,  2.,  3.],
+         [ 4.,  5.,  6.,  7.],
+         [ 8.,  9., 10., 11.],
+         [ 2.,  1.,  4.,  3.],
+         [ 1.,  2.,  3.,  4.],
+         [ 4.,  3.,  2.,  1.]])
+
+tensor([[ 0.,  1.,  2.,  3.,  2.,  1.,  4.,  3.],
+         [ 4.,  5.,  6.,  7.,  1.,  2.,  3.,  4.],
+         [ 8.,  9., 10., 11.,  4.,  3.,  2.,  1.]])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-逻辑运算符"><a href="#4-逻辑运算符" class="headerlink" title="4.逻辑运算符"></a>4.逻辑运算符</h3><p>有时，我们想通过<em>逻辑运算符</em>构建二元张量。 以<code>X == Y</code>为例： 对于每个位置，如果<code>X</code>和<code>Y</code>在该位置相等，则新张量中相应项的值为1。 这意味着逻辑语句<code>X == Y</code>在该位置处为真，否则该位置为0。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">z <span class="token operator">=</span> <span class="token punctuation">(</span>x <span class="token operator">==</span> y<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([[False,  True, False,  True],
+        [False, False, False, False],
+        [False, False, False, False]])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-求和"><a href="#5-求和" class="headerlink" title="5.求和"></a>5.求和</h3><p>对张量中的所有元素进行求和，会产生一个<strong>单元素张量</strong>。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor(66.)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<h2 id="3-广播机制"><a href="#3-广播机制" class="headerlink" title="3.广播机制"></a>3.广播机制</h2><blockquote>
+<p>即<strong>在不同形状的张量下</strong>执行<strong>按元素操作</strong></p>
+</blockquote>
+<p><strong>广播机制</strong> 的工作方式如下：</p>
+<ul>
+<li>通过适当复制元素来扩展一个或两个数组，以便在转换之后，两个张量具有相同的形状；</li>
+<li>对生成的数组执行按元素操作。</li>
+</ul>
+<p><strong>大多数情况下，我们将沿着数组中长度为1的轴进行广播(即列轴)</strong></p>
+<p>示例如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+b <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([[0],
+        [1],
+        [2]])
+tensor([[0, 1]]))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>由于<code>a</code>和<code>b</code>分别是3×1和1×2矩阵，如果让它们相加，它们的形状不匹配。</p>
+<p>我们将两个矩阵<em>广播</em>为一个更大的3×2矩阵，如下所示：<strong>矩阵<code>a</code>将复制列， 矩阵<code>b</code>将复制行，然后再按元素相加。</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([[0, 1],
+        [1, 2],
+        [2, 3]])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="4-索引与切片"><a href="#4-索引与切片" class="headerlink" title="4.索引与切片"></a>4.索引与切片</h2><p>就像在任何其他Python数组中一样，张量中的元素可以通过索引访问。 与任何Python数组一样：<strong>第一个元素的索引是0，最后一个元素索引是-1</strong>； <strong>可以指定范围以包含第一个元素和最后一个之前的元素。</strong></p>
+<h3 id="1-读取"><a href="#1-读取" class="headerlink" title="1.读取"></a>1.读取</h3><p>如下所示，我们可以用<code>[-1]</code>选择最后一个元素，可以用<code>[1:3]</code>选择第二个和第三个元素(<strong>左闭右开</strong>)</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor(11)
+tensor([1, 2])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="2-写入"><a href="#2-写入" class="headerlink" title="2.写入"></a>2.写入</h3><p>除读取外，我们还可以通过指定索引来将元素写入矩阵。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">9</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([ 0,  9,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果我们想为多个元素赋值相同的值，我们只需要索引所有元素，然后为它们赋值。 例如，<code>[0:2, :]</code>访问第1行和第2行，其中“:”代表沿轴1（列）的所有元素。 虽然我们讨论的是矩阵的索引，但这也适用于向量和超过2个维度的张量。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> x<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">12</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([[12., 12., 12., 12.],
+        [12., 12., 12., 12.],
+        [ 8.,  9., 10., 11.]])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="5-节省内存"><a href="#5-节省内存" class="headerlink" title="5.节省内存"></a>5.节省内存</h2><p>运行一些操作可能会导致为新结果分配内存。 例如，如果我们用<code>Y = X + Y</code>，我们将<strong>取消引用<code>Y</code>指向的张量，而是指向新分配的内存处的张量</strong>。</p>
+<p>这可能是不可取的，原因有两个：</p>
+<ol>
+<li>首先，我们不想总是不必要地分配内存。在机器学习中，我们可能有数百兆的参数，并且在一秒内多次更新所有参数。通常情况下，我们希望原地执行这些更新；</li>
+<li>如果我们不原地更新，其他引用仍然会指向旧的内存位置，这样我们的某些代码可能会无意中引用旧的参数。</li>
+</ol>
+<p>幸运的是，执行原地操作非常简单。 我们可以使用<strong>切片表示法</strong>将操作的结果分配给先前分配的数组，例如<code>Y[:] = &lt;expression&gt;</code>。 为了说明这一点，我们首先创建一个新的矩阵<code>Z</code>，其形状与另一个<code>Y</code>相同， 使用<code>zeros_like</code>来分配一个全0的块。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">Z <span class="token operator">=</span> torch<span class="token punctuation">.</span>zeros_like<span class="token punctuation">(</span>Y<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'id(Z):'</span><span class="token punctuation">,</span> <span class="token builtin">id</span><span class="token punctuation">(</span>Z<span class="token punctuation">)</span><span class="token punctuation">)</span>
+Z<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">=</span> X <span class="token operator">+</span> Y
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'id(Z):'</span><span class="token punctuation">,</span> <span class="token builtin">id</span><span class="token punctuation">(</span>Z<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">id(Z): 140327634811696
+id(Z): 140327634811696<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>如果在后续计算中没有重复使用<code>X</code>， 我们也可以使用<code>X[:] = X + Y</code>或<code>X += Y</code>来减少操作的内存开销。</p>
+<hr>
+<h2 id="6-转换为其他python对象"><a href="#6-转换为其他python对象" class="headerlink" title="6.转换为其他python对象"></a>6.转换为其他python对象</h2><h3 id="1-tensor–numpy"><a href="#1-tensor–numpy" class="headerlink" title="1.tensor–numpy"></a>1.tensor–numpy</h3><p>将深度学习框架定义的张量转换为NumPy张量（<code>ndarray</code>）很容易，反之也同样容易。 torch张量和numpy数组将共享它们的底层内存，就地操作更改一个张量也会同时更改另一个张量</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">A <span class="token operator">=</span> X<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+B <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+<span class="token builtin">type</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>B<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">(numpy.ndarray, torch.Tensor)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="2-tensor–python标量"><a href="#2-tensor–python标量" class="headerlink" title="2.tensor–python标量"></a>2.tensor–python标量</h3><p>要将大小为1的张量转换为Python标量，我们可以调用<code>item</code>函数或Python的内置函数。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3.5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+a<span class="token punctuation">,</span> a<span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">float</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([3.5000]), 3.5, 3.5, 3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="7-小结"><a href="#7-小结" class="headerlink" title="7.小结"></a>7.小结</h2><ul>
+<li>深度学习存储和操作数据的主要接口是张量（n维数组）。它提供了各种功能，包括基本数学运算、广播、索引、切片、内存节省和转换其他Python对象。</li>
+</ul>
+<hr>
+<h1 id="2-数据预处理"><a href="#2-数据预处理" class="headerlink" title="2.数据预处理"></a>2.数据预处理</h1><p>为了能用深度学习来解决现实世界的问题，我们经常从预处理原始数据开始， 而不是从那些准备好的张量格式数据开始。 在Python中常用的数据分析工具中，我们通常使用**<code>pandas</code>软件包**。 像庞大的Python生态系统中的许多其他扩展包一样，<code>pandas</code>可以与张量兼容。 本节我们将简要介绍使用<code>pandas</code>预处理原始数据，并将原始数据转换为张量格式的步骤。 后面的章节将介绍更多的数据预处理技术。</p>
+<h2 id="1-读取数据集"><a href="#1-读取数据集" class="headerlink" title="1.读取数据集"></a>1.读取数据集</h2><p>举一个例子，我们首先创建一个人工数据集，并存储在CSV（逗号分隔值）文件 <code>../data/house_tiny.csv</code>中。 以其他格式存储的数据也可以通过类似的方式进行处理。 下面我们将数据集按行写入CSV文件中。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
+
+os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'data'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+data_file <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">'..'</span><span class="token punctuation">,</span> <span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token string">'house_tiny.csv'</span><span class="token punctuation">)</span>
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>data_file<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'NumRooms,Alley,Price\n'</span><span class="token punctuation">)</span>  <span class="token comment"># 列名</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'NA,Pave,127500\n'</span><span class="token punctuation">)</span>  <span class="token comment"># 每行表示一个数据样本</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'2,NA,106000\n'</span><span class="token punctuation">)</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'4,NA,178100\n'</span><span class="token punctuation">)</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'NA,NA,140000\n'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>要从创建的CSV文件中加载原始数据集，我们导入<code>pandas</code>包并调用**<code>read_csv</code>函数**。该数据集有四行三列。其中每行描述了房间数量（“NumRooms”）、巷子类型（“Alley”）和房屋价格（“Price”）。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+
+data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span>data_file<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">   NumRooms Alley   Price
+0       NaN  Pave  127500
+1       2.0   NaN  106000
+2       4.0   NaN  178100
+3       NaN   NaN  140000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2-处理缺失值"><a href="#2-处理缺失值" class="headerlink" title="2.处理缺失值"></a>2.处理缺失值</h2><p>注意，“NaN”项代表缺失值。 为了处理缺失的数据，典型的方法包括<em>插值法</em>和<em>删除法</em>， 其中插值法用一个替代值弥补缺失值，而删除法则直接忽略缺失值。 在这里，我们将考虑<strong>插值法</strong>。</p>
+<p>通过<strong>位置索引<code>iloc</code></strong>，我们将<code>data</code>分成<code>inputs</code>和<code>outputs</code>， 其中前者为<code>data</code>的前两列，而后者为<code>data</code>的最后一列。 对于<code>inputs</code>中缺少的数值，我们用同一列的均值替换“NaN”项。</p>
+<ul>
+<li><code>fillna</code>方法：填充NaN项</li>
+<li><code>inputs.mean()</code>：NaN值所在列的平均值</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">inputs<span class="token punctuation">,</span> outputs <span class="token operator">=</span> data<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span>
+inputs <span class="token operator">=</span> inputs<span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>inputs<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>inputs<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">   NumRooms Alley
+0       3.0  Pave
+1       2.0   NaN
+2       4.0   NaN
+3       3.0   NaN<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对于<code>inputs</code>中的类别值或离散值，我们将“NaN”<strong>视为一个类别</strong>。 由于“巷子类型”（“Alley”）列只接受两种类型的类别值“Pave”和“NaN”， <code>pandas</code>可以自动将此列转换为两列“Alley_Pave”和“Alley_nan”。 巷子类型为“Pave”的行会将“Alley_Pave”的值设置为1，“Alley_nan”的值设置为0。 缺少巷子类型的行会将“Alley_Pave”和“Alley_nan”分别设置为0和1。</p>
+<ul>
+<li><code>pd.get_dummies()</code>：将 <strong>类别特征</strong>（<code>object</code> 或 <code>category</code> 类型的列）转换为 <strong>独热编码（One-Hot Encoding）</strong><ul>
+<li>每个唯一的类别都会变成一个新的二进制列（0 或 1）</li>
+</ul>
+</li>
+<li><code>(dummy_na=True)</code>：让 <strong>缺失值（NaN）</strong> 也作为一个单独的类别，并生成一个额外的列</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">inputs <span class="token operator">=</span> pd<span class="token punctuation">.</span>get_dummies<span class="token punctuation">(</span>inputs<span class="token punctuation">,</span> dummy_na<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>inputs<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">   NumRooms  Alley_Pave  Alley_nan
+0       3.0           1          0
+1       2.0           0          1
+2       4.0           0          1
+3       3.0           0          1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-转换为张量格式"><a href="#3-转换为张量格式" class="headerlink" title="3.转换为张量格式"></a>3.转换为张量格式</h2><p>现在<code>inputs</code>和<code>outputs</code>中的所有条目都是<strong>数值类型</strong>，它们<strong>可以转换为张量格式</strong>。 当数据采用张量格式后，可以通过在 第一节中引入的那些张量函数来进一步操作。</p>
+<ul>
+<li>潜台词是，<strong>只有数值类型(int,float,bool)才能转换为张量格式</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">X <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span>inputs<span class="token punctuation">.</span>to_numpy<span class="token punctuation">(</span>dtype<span class="token operator">=</span><span class="token builtin">float</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span>outputs<span class="token punctuation">.</span>to_numpy<span class="token punctuation">(</span>dtype<span class="token operator">=</span><span class="token builtin">float</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+X<span class="token punctuation">,</span> y<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">(tensor([[3., 1., 0.],
+         [2., 0., 1.],
+         [4., 0., 1.],
+         [3., 0., 1.]], dtype=torch.float64),
+ tensor([127500., 106000., 178100., 140000.], dtype=torch.float64))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4.小结"></a>4.小结</h2><ul>
+<li><code>pandas</code>软件包是Python中常用的数据分析工具中，<code>pandas</code>可以与张量兼容。</li>
+<li>用<code>pandas</code>处理缺失的数据时，我们可根据情况选择用插值法和删除法。</li>
+</ul>
+<hr>
+<h1 id="3-线性代数"><a href="#3-线性代数" class="headerlink" title="3.线性代数"></a>3.线性代数</h1><h2 id="1-标量"><a href="#1-标量" class="headerlink" title="1.标量"></a>1.标量</h2><p>标量由<strong>只有一个元素的张量表示</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> torch
+
+x <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token number">3.0</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token number">2.0</span><span class="token punctuation">)</span>
+
+x <span class="token operator">+</span> y<span class="token punctuation">,</span> x <span class="token operator">*</span> y<span class="token punctuation">,</span> x <span class="token operator">/</span> y<span class="token punctuation">,</span> x <span class="token operator">**</span> y<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">(tensor(5.), tensor(6.), tensor(1.5000), tensor(9.))<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<h2 id="2-向量"><a href="#2-向量" class="headerlink" title="2.向量"></a>2.向量</h2><p>向量可以被视为标量值组成的列表。 这些标量值被称为向量的<em>元素</em>（element）或<em>分量</em>（component）</p>
+<p>人们通过<strong>一维张量表示向量</strong>。一般来说，张量可以具有任意长度，取决于机器的内存限制。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">tensor([0, 1, 2, 3])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>我们可以使用下标来引用向量的任一元素，例如可以通过<code>xi</code>来引用第i个元素。 注意，元素<code>xi</code>是一个标量，所以我们在引用它时不会加粗。 </p>
+<p><strong>大量文献认为列向量是向量的默认方向</strong></p>
+<p>在代码中，我们通过张量的索引来访问任一元素</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+tensor<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="1-长度"><a href="#1-长度" class="headerlink" title="1.长度"></a>1.长度</h3><p>向量只是一个数字数组，就像每个数组都有一个长度一样，每个向量也是如此。 在数学表示法中，如果我们想说一个向量x由n个实值标量组成， 可以将其表示为$x∈R^n$。 <strong>向量的长度通常称为向量的<em>维度</em>（dimension）</strong></p>
+<p>与普通的Python数组一样，我们可以通过调用Python的内置<code>len()</code>函数来访问张量的长度</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 结果：4</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-形状"><a href="#2-形状" class="headerlink" title="2.形状"></a>2.形状</h3><p>当用张量表示一个向量（只有一个轴）时，我们也可以通过<code>.shape</code>属性访问向量的长度。 形状（shape）是一个<strong>元素组</strong>，<strong>列出了张量沿每个轴的长度（维数）</strong>。 对于只有一个轴的张量，形状只有一个元素。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+<span class="token comment"># 结果：torch.Size([4])</span>
+
+y <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>y<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+<span class="token comment"># 结果：torch.Size([3, 4])</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-维度"><a href="#3-维度" class="headerlink" title="3.维度"></a>3.维度</h3><p>请注意，<em>维度</em>（dimension）这个词在不同上下文时往往会有不同的含义，这经常会使人感到困惑。 为了清楚起见，我们在此明确一下： </p>
+<ul>
+<li><em>*<em>向量</em>或*轴</em>的维度被用来表示<em>向量</em>或<em>轴</em>的长度，即向量或轴的元素数量**</li>
+<li><strong>张量的维度用来表示张量具有的轴数</strong>。 在这个意义上，张量的某个轴的维数就是这个轴的长度。</li>
+</ul>
+<hr>
+<h2 id="3-矩阵"><a href="#3-矩阵" class="headerlink" title="3.矩阵"></a>3.矩阵</h2><p>正如向量将标量从零阶推广到一阶，矩阵将向量从一阶推广到二阶。 矩阵，我们通常用粗体、大写字母来表示 （例如，$X,Y,Z$）， 在代码中表示为具有两个轴的张量。</p>
+<p>对于任意$A∈R^{m×n}$， A的形状是（m,n）或m×n。 当矩阵具有相同数量的行和列时，其形状将变为正方形； 因此，它被称为<em>方阵</em>（square matrix）。</p>
+<p>当调用函数来实例化张量时， 我们可以通过指定两个分量m和n来创建一个形状为$m×n$的矩阵。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">A <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+结果:
+tensor([[ 0,  1,  2,  3],
+        [ 4,  5,  6,  7],
+        [ 8,  9, 10, 11],
+        [12, 13, 14, 15],
+        [16, 17, 18, 19]])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们可以通过行索引<code>（i）</code>和列索引<code>（j）</code>来访问矩阵中的标量元素$a_{ij}$， 例如$[A]<em>{ij}$。 如果没有给出矩阵A的标量元素，我们可以简单地使用矩阵A的小写字母索引下标$a</em>{ij}$ 来引用$[A]<em>{ij}$。 为了表示起来简单，只有在必要时才会将逗号插入到单独的索引中， 例如$a</em>{2,3j}$和$[A]_{2i−1,3}$。</p>
+<p><strong>转置</strong></p>
+<p>当我们交换矩阵的行和列时，结果称为矩阵的<em>转置</em>（transpose）。 通常用$a^{\top}$来表示矩阵的转置，如果$B&#x3D;A^{\top}$， 则对于任意i和j，都有$b_{ij}&#x3D;a_{ji}$。</p>
+<p>现在在代码中访问矩阵的转置</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">B <span class="token operator">=</span> A<span class="token punctuation">.</span>T
+<span class="token keyword">print</span><span class="token punctuation">(</span>B<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+结果:
+tensor([[ 0,  4,  8, 12, 16],
+        [ 1,  5,  9, 13, 17],
+        [ 2,  6, 10, 14, 18],
+        [ 3,  7, 11, 15, 19]])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>作为<strong>方阵的一种特殊类型</strong>，<em>对称矩阵</em>（symmetric matrix）<strong>A等于其转置</strong>：$A&#x3D;A^{\top}$。</p>
+<hr>
+<h2 id="4-张量"><a href="#4-张量" class="headerlink" title="4.张量"></a>4.张量</h2><p>就像向量是标量的推广，矩阵是向量的推广一样，我们可以构建具有更多轴的数据结构。 张量（本小节中的“张量”指代数对象）是描述具有任意数量轴的n维数组的通用方法。</p>
+<p>当我们开始处理图像时，张量将变得更加重要，图像以n维数组形式出现， 其中3个轴对应于<strong>高度、宽度，以及一个<em>通道</em>（channel）轴</strong>， 用于表示颜色通道（红色、绿色和蓝色）。 现在先将高阶张量暂放一边，而是专注学习其基础知识。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">X <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+结果:
+tensor([[[ 0,  1,  2,  3],
+         [ 4,  5,  6,  7],
+         [ 8,  9, 10, 11]],
+
+        [[12, 13, 14, 15],
+         [16, 17, 18, 19],
+         [20, 21, 22, 23]]])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="5-张量算法的基本性质"><a href="#5-张量算法的基本性质" class="headerlink" title="5.张量算法的基本性质"></a>5.张量算法的基本性质</h2><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250305165327149.png" alt="image-20250305165327149"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250305165352114.png" alt="image-20250305165352114"></p>
+<hr>
+<h2 id="6-降维"><a href="#6-降维" class="headerlink" title="6.降维"></a>6.降维</h2><h3 id="1-求和"><a href="#1-求和" class="headerlink" title="1.求和"></a>1.求和</h3><p>求和函数<code>sum()</code>实际上可以视为<strong>将张量沿所有的轴降低维度，使之成为一个标量</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>torch<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+结果:
+tensor(6.)
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-指定轴降维"><a href="#2-指定轴降维" class="headerlink" title="2.指定轴降维"></a>2.指定轴降维</h3><p>我们还可以指定张量沿哪一个轴来通过求和降低维度。 </p>
+<p>以矩阵为例，为了通过求和所有行的元素来降维（轴0），可以在调用函数时指定<code>axis=0</code>。</p>
+<p> 由于输入矩阵沿0轴降维以生成输出向量，因此输入轴0的维数在输出形状中消失。</p>
+<ul>
+<li>什么是<strong>沿0轴降维</strong>——即<strong>行数&#x3D;1，同列元素相加</strong><ul>
+<li>此时，输入轴0的维数在输出形状中消失</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">y <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+z <span class="token operator">=</span> y<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>z<span class="token punctuation">,</span> z<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+结果:
+tensor([60, 66, 72, 78]) torch.Size([4])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>指定<code>axis=1</code>将通过汇总所有列的元素降维（轴1）<ul>
+<li>输入轴1的维数在输出形状中消失</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">z <span class="token operator">=</span> y<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>z<span class="token punctuation">,</span> z<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+结果:
+tensor([ 6, 22, 38, 54, 70, 86]) torch.Size([6])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>沿着行和列对矩阵求和，等价于对矩阵的所有元素进行求和</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">z <span class="token operator">=</span> y<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>z<span class="token punctuation">,</span> z<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+<span class="token comment"># 结果与y.sum()相同</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-平均值"><a href="#3-平均值" class="headerlink" title="3.平均值"></a>3.平均值</h3><p>一个与求和相关的量是<em>平均值</em>（mean或average）。 我们通过将总和除以元素总数来计算平均值。 在代码中，我们可以调用函数来计算任意形状张量的平均值。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">A<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> A<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> A<span class="token punctuation">.</span>numel<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>同样，<strong>计算平均值的函数也可以沿指定轴降低张量的维度</strong>。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">A<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> A<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">/</span> A<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>但是尝试后，<code>mean()</code>函数似乎已经不支持<code>axis</code>参数了？</p>
+</blockquote>
+<h3 id="4-非降维求和"><a href="#4-非降维求和" class="headerlink" title="4.非降维求和"></a>4.非降维求和</h3><p>有时在调用函数来计算总和或均值时保持轴数不变会很有用</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">A <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+sum_A <span class="token operator">=</span> A<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> keepdims<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+sum_A
+<span class="token triple-quoted-string string">'''
+res:
+tensor([[ 6.],
+        [22.],
+        [38.],
+        [54.],
+        [70.]])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>由于<code>sum_A</code>在对每行进行求和后仍保持两个轴，我们可以通过<strong>广播</strong>将<code>A</code>除以<code>sum_A</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">A <span class="token operator">/</span> sum_A <span class="token comment"># sum_A扩列，复制第一列的元素</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor([[0.0000, 0.1667, 0.3333, 0.5000],
+        [0.1818, 0.2273, 0.2727, 0.3182],
+        [0.2105, 0.2368, 0.2632, 0.2895],
+        [0.2222, 0.2407, 0.2593, 0.2778],
+        [0.2286, 0.2429, 0.2571, 0.2714]])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果我们想沿某个轴计算<code>A</code>元素的累积总和， 比如<code>axis=0</code>（按行计算），可以调用<code>cumsum</code>函数。 此函数不会沿任何轴降低输入张量的维度</p>
+<ul>
+<li><code>cumsum(axis=0)</code>，$a_{mn} &#x3D; a_{0n} + a_{1n} + a_{2n} + … + a_{mn}$</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">A<span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor([[ 0.,  1.,  2.,  3.],
+        [ 4.,  6.,  8., 10.],
+        [12., 15., 18., 21.],
+        [24., 28., 32., 36.],
+        [40., 45., 50., 55.]])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="7-点积"><a href="#7-点积" class="headerlink" title="7.点积"></a>7.点积</h2><p>点积的函数是<code>torch.dot()</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>torch<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
+y <span class="token operator">=</span> torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>torch<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
+torch<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>点积在很多场合都很有用。 例如，给定一组由向量$x∈R_d$表示的值， 和一组由$w∈R_d$表示的权重。 x中的值根据权重w的加权和， 可以表示为点积$x^{\top}w$。 当权重为非负数且和为1（即($∑_{i&#x3D;1}^{d} wi&#x3D;1$)）时， 点积表示<em>加权平均</em>（weighted average）。 将两个向量规范化得到单位长度后，点积表示它们夹角的余弦。</p>
+<hr>
+<h2 id="8-矩阵向量积"><a href="#8-矩阵向量积" class="headerlink" title="8.矩阵向量积"></a>8.矩阵向量积</h2><p>在代码中使用张量表示矩阵-向量积，我们使用<code>mv</code>函数。 当我们为矩阵<code>A</code>和向量<code>x</code>调用<code>torch.mv(A, x)</code>时，会执行矩阵-向量积。 注意，<strong><code>A</code>的列维数（沿轴1的长度）必须与<code>x</code>的维数（其长度）相同。</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">torch<span class="token punctuation">.</span>mv<span class="token punctuation">(</span>A<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<h2 id="9-矩阵乘法"><a href="#9-矩阵乘法" class="headerlink" title="9.矩阵乘法"></a>9.矩阵乘法</h2><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250305172242701.png" alt="image-20250305172242701"></p>
+<p>矩阵乘法的函数是<code>torch.mm()</code></p>
+<p>矩阵乘法可以简单地称为<strong>矩阵乘法</strong>，不应与“Hadamard积”混淆。</p>
+<hr>
+<h2 id="10-范数-norm"><a href="#10-范数-norm" class="headerlink" title="10.范数(norm)"></a>10.范数(norm)</h2><p>线性代数中最有用的一些运算符是<em>范数</em>（norm）。 非正式地说，向量的<em>范数</em>是表示一个向量有多大。 这里考虑的<em>大小</em>（size）概念不涉及维度，而是<strong>分量的大小</strong></p>
+<p>在线性代数中，向量范数是将向量映射到标量的函数$f$。 给定任意向量$x$，向量范数要满足一些属性。 </p>
+<p>第一个性质是：如果我们按常数因子α缩放向量的所有元素， 其范数也会按相同常数因子的<em>绝对值</em>缩放：</p>
+<p>$$f(\alpha x) &#x3D; | \alpha | f(x)$$</p>
+<p>第二个性质是熟悉的三角不等式:</p>
+<p>$$f(x+y) \leq f(x) + f(y)$$</p>
+<p>第三个性质简单地说范数必须是非负的:</p>
+<p>$$f(x) \geq 0$$</p>
+<p>最后一个性质要求范数最小为0，当且仅当向量全由0组成：</p>
+<p>$$\forall i, [x]_{i}&#x3D;0 \Leftrightarrow f(x) &#x3D; 0$$</p>
+<p><strong>范数听起来很像距离的度量</strong></p>
+<h3 id="1-L2范数"><a href="#1-L2范数" class="headerlink" title="1.L2范数"></a>1.L2范数</h3><p>假设n维向量$x$中的元素是$x_1,…,x_n$，其L2<em>范数</em>是向量元素平方和的平方根：<br>$$<br>\lVert \mathbf{x} \rVert_2 &#x3D; \sqrt{\sum_{i&#x3D;1}^{n} x_i^2}<br>$$<br>其中，在L2范数中常常省略下标2，也就是说$|\mathbf{x}|$等同于$|\mathbf{x}|_2$。</p>
+<p>代码中，我们可以按如下方式计算向量的L2范数：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">u <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3.0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">4.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+torch<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>u<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor(5.)
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-L1范数"><a href="#2-L1范数" class="headerlink" title="2.L1范数"></a>2.L1范数</h3><p>假设n维向量$x$中的元素是$x_1,…,x_n$，其L1<em>范数</em>是向量元素的绝对值之和</p>
+<p>$$<br>\lVert \mathbf{x} \rVert_1 &#x3D; \sum_{i&#x3D;1}^{n} |x_i|<br>$$<br>与L2范数相比，L1范数受异常值的影响较小。</p>
+<p> 为了计算L1范数，我们将绝对值函数和按元素求和组合起来：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">u <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3.0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">4.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+np<span class="token punctuation">.</span><span class="token builtin">abs</span><span class="token punctuation">(</span>u<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+array(7.)
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-其他范数"><a href="#3-其他范数" class="headerlink" title="3.其他范数"></a>3.其他范数</h3><p>实际上，$L_2$范数和$L_1$范数都是更一般的$L_p$范数的<strong>特例</strong>：</p>
+<p>$$<br>\lVert \mathbf{x} \rVert_p &#x3D; \left( \sum_{i&#x3D;1}^{n} |x_i|^p \right)^{\frac{1}{p}}<br>$$<br>类似于向量的$L_2$范数，矩阵$X∈R^{m×n}$的<em>Frobenius范数</em>（Frobenius norm）是矩阵元素平方和的平方根：</p>
+<p>$$<br>\lVert A \rVert_F &#x3D; \sqrt{\sum_{i&#x3D;1}^{m} \sum_{j&#x3D;1}^{n} |a_{ij}|^2}<br>$$<br>Frobenius范数满足向量范数的所有性质，它就像是矩阵形向量的L2范数。 调用以下函数将计算矩阵的Frobenius范数。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>np<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+array(6.)
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-范数和目标"><a href="#4-范数和目标" class="headerlink" title="4.范数和目标"></a>4.范数和目标</h3><p>在深度学习中，我们经常试图解决优化问题： <em>最大化</em>分配给观测数据的概率; <em>最小化</em>预测和真实观测之间的距离。 用向量表示物品（如单词、产品或新闻文章），以便最小化相似项目之间的距离，最大化不同项目之间的距离。 <strong>目标，或许是深度学习算法最重要的组成部分（除了数据），通常被表达为范数。</strong></p>
+<h2 id="11-小结"><a href="#11-小结" class="headerlink" title="11.小结"></a>11.小结</h2><ul>
+<li>标量、向量、矩阵和张量是线性代数中的基本数学对象。</li>
+<li>向量泛化自标量，矩阵泛化自向量。</li>
+<li>标量、向量、矩阵和张量分别具有零、一、二和任意数量的轴。</li>
+<li>一个张量可以通过<code>sum</code>和<code>mean</code>沿指定的轴降低维度。</li>
+<li>两个矩阵的按元素乘法被称为他们的Hadamard积。它与矩阵乘法不同。</li>
+<li>在深度学习中，我们经常使用范数，如L1范数、L2范数和Frobenius范数。</li>
+<li>我们可以对标量、向量、矩阵和张量执行各种操作。</li>
+</ul>
+<hr>
+<h1 id="4-微积分"><a href="#4-微积分" class="headerlink" title="4.微积分"></a>4.微积分</h1><p>在微分学，最重要的应用是优化问题，即考虑如何把事情做到最好。 这种问题在深度学习中是无处不在的。</p>
+<p>在深度学习中，我们“训练”模型，不断更新它们，使它们在看到越来越多的数据时变得越来越好。 通常情况下，变得更好意味着最小化一个<em>损失函数</em>（loss function）， 即一个衡量“模型有多糟糕”这个问题的分数。 最终，我们真正关心的是生成一个模型，它能够在从未见过的数据上表现良好。 但“训练”模型只能将模型与我们实际能看到的数据相拟合。 因此，我们可以将拟合模型的任务分解为两个关键问题：</p>
+<ul>
+<li><em>优化</em>（optimization）：用模型拟合观测数据的过程；</li>
+<li><em>泛化</em>（generalization）：数学原理和实践者的智慧，能够指导我们生成出有效性超出用于训练的数据集本身的模型。</li>
+</ul>
+<p><strong>本章节不做求导、偏导的重新描述，仅介绍梯度(grad)和链式法则。微积分具体内容请复习高数</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250307111726396.png" alt="image-20250307111726396"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20250307111735391.png" alt="image-20250307111735391"></p>
+<p><strong>小结：</strong></p>
+<ul>
+<li>微分和积分是微积分的两个分支，前者可以应用于深度学习中的优化问题。</li>
+<li>导数可以被解释为函数相对于其变量的瞬时变化率，它也是函数曲线的切线的斜率。</li>
+<li>梯度是一个向量，其分量是多变量函数相对于其所有变量的偏导数。</li>
+<li>链式法则可以用来微分复合函数。</li>
+</ul>
+<hr>
+<h1 id="5-自动微分"><a href="#5-自动微分" class="headerlink" title="5.自动微分"></a>5.自动微分</h1><p>求导是几乎所有深度学习优化算法的关键步骤。 虽然求导的计算很简单，只需要一些基本的微积分。 但对于复杂的模型，手工进行更新是一件很痛苦的事情（而且经常容易出错）。</p>
+<p>深度学习框架通过自动计算导数，即<em>自动微分</em>（automatic differentiation）来加快求导。 实际中，根据设计好的模型，系统会构建一个<em>计算图</em>（computational graph）， 来跟踪计算是哪些数据通过哪些操作组合起来产生输出。 <strong>自动微分使系统能够随后反向传播梯度</strong>。 这里，<em>反向传播</em>（backpropagate）意味着跟踪整个计算图，填充关于每个参数的偏导数。</p>
+<hr>
+<h2 id="1-示例"><a href="#1-示例" class="headerlink" title="1.示例"></a>1.示例</h2><p>假设我们对函数$y &#x3D; 2 x^T x$关于列向量$x$求导。</p>
+<p>首先，我们创建变量$x$并为之分配一个初始值</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> torch
+x <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">4.0</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor([0., 1., 2., 3.])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在我们计算$y$关于$x$的梯度前，<strong>需要一个地方来存储梯度</strong></p>
+<ul>
+<li>我们<strong>不会</strong>在每次对一个参数求导时都分配新的内存<ul>
+<li>因为我们经常会成千上万次地更新相同的参数，每次分配新的内存会很快将内存耗尽</li>
+</ul>
+</li>
+<li><strong>注意：一个标量函数关于向量$x$的梯度是向量，并且与$x$具有相同的形状</strong><ul>
+<li>比如示例函数，$y$显然是一个标量，而$x$是向量</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x<span class="token punctuation">.</span>requires_grad_<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span> <span class="token comment"># grad后面的下划线不能省</span>
+<span class="token comment"># 等价于 x = torch.arange(4.0, requires_grad=True)</span>
+x<span class="token punctuation">.</span>grad
+<span class="token comment"># 默认值是None</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>现在计算$y$</p>
+<p><code>x</code>是一个长度为4的向量，计算<code>x</code>和<code>x</code>的点积，得到了我们赋值给<code>y</code>的标量输出——也就是<code>28</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">y <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> torch<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> x<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor(28., grad_fn=&lt;MulBackward0>)
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接下来，通过<strong>调用反向传播函数来自动计算<code>y</code>关于<code>x</code>每个分量的梯度</strong>，并打印这些梯度</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">y<span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>grad<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor([0., 4., 8., 12.])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>那么我们大概可以判断，函数$y &#x3D; 2 x^T x$关于$x$的梯度应为$4x$。</p>
+<p><strong>验证</strong>上述判断的正确性</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>grad <span class="token operator">==</span> <span class="token number">4</span><span class="token operator">*</span>x<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor([True, True, True, True])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>假如现在要继续计算关于x的另一个函数呢？</strong></p>
+<ul>
+<li>在默认情况下，<strong>Pytorch会累积梯度</strong>，因此需要<strong>清除之前的值</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x<span class="token punctuation">.</span>grad<span class="token punctuation">.</span>zero_<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 清除x梯度的旧值,grad的zero_()函数</span>
+z <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+z<span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>grad<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor([1., 1., 1., 1.])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="2-非标量变量的反向传播"><a href="#2-非标量变量的反向传播" class="headerlink" title="2.非标量变量的反向传播"></a>2.非标量变量的反向传播</h2><p>当<code>y</code>不是标量时，向量<code>y</code>关于向量<code>x</code>的导数的最自然解释是一个矩阵。 对于高阶和高维的<code>y</code>和<code>x</code>，求导的结果可以是一个高阶张量。</p>
+<p>然而，虽然这些更奇特的对象确实出现在高级机器学习中（包括深度学习中）， 但当调用向量的反向计算时，我们通常会试图<strong>计算一批训练样本中每个组成部分的损失函数的导数</strong>。 这里，我们的目的不是计算微分矩阵，而是<strong>单独计算批量中每个样本的偏导数之和</strong>。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 对非标量调用backward,需要传入一个gradient(梯度)参数，该参数指定微分函数关于self的梯度</span>
+<span class="token comment"># 实际上可以理解为,gradient是一个和变量y形状相同的张量，gradient=[g0,g1,g2,g3], y=[y0,y1,y2,y3].每个yi的梯度都会被gi加权，然后再反向传播</span>
+<span class="token comment"># 本例只想求偏导数的和，所以传递一个1的梯度是合适的。也就是每个偏导的权重都是1，这才是求和</span>
+x<span class="token punctuation">.</span>grad<span class="token punctuation">.</span>zero_<span class="token punctuation">(</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> x <span class="token operator">*</span> x
+y<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 等价于y.backward(torch.ones(len(x)))</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>grad<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor([0., 2., 4., 6.])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="3-分离计算"><a href="#3-分离计算" class="headerlink" title="3.分离计算"></a>3.分离计算</h2><p>有时，我们希望将某些计算移动到记录的计算图之外</p>
+<p>例如，假设<code>y</code>是作为<code>x</code>的函数计算的，而<code>z</code>则是作为<code>y</code>和<code>x</code>的函数计算的。 想象一下，我们想计算<code>z</code>关于<code>x</code>的梯度，但由于某种原因，希望将<code>y</code>视为一个常数， 并且只考虑到<code>x</code>在<code>y</code>被计算后发挥的作用。</p>
+<p>这里可以分离<code>y</code>来返回一个新变量<code>u</code>，该变量与<code>y</code>具有相同的值， 但丢弃计算图中如何计算<code>y</code>的任何信息。 换句话说，梯度不会向后流经<code>u</code>到<code>x</code>。 因此，下面的反向传播函数计算<code>z=u*x</code>关于<code>x</code>的偏导数，同时将<code>u</code>作为常数处理， 而不是<code>z=x*x*x</code>关于<code>x</code>的偏导数。</p>
+<ul>
+<li><code>detach</code>函数：用于从<strong>计算图</strong>中分离张量，使之不参与梯度计算和反向传播。但u仍然和y共享数据(修改u会影响y)。<ul>
+<li><code>y.clone().detach()</code>既分离计算图又复制数据，修改u不会影响y</li>
+<li>分离出的张量<strong>只能视为常量而不能视为函数</strong>，因为计算图被截断，无法计算<code>du/dx</code></li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">4.0</span><span class="token punctuation">,</span> requires_grad<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+x<span class="token punctuation">.</span>grad<span class="token punctuation">.</span>zero_<span class="token punctuation">(</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> x <span class="token operator">*</span> x
+u <span class="token operator">=</span> y<span class="token punctuation">.</span>detach<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># u=y.detach，那么u不再与相关,u也没有保存梯度。假如这时写一个z = u + 3，那么就会报错，因为z的计算图到u就被截断了，u没法再计算du/dx，那么z就没法反向传播到x</span>
+z <span class="token operator">=</span> u <span class="token operator">*</span> x
+
+z<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>grad <span class="token operator">==</span> u<span class="token punctuation">)</span>
+
+<span class="token triple-quoted-string string">'''
+res:
+tensor([True, True, True, True])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>由于记录了<code>y</code>的计算结果，我们可以随后在<code>y</code>上调用反向传播， 得到<code>y=x*x</code>关于的<code>x</code>的导数，即<code>2*x</code>。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x<span class="token punctuation">.</span>grad<span class="token punctuation">.</span>zero_<span class="token punctuation">(</span><span class="token punctuation">)</span>
+y<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>grad <span class="token operator">==</span> <span class="token number">2</span><span class="token operator">*</span>x<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor([True, True, True, True])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="4-Python控制流的梯度计算"><a href="#4-Python控制流的梯度计算" class="headerlink" title="4.Python控制流的梯度计算"></a>4.Python控制流的梯度计算</h2><p>使用自动微分的一个好处是： <strong>即使构建函数的计算图需要通过Python控制流（例如，条件、循环或任意函数调用），我们仍然可以计算得到的变量的梯度</strong>。</p>
+<p> 在下面的代码中，<code>while</code>循环的迭代次数和<code>if</code>语句的结果都取决于输入<code>a</code>的值。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    b <span class="token operator">=</span> a <span class="token operator">*</span> <span class="token number">2</span>
+    <span class="token keyword">while</span> b<span class="token punctuation">.</span>norm<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">:</span>
+        b <span class="token operator">=</span> b <span class="token operator">*</span> <span class="token number">2</span>
+    <span class="token keyword">if</span> b<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+        c <span class="token operator">=</span> b
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        c <span class="token operator">=</span> <span class="token number">100</span> <span class="token operator">*</span> b
+    <span class="token keyword">return</span> c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>让我们来计算梯度吧！</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> torch<span class="token punctuation">.</span>randn<span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> requires_grad<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+d <span class="token operator">=</span> f<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+d<span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>我们现在可以分析上面定义的<code>f</code>函数。 请注意，它在其输入<code>a</code>中是分段线性的。 换言之，对于任何<code>a</code>，存在某个常量标量<code>k</code>，使得<code>f(a)=k*a</code>，其中<code>k</code>的值取决于输入<code>a</code>，因此可以用<code>d/a</code>验证梯度是否正确。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>grad <span class="token operator">==</span> d<span class="token operator">/</span>a<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor(True)
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="5-小结"><a href="#5-小结" class="headerlink" title="5.小结"></a>5.小结</h2><ul>
+<li>深度学习框架可以自动计算导数：我们首先将梯度附加到想要对其计算偏导数的变量上，然后记录目标值的计算，执行它的反向传播函数，并访问得到的梯度。</li>
+</ul>
+<hr>
+<h1 id="6-概率论"><a href="#6-概率论" class="headerlink" title="6.概率论"></a>6.概率论</h1><p>简单地说，机器学习就是做出预测。</p>
+<p>根据病人的临床病史，我们可能想预测他们在下一年心脏病发作的<em>概率</em>。 在飞机喷气发动机的异常检测中，我们想要评估一组发动机读数为正常运行情况的概率有多大。 在强化学习中，我们希望智能体（agent）能在一个环境中智能地行动。 这意味着我们需要考虑在每种可行的行为下获得高奖励的概率。 当我们建立推荐系统时，我们也需要考虑概率。 例如，假设我们为一家大型在线书店工作，我们可能希望估计某些用户购买特定图书的概率。 为此，我们需要使用概率学。 有完整的课程、专业、论文、职业、甚至院系，都致力于概率学的工作。 所以很自然地，我们在这部分的目标不是教授整个科目。 相反，我们希望教给读者基础的概率知识，使读者能够开始构建第一个深度学习模型， 以便读者可以开始自己探索它。</p>
+<blockquote>
+<p>具体的、详细的、完整的概率论知识内容，请回顾概率论书本</p>
+<p>本节主要是对概率论在深度学习框架下的使用，以及一些重点知识的回顾</p>
+</blockquote>
+<hr>
+<h2 id="1-基本概率论"><a href="#1-基本概率论" class="headerlink" title="1.基本概率论"></a>1.基本概率论</h2><p>导入必要的软件包：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> torch
+<span class="token keyword">from</span> torch<span class="token punctuation">.</span>distributions <span class="token keyword">import</span> multinomial<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>在统计学中，我们把从概率分布中抽取样本的过程称为<strong>抽样</strong>（sampling）。 笼统来说，可以把<em>分布</em>（distribution）看作对事件的概率分配， 稍后我们将给出的更正式定义。 将概率分配给一些离散选择的分布称为<em>多项分布</em>（multinomial distribution）。</p>
+<p>为了<strong>抽取一个样本</strong>，即掷骰子，我们只需传入一个<strong>概率向量</strong>。 <strong>输出是另一个相同长度的向量：它在索引i处的值是采样结果中i出现的次数。</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">fair_probs <span class="token operator">=</span> torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">6</span>
+multinomial<span class="token punctuation">.</span>Multinomial<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> fair_probs<span class="token punctuation">)</span><span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor([0., 0., 1., 0., 0., 0.])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在估计一个骰子的公平性时，我们希望<strong>从同一分布中生成多个样本</strong>。 如果用Python的for循环来完成这个任务，速度会慢得惊人。 因此我们<strong>使用深度学习框架的函数同时抽取多个样本</strong>，得到我们想要的任意形状的独立同分布样本数组。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">multinomial<span class="token punctuation">.</span>Multinomial<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> fair_probs<span class="token punctuation">)</span><span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor([3., 1., 1., 3., 2., 0.])
+结果是随机的，每次执行都会变化，此处仅是一次执行的结果
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>现在我们知道如何对骰子进行采样，我们可以模拟1000次投掷。 然后，我们可以统计1000次投掷后，每个数字被投中了多少次。 具体来说，<strong>我们计算相对频率，以作为真实概率的估计。</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 将结果存储为32位浮点数以进行除法</span>
+counts <span class="token operator">=</span> multinomial<span class="token punctuation">.</span>Multinomial<span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> fair_probs<span class="token punctuation">)</span><span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token punctuation">)</span>
+counts <span class="token operator">/</span> <span class="token number">1000</span> <span class="token comment"># 相对频率作为概率的估计</span>
+<span class="token triple-quoted-string string">'''
+res:
+tensor([0.1550, 0.1820, 0.1770, 0.1710, 0.1600, 0.1550])
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>让我们进行500组实验，每组抽取10个样本</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">counts <span class="token operator">=</span> multinomial<span class="token punctuation">.</span>Multinomial<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> fair_probs<span class="token punctuation">)</span><span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<h3 id="1-概率论公理"><a href="#1-概率论公理" class="headerlink" title="1.概率论公理"></a>1.概率论公理</h3><p>在处理骰子掷出时，我们将集合$S&#x3D;{1,2,3,4,5,6}$ 称为<em>样本空间</em>（sample space）或<em>结果空间</em>（outcome space）， 其中每个元素都是<em>结果</em>（outcome）。 <em>事件</em>（event）是一组给定样本空间的随机结果。 例如，“看到5”（${5}$）和“看到奇数”（${1,3,5}$）都是掷出骰子的有效事件。 注意，如果一个随机实验的结果在A中，则事件A已经发生。 也就是说，如果投掷出3点，因为$3∈{1,3,5}$，我们可以说，“看到奇数”的事件发生了。</p>
+<p><em>概率</em>（probability）可以被认为是将集合映射到真实值的函数。 在给定的样本空间$S$中，事件$A$的概率， 表示为$P(A)$，满足以下属性：</p>
+<ul>
+<li>对于任意事件A，其概率从不会是负数，即$P(A)≥0$；</li>
+<li>整个样本空间的概率为1，即$P(S)&#x3D;1$；</li>
+<li>对于<em>互斥</em>（mutually exclusive）事件（对于所有$i≠j$都有$A_i∩A_j&#x3D;\emptyset$）的任意一个可数序列$A_1,A_2,…$，序列中任意一个事件发生的概率等于它们各自发生的概率之和，即$P(⋃<em>{i&#x3D;1}^∞A_i)&#x3D;∑</em>{i&#x3D;1}^∞P(A_i)$。</li>
+</ul>
+<p>以上也是概率论的公理，由科尔莫戈罗夫于1933年提出。 有了这个公理系统，我们可以避免任何关于随机性的哲学争论； 相反，我们可以用数学语言严格地推理。 例如，假设事件A1为整个样本空间， 且当所有i&gt;1时的Ai&#x3D;∅， 那么我们可以证明P(∅)&#x3D;0，即不可能发生事件的概率是0。</p>
+<hr>
+<h3 id="2-随机变量"><a href="#2-随机变量" class="headerlink" title="2.随机变量"></a>2.随机变量</h3><p>在我们掷骰子的随机实验中，我们引入了<em>随机变量</em>（random variable）的概念。 随机变量几乎可以是任何数量，并且它可以在随机实验的一组可能性中取一个值。 考虑一个随机变量X，其值在掷骰子的样本空间S&#x3D;{1,2,3,4,5,6}中。 我们可以将事件“看到一个5”表示为{X&#x3D;5}或X&#x3D;5， 其概率表示为P({X&#x3D;5})或P(X&#x3D;5)。 通过P(X&#x3D;a)，我们区分了随机变量X和X可以采取的值（例如a）。 然而，这可能会导致繁琐的表示。 为了简化符号，一方面，我们可以将P(X)表示为随机变量X上的<em>分布</em>（distribution）： 分布告诉我们X获得某一值的概率。 另一方面，我们可以简单用P(a)表示随机变量取值a的概率。 由于概率论中的事件是来自样本空间的一组结果，因此我们可以为随机变量指定值的可取范围。 例如，P(1≤X≤3)表示事件{1≤X≤3}， 即{X&#x3D;1,2,or,3}的概率。 等价地，P(1≤X≤3)表示随机变量X从{1,2,3}中取值的概率。</p>
+<p>请注意，<em>离散</em>（discrete）随机变量（如骰子的每一面） 和<em>连续</em>（continuous）随机变量（如人的体重和身高）之间存在微妙的区别。 现实生活中，测量两个人是否具有完全相同的身高没有太大意义。 如果我们进行足够精确的测量，最终会发现这个星球上没有两个人具有完全相同的身高。 在这种情况下，询问某人的身高是否落入给定的区间，比如是否在1.79米和1.81米之间更有意义。 在这些情况下，我们将这个看到某个数值的可能性量化为<em>密度</em>（density）。 高度恰好为1.80米的概率为0，但密度不是0。 在任何两个不同高度之间的区间，我们都有非零的概率。 <strong>在本节的其余部分中，我们将考虑离散空间中的概率。</strong></p>
+<hr>
+<h2 id="2-处理多个随机变量"><a href="#2-处理多个随机变量" class="headerlink" title="2.处理多个随机变量"></a>2.处理多个随机变量</h2><p>很多时候，我们会考虑多个随机变量。 比如，我们可能需要对疾病和症状之间的关系进行建模。 给定一个疾病和一个症状，比如“流感”和“咳嗽”，以某个概率存在或不存在于某个患者身上。 我们需要估计这些概率以及概率之间的关系，以便我们可以运用我们的推断来实现更好的医疗服务。</p>
+<p>再举一个更复杂的例子：图像包含数百万像素，因此有数百万个随机变量。 在许多情况下，图像会附带一个<em>标签</em>（label），标识图像中的对象。 我们也可以将标签视为一个随机变量。 我们甚至可以将所有元数据视为随机变量，例如位置、时间、光圈、焦距、ISO、对焦距离和相机类型。 所有这些都是联合发生的随机变量。 当我们处理多个随机变量时，会有若干个变量是我们感兴趣的。</p>
+<hr>
+<h3 id="1-联合概率"><a href="#1-联合概率" class="headerlink" title="1.联合概率"></a>1.联合概率</h3><p>$P(A&#x3D;a,B&#x3D;b)$,可简写为$P(A,B)$</p>
+<p>给定任意值a和b，联合概率可以回答：A&#x3D;a和B&#x3D;b同时满足的概率是多少</p>
+<ul>
+<li>请注意，对于任何a和b的取值，$P(A&#x3D;a,B&#x3D;b)≤P(A&#x3D;a)$</li>
+</ul>
+<hr>
+<h3 id="2-条件概率"><a href="#2-条件概率" class="headerlink" title="2.条件概率"></a>2.条件概率</h3><p>$P(B&#x3D;b | A&#x3D;a) &#x3D; \frac{P(A&#x3D;a,B&#x3D;b)}{P(A&#x3D;a)}$,可简写为$P(B|A)$</p>
+<p>它是B&#x3D;b的概率，前提是A&#x3D;a已发生</p>
+<hr>
+<h3 id="3-贝叶斯定理-Bayes"><a href="#3-贝叶斯定理-Bayes" class="headerlink" title="3.贝叶斯定理(Bayes)"></a>3.贝叶斯定理(Bayes)</h3><p>根据<em>乘法法则</em>（multiplication rule ）可得到$P(A,B)&#x3D;P(B∣A)P(A)$</p>
+<p>根据对称性，可得到$P(A,B)&#x3D;P(A∣B)P(B)$</p>
+<p>假设$P(B)&gt;0$，求解其中一个条件变量，我们得到：</p>
+<p>$$P(A|B) &#x3D; \frac{P(B|A)P(A)}{P(B)}$$</p>
+<ul>
+<li>请注意，这里我们使用紧凑的表示法： 其中$P(A,B)$是一个<em>联合分布</em>，$P(A∣B)$是一个<em>条件分布</em></li>
+</ul>
+<hr>
+<h3 id="4-边际化"><a href="#4-边际化" class="headerlink" title="4.边际化"></a>4.边际化</h3><p>为了能进行事件概率求和，我们需要<em>求和法则</em>（sum rule）， 即<strong>B的概率相当于计算A的所有可能选择</strong>，并将所有选择的联合概率聚合在一起：</p>
+<p>$$P(B) &#x3D; \sum_{A}P(A,B)$$</p>
+<p>这也称为<em><strong>边际化</strong></em>（marginalization）。 边际化结果的概率或分布称为<em>边际概率</em>（marginal probability） 或<em>边际分布</em>（marginal distribution）。</p>
+<hr>
+<h3 id="5-独立性"><a href="#5-独立性" class="headerlink" title="5.独立性"></a>5.独立性</h3><p>另一个有用属性是<em>依赖</em>（dependence）与<em>独立</em>（independence）。 如果两个随机变量A和B是独立的，意味着事件A的发生跟B事件的发生无关</p>
+<p>统计学家通常将这一点表述为$A\perp B$</p>
+<p>根据贝叶斯定理，马上就能同样得到$P(A∣B)&#x3D;P(A)$</p>
+<p>由于$P(A∣B)&#x3D;P(A,B),P(B)&#x3D;P(A)$<strong>等价于</strong>$P(A,B)&#x3D;P(A)P(B)$</p>
+<p> 因此两个随机变量是独立的，<strong>当且仅当两个随机变量的联合分布是其各自分布的乘积。</strong></p>
+<p> 同样地，给定另一个随机变量C时，两个随机变量A和B是<em><strong>条件独立的</strong></em>， 当且仅当$P(A,B∣C)&#x3D;P(A∣C)P(B∣C)$</p>
+<ul>
+<li>这个情况表示为$A\perp B∣C$</li>
+</ul>
+<hr>
+<h2 id="3-期望与方差"><a href="#3-期望与方差" class="headerlink" title="3.期望与方差"></a>3.期望与方差</h2><p>一个随机变量$X$的<em><strong>期望</strong></em>（expectation，或平均值（average））表示为：</p>
+<p>$$E[X] &#x3D; \sum_{x} xP(X&#x3D;x)$$</p>
+<p>当函数$f(x)$的输入是从分布P中抽取的随机变量时，$f(x)$的期望值为：</p>
+<p>$$E_{x \sim P}[f(x)] &#x3D; \sum_xf(x)P(x)$$</p>
+<p>在许多情况下，我们希望衡量<strong>随机变量X与其期望值的偏置</strong>。这可以通过<strong>方差</strong>来量化：</p>
+<p>$$Var[X] &#x3D; E[(X - E[X])^2] &#x3D; E[X^2] - E[X]^2$$</p>
+<p>方差的平方根被称为<strong>标准差</strong>。</p>
+<p><strong>随机变量<em>函数</em>的方差</strong>衡量的是：当从该随机变量分布中采样不同值x时， 函数值偏离该函数的期望的程度：</p>
+<p>$$Var[f(x)] &#x3D; E[(f(x)  - E[f(x)])^2]$$</p>
+<hr>
+<h2 id="4-小结-1"><a href="#4-小结-1" class="headerlink" title="4.小结"></a>4.小结</h2><ul>
+<li>我们可以从概率分布中采样。</li>
+<li>我们可以使用联合分布、条件分布、Bayes定理、边缘化和独立性假设来分析多个随机变量。</li>
+<li>期望和方差为概率分布的关键特征的概括提供了实用的度量形式。</li>
+</ul>
+<hr>
+<h1 id="7-查阅API"><a href="#7-查阅API" class="headerlink" title="7.查阅API"></a>7.查阅API</h1><p>由于篇幅限制，我们不可能介绍每一个PyTorch&#x2F;Tensorflow函数和类。 API文档、其他教程和示例提供了本书之外的大量文档。 以下提供了一些查看PyTorch&#x2F;Tensorflow API的指导。</p>
+<h2 id="1-查找模块中所有的函数和类"><a href="#1-查找模块中所有的函数和类" class="headerlink" title="1.查找模块中所有的函数和类"></a>1.查找模块中所有的函数和类</h2><h3 id="1-Pytorch"><a href="#1-Pytorch" class="headerlink" title="1.Pytorch"></a>1.Pytorch</h3><p>为了知道模块中可以调用哪些函数和类，可以调用<code>dir</code>函数。 例如，我们可以查询<strong>随机数生成</strong>模块中的所有属性：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> torch
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">dir</span><span class="token punctuation">(</span>torch<span class="token punctuation">.</span>distributions<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>通常可以忽略以“<code>__</code>”（双下划线）开始和结束的函数，它们是Python中的特殊对象， 或以单个“<code>_</code>”（单下划线）开始的函数，它们通常是内部函数。</li>
+<li>根据剩余的函数名或属性名，我们可能会猜测这个模块提供了各种生成随机数的方法， 包括从均匀分布（<code>uniform</code>）、正态分布（<code>normal</code>）和多项分布（<code>multinomial</code>）中采样。</li>
+</ul>
+<h3 id="2-Tensorflow"><a href="#2-Tensorflow" class="headerlink" title="2.Tensorflow"></a>2.Tensorflow</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">dir</span><span class="token punctuation">(</span>tf<span class="token punctuation">.</span>random<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="2-查找特定函数和类的用法"><a href="#2-查找特定函数和类的用法" class="headerlink" title="2.查找特定函数和类的用法"></a>2.查找特定函数和类的用法</h2><h3 id="1-Pytorch-1"><a href="#1-Pytorch-1" class="headerlink" title="1.Pytorch"></a>1.Pytorch</h3><p>调用<code>help</code>函数</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">help</span><span class="token punctuation">(</span>torch<span class="token punctuation">.</span>ones<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="2-Tensorflow-1"><a href="#2-Tensorflow-1" class="headerlink" title="2.Tensorflow"></a>2.Tensorflow</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">help</span><span class="token punctuation">(</span>tf<span class="token punctuation">.</span>ones<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Roeland</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://somefnone.github.io/2025/03/04/shen-du-xue-xi-yu-bei-zhi-shi/">https://somefnone.github.io/2025/03/04/shen-du-xue-xi-yu-bei-zhi-shi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Roeland</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">深度学习</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2025/03/04/shen-du-xue-xi-yu-bei-zhi-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="深度学习-预备知识">
+                        
+                        <span class="card-title">深度学习-预备知识</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            数据操作与数学基础
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-03-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/02/27/bian-yi-yuan-li-2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="编译原理-2">
+                        
+                        <span class="card-title">编译原理-2</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            词法分析
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="post-category">
+                                    编译原理
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                        <span class="chip bg-color">编译原理</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 愚者的盥洗室<br />'
+            + '文章作者: Roeland<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Roeland</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">103.3k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "3";
+                        var startDate = "16";
+                        var startHour = "0";
+                        var startMinute = "56";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SomeFnone" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1229172423@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1229172423" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1229172423" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

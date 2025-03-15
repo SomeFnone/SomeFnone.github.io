@@ -1,0 +1,1702 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="计网学习笔记-链路层, 愚者的盥洗室">
+    <meta name="description" content="链路层">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>计网学习笔记-链路层 | 愚者的盥洗室</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">愚者的盥洗室</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">愚者的盥洗室</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">计网学习笔记-链路层</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                计算机网络
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-12-24
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-03-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    21 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <meta name="referrer" content="no-referrer"/>
+
+<h1 id="第六章-链路层和局域网"><a href="#第六章-链路层和局域网" class="headerlink" title="第六章 链路层和局域网"></a>第六章 链路层和局域网</h1><h2 id="1-概述与服务"><a href="#1-概述与服务" class="headerlink" title="1.概述与服务"></a>1.概述与服务</h2><h3 id="1-网络层与链路层"><a href="#1-网络层与链路层" class="headerlink" title="1.网络层与链路层"></a>1.网络层与链路层</h3><ul>
+<li>网络层：提供<strong>主机之间</strong>的通信服务，将传输层报文段<strong>从源主机传送到目的主机</strong><ul>
+<li>能够在各段**链路层提供异构服务(不同协议)**的情况下，完成端到端的工作</li>
+</ul>
+</li>
+<li>链路层：提供<strong>节点之间</strong>的通信服务，将网络层数据报<strong>从一个节点传送到下一个节点</strong><ul>
+<li><strong>不同的链路采用不同的链路层协议</strong>，提供的服务不同</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-链路层信道类型"><a href="#2-链路层信道类型" class="headerlink" title="2.链路层信道类型"></a>2.链路层信道类型</h3><p>链路层信道分为：<strong>广播链路</strong>和<strong>点对点通信链路</strong></p>
+<p><strong>广播链路(共享线路或媒体)：</strong></p>
+<ul>
+<li>许多主机被<strong>连接到相同的通信信道</strong><ul>
+<li>需要**媒体访问协议(MAC)**来协调传输和避免”碰撞”</li>
+<li>链路层协议及其实现包括：<ul>
+<li><strong>以太网</strong>：802.3协议的实现</li>
+<li><strong>无线局域网</strong>：802.11协议的实现</li>
+<li><strong>卫星网</strong>等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224153718256.png" alt="image-20241224153718256"></p>
+<p><strong>点对点通信链路：</strong></p>
+<ul>
+<li><strong>直接链接2个节点的链路，每一端有一个节点</strong><ul>
+<li>访问控制简单</li>
+<li>主要解决的问题：成帧、可靠数据传输、差错检测、流量控制</li>
+</ul>
+</li>
+<li>常用于两台路由器之间的通信链路，拨号调制解调器与ISP路由器之间的通信链路</li>
+</ul>
+<hr>
+<h3 id="3-一些术语"><a href="#3-一些术语" class="headerlink" title="3.一些术语"></a>3.一些术语</h3><ul>
+<li>主机和路由器是<strong>节点</strong></li>
+<li>连接了沿通信路径的相邻节点的路径是<strong>链路</strong><ul>
+<li>分为：有线链路，无线链路</li>
+</ul>
+</li>
+<li>第二层(链路层)的分组叫<strong>帧</strong>，封装数据报</li>
+</ul>
+<p><strong>数据链路层具有经一条链路从 <em>一个节点</em> 传输数据到 <em>相邻节点</em> 的能力</strong></p>
+<ul>
+<li>不同的链路会采用不同的<strong>链路层协议</strong>，这些协议包括<ul>
+<li>以太网(802.3协议)</li>
+<li>帧中继</li>
+<li>无线局域网(802.11协议)</li>
+<li>…</li>
+</ul>
+</li>
+<li>每个链路协议提供不同的服务<ul>
+<li>可靠数据传输</li>
+<li>不可靠数据传输</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-链路层服务"><a href="#4-链路层服务" class="headerlink" title="4.链路层服务"></a>4.链路层服务</h3><p>链路层的<strong>基本服务</strong>：将网络层数据报通过单一通信链路从一个节点移动到<strong>相邻节点</strong></p>
+<p>具体服务如下：</p>
+<ul>
+<li><p><strong>成帧，链路访问</strong></p>
+<ul>
+<li>将数据报封装进<strong>帧</strong>，加上<strong>首部</strong>和<strong>尾部</strong></li>
+<li>如果是<strong>共享媒体</strong>，<strong>MAC协议</strong>协调多路访问</li>
+<li>位于帧首部的**”MAC地址”**标识源、目的地<ul>
+<li><strong>MAC地址与IP地址不同</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>相连节点间的可靠交付</p>
+<ul>
+<li>可靠交付保证的是帧能够无差错的从节点A传输到下一个节点B</li>
+<li>这在比特差错低的链路很少使用(如光纤，部分双绞线)</li>
+<li><strong>无线链路</strong>：<strong>高差错率</strong><ul>
+<li>需要差错检测、纠错功能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>流量控制</p>
+<ul>
+<li>相邻发送和接收节点的步调一致</li>
+</ul>
+</li>
+<li><p>差错检测</p>
+<ul>
+<li>差错由信号衰减、噪声所致</li>
+<li><strong>接收方检测差错的存在(即确认)，发送方负责重传</strong></li>
+</ul>
+</li>
+<li><p>纠错</p>
+<ul>
+<li><strong>接收方纠正比特差错，不采取重传</strong></li>
+</ul>
+</li>
+<li><p>半双工+全双工</p>
+<ul>
+<li>半双工：通信设备可以<strong>双向传输数据</strong>，但<strong>只能在某一时刻</strong>进行发送或接收，而不能同时进行发送和接收。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Question1：为什么同时使用链路级和端到端可靠性?</p>
+<ul>
+<li><strong>链路级可靠性</strong>保证的是每个<strong>链路段</strong>的数据传输质量，通常适用于点对点的链路或单一的传输媒介</li>
+<li><strong>端到端可靠性</strong>则确保的是从<strong>源端到目标端</strong>整个网络路径中的数据传输可靠性，涉及多个路由和链路的传输问题</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Question2：如果在因特网中的所有链路都提供可靠交付服务，TCP可靠传输服务是多余的吗？</p>
+<p><strong>需要！TCP可靠传输可以将失序报文重排，但链路层的可靠传输服务无法做到，因为他们没法去对多个报文进行可靠服务</strong></p>
+</blockquote>
+<blockquote>
+<p>Question3：是否所有的链路层协议都提供可靠数据传输服务？</p>
+<p><strong>否！以太网协议就没有可靠数据传输服务，但这是因为他本身的出错率低，不太需要</strong></p>
+<p><strong>以太网协议是无连接的不可靠服务</strong></p>
+</blockquote>
+<hr>
+<h3 id="5-网络适配器"><a href="#5-网络适配器" class="headerlink" title="5.网络适配器"></a>5.网络适配器</h3><p>每个节点是通过什么来实现链路层通信的？</p>
+<p>——<strong>网络适配器</strong></p>
+<p>节点在**适配器(NIC)**中实现链路层</p>
+<ul>
+<li>比较知名的就是，<strong>以太网卡</strong>和<strong>802.11卡</strong></li>
+</ul>
+<p><strong>发送侧适配器</strong></p>
+<ul>
+<li>将数据报封装在帧中</li>
+<li>增加差错检测比特，可靠数据传输，流量控制等</li>
+</ul>
+<p><strong>接收侧适配器</strong></p>
+<ul>
+<li><p>提取数据报，传递到接收节点</p>
+</li>
+<li><p>查找差错，可靠数据传输，流量控制</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224160304249.png" alt="image-20241224160304249"></p>
+<hr>
+<h2 id="2-差错检测和纠错"><a href="#2-差错检测和纠错" class="headerlink" title="2.差错检测和纠错"></a>2.差错检测和纠错</h2><h3 id="1-基本原理"><a href="#1-基本原理" class="headerlink" title="1.基本原理"></a>1.基本原理</h3><p>发送方在信息数据(<strong>帧</strong>)的<strong>尾部</strong>添加冗余数据<strong>EDC</strong>用于差错检测和纠正</p>
+<p>接收方检查帧与EDC之间的关系，发现差错</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224160709347.png" alt="image-20241224160709347"></p>
+<hr>
+<h3 id="2-奇偶校验"><a href="#2-奇偶校验" class="headerlink" title="2.奇偶校验"></a>2.奇偶校验</h3><h4 id="1-单比特奇偶校验"><a href="#1-单比特奇偶校验" class="headerlink" title="1.单比特奇偶校验"></a>1.单比特奇偶校验</h4><p>单比特奇偶校验的EDC&#x3D;1位，用它来使<code>D+EDC</code>中<code>1</code>的个数为奇数&#x2F;偶数</p>
+<ul>
+<li>奇校验：<code>D+EDC</code>的<code>1</code>的个数为奇数</li>
+<li>偶校验：<code>D+EDC</code>的<code>1</code>的个数为偶数</li>
+</ul>
+<p><strong>单比特奇偶校验错误率为50%</strong></p>
+<hr>
+<h4 id="2-二维比特奇偶校验"><a href="#2-二维比特奇偶校验" class="headerlink" title="2.二维比特奇偶校验"></a>2.二维比特奇偶校验</h4><p>二维比特奇偶校验，可以<strong>检测2个比特差错</strong>，<strong>纠正单个比特差错</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224161159102.png" alt="image-20241224161159102"></p>
+<hr>
+<h3 id="3-Internet校验和"><a href="#3-Internet校验和" class="headerlink" title="3.Internet校验和"></a>3.Internet校验和</h3><p>这个差错检验方式在TCP，UDP，IP的校验和字段都使用过，此处不再详述，只是再强调一下过程：</p>
+<ul>
+<li>求和</li>
+<li>回卷(高位溢出，回卷)</li>
+<li>取反</li>
+</ul>
+<hr>
+<h3 id="4-循环冗余码校验CRC"><a href="#4-循环冗余码校验CRC" class="headerlink" title="4.循环冗余码校验CRC"></a>4.循环冗余码校验CRC</h3><p>循环冗余校验码CRC是计算机网络和数据通信中使用最为广泛的检错码之一</p>
+<p><strong>原理：</strong></p>
+<ul>
+<li>发送方和接收方约定一个**<code>r+1</code>比特的生成多项式G(x)**<ul>
+<li>G(x)可以看成系数为0&#x2F;1的多项式</li>
+<li>以下图为例，考题可能会以多项式的形式给出G(x)，转换为二进制即可</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224161628390.png" alt="image-20241224161628390"></p>
+<ul>
+<li><p>发送方用<strong>帧信息D</strong>对<strong>G(x)<strong>进行</strong>模2除法</strong>，得到余数，并首部补0扩充为**<code>r</code>比特的校验和R**</p>
+<ul>
+<li>模2运算：加减法不进位&#x2F;借位(可以当成每一位的异或运算)</li>
+</ul>
+</li>
+<li><p>发送方在<strong>帧信息D</strong>的末尾添加<strong>校验和R</strong>，得到带CRC校验和的帧<strong>DR</strong></p>
+</li>
+<li><p>接收方收到后，用<strong>DR’<strong>对</strong>G(x)<strong>进行</strong>模2除法</strong>，若不能整除，则传输有错</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224162216104.png" alt="image-20241224162216104"></p>
+<blockquote>
+<p>Question：如果传输过程中，DR最后2个比特翻转，用G是否可以检测出来？</p>
+<p><strong>当然！</strong></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224162850004.png" alt="image-20241224162850004"></p>
+<blockquote>
+<p>Question2：如何可以检测出连续r比特的突发差错?</p>
+<ul>
+<li><strong>检测条件</strong>：当 <strong>r ≤ k-1</strong>（生成多项式的度数），CRC 就能检测到长度为 <strong>r</strong> 的突发差错。</li>
+</ul>
+<p>Question3：何时能够检查两位比特错误？</p>
+<ul>
+<li>CRC 校验能够 <strong>检测到两位比特错误</strong>，但这取决于选择的 <strong>生成多项式</strong></li>
+<li>如果生成多项式的度数较高（如 CRC-16 或 CRC-32），则能够有效检测到两位比特错误<ul>
+<li><strong>CRC-16</strong>：生成多项式通常是 <code>x^16 + x^12 + x^5 + 1</code>（即 <code>11000000000000101</code>），通常可以检测到 <strong>两位比特错误</strong></li>
+<li><strong>CRC-32</strong>：生成多项式通常是 <code>x^32 + x^26 + x^23 + x^22 + x^16 + x^12 + x^11 + x^10 + x^8 + x^7 + x^5 + x^4 + x^2 + x + 1</code>（即 <code>11000000000000000000000000011011</code>），能够有效检测出 <strong>两位比特错误</strong> 以及更多种类的错误</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="3-多路访问协议"><a href="#3-多路访问协议" class="headerlink" title="3.多路访问协议"></a>3.多路访问协议</h2><p>前文中我们提到，链路有两种类型：<strong>广播</strong>和<strong>点对点</strong></p>
+<p>点对点链路只有2个节点，不存在多节点共享信道的情况，因此不在这一节的讨论范围。我们要讨论的就是<strong>广播链路</strong>引起的<strong>共享信道问题</strong></p>
+<p>如果一个信道由多个节点共享，那么一个问题势必出现：<strong>碰撞</strong></p>
+<ul>
+<li>两个或更多的并行传输会带来碰撞</li>
+<li>一旦碰撞，没有节点可以获得有效帧，造成信道浪费</li>
+</ul>
+<p>于是乎，<strong>多路访问协议MAC</strong>应运而生</p>
+<h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1.概念"></a>1.概念</h3><p><strong>多路访问协议MAC：</strong></p>
+<ul>
+<li>决定节点怎样共享信道的<strong>分布式算法</strong>	<ul>
+<li>如决定何时节点能够传输</li>
+</ul>
+</li>
+<li>必须基于信道本身，由通信信道共享协调信息<ul>
+<li>无带外信道用于协调</li>
+</ul>
+</li>
+</ul>
+<p>理想中的MAC协议，支持一个R bps的广播信道：</p>
+<ul>
+<li>效率：节点传输，可以R bps传输</li>
+<li>公平：M个节点发送，每个有 R&#x2F;M bps</li>
+<li>全分散：<ul>
+<li>无特殊节点协调传输</li>
+<li>无同步时钟、时隙</li>
+</ul>
+</li>
+<li>简单</li>
+</ul>
+<hr>
+<h3 id="2-分类"><a href="#2-分类" class="headerlink" title="2.分类"></a>2.分类</h3><ul>
+<li><p><strong>信道划分</strong></p>
+<ul>
+<li>将信道划分为较小的”段”(如：<strong>时隙</strong>，<strong>频率</strong>，<strong>编码</strong>)</li>
+<li>为节点分配一部分专用</li>
+<li>示例：TDMA(时隙)，FDMA(频率)，CDMA(编码)</li>
+</ul>
+</li>
+<li><p><strong>随机访问</strong></p>
+<ul>
+<li>不划分信道，允许碰撞</li>
+<li>从碰撞中恢复</li>
+<li>示例：时隙ALOHA，纯ALOHA，CSMA，CSMA&#x2F;CD</li>
+</ul>
+</li>
+<li><p><strong>轮流协议</strong></p>
+<ul>
+<li>节点轮流，无碰撞</li>
+<li>兼顾效率和公平</li>
+<li>单点失效、轮流时延</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-信道划分"><a href="#3-信道划分" class="headerlink" title="3.信道划分"></a>3.信道划分</h3><ul>
+<li><strong>优势：在高负载时高效、公平地共享信道</strong></li>
+<li><strong>劣势：低负载时低效：信道访问中延时，当1个活跃节点时，甚至仅有分配了 1&#x2F;N 带宽!</strong></li>
+</ul>
+<h4 id="1-TDMA"><a href="#1-TDMA" class="headerlink" title="1.TDMA"></a>1.TDMA</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224165217971.png" alt="image-20241224165217971"></p>
+<h4 id="2-FDMA"><a href="#2-FDMA" class="headerlink" title="2.FDMA"></a>2.FDMA</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224165233627.png" alt="image-20241224165233627"></p>
+<hr>
+<h3 id="4-随机访问"><a href="#4-随机访问" class="headerlink" title="4.随机访问"></a>4.随机访问</h3><p>随机访问类型的MAC协议，在节点有分组要发送时：</p>
+<ul>
+<li>以信道全部速率R传输</li>
+<li>没有事先的节点间协调</li>
+</ul>
+<p><strong>优势：低负载时有效：单个节点能够全面利用信道</strong></p>
+<p><strong>劣势：高负载：碰撞开销</strong></p>
+<h4 id="1-时隙ALOHA"><a href="#1-时隙ALOHA" class="headerlink" title="1.时隙ALOHA"></a>1.时隙ALOHA</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224165415701.png" alt="image-20241224165415701"></p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>单个活跃节点能够连续地以信道的全速传输</li>
+<li>高速分散：仅节点中的时隙需要同步，检测到碰撞之后，独立决定何时重传</li>
+<li>简单</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>碰撞，浪费时隙</li>
+<li>空闲时隙(下个时隙都不传)</li>
+<li>时钟同步麻烦</li>
+</ul>
+<p>**效率：**当有许多节点，且每个都有许多帧要发送时，成功时隙与总时隙的长期比值</p>
+<ul>
+<li>采用时隙ALOHA协议的信道，用于有效传输的时间效率是<strong>37%</strong></li>
+</ul>
+<hr>
+<h4 id="2-纯ALOHA"><a href="#2-纯ALOHA" class="headerlink" title="2.纯ALOHA"></a>2.纯ALOHA</h4><blockquote>
+<p>纯ALOHA，即<strong>非时隙ALOHA</strong></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224165717845.png" alt="image-20241224165717845"></p>
+<hr>
+<h4 id="3-CSMA"><a href="#3-CSMA" class="headerlink" title="3.CSMA"></a>3.CSMA</h4><p>CSMA协议，意思是<strong>在传输前侦听</strong></p>
+<ul>
+<li>如果侦听到信道空闲：传输整个帧</li>
+<li>如果侦听到信道繁忙：<strong>推迟传输</strong></li>
+</ul>
+<p>但即便如此，碰撞还是会出现</p>
+<ul>
+<li><strong>传播时延</strong>影响了一切</li>
+<li>传播时延的存在，意味着两个节点不能听到对方节点在传输</li>
+</ul>
+<p><strong>CSMA协议中，发生碰撞之后<em>不会</em>立刻停止发送</strong></p>
+<ul>
+<li>整个分组传输时间被浪费</li>
+</ul>
+<blockquote>
+<p>有一个很有意思的东西，容易被忽视：<strong>碰撞是怎么被检测出来的？</strong></p>
+<ul>
+<li>一言以蔽之：<strong>A和B发生碰撞，A在没传递完分组时，收到了B的分组，就说明发生了碰撞！</strong></li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224170040988.png" alt="image-20241224170040988"></p>
+<hr>
+<h4 id="4-CSMA-CD"><a href="#4-CSMA-CD" class="headerlink" title="4.CSMA&#x2F;CD"></a>4.CSMA&#x2F;CD</h4><blockquote>
+<p>CSMA&#x2F;CD：带碰撞检测的载波侦听多路访问协议</p>
+</blockquote>
+<p><strong>CSMA&#x2F;CD：</strong></p>
+<ul>
+<li>载波侦听</li>
+<li>碰撞检测<ul>
+<li>检测到碰撞，<strong>立刻停止传输</strong></li>
+<li>等待一段<strong>随机时间</strong>后，继续侦听<ul>
+<li>如果侦听到信道繁忙，还要<strong>继续等待直到信道空闲</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224170226584.png" alt="image-20241224170226584"></p>
+<p><strong>1.确定等待的随机时间：</strong></p>
+<ul>
+<li>需要注意的是：<strong>二进制指数后退算法</strong>是有上限的，也就是图中的<strong>n&lt;&#x3D;10</strong>。如果碰撞次数大于10，<strong>都按照10来计算</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224170318733.png" alt="image-20241224170318733"></p>
+<blockquote>
+<p>Question:CSMA&#x2F;CD在第5次碰撞之后，选择K&#x3D;4的概率是多少？结果K&#x3D;4在10Mbps以太网上对应多少秒时延？</p>
+<p><strong>第5次碰撞后，2^n-1&#x3D;2^5-1&#x3D;31，p(k&#x3D;4) &#x3D; 1&#x2F;32</strong></p>
+<p><strong>总比特时间&#x3D;4*512&#x3D;2048 比特时间</strong></p>
+<p><strong>比特时间&#x3D;1&#x2F;传输速率&#x3D;1&#x2F;10Mbps &#x3D; 10^-7 s&#x2F;bit</strong></p>
+<p><strong>时延&#x3D;2048*10^-7&#x3D;2*10^-4&#x3D;0.2ms</strong></p>
+</blockquote>
+<p><strong>2.传播时延对CSMA&#x2F;CD的影响</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224170409405.png" alt="image-20241224170409405"></p>
+<blockquote>
+<p>Question:假设节点A和B在10Mbps的广播信道上，传播时延为325比特时间。如果传输一个帧需要576比特时间，通过CSMA&#x2F;CD是否无法检查碰撞？</p>
+<p><strong>无法检查到碰撞！</strong></p>
+<p><strong>传播时延&#x3D;325，2*传播时延&#x3D;650 &gt; 576, 检测到碰撞时，帧已传输完毕！</strong></p>
+</blockquote>
+<p><strong>3.例题</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224171423901.png" alt="image-20241224171423901"></p>
+<hr>
+<h3 id="5-轮流协议"><a href="#5-轮流协议" class="headerlink" title="5.轮流协议"></a>5.轮流协议</h3><p>兼有信道划分和随机访问MAC协议的优点</p>
+<h4 id="1-轮询协议"><a href="#1-轮询协议" class="headerlink" title="1.轮询协议"></a>1.轮询协议</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224171706643.png" alt="image-20241224171706643"></p>
+<hr>
+<h4 id="2-令牌协议"><a href="#2-令牌协议" class="headerlink" title="2.令牌协议"></a>2.令牌协议</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224171725259.png" alt="image-20241224171725259"></p>
+<h2 id="4-以太网"><a href="#4-以太网" class="headerlink" title="4.以太网"></a>4.以太网</h2><blockquote>
+<p>以太网标准协议：802.3</p>
+<p><strong>以太网技术提供的是无连接的不可靠服务</strong></p>
+</blockquote>
+<h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><p>以太网是目前<strong>最流行</strong>的LAN技术，市场占有率98%</p>
+<p>以太网的网络拓扑：</p>
+<ul>
+<li>总线：上世纪90年代中期流行<ul>
+<li>存储转发技术尚未发明</li>
+</ul>
+</li>
+<li>星型：目前最主流<ul>
+<li>连接选择：switch(交换机)为中心</li>
+<li>每个节点以及相连的交换机端口使用（独立的）以太网协议（不会 和其他节点的发送产生碰撞）</li>
+<li>使用的是<strong>存储转发交换机</strong>，解决了<strong>共享信道碰撞的问题</strong></li>
+<li>工作在第二层(链路层)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224172529437.png" alt="image-20241224172529437"></p>
+<p>传统的以太网(指使用集线器&#x2F;HUB的以太网)采用的是<strong>广播链路</strong>，所有连接在同一物理网络上的设备（主机、路由器、交换机等）共享一个通信信道</p>
+<ul>
+<li>因此，该以太网下，主机A发给主机B的帧，实际上链路上的<strong>所有节点都收到了</strong>，但<strong>只有目的节点的适配器会将帧的数据(数据报)发给网络层</strong></li>
+</ul>
+<hr>
+<h3 id="2-以太网帧结构"><a href="#2-以太网帧结构" class="headerlink" title="2.以太网帧结构"></a>2.以太网帧结构</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224172935129.png" alt="image-20241224172935129"></p>
+<ul>
+<li><p><strong>前导码(preamble)</strong></p>
+<ul>
+<li><strong>8字节</strong>，<strong>不算在以太网帧的大小内</strong></li>
+<li>模式为<code>10101010</code> 的7个字节，后跟模式为 <code>10101011</code> 的一个字节</li>
+<li>用于同步接收方，发送方时钟速率</li>
+</ul>
+</li>
+<li><p><strong>MAC地址</strong></p>
+<ul>
+<li><strong>6字节</strong>，目的MAC地址6字节，源MAC地址6字节</li>
+<li>如果适配器接收具有匹配的目的地址或广播地址的帧, 它将帧中的数据提交给网络层协议</li>
+<li>否则, 适配器丢弃帧</li>
+</ul>
+</li>
+<li><p><strong>类型(type)</strong></p>
+<ul>
+<li><strong>2字节</strong>，指示较高层协议(如：IP&#x2F;AppleTalk&#x2F;Novell IPX)</li>
+</ul>
+</li>
+<li><p><strong>数据字段(data)</strong></p>
+<ul>
+<li><strong>46字节到1500字节</strong>，存储IP数据报</li>
+<li>最大长度1500字节：<strong>以太网的MTU是1500字节，超过该大小将被分片</strong></li>
+<li>最小长度46字节：发送data&#x3D;46字节的以太网帧时，L&#x2F;R正好等于2倍传播时延。<strong>为了能够在传输结束前检测到冲突</strong>，最小长度设定在46字节。不足46字节，则末尾填充0<ul>
+<li>该值是一个经验值，基于实际链路的传输速率和链路长度决定</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>循环冗余校验码</strong></p>
+<ul>
+<li><strong>4字节</strong></li>
+<li>检测到差错，丢弃该帧</li>
+<li><strong>以太网技术提供的是无连接的不可靠服务</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-802-3"><a href="#3-802-3" class="headerlink" title="3.802.3"></a>3.802.3</h3><p>实际上，虽然协议都是802.3，但是有着很多<strong>不同的以太网标准</strong></p>
+<ul>
+<li>相同的MAC协议(介质访问控制)和帧结构</li>
+<li>不同的速率：2Mbps，10Mbps，100Mbps，1Gbps，10Gbps…</li>
+<li>不同的物理层标准</li>
+<li>不同的物理层媒介：光纤、同轴电缆、双绞线</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224173951240.png" alt="image-20241224173951240"></p>
+<hr>
+<h2 id="5-链路层编址"><a href="#5-链路层编址" class="headerlink" title="5.链路层编址"></a>5.链路层编址</h2><h3 id="1-IP地址与MAC地址"><a href="#1-IP地址与MAC地址" class="headerlink" title="1.IP地址与MAC地址"></a>1.IP地址与MAC地址</h3><p>每个<strong>节点</strong>的<strong>接口</strong>有<strong>网络层地址</strong>和<strong>链路层地址</strong></p>
+<ul>
+<li>网络层地址：节点接口在互连网络中动态分配的一个IP地址<ul>
+<li>用于把分组送到目的IP网络</li>
+</ul>
+</li>
+<li>链路层地址：MAC地址写入网卡(适配器)的ROM中<ul>
+<li>用于把数据帧从一个节点传送到另一个节点(<strong>同一网络中</strong>)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>有一个一直没有提及的点：<strong>交换机</strong></p>
+<p><strong>交换机不具备MAC地址，可以将之视为不存在&#x2F;透明</strong></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224175153159.png" alt="image-20241224175153159"></p>
+<hr>
+<h3 id="2-MAC地址"><a href="#2-MAC地址" class="headerlink" title="2.MAC地址"></a>2.MAC地址</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224174619544.png" alt="image-20241224174619544"></p>
+<p><strong>MAC地址：</strong></p>
+<ul>
+<li>6字节，每个字节用1个16进制数表示</li>
+<li>是网卡的唯一标识，不会变化<ul>
+<li>特殊：MAC地址&#x3D;<code>FF-FF-FF-FF-FF-FF</code>，即<strong>广播地址</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>是否可以只用MAC地址或IP地址？</p>
+<ul>
+<li>不能只用MAC地址：转发表爆了</li>
+<li>可以只用IP地址：但是性能下降，原因是MAC地址写在网卡的ROM中，读取快速</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="3-地址转换问题"><a href="#3-地址转换问题" class="headerlink" title="3.地址转换问题"></a>3.地址转换问题</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224174926452.png" alt="image-20241224174926452"></p>
+<ul>
+<li><p>两台机器A和B,它们IP地址分别是IP1、 IP6 ，物理地址分别是PA和PB。</p>
+</li>
+<li><p>高层程序仅希望与IP地址交往，而实际通信必须使用物理地址</p>
+<ul>
+<li>端到端IP寻址——&gt;链路节点之间的MAC地址通信</li>
+</ul>
+</li>
+</ul>
+<p><em>如何从节点的IP地址得到它的物理地址？</em></p>
+<hr>
+<h2 id="6-ARP协议"><a href="#6-ARP协议" class="headerlink" title="6.ARP协议"></a>6.ARP协议</h2><blockquote>
+<p>ARP协议，全称<strong>地址解析协议</strong></p>
+<p>ARP协议是<strong>链路层协议</strong></p>
+</blockquote>
+<h3 id="1-ARP表"><a href="#1-ARP表" class="headerlink" title="1.ARP表"></a>1.ARP表</h3><p>LAN(局域网)上的每个<strong>节点</strong>(主机&#x2F;路由器)都有ARP表</p>
+<ul>
+<li>ARP表：对某些局域网节点的<code>IP/MAC</code>地址映射</li>
+<li>ARP表表项：<code>&lt;IP地址；MAC地址；TTL&gt;</code><ul>
+<li>TTL：<code>time to live</code>，该映射的寿命。通常为20分钟</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-ARP协议"><a href="#2-ARP协议" class="headerlink" title="2.ARP协议"></a>2.ARP协议</h3><p>ARP协议的功能在于：<strong>为同一子网上的节点解析IP地址</strong></p>
+<ul>
+<li>再次强调——“<strong>同一子网</strong>“</li>
+</ul>
+<blockquote>
+<p><strong>情景1：主机A、B在同一子网中</strong></p>
+<p>如果主机A的ARP表中没有B的ARP映射，但现在A需要知道B的MAC地址，获取的流程是？</p>
+</blockquote>
+<ul>
+<li>首先，A<strong>广播</strong> <strong>ARP查询分组(实际是链路层帧)</strong>，包含B的IP地址<ul>
+<li>ARP查询分组样例：<code>(IP.A，IP.B，MAC.A，MAC.Dest)</code></li>
+<li>目的MAC地址，即<code>MAC.Dest = FF-FF-FF-FF-FF-FF</code><ul>
+<li>该MAC地址为局域网内广播地址</li>
+</ul>
+</li>
+<li>在LAN上的<strong>所有节点</strong>都会收到该ARP请求<ul>
+<li>但是看到IP不是自己的，其他节点就会丢弃该分组</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>于是B收到了ARP查询分组，并向A<strong>单播</strong> <strong>ARP响应分组</strong><ul>
+<li>ARP响应分组样例：<code>(IP.A，IP.B，MAC.A，MAC.B)</code></li>
+<li>因为<strong>单播</strong>，LAN中只有A节点收到了该分组</li>
+</ul>
+</li>
+<li>A在自己的ARP表中缓存了B的(IP,MAC)映射，<strong>直到超时</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224192351229.png" alt="image-20241224192351229"></p>
+<blockquote>
+<p><strong>情景2：主机A、B不在同一子网中</strong></p>
+<p>如果主机A的ARP表中没有B的ARP映射，但现在A需要知道B的MAC地址，获取的流程是？</p>
+</blockquote>
+<ul>
+<li>当两台主机在同一个子网，数据报可以从发送方直接交付接收方</li>
+<li>当两台主机在不同子网<ul>
+<li>源主机-源路由器间接交付</li>
+<li>路由器之间间接交付</li>
+<li>目的路由器与目的主机直接交付</li>
+</ul>
+</li>
+</ul>
+<p>与此同时，我们知道，通过IP地址的子网号可以判定是否在同一子网中。ARP协议会根据子网号判定A、B不在同一子网，因此<strong>不会广播ARP查询分组</strong>，而是向路由器发送<strong>查询MAC地址的IP数据报</strong></p>
+<ul>
+<li>同时还有一点值得注意：<strong>路由器会屏蔽广播的ARP查询分组，因为ARP分组是链路层帧，不是IP数据报，且不同子网不使用ARP来解析MAC</strong></li>
+</ul>
+<p>我们假设A的ARP表中也没有路由器的IP&#x2F;MAC映射</p>
+<p>具体过程：</p>
+<ul>
+<li>第一步，主机A通过ARP询问获得路由器的MAC地址(详细步骤如上所示)</li>
+<li>第二步，A发送帧给路由器R<ul>
+<li><code>(MAC.A，MAC.R，IP.A，IP.B)</code></li>
+<li>为什么帧中，目的MAC不是MAC.B？<ul>
+<li>这就回到了链路层概念。链路层是提供了<strong>节点到节点的交付</strong>，主机A和主机B不是节点邻居，主机A和路由器R才是(忽略透明的交换机)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>第三步，路由器R从帧中获取目的IP地址，查询转发表确定输出端口</li>
+<li>第四步，路由器R发送帧到主机B<ul>
+<li><code>(MAC.R，MAC.B，IP.A，IP.B)</code></li>
+<li>这里我们假设了AB之间只有一个路由器，路径如果更复杂，还会有更多的间接交付。但无论如何交付，都要记住一点：<strong>以太网帧中，只有源MAC地址和目的MAC地址一致在变，因为链路层是节点与节点间的交付；源IP和目的IP是始终不变的(抛开NAT不谈的情况下)</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224193544996.png" alt="image-20241224193544996"></p>
+<hr>
+<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h3><p>地址间的转换：</p>
+<p>主机名————&gt;IP地址————&gt;MAC地址</p>
+<ul>
+<li>DNS域名系统：将主机名解析到IP地址<ul>
+<li>DNS可以为<strong>因特网中任何地方的主机</strong>解析主机名</li>
+</ul>
+</li>
+<li>ARP地址解析协议：将IP地址解析到MAC地址<ul>
+<li>ARP只为<strong>在同一LAN下的节点</strong>解析IP地址</li>
+<li>不同子网间解析IP地址，需要<strong>间接交付</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-细节"><a href="#4-细节" class="headerlink" title="4.细节"></a>4.细节</h3><ul>
+<li>ARP将保存在高速缓存中的每一映射地址项目都设置生存时间，凡是超过生存时间的项目就从高速缓存中删掉</li>
+<li>从IP地址到硬件地址的解析是自动进行的，主机的用户对这种地址解析过程是不知道的</li>
+<li>ARP 是解决同一个子网中的主机或路由器的 IP 地址和硬件地址的映射问题</li>
+</ul>
+<hr>
+<h3 id="5-风险"><a href="#5-风险" class="headerlink" title="5.风险"></a>5.风险</h3><ul>
+<li>ARP欺骗</li>
+<li>ARP泛洪攻击</li>
+<li>欺骗主机攻击</li>
+<li>欺骗网关攻击</li>
+<li>中间人攻击</li>
+<li>…</li>
+</ul>
+<hr>
+<h3 id="6-例题"><a href="#6-例题" class="headerlink" title="6.例题"></a>6.例题</h3><p>1.书P333-14</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224202253000.png" alt="image-20241224202253000"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224202523976.png" alt="image-20241224202523976"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/54a22996137d5a803bf2664afd3aa77.jpg" alt="54a22996137d5a803bf2664afd3aa77"></p>
+<p>2.书P333-15</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241224194752038.png" alt="image-20241224194752038"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/aebf13240b741e8282074dbe2435b6e.jpg" alt="aebf13240b741e8282074dbe2435b6e"></p>
+<p>这道例题提到了一个一直被忽视的点：<strong>交换机的转发表</strong></p>
+<h2 id="7-交换机"><a href="#7-交换机" class="headerlink" title="7.交换机"></a>7.交换机</h2><h3 id="1-概述-1"><a href="#1-概述-1" class="headerlink" title="1.概述"></a>1.概述</h3><p>交换机的任务是接收<strong>入链路层</strong>的帧，并将它们转发到<strong>出链路</strong>。</p>
+<p>交换机对于子网中的主机和路由器来说是<strong>透明</strong>的！</p>
+<ul>
+<li>过滤：决定一个帧是应该转发到某个接口还是丢弃！</li>
+<li>转发：决定帧应该被导向哪个接口。</li>
+</ul>
+<p>特色：即插即用，自学习</p>
+<h4 id="2-交换机表"><a href="#2-交换机表" class="headerlink" title="2.交换机表"></a>2.交换机表</h4><p>交换机的转发表通常包含以下几部分内容：</p>
+<ul>
+<li><strong>MAC地址</strong>：每个连接到交换机的设备的物理地址（即网卡的MAC地址）</li>
+<li><strong>端口号</strong>：交换机上对应的端口号，表示该MAC地址所在的设备通过哪个端口连接到交换机</li>
+<li><strong>时间戳</strong>：记录该条目被添加到转发表中的时间，帮助交换机决定是否清除过期的条目。</li>
+</ul>
+<hr>
+<h4 id="2-转发-过滤"><a href="#2-转发-过滤" class="headerlink" title="2.转发&#x2F;过滤"></a>2.转发&#x2F;过滤</h4><p>当交换机接收到一个数据帧时，它会检查帧的目标MAC地址，然后查看转发表中是否有该MAC地址的映射。</p>
+<ul>
+<li>如果找到了对应的端口，交换机会将数据帧转发到该端口<ul>
+<li><strong>如果表中对应的端口&#x3D;接收端口，则过滤该帧</strong>（很重要！！！）</li>
+</ul>
+</li>
+<li>如果没有找到，交换机会进行广播，将帧发送到所有其他端口（除了接收端口）</li>
+</ul>
+<p>如果目标MAC地址就是广播地址<code>FF-FF-FF-FF-FF-FF</code>呢？</p>
+<ul>
+<li>交换机会直接进行广播，将帧发送到所有其他端口（除了接收端口，避免重复发送）</li>
+</ul>
+<hr>
+<h4 id="3-转发表更新"><a href="#3-转发表更新" class="headerlink" title="3.转发表更新"></a>3.转发表更新</h4><p>交换机的转发表是动态更新的，它会根据接收到的数据帧来更新。当交换机收到数据帧时，它会检查数据帧的源MAC地址，并记录下源MAC地址与接收到该帧的端口之间的映射关系。具体更新过程如下：</p>
+<ul>
+<li><strong>接收数据帧</strong>：交换机接收到数据帧后，会提取源MAC地址和目标MAC地址。</li>
+<li><strong>记录源MAC地址和端口号</strong>：交换机会将源MAC地址和接收到该帧的端口号存储到转发表中。<ul>
+<li>如果该MAC地址已经存在于转发表中，交换机会更新该条目，以确保源MAC地址与最新端口映射保持一致。</li>
+<li>如果该MAC地址不存在于转发表中，交换机会新增一条映射记录。</li>
+</ul>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Roeland</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://somefnone.github.io/2024/12/24/ji-wang-xue-xi-bi-ji-lian-lu-ceng/">https://somefnone.github.io/2024/12/24/ji-wang-xue-xi-bi-ji-lian-lu-ceng/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Roeland</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/12/31/ruan-jian-gong-cheng-dao-lun-bi-ji-1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="软件工程导论笔记-1">
+                        
+                        <span class="card-title">软件工程导论笔记-1</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Part 1
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-12-31
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" class="post-category">
+                                    软件工程导论
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">
+                        <span class="chip bg-color">软件工程导论</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/12/23/ji-wang-xue-xi-bi-ji-wang-luo-ceng-kong-zhi-ping-mian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="计网学习笔记-网络层(控制平面)">
+                        
+                        <span class="card-title">计网学习笔记-网络层(控制平面)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            网络层-控制平面
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-12-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 愚者的盥洗室<br />'
+            + '文章作者: Roeland<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Roeland</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">103.3k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "3";
+                        var startDate = "16";
+                        var startHour = "0";
+                        var startMinute = "56";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SomeFnone" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1229172423@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1229172423" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1229172423" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

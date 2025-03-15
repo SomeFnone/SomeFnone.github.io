@@ -1,0 +1,2154 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="计网学习笔记-应用层, 愚者的盥洗室">
+    <meta name="description" content="应用层">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>计网学习笔记-应用层 | 愚者的盥洗室</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">愚者的盥洗室</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">愚者的盥洗室</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">计网学习笔记-应用层</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                计算机网络
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-09-27
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-03-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    10.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    37 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <meta name="referrer" content="no-referrer"/>
+
+<h1 id="第二章-应用层"><a href="#第二章-应用层" class="headerlink" title="第二章 应用层"></a>第二章 应用层</h1><blockquote>
+<p>网络应用是计算机网络的重要功能之一</p>
+<p>创建一个新的网络应用需要注意：</p>
+<ul>
+<li><strong>编程</strong><ul>
+<li>在不同的端系统上运行</li>
+<li>通过网络基础设施提供的服务，应用进程之间彼此通信</li>
+<li>如Web应用程序，Web服务器程序和浏览器程序互相通信</li>
+</ul>
+</li>
+<li><strong>网络核心中没有应用层软件</strong><ul>
+<li>应用程序软件只在端系统运行，不需在网络核心设备上运行</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="1-应用层协议原理"><a href="#1-应用层协议原理" class="headerlink" title="1.应用层协议原理"></a>1.应用层协议原理</h2><h3 id="1-网络应用程序体系结构"><a href="#1-网络应用程序体系结构" class="headerlink" title="1.网络应用程序体系结构"></a>1.网络应用程序体系结构</h3><p>网络应用的体系结构共有3种：</p>
+<ul>
+<li>客户机&#x2F;服务器模式(<strong>C&#x2F;S</strong>)</li>
+<li>对等模式(<strong>P2P</strong>)</li>
+<li>混合体模式(<strong>C&#x2F;S+P2P</strong>)</li>
+</ul>
+<h4 id="1-C-S"><a href="#1-C-S" class="headerlink" title="1.C&#x2F;S"></a>1.C&#x2F;S</h4><p>客户机&#x2F;服务器体系结构如下所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240927191713701.png" alt="image-20240927191713701"></p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>服务器：<ul>
+<li>总是打开</li>
+<li>为<em>多个客户机</em>请求提供服务</li>
+<li>永久的、固定的IP地址</li>
+<li>可扩展为服务器集群</li>
+</ul>
+</li>
+<li>客户机<ul>
+<li>间歇打开(也可能是总打开的)</li>
+<li>向服务器发出请求</li>
+<li>具有动态的IP地址</li>
+<li>客户机彼此之间<strong>不直接通信</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>C&#x2F;S模式的缺陷</strong>：</p>
+<ul>
+<li>可扩展性差，性能随用户增加呈<strong>断崖式下降</strong>，不满足一般希望的线性下降</li>
+</ul>
+<h4 id="2-P2P"><a href="#2-P2P" class="headerlink" title="2.P2P"></a>2.P2P</h4><blockquote>
+<p>P2P，全称是<strong>peer to peer</strong>，peer的汉语称呼是“节点”</p>
+</blockquote>
+<p>对等模式的体系结构如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240927192049438.png" alt="image-20240927192049438"></p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>(几乎)没有一直运行的服务器</li>
+<li>任意端系统(<strong>对等方</strong>)之间可以<strong>直接通信</strong></li>
+<li>每个节点<strong>既是客户端，也是服务器</strong><ul>
+<li>自拓展性：新<strong>peer</strong>节点带来新的服务能力，也带来新的请求</li>
+</ul>
+</li>
+<li>对等方<strong>间歇连接</strong>，<strong>IP地址不固定</strong></li>
+</ul>
+<p><strong>优点</strong>：</p>
+<ul>
+<li>可扩展度高</li>
+</ul>
+<p><strong>缺陷</strong>：</p>
+<ul>
+<li>P2P管理困难</li>
+</ul>
+<h4 id="3-混合模式"><a href="#3-混合模式" class="headerlink" title="3.混合模式"></a>3.混合模式</h4><p>这里只讨论混合模式中的一种：<strong>C&#x2F;S+P2P</strong></p>
+<p>这种混合模式一般是这样：服务器用于用户的注册和定位，文件等数据的交换是通过P2P模式对等传输</p>
+<p>示例：</p>
+<ul>
+<li>Napster：MP3文件共享应用程序</li>
+<li>即时通信</li>
+</ul>
+<h3 id="2-进程通信"><a href="#2-进程通信" class="headerlink" title="2.进程通信"></a>2.进程通信</h3><blockquote>
+<p><strong>进程</strong>：在主机上<strong>运行</strong>的程序</p>
+<ul>
+<li>在同一主机内，使用<strong>进程间通信机制</strong>通信，如管道、消息队列等</li>
+<li>不同主机，通过交换<strong>报文</strong>来通信<ul>
+<li>使用OS提供的通信服务</li>
+<li>按照应用协议交换报文</li>
+</ul>
+</li>
+<li>根据功能可以将进程分为两类<ul>
+<li><strong>客户端进程</strong>：发起通信的进程</li>
+<li><strong>服务器进程</strong>：等待其他进程连接的进程</li>
+<li>需要注意的是，C&#x2F;S模式和P2P模式的应用<strong>都有</strong>客户端进程和服务器进程之分</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>我们这里主要研究的，就是<strong>分布式进程通信</strong>，也就是不同主机间的通信。</p>
+<p><strong>分布式进程通信</strong>需要解决的问题有：</p>
+<ul>
+<li>进程标示和寻址问题</li>
+<li>传输层-应用层提供了什么服务</li>
+<li>如何使用传输层提供的服务，实现应用进程之间的报文交换，实现应用</li>
+</ul>
+<h4 id="1-进程标示和寻址"><a href="#1-进程标示和寻址" class="headerlink" title="1.进程标示和寻址"></a>1.进程标示和寻址</h4><p>进程为了接收报文，必须有一个标识(当然，发送方也需要)</p>
+<p><strong>进程标识构成如下：</strong></p>
+<ul>
+<li>主机：唯一的<strong>32位IP地址</strong></li>
+<li>进程采用的传输协议：<strong>TCP&#x2F;UDP</strong></li>
+<li>端口号：TCP&#x2F;UDP使用的端口号不同<ul>
+<li>常用的周知端口：<ul>
+<li>Web应用：<code>port 80</code></li>
+<li>FTP：<code>port 21</code>(控制连接)</li>
+<li>Mail：<code>port 25</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>一个进程，用<code>IP+Port</code>标示出**”端节点”**(end point)</p>
+<p><strong>本质上，一对主机进程之间的通信就是由两个”端节点”构成的</strong></p>
+<h4 id="2-传输层-应用层间提供的服务"><a href="#2-传输层-应用层间提供的服务" class="headerlink" title="2.传输层-应用层间提供的服务"></a>2.传输层-应用层间提供的服务</h4><blockquote>
+<p>首先我们需要回顾一些概念：</p>
+<p><strong>SAP：<strong>服务访问点，描述网络协议栈中</strong>不同层之间的接口</strong>，是一个<strong>逻辑概念</strong></p>
+<p><strong>SDU</strong>：服务数据单元，也就是从上一层接收到的数据</p>
+<ul>
+<li>上一层的<strong>PDU</strong>，就是本层的<strong>SDU</strong></li>
+</ul>
+<p><strong>PDU</strong>：协议数据单元，将SDU与本层添加的头部信息封装后的数据</p>
+<ul>
+<li><strong>SDU</strong>和<strong>PDU</strong>都是<strong>OSI模型</strong>的概念，但放在因特网协议栈中也可以</li>
+</ul>
+<p><strong>端口与协议</strong>：每个端口号可以与不同的协议组合使用，例如TCP或UDP。<strong>同一个端口号可以被TCP和UDP分别使用</strong>，但它们是<strong>独立的</strong>。</p>
+<ul>
+<li>如，TCP端口80用于HTTP服务，但是UDP端口80就可以用于其他服务</li>
+</ul>
+<p><strong>传输层实体</strong>：<strong>传输层实体</strong>就是实现传输层协议（如TCP或UDP）功能的程序或模块，用于管理数据传输、连接控制和错误检测等任务。</p>
+</blockquote>
+<p>我们不妨思考一下，应用层的进程需要将什么数据传递给传输层，来实现不同主机间的进程通信？或者说，<strong>应用层和传输层之间的SAP需要携带什么信息？</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240927200048669.png" alt="image-20240927200048669"></p>
+<p>答案是：</p>
+<ul>
+<li><p>要传输的<strong>报文(message)</strong>：对传输层来说，就是<strong>SDU</strong></p>
+</li>
+<li><p>谁传递的信息：源应用进程的标示：<strong>IP + TCP&#x2F;UDP port</strong></p>
+</li>
+<li><p>传递给谁：目的应用进程的标示：<strong>IP + TCP&#x2F;UDP port</strong></p>
+</li>
+</ul>
+<p><strong>传输层实体</strong>(TCP实体或UDP实体)就会根据这些信息进行<strong>TCP报文段</strong>或<strong>UDP数据报</strong>的封装(这取决于你采用的是哪个运输层协议)</p>
+<ul>
+<li>报文数据就会作为<strong>SDU</strong></li>
+<li>源端口号、目的端口号就会作为<strong>PDU</strong>的头部信息</li>
+<li>源IP、目的IP也会存储在<strong>PDU</strong>内供网络层使用，用于封装网络层数据报</li>
+</ul>
+<blockquote>
+<p>但是真的应该这么做吗？每次都传递进程标示信息不是一种冗余和浪费吗？</p>
+<p><strong>如何减少传递的信息量？</strong></p>
+</blockquote>
+<h4 id="3-层间信息的代表-socket"><a href="#3-层间信息的代表-socket" class="headerlink" title="3.层间信息的代表-socket"></a>3.层间信息的代表-socket</h4><blockquote>
+<p>应用层和运输层之间的<strong>SAP</strong>：<strong>Socket</strong>，它提供了一种<strong>API</strong>，允许<strong>应用程序</strong>与<strong>运输层</strong>交互</p>
+<p><strong>socket</strong>就是一个用来标示通信双方或者单方的<strong>代号</strong>。利用<strong>socket</strong>，操作系统内核就可以通过它来识别和转发通信数据，而<strong>不需要数据携带进程标示了</strong></p>
+</blockquote>
+<p><strong>socket</strong>就像OS打开文件返回的<strong>句柄</strong>一样</p>
+<ul>
+<li>对句柄的操作，就是对文件的操作，对<strong>socket</strong>也是同理</li>
+<li><strong>socket</strong>也是和句柄一样，本身是一个<strong>整数</strong></li>
+<li><strong>socket</strong>同时也是一个<strong>本地标示</strong>，只有本地主机可以读取</li>
+<li>而socket又映射着一个<strong>二元组&#x2F;四元组的数据结构</strong>，其中是源进程标示&#x2F;目的进程标示</li>
+<li>每当有数据抵达时，网络栈会得到源IP(和目的IP)，操作系统就会根据这个IP来查找socket数据结构，寻找对应IP的socket。找到了对应的socket，也就是找到了对应进程</li>
+</ul>
+<h5 id="TCP-socket"><a href="#TCP-socket" class="headerlink" title="TCP socket"></a>TCP socket</h5><p><strong>TCP</strong>服务，两个进程之间的通信需要<strong>建立连接</strong></p>
+<p>对于使用面向连接服务(TCP)的应用而言，套接字是4元组的一个具有<strong>本地意义</strong>的标示：</p>
+<ul>
+<li>四元组：<strong>(源ip，源port，目的ip，目的port)</strong></li>
+<li>唯一的指定了一个<strong>会话</strong>(2个进程之间的会话关系)</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240927203715436.png" alt="image-20240927203715436"></p>
+<p>从上面的图示我们可以看到，<strong>同一端口，不同目的IP，套接字socket的值就不一样——socket代表的是会话关系，而不是主机关系</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240927203844939.png" alt="image-20240927203844939"></p>
+<h5 id="UDP-socket"><a href="#UDP-socket" class="headerlink" title="UDP socket"></a>UDP socket</h5><p><strong>UDP</strong>服务，两个进程之间的通信<strong>无需建立连接</strong></p>
+<ul>
+<li>每个报文都是<strong>独立传输</strong></li>
+<li>前后报文可能给到<strong>不同的</strong>分布式进程</li>
+</ul>
+<p>因此，<strong>UDP socket</strong>只代表二元组：<strong>(源ip，源port)</strong>，也就是<strong>源端节点</strong></p>
+<ul>
+<li>但也因此，传输报文时，<strong>必须提供目的IP和目的port</strong>(<strong>目的端节点</strong>)</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240927204316782.png" alt="image-20240927204316782"></p>
+<blockquote>
+<p>因此，我们可以形象的认为，套接字(socket)和门户是类似的。</p>
+<p>发送进程将报文<strong>推出</strong>门户，依赖传输层设施将报文交付给接受进程</p>
+<p>接收进程从另外一端的门户<strong>收到</strong>报文</p>
+</blockquote>
+<h3 id="3-使用传输层服务-应用层协议"><a href="#3-使用传输层服务-应用层协议" class="headerlink" title="3.使用传输层服务-应用层协议"></a>3.使用传输层服务-应用层协议</h3><p><strong>应用层协议</strong>定义了：运行在不同端系统上的应用<strong>进程</strong>如何相互交换报文</p>
+<ul>
+<li>交换的<strong>报文类型</strong>：请求和应答报文</li>
+<li>各种报文类型的<strong>语法</strong>：报文中的各个字段及其描述</li>
+<li>字段的<strong>语义</strong>：字段取值的含义</li>
+<li>进程何时、如何发送报文以及对报文进行响应的<strong>规则</strong></li>
+</ul>
+<p><strong>注意，应用层协议知识应用的一个组成部分</strong></p>
+<p>协议又分为<strong>公开协议</strong>和<strong>专用协议</strong></p>
+<h3 id="4-应用对传输层服务的需求指标"><a href="#4-应用对传输层服务的需求指标" class="headerlink" title="4.应用对传输层服务的需求指标"></a>4.应用对传输层服务的需求指标</h3><ul>
+<li>可靠的数据传输(<strong>数据丢失率</strong>)<ul>
+<li>数据不能丢失的应用：如文件传输</li>
+<li>能容忍一定丢失的应用：如多媒体应用</li>
+</ul>
+</li>
+<li>带宽(<strong>数据传输率&#x2F;吞吐</strong>)<ul>
+<li>带宽敏感的应用，要求<strong>最小限额的带宽</strong>：如因特网电话</li>
+<li>弹性应用，对带宽要求不大，可充分利用</li>
+</ul>
+</li>
+<li>延迟(<strong>数据传输的时间限制</strong>)<ul>
+<li>交互式实时应用：如web电话，交互式游戏</li>
+<li>非实时应用：不做限制</li>
+</ul>
+</li>
+<li>安全性<ul>
+<li>机密性</li>
+<li>完整性</li>
+<li>可认证性</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240927205413834.png" alt="image-20240927205413834"></p>
+<h3 id="5-因特网运输层提供的服务"><a href="#5-因特网运输层提供的服务" class="headerlink" title="5.因特网运输层提供的服务"></a>5.因特网运输层提供的服务</h3><h4 id="1-TCP服务"><a href="#1-TCP服务" class="headerlink" title="1.TCP服务"></a>1.TCP服务</h4><ul>
+<li><strong>面向连接的服务</strong><ul>
+<li>划分为三阶段</li>
+<li><strong>建立连接(握手过程)</strong><ul>
+<li>客户端程序与服务器程序互相交换控制信息，在两个进程的套接字之间建立TCP连接</li>
+<li>具体有<strong>3次握手</strong>：A向B发送连接请求，B向A发送同意并确认请求，A发送确认请求，AB确认连接。这其中，<strong>第3次握手的同时可以发送实际数据</strong></li>
+</ul>
+</li>
+<li><strong>传输报文</strong><ul>
+<li>连接是<strong>全双工</strong>的，即连接双方的进程可以在此连接上<strong>同时进行报文收发</strong></li>
+</ul>
+</li>
+<li><strong>拆除连接</strong><ul>
+<li>应用程序报文发送结束</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>可靠的传输服务</strong><ul>
+<li>无差错、按适当顺序交付数据</li>
+<li>无数据丢失和重复</li>
+</ul>
+</li>
+<li><strong>流量控制</strong><ul>
+<li>发送方发太快，接收方收太慢，被淹没</li>
+<li>出现上述情况时控制发送方速度</li>
+</ul>
+</li>
+<li><strong>拥塞控制</strong><ul>
+<li>发送方、接收方正常，但<strong>网络堵塞了</strong></li>
+<li>出现上述情况，抑制发送方速度</li>
+</ul>
+</li>
+<li><strong>不能提供的服务</strong><ul>
+<li>时间保证</li>
+<li>最小吞吐保证</li>
+<li>安全性</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-UDP服务"><a href="#2-UDP服务" class="headerlink" title="2.UDP服务"></a>2.UDP服务</h4><ul>
+<li><strong>不可靠数据传输</strong><ul>
+<li>不保证报文被接收&#x2F;报文乱序到达</li>
+</ul>
+</li>
+<li><strong>不提供的服务</strong><ul>
+<li>可靠传输</li>
+<li>建立连接(握手)</li>
+<li>流量控制、拥塞控制</li>
+<li>时间保证</li>
+<li>带宽保证</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-UDP存在的必要性"><a href="#3-UDP存在的必要性" class="headerlink" title="3.UDP存在的必要性"></a>3.UDP存在的必要性</h4><ul>
+<li>能够<strong>区分不同的进程</strong></li>
+<li><strong>无需建立连接</strong></li>
+<li><strong>不做可靠性的工作</strong>，适合实时性高而正确性低的应用</li>
+<li>没有拥塞控制和流量控制，<strong>应用能够按照设定的速度发送数据</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240927210637041.png" alt="image-20240927210637041"></p>
+<h3 id="6-安全TCP"><a href="#6-安全TCP" class="headerlink" title="6.安全TCP"></a>6.安全TCP</h3><p>我们知道，<strong>TCP&amp;UDP</strong>都是没有加密的，<strong>明文传输</strong></p>
+<p>因此，在应用层有一个协议<strong>SSL</strong></p>
+<ul>
+<li>在TCP上实现，提供加密的TCP连接</li>
+<li>私密性</li>
+<li>数据完整性</li>
+<li>端到端鉴别</li>
+</ul>
+<p>我们常说的<strong>HTTPS</strong>中的<strong>S</strong>，就是<strong>SSL</strong></p>
+<p>在第8章，还会认识到<strong>SSL socket API</strong>，应用通过API将明文交给socket，SSL将其加密后在互联网上传输</p>
+<h3 id="7-用户代理"><a href="#7-用户代理" class="headerlink" title="7.用户代理"></a>7.用户代理</h3><p>用户代理，<strong>是用户和网络应用程序之间的接口</strong></p>
+<p>例如：</p>
+<ul>
+<li>Web应用的用户代理：浏览器软件</li>
+<li>电子邮件应用的用户代理：”邮件阅读器”</li>
+</ul>
+<hr>
+<h2 id="2-Web-and-HTTP"><a href="#2-Web-and-HTTP" class="headerlink" title="2.Web and HTTP"></a>2.Web and HTTP</h2><blockquote>
+<p>Web是一个应用，HTTP是支持Web应用的一种协议</p>
+</blockquote>
+<p>一些术语：</p>
+<ul>
+<li>Web页：由一些对象组成<ul>
+<li>对象可以是HTML文件、JPEG图像、Java小程序、声音剪辑文件等</li>
+<li>对象之间不能互相包含，<strong>A对象只能包含B对象的链接</strong></li>
+</ul>
+</li>
+<li>Web页含有一个<strong>基本的HTML文件</strong>，该HTML又包含若干对象的引用(链接)</li>
+<li>我们通过**URL(统一资源定位符)**对每个对象进行引用</li>
+<li><strong>URL</strong>格式：<ul>
+<li><code>Prot</code>：协议名</li>
+<li><code>user:psw</code>：用户：口令(允许匿名访问时，<code>user:psw</code>不存在)</li>
+<li><code>www.someSchool.edu</code>：主机名</li>
+<li><code>port</code>：端口(HTTP协议默认80端口，FTP默认21端口，<strong>不用注明</strong>)</li>
+<li><code>/someDept/pic.gif</code>：路径名</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">Prot://user:psw@www.someSchool.edu:port/somDept/pic.gif<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="1-HTTP概况"><a href="#1-HTTP概况" class="headerlink" title="1.HTTP概况"></a>1.HTTP概况</h3><h4 id="1-HTTP：超文本传输协议"><a href="#1-HTTP：超文本传输协议" class="headerlink" title="1.HTTP：超文本传输协议"></a>1.<strong>HTTP：超文本传输协议</strong></h4><ul>
+<li><p>超文本：<strong>支持文本与文本、文本与其他媒体之间的动态、非线性指向关系</strong></p>
+</li>
+<li><p>Web的<strong>应用层协议</strong></p>
+</li>
+<li><p>客户端&#x2F;服务器模式</p>
+<ul>
+<li>客户端：请求、接收和显示Web对象的浏览器</li>
+<li>服务器：对请求进行响应，发送Web对象的服务器</li>
+</ul>
+</li>
+</ul>
+<p><em>不同厂商、不同客户端(浏览器)、不同服务器(Apache,Nginx…)能够互相通信的关键就是：<strong>他们都遵守HTTP协议</strong></em></p>
+<h4 id="2-使用TCP"><a href="#2-使用TCP" class="headerlink" title="2.使用TCP"></a>2.使用TCP</h4><p><strong>HTTP</strong>是建立在<strong>TCP</strong>服务之上的应用层协议</p>
+<p>具体流程：</p>
+<ul>
+<li>客户发起一个与服务器的TCP连接(建立套接字)，<strong>port &#x3D; 80</strong></li>
+<li>服务器接受客户的TCP连接请求</li>
+<li>浏览器和Web服务器交换<strong>HTTP报文</strong></li>
+<li>TCP连接关闭<ul>
+<li>换句话说，Web页面画完后，拆除TCP连接(不一定哦)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>在HTTP的通信过程中，服务器通常会涉及两个不同类型的套接字（socket）：<strong>守候socket</strong>（也叫监听socket）和<strong>连接socket</strong>。它们在TCP连接的建立和管理中各司其职。</p>
+<ul>
+<li><strong>守候socket</strong>是服务器端用来监听客户端的连接请求的套接字。<ul>
+<li>一旦监听到来自客户端的连接请求，<strong>守候socket</strong>将会接收连接请求，并创建一个新的<strong>连接socket</strong>负责具体通信，<strong>守候socket</strong>继续保持被动监听状态</li>
+<li><strong>守候socket</strong>不负责实际数据传输</li>
+</ul>
+</li>
+<li><strong>连接socket</strong>负责与特定的客户端进行通信</li>
+</ul>
+</blockquote>
+<h4 id="3-无状态"><a href="#3-无状态" class="headerlink" title="3.无状态"></a>3.无状态</h4><p><strong>HTTP是无状态的</strong>，服务器并不维护关于客户的任何信息</p>
+<blockquote>
+<p>为什么？</p>
+</blockquote>
+<p>维护状态的协议很复杂：</p>
+<ul>
+<li>必须维护历史信息</li>
+<li>如果服务器&#x2F;客户端死机，两者<strong>状态不一致</strong>，需要复杂的更新统一手段</li>
+<li><strong>无状态服务器</strong>能够支持<strong>更多的客户端</strong></li>
+</ul>
+<hr>
+<h3 id="2-HTTP连接"><a href="#2-HTTP连接" class="headerlink" title="2.HTTP连接"></a>2.HTTP连接</h3><p>HTTP的连接方式分为两种：<strong>非持久HTTP</strong>和<strong>持久HTTP</strong></p>
+<h4 id="1-非持久HTTP连接"><a href="#1-非持久HTTP连接" class="headerlink" title="1.非持久HTTP连接"></a>1.非持久HTTP连接</h4><ul>
+<li>一次TCP连接最多只能发送<strong>一个Web对象</strong></li>
+<li>下载多个对象需要<strong>多次TCP连接</strong></li>
+<li><strong>HTTP&#x2F;1.0</strong>使用非持久连接</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/%E9%9D%9E%E6%8C%81%E4%B9%85%E8%BF%9E%E6%8E%A5.jpg" alt="非持久连接"></p>
+<p>在上图中，有一个名词**”响应时间”**值得关注。</p>
+<h4 id="2-响应时间模型"><a href="#2-响应时间模型" class="headerlink" title="2.响应时间模型"></a>2.<strong>响应时间模型</strong></h4><p><strong>往返时间RTT(round-trip-time)</strong></p>
+<ul>
+<li>定义：一个<strong>小的分组</strong>从客户端到服务器，再回到客户端的时间</li>
+<li>注意：因为是**”小的分组”<strong>，所以</strong>传输时间忽略不计**，但从C端到S端(以及反过来)的<strong>传播时间不能忽略</strong></li>
+</ul>
+<p><strong>响应时间</strong></p>
+<ul>
+<li>一个<strong>RTT</strong>用于<strong>发起TCP连接</strong></li>
+<li>一个<strong>RTT</strong>用于<strong>发起HTTP请求并等待HTTP响应</strong></li>
+<li>文件传输时间(Web对象远大于”小分组”，故<strong>传输时间不能忽略</strong>)</li>
+</ul>
+<p><strong>因此，非持久连接时：</strong></p>
+<p>$$一个对象的响应时间 &#x3D; 2*RTT + 文件传输时间$$</p>
+<h4 id="3-持久HTTP连接"><a href="#3-持久HTTP连接" class="headerlink" title="3.持久HTTP连接"></a>3.持久HTTP连接</h4><blockquote>
+<p>可以看到，非持久HTTP连接的缺点很明显：</p>
+<ul>
+<li>每个对象都要2个RTT</li>
+<li>操作系统必须为每个TCP连接分配资源</li>
+<li>但浏览器通常打开并行TCP连接，以获取引用对象</li>
+</ul>
+</blockquote>
+<p>在<strong>HTTP&#x2F;1.0</strong>使用了非持久HTTP连接后，出于对其缺点的考量，<strong>HTTP&#x2F;1.1</strong>采用了<strong>持久HTTP连接</strong></p>
+<ul>
+<li>服务器端在发送完第一个<strong>HTTP响应</strong>(主体就是Web对象)之后，<strong>仍然保持TCP连接，不拆除</strong></li>
+<li>在相同客户端与服务器之间的后续请求和响应报文通过<strong>相同的连接进行传送</strong></li>
+<li>客户端在遇到一个引用对象时，就<strong>可以尽快发送</strong>该对象的请求</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/%E6%8C%81%E4%B9%85%E8%BF%9E%E6%8E%A5.jpg" alt="持久连接"></p>
+<p><strong>持久HTTP连接也分为两种</strong>，流水方式的持久HTTP和非流水方式的持久HTTP</p>
+<h5 id="1-非流水方式的持久HTTP"><a href="#1-非流水方式的持久HTTP" class="headerlink" title="1.非流水方式的持久HTTP"></a>1.非流水方式的持久HTTP</h5><ul>
+<li>客户端只能在<strong>收到前一个响应后才能发送新的请求</strong></li>
+<li>每个引用对象花费<strong>1个RTT</strong></li>
+</ul>
+<h5 id="2-流水方式的持久HTTP"><a href="#2-流水方式的持久HTTP" class="headerlink" title="2.流水方式的持久HTTP"></a>2.流水方式的持久HTTP</h5><ul>
+<li><strong>HTTP&#x2F;1.1的默认模式</strong></li>
+<li>客户端<strong>遇到一个引用对象就立即产生一个请求</strong>，不需要管是否有相应</li>
+<li>因此，所有引用对象只花费<strong>1个RTT</strong>都有可能</li>
+</ul>
+<hr>
+<h3 id="3-HTTP报文"><a href="#3-HTTP报文" class="headerlink" title="3.HTTP报文"></a>3.HTTP报文</h3><p>HTTP报文有两种类型：<strong>请求</strong>和<strong>响应</strong></p>
+<h4 id="1-HTTP请求报文"><a href="#1-HTTP请求报文" class="headerlink" title="1.HTTP请求报文"></a>1.HTTP请求报文</h4><p>HTTP请求报文是<code>ASCII码</code>编码，易读性强</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240928172012252.png" alt="image-20240928172012252"></p>
+<p>图片中的段落就是<strong>HTTP请求报文</strong>的<strong>头部</strong>，在<strong>额外的换行回车符</strong>之后，是可能存在的<strong>body部</strong>，存放的是请求的<strong>Web对象</strong></p>
+<ul>
+<li><code>Connection</code>行展示的是C&#x2F;S是否连接，按照<strong>HTTP&#x2F;1.1</strong>的默认设置，TCP连接是<strong>不中断</strong>的，但是这里<strong>人为设置中断</strong></li>
+<li>实质上，<code>Connection=keep-alive</code>表示连接是持久性的，<code>Connection=close</code>表示连接是非持久性的</li>
+</ul>
+<h5 id="1-通用格式"><a href="#1-通用格式" class="headerlink" title="1.通用格式"></a>1.通用格式</h5><p><strong>HTTP请求报文的通用格式如下图：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240928172402308.png" alt="image-20240928172402308"></p>
+<p>其中，<code>sp</code>是空格，<code>cr lf</code>是换行回车。</p>
+<h5 id="2-提交表单输入："><a href="#2-提交表单输入：" class="headerlink" title="2.提交表单输入："></a>2.<strong>提交表单输入</strong>：</h5><p>HTTP请求报文也是可以向服务器端<strong>发送数据</strong>的，具体有两种方式：</p>
+<ul>
+<li><strong><code>Post</code>方式</strong><ul>
+<li>方法：<code>POST</code>，实现表单输入</li>
+<li>包含在实体主题(entity body)中的输入被提交到服务器</li>
+</ul>
+</li>
+<li><strong><code>URL</code>方式</strong><ul>
+<li>方法：<code>GET</code></li>
+<li>在URL上加参数来向服务器提交相应信息</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">http://www.baidu.com/s?wd=xx+yy+zzz&amp;cl=3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><code>URL</code>中，<code>&quot;?&quot;</code>后面的就是参数项，参数之间用<code>&quot;&amp;&quot;</code>连接</p>
+<ul>
+<li>上述的URL中，参数是<code>wd</code>和<code>cl</code>，参数值分别是<code>xx+yy+zzz</code>和<code>3</code></li>
+</ul>
+<h5 id="3-方法类型"><a href="#3-方法类型" class="headerlink" title="3.方法类型"></a>3.方法类型</h5><p><strong>HTTP&#x2F;1.0</strong>：</p>
+<ul>
+<li><strong>GET</strong></li>
+<li><strong>POST</strong></li>
+<li><strong>HEAD</strong><ul>
+<li><code>HEAD</code>方法，表示<strong>只需要返回响应报文的头部</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>HTTP&#x2F;1.1</strong>：</p>
+<ul>
+<li><strong>GET、POST、HEAD</strong></li>
+<li><strong>PUT</strong><ul>
+<li>将实体主体(<strong>entity body</strong>)中的<strong>文件</strong> <strong>上载到URL字段规定的路径</strong></li>
+</ul>
+</li>
+<li><strong>DELETE</strong><ul>
+<li>删除<strong>URL</strong>字段规定的文件</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-HTTP响应报文"><a href="#2-HTTP响应报文" class="headerlink" title="2.HTTP响应报文"></a>2.HTTP响应报文</h4><p>HTTP响应报文也是<code>ASCII码</code>编码，易读性强</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240928173501813.png" alt="image-20240928173501813"></p>
+<ul>
+<li><code>Last-Modified</code>：请求的Web对象的最近修改时间(后面有用)</li>
+<li><code>Content-Length</code>：提示在<strong>额外的回车</strong>后，连续6821个字节是请求对象<ul>
+<li>因为客户端传输层是将响应报文的整体传到应用层，<strong>没有标记边界</strong>(比如，服务器传的请求对象是2个15kb块，客户端拿到的会是一个30kb块)，<strong>边界就是由首部行来维护的</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="3-HTTP响应状态码"><a href="#3-HTTP响应状态码" class="headerlink" title="3.HTTP响应状态码"></a>3.HTTP响应状态码</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240928173917603.png" alt="image-20240928173917603"></p>
+<hr>
+<h3 id="4-cookies"><a href="#4-cookies" class="headerlink" title="4.cookies"></a>4.cookies</h3><blockquote>
+<p>既然HTTP是无状态协议，那么如果有用户识别的需要，该怎么办？</p>
+</blockquote>
+<p>大多数主要的门户网站使用<strong>cookies</strong>来解决这个问题。</p>
+<p><strong>cookies</strong>的生成和传送过程：</p>
+<ul>
+<li><p>(首先需要明确的是，<strong>cookies的传送是在HTTP协议下的</strong>，因此只会出现在HTTP报文中)</p>
+</li>
+<li><p>客户端<strong>第一次访问</strong>，<strong>HTTP请求中没有cookies</strong></p>
+</li>
+<li><p>服务器端检查到该客户端是第一次访问，<strong>生成cookies保存在后端数据库</strong>，并<strong>在HTTP响应中添加一个cookies的首部行</strong></p>
+</li>
+<li><p>客户端收到HTTP响应，<strong>将头部的cookies首部行数据保存在浏览器的cookies文件中</strong></p>
+</li>
+<li><p>之后的每次<strong>HTTP请求</strong>，<strong>都会在请求中添加一个cookies的首部行</strong></p>
+<ul>
+<li>只要客户端和服务器端的cookies记录都存在，每次客户端要访问对应的网站，都会发cookie过去，无论间隔了多久</li>
+</ul>
+</li>
+<li><p>而后续的<strong>HTTP响应</strong>，就<strong>不需要再添加</strong>cookies首部行了</p>
+</li>
+</ul>
+<p>因此，<strong>cookies</strong>的<strong>4个组成部分</strong>分别是：</p>
+<ul>
+<li>HTTP响应报文中有一个cookies首部行</li>
+<li>HTTP请求报文中有一个cookies首部行</li>
+<li>用户端系统的浏览器保留有cookie文件</li>
+<li>Web服务器有一个cookies后端数据库</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240928191346926.png" alt="image-20240928191346926"></p>
+<p><strong>Cookies的作用：</strong></p>
+<ul>
+<li>用户验证</li>
+<li>购物车</li>
+<li>推荐算法</li>
+<li>用户状态(Web、email)</li>
+</ul>
+<p><strong>维持状态的方式当然不止cookies：</strong></p>
+<ul>
+<li>协议端节点：在多个事务上，发送端和接收端维持状态</li>
+<li>cookies：HTTP报文携带状态信息</li>
+</ul>
+<p><em><strong>当然，cookies也有弊端，隐私受到了侵犯</strong></em></p>
+<hr>
+<h3 id="5-Web缓存"><a href="#5-Web缓存" class="headerlink" title="5.Web缓存"></a>5.Web缓存</h3><blockquote>
+<p>想使用Web应用，最直接的方式就是客户端直接和**源Web服务器(origin server)**建立连接。但是，全球数以亿计的计算机、每秒千亿计的HTTP请求，源Web服务器根本做不到快速响应。那么，该怎么解决这个棘手的问题呢？</p>
+</blockquote>
+<p><strong>Web缓存(Web cache)</strong>，或者叫<strong>代理服务器(proxy server)</strong>，就是解决这一问题的手段。</p>
+<p><strong>Web缓存</strong></p>
+<ul>
+<li><p>目的：不访问<strong>源Web服务器</strong>，就满足客户的请求</p>
+</li>
+<li><p>方式：</p>
+<ul>
+<li>用户设置浏览器：<strong>通过缓存访问Web</strong></li>
+<li>浏览器将所有的HTTP请求发给缓存<ul>
+<li>**Hit(命中)：**请求的Web对象在缓存中，则直接返回给客户端</li>
+<li><strong>Miss(未命中)</strong>：代理服务器再请求原始服务器，将得到的对象<strong>保存到缓存中</strong>的同时，<strong>返回给客户端</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>位置：安装于<strong>本地LAN</strong>中，由<strong>ISP</strong>安装</p>
+<ul>
+<li>因此，访问<strong>Web缓存</strong>是不需要走<strong>Internet</strong>的，它也在局域网中</li>
+</ul>
+</li>
+<li><p>好处：</p>
+<ul>
+<li>降低客户端的请求响应时间</li>
+<li>减轻源Web服务器载荷</li>
+<li>减轻互联网载荷</li>
+</ul>
+</li>
+<li><p>前提：<strong>众多用户的访问具有趋同性</strong></p>
+<ul>
+<li>要是每个人要访问的都不同，那命中缓存的概率太低，也就没有安装Web缓存的必要了</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>下面是Web缓存方面的例题</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240928193851636.png" alt="image-20240928193851636"></p>
+<ul>
+<li>平均对象大小100kb，平均请求率15个&#x2F;s，那么HTTP响应到浏览器的速率是1.5Mbps</li>
+<li>局域网时延：<ul>
+<li>请求时延：几乎为0</li>
+<li>响应时延：1.5Mbps &#x2F; 1Gbps，约为10ms</li>
+</ul>
+</li>
+<li>因特网时延：2s</li>
+<li>接入链路时延(主要是排队时延，传输时延忽略)：<ul>
+<li>接入链路流量强度$I &#x3D; 1.5Mbps &#x2F; 1.54Mbps &#x3D; 99 %$</li>
+<li>接入链路时延$t_{queue} &#x3D; (0.99&#x2F;0.01) \cdot 100kb&#x2F;1.5Mbps ≈ 6.6s$</li>
+<li>如果流量强度足够大，时延将会是以分钟计</li>
+</ul>
+</li>
+<li>总时延 &#x3D; $10ms + 6.6s + 2s ≈ 9s$，甚至当链路带宽再小一些，总时延就有<strong>几分钟</strong>了</li>
+</ul>
+<blockquote>
+<p>$$t_{queue} &#x3D; (I&#x2F;1-I) \cdot L &#x2F; R$$</p>
+<p>$t_{queue}$为排队时延，$I$为流量强度，$L$是分组长度，$R$是链路速率</p>
+</blockquote>
+<p><strong>总计9秒，甚至几分钟的时延，在现代社会显然是不可接受的。怎么办？</strong></p>
+<h4 id="1-提高链路带宽"><a href="#1-提高链路带宽" class="headerlink" title="1.提高链路带宽"></a>1.提高链路带宽</h4><p>既然带宽太小，导致流量强度趋近1，形成阻塞，那么就提高链路带宽</p>
+<p><strong>提高之后，延时就主要由因特网时延决定，约为2s</strong></p>
+<p>当然，这样的坏处就是，<strong>给ISP的租金大幅提高，成本太高了</strong></p>
+<h4 id="2-安装本地缓存"><a href="#2-安装本地缓存" class="headerlink" title="2.安装本地缓存"></a>2.安装本地缓存</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240928200117383.png" alt="image-20240928200117383"></p>
+<blockquote>
+<p>还是同样的题目，只是现在多了本地Web缓存，且缓存命中率0.4</p>
+</blockquote>
+<p>40%的HTTP请求可以通过Web缓存获得</p>
+<ul>
+<li>本地时延$t_{1} &#x3D; 10ms$<ul>
+<li>这个10ms是估算值，毕竟局域网带宽有1Gbps，大概在这个范围内</li>
+</ul>
+</li>
+</ul>
+<p>60%的HTTP请求需要接入链路</p>
+<ul>
+<li>本地时延10ms</li>
+<li><strong>需要从链路回到客户端的数据速率变成原来的60%：0.6*1.5Mbps&#x3D;0.9Mbps</strong><ul>
+<li>链路流量强度$I &#x3D; 0.9Mbps &#x2F; 1.54Mbps &#x3D; 58 %$</li>
+<li>链路时延$t_{queue} &#x3D; (I&#x2F;1-I)·L&#x2F;R &#x3D; (0.58&#x2F;1-0&#x2F;58)·100kb&#x2F;1.54Mbps ≈ 80ms$</li>
+</ul>
+</li>
+<li>因特网时延2s</li>
+<li>总时延$t_{2} &#x3D; 10ms + 80ms + 2s &#x3D; 2.09s ≈ 2s$</li>
+</ul>
+<p>则最终的时延$t &#x3D; 0.4·t_{1} + 0.6·t_{2} &#x3D; 0.4·10ms + 0.6·2s &#x3D; 1.2s$</p>
+<p><strong>使用Web缓存后的总体延迟不仅显著低于没有任何措施的时候，也低于提升链路带宽方法！！！</strong></p>
+<h3 id="6-条件GET方法"><a href="#6-条件GET方法" class="headerlink" title="6.条件GET方法"></a>6.条件GET方法</h3><blockquote>
+<p>Web缓存难道毫无问题吗？显然不可能。</p>
+<p><strong>“源Web服务器更新了，但Web缓存没有更新”</strong>，这个问题怎么办？</p>
+</blockquote>
+<p>HTTP协议定义了一个方法：<strong>Conditional GET(条件GET)</strong></p>
+<ul>
+<li>目的：如果缓存器中的对象拷贝<strong>是最新的</strong>，就<strong>不需要源Web服务器发送对象</strong></li>
+<li>处理：<ul>
+<li>如果缓存是最新的，源Web服务器返回304，没有实体对象</li>
+<li>如果缓存陈旧，服务器返回200并携带实体对象(entity body)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240928202102634.png" alt="image-20240928202102634"></p>
+<ul>
+<li>这就是HTTP响应报文中的<code>Last-Modified</code>起作用的地方</li>
+</ul>
+<hr>
+<h2 id="3-FTP"><a href="#3-FTP" class="headerlink" title="3.FTP"></a>3.FTP</h2><p><strong>FTP</strong>，中文名称为<strong>文件传输协议</strong>，是较为古早的一种应用层文件传输协议，目前已逐渐被更受欢迎的<strong>HTTP协议</strong>取代</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240929201733890.png" alt="image-20240929201733890"></p>
+<p><strong>性质：</strong></p>
+<ul>
+<li>向远程主机上传输文件或从远程主机接收文件</li>
+<li>客户端&#x2F;服务器模式<ul>
+<li>客户端：发起传输的一方</li>
+<li>服务器：远程主机</li>
+</ul>
+</li>
+<li><strong>FTP</strong>协议有两个连接，一个是<strong>持久</strong>的<strong>控制连接</strong>，一个是<strong>非持久</strong>的<strong>数据连接</strong><ul>
+<li><strong>控制连接</strong>的<strong>端口号</strong>：<strong>21</strong>(一般我们说FTP的端口，就是指这个)</li>
+<li><strong>数据连接</strong>的<strong>端口号</strong>：<strong>20</strong></li>
+</ul>
+</li>
+<li><strong>FTP</strong>协议是建立在<strong>TCP连接</strong>之上的</li>
+</ul>
+<h3 id="1-控制连接与数据连接"><a href="#1-控制连接与数据连接" class="headerlink" title="1.控制连接与数据连接"></a>1.控制连接与数据连接</h3><blockquote>
+<p>FTP协议的特殊之处在于，控制连接和数据连接是分开的</p>
+</blockquote>
+<p><strong>控制连接</strong>：</p>
+<ul>
+<li><strong>由客户端发起</strong>，位于端口21，是<strong>持久连接</strong></li>
+<li>客户端通过控制连接获得<strong>身份确认</strong></li>
+<li>客户端通过控制连接发送命令<strong>浏览远程目录</strong></li>
+</ul>
+<p><strong>数据连接</strong>：</p>
+<ul>
+<li>收到客户端发来的文件传输命令时，<strong>服务器端发起一个到客户端20端口的数据连接</strong></li>
+<li>数据连接是<strong>非持久</strong>的，一次只能传递一个对象，之后就要拆除连接</li>
+</ul>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>FTP的控制信息是**带外(out of band)**传送<ul>
+<li>HTTP的控制信息是**带内(in-band)**传送</li>
+</ul>
+</li>
+<li>FTP协议是<strong>有状态协议</strong>，会对每个活动用户会话的状态进行追踪与保留，也因此限制同时会话的总数<ul>
+<li>HTTP是<strong>无状态协议</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-FTP命令及响应"><a href="#2-FTP命令及响应" class="headerlink" title="2.FTP命令及响应"></a>2.FTP命令及响应</h3><p>这部分不是重点，略过</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240929203750550.png" alt="image-20240929203750550"></p>
+<h2 id="4-Email"><a href="#4-Email" class="headerlink" title="4.Email"></a>4.Email</h2><h3 id="1-电子邮件系统总体结构"><a href="#1-电子邮件系统总体结构" class="headerlink" title="1.电子邮件系统总体结构"></a>1.电子邮件系统总体结构</h3><p>Email系统有<strong>3个主要组成部分</strong>：</p>
+<ul>
+<li>用户代理</li>
+<li>邮件服务器</li>
+<li>简单邮件传输协议：<strong>SMTP</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240930125209953.png" alt="image-20240930125209953"></p>
+<blockquote>
+<p>电子邮件在邮件服务器中的地址：<strong>用户邮箱名@主机名</strong></p>
+</blockquote>
+<h4 id="1-用户代理"><a href="#1-用户代理" class="headerlink" title="1.用户代理"></a>1.用户代理</h4><p><strong>用户代理</strong>，又名”<strong>邮件阅读器</strong>“，允许用户阅读、回复、发送、保存和撰写报文</p>
+<ul>
+<li>用户希望发送邮件时，<strong>邮件代理向其邮件服务器发送邮件</strong>，并存放在<strong>该邮件服务器的发送队列</strong>中</li>
+<li>用户希望读取邮件时，<strong>邮件代理从其邮件服务器中对应邮箱位置获取邮件报文</strong></li>
+</ul>
+<p>用户代理的种类有很多，最常见的是GUI，如Outlook和Foxmail等</p>
+<h4 id="2-邮件服务器"><a href="#2-邮件服务器" class="headerlink" title="2.邮件服务器"></a>2.邮件服务器</h4><p>邮件服务器维护着两个数据结构：<strong>邮箱</strong>和<strong>报文队列</strong></p>
+<ul>
+<li>邮箱：发送给用户的报文</li>
+<li>报文队列：用户要发出的邮件报文</li>
+</ul>
+<p>邮件发送的主要<strong>过程：</strong></p>
+<ul>
+<li>邮件保存到<strong>发送方</strong>邮件服务器的<strong>报文队列</strong></li>
+<li>通过<strong>SMTP协议转发</strong>到接收方邮件服务器，保存到相应<strong>邮箱</strong></li>
+<li>若投递失败，发送方将邮件保存在一个报文队列中，每隔30分钟再发一次，若数天后仍未成功，则删除该邮件并通知发送用户</li>
+<li>用户访问自己邮箱时，邮件服务器对其身份进行验证(用户名和口令<code>psw</code>)</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240930130305171.png" alt="image-20240930130305171"></p>
+<h3 id="2-邮件传输协议SMTP"><a href="#2-邮件传输协议SMTP" class="headerlink" title="2.邮件传输协议SMTP"></a>2.邮件传输协议SMTP</h3><p>**作用：**从发送方的邮件服务器向接收方的邮件服务器发送邮件</p>
+<p><strong>性质：</strong></p>
+<ul>
+<li>应用层协议</li>
+<li>使用<strong>TCP</strong>可靠数据传输，<strong>端口号25</strong></li>
+<li>使用<strong>持久连接</strong></li>
+<li><strong>直接传输</strong>，<strong>不使用中间邮件服务器</strong>，直接在源邮件服务器和目的邮件服务器之间建立TCP连接<ul>
+<li>传输的3个阶段：握手、传输报文、关闭</li>
+</ul>
+</li>
+<li>报文(<strong>首部和主体</strong>)必须是<strong>7位<code>ASCII</code>码(base64)</strong></li>
+</ul>
+<p><strong>包括两部分：</strong></p>
+<ul>
+<li>客户机端：在发送方邮件服务器上运行</li>
+<li>服务器端：在接收方邮件服务器上运行</li>
+<li>每个邮件服务器既是客户端，也是服务器端，因此，<strong>SMTP的客户机端和服务器端在每个邮件服务器上都存在</strong></li>
+</ul>
+<h3 id="3-SMTP与HTTP比较"><a href="#3-SMTP与HTTP比较" class="headerlink" title="3.SMTP与HTTP比较"></a>3.SMTP与HTTP比较</h3><p><strong>共同点：</strong></p>
+<ul>
+<li>都用于从一台主机向另一台主机传送文件</li>
+<li>都使用<strong>持久连接</strong></li>
+</ul>
+<p><strong>差异：</strong></p>
+<ul>
+<li><p><strong>HTTP</strong>是将报文<strong>从服务器发向客户端</strong>，<strong>SMTP</strong>是将报文<strong>从服务器发向服务器</strong></p>
+</li>
+<li><p><strong>HTTP</strong>是<strong>拉(pull)协议</strong>，也就是客户获取文件，<strong>TCP连接由想获取文件的机器发起</strong>；<strong>SMTP</strong>是<strong>推(push)协议</strong>，也就是客户发送文件，<strong>TCP连接由想发送文件的机器发起</strong></p>
+</li>
+<li><p><strong>SMTP</strong>要求报文使用**7位<code>ASCII</code>码(base64)**格式，<strong>HTTP</strong>没有这个要求</p>
+</li>
+<li><p>对于含有文本、图形或其他多媒体类型的文档：</p>
+<ul>
+<li><strong>HTTP</strong>将<strong>每个对象分别封装在各自的HTTP响应报文中</strong></li>
+<li><strong>SMTP</strong>将<strong>所有报文对象放在一个报文中</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-邮件报文格式"><a href="#4-邮件报文格式" class="headerlink" title="4.邮件报文格式"></a>4.邮件报文格式</h3><p>以下是发送报文的格式，接收报文只需要在首部行中加上一个<code>Receive:</code>即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240930132038067.png" alt="image-20240930132038067"></p>
+<blockquote>
+<p>早期只需要传输文字，因此SMTP报文主体的格式就设定为7位<code>ASCII</code>码，因此不能发送可执行文件、图片等多媒体类型</p>
+<p>但是如今，多媒体盛行，邮件传输也需要跟上时代</p>
+</blockquote>
+<p><strong>多媒体扩展：MIME</strong></p>
+<ul>
+<li><strong>MIME</strong>拓展的目的就在于实现<strong>非<code>ASCII</code>码数据传输</strong>，将非<code>ASCII</code>码数据编码后传输，接收方再解码还原</li>
+<li>在<strong>发送报文首部</strong>用<strong>额外的行</strong>申明<strong>MIME</strong>内容类型</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240930132516333.png" alt="image-20240930132516333"></p>
+<h3 id="5-邮件访问协议"><a href="#5-邮件访问协议" class="headerlink" title="5.邮件访问协议"></a>5.邮件访问协议</h3><blockquote>
+<p>SMTP协议将邮件报文发送到了目的用户的邮件服务器上，那么，目的用户该怎么从邮件服务器上取到邮件呢？</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240930132811926.png" alt="image-20240930132811926"></p>
+<p><strong>邮件访问协议</strong>：用户主动请求(<strong>pull</strong>)，从服务器上访问邮件(与SMTP的<strong>push</strong>不同)</p>
+<ul>
+<li><strong>POP</strong>协议：邮局访问协议<ul>
+<li>用户身份确认(用户代理与服务器进行)，然后下载邮件</li>
+</ul>
+</li>
+<li><strong>IMAP</strong>协议：<strong>Internet</strong>邮件访问协议<ul>
+<li>相比<strong>POP</strong>协议，更多特性，更复杂</li>
+<li>在服务器上处理存储的报文</li>
+</ul>
+</li>
+<li><strong>HTTP</strong>：基于Web的电子邮件访问</li>
+</ul>
+<h4 id="1-POP3协议"><a href="#1-POP3协议" class="headerlink" title="1.POP3协议"></a>1.POP3协议</h4><p><strong>POP3</strong>协议分为3个阶段：<strong>用户确认阶段</strong>、<strong>事务处理阶段</strong>和<strong>更新阶段</strong></p>
+<p><strong>注意：</strong></p>
+<ul>
+<li><strong>POP3</strong>是<strong>无状态协议</strong></li>
+<li><strong>POP3</strong>在用户浏览后，会给对应报文打上<code>delete</code>标签，在更新阶段<strong>删除邮件服务器上的邮件</strong></li>
+</ul>
+<h4 id="2-IMAP协议"><a href="#2-IMAP协议" class="headerlink" title="2.IMAP协议"></a>2.IMAP协议</h4><ul>
+<li><p><strong>IMAP</strong>服务器会将每个报文与一个文件夹联系起来</p>
+</li>
+<li><p>允许用户用目录来组织报文(<strong>远程管理文件夹</strong>)</p>
+</li>
+<li><p>允许用户读取报文组件</p>
+</li>
+<li><p><strong>IMAP</strong>是<strong>有状态协议</strong>，在会话过程中保留用户状态</p>
+<ul>
+<li>目录名、报文ID和用户名之间映射</li>
+</ul>
+</li>
+<li><p><strong>IMAP</strong>协议<strong>不会</strong>在用户阅览后<strong>自动删除邮件</strong>，只有发送删除命令才会</p>
+</li>
+</ul>
+<h4 id="3-基于Web的电子邮件"><a href="#3-基于Web的电子邮件" class="headerlink" title="3.基于Web的电子邮件"></a>3.基于Web的电子邮件</h4><p>用户使用浏览器来收发电子邮件的技术，就是<strong>基于Web的电子邮件技术</strong></p>
+<ul>
+<li>用户与其远程邮箱之间的通信通过<strong>HTTP</strong>进行</li>
+</ul>
+<hr>
+<h2 id="5-DNS"><a href="#5-DNS" class="headerlink" title="5.DNS"></a>5.DNS</h2><p><strong>DNS</strong>，全名<strong>Domain Name System</strong>，即域名系统，是<strong>应用层协议</strong></p>
+<p>为什么会有DNS？</p>
+<ul>
+<li><p>主机、路由器的标识是<strong>IP</strong></p>
+</li>
+<li><p>但是如今的IPv4、IPv6不好记忆，不便于人类使用</p>
+</li>
+<li><p>人类倾向于使用一些有意义的字符串来标识互联网上的设备</p>
+</li>
+<li><p>因此，存在着**”字符串”与IP地址之间的转换的必要性**</p>
+</li>
+<li><p><strong>DNS</strong>就是负责将域名转换成二进制的网络IP地址的协议</p>
+</li>
+</ul>
+<blockquote>
+<p>但也因此，DNS系统需要解决几个问题：</p>
+<p>问题1：如何命名设备？</p>
+<ul>
+<li>首先，名称要有意义，否则仍然不便于记忆</li>
+<li>其次，为了避免重复，还需要层次化命名</li>
+</ul>
+<p>问题2：如何完成名字到IP地址的转换</p>
+<p>问题3：如何维护：增删改查一个域？</p>
+</blockquote>
+<h3 id="1-DNS总体思路与目标"><a href="#1-DNS总体思路与目标" class="headerlink" title="1.DNS总体思路与目标"></a>1.DNS总体思路与目标</h3><p><strong>DNS主要思路</strong>：</p>
+<ul>
+<li><p><strong>分层</strong>的，基于**域(domain)**的命名机制</p>
+</li>
+<li><p>若干<strong>分布式</strong>数据库完成名字到IP地址的转换</p>
+</li>
+<li><p>运行在<strong>UDP</strong>协议上，<strong>端口号53</strong>的<strong>应用服务</strong></p>
+</li>
+<li><p><strong>DNS</strong>是<strong>Internet</strong>的<strong>核心功能</strong>，但却是以<strong>应用层协议</strong>来实现的</p>
+<ul>
+<li>在网络边缘实现了网络核心的功能——复杂性的体现</li>
+</ul>
+</li>
+</ul>
+<p><strong>DNS主要目的</strong>：</p>
+<ul>
+<li>实现**”主机名-IP地址”**的转换</li>
+<li>其他目的<ul>
+<li><strong>主机别名</strong>到<strong>规范名字</strong>的转换<ul>
+<li>例如，<code>yale.edu</code>其实是<strong>主机别名</strong>，规范名字是标注有Web服务器所在的刀片服务器的各种信息的名称</li>
+</ul>
+</li>
+<li><strong>邮件服务器别名</strong>到<strong>邮件服务器正规名字</strong>的转换<ul>
+<li>例如，<code>hnu.edu.cn</code>是湖南大学邮件服务器的别名，需要转换到邮件服务器正规名字</li>
+</ul>
+</li>
+<li><strong>负载均衡</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-DNS名字空间"><a href="#2-DNS名字空间" class="headerlink" title="2.DNS名字空间"></a>2.DNS名字空间</h3><blockquote>
+<p>回答问题1：如何命名设备？</p>
+</blockquote>
+<p><strong>DNS域名结构</strong>：</p>
+<ul>
+<li><p><strong>DNS</strong>采用<strong>层次树状结构</strong>的命名方法</p>
+</li>
+<li><p><strong>Internet 根</strong>被划分为数百个<strong>顶级域</strong>：</p>
+<ul>
+<li><strong>通用的(generic)</strong><ul>
+<li><code>.com, .edu, .gov, .int, .net, .org, ....</code></li>
+</ul>
+</li>
+<li><strong>国家的(countries)</strong><ul>
+<li><code>.cn, .us, .nl, .jp</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>每个域</strong>下面可划分为<strong>若干子域</strong></p>
+</li>
+<li><p>层次树状结构的<strong>树叶，就是主机</strong></p>
+</li>
+</ul>
+<h4 id="1-根名字服务器"><a href="#1-根名字服务器" class="headerlink" title="1.根名字服务器"></a>1.根名字服务器</h4><p>全球共计13个根名字服务器，位于北美、欧洲、日本</p>
+<p>根名字服务器可做镜像</p>
+<h4 id="2-域名"><a href="#2-域名" class="headerlink" title="2.域名"></a>2.域名</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240930164126272.png" alt="image-20240930164126272"></p>
+<p><strong>域名(Domain Name)：</strong></p>
+<ul>
+<li>从本域往上，直到树根，中间用”.”间隔不同的级别<ul>
+<li>主机永远是树叶，而域是树根</li>
+<li>例如：<code>ustc.edu.cn</code>，<code>cs.yale.edu</code>等</li>
+</ul>
+</li>
+<li><strong>域的域名</strong>：标识一个域(从树枝往上走)<ul>
+<li>例如上图中的：<code>cs.yale.edu</code>就是耶鲁计算机系的域</li>
+</ul>
+</li>
+<li><strong>主机的域名</strong>：标识一个域中的一个主机(从树叶往上走)<ul>
+<li>例如上图中的：<code>linda.cs.yale.edu</code>就是耶鲁计算机系域中的一台主机</li>
+</ul>
+</li>
+</ul>
+<p><strong>域名的管理：</strong></p>
+<ul>
+<li>一个域管理其下的<strong>子域</strong><ul>
+<li>例如，<code>.jp</code>被划分为<code>ac.jp</code>，<code>co.jp</code>等；而<code>.cn</code>被划分为<code>edu.cn</code>，<code>com.cn</code>等</li>
+</ul>
+</li>
+<li>创建一个新的域，必须征得它所属域的同意</li>
+</ul>
+<p><strong>域与物理网络无关：</strong></p>
+<ul>
+<li>域遵从组织界限，而不是物理网络<ul>
+<li>说人话就是，<strong>一个域的主机可以不在一个网络中</strong>，<strong>一个网络的主机不一定在一个域</strong></li>
+</ul>
+</li>
+<li>域的划分是<strong>逻辑</strong>的，而不是<strong>物理</strong>的</li>
+</ul>
+<h3 id="3-名字服务器"><a href="#3-名字服务器" class="headerlink" title="3.名字服务器"></a>3.名字服务器</h3><blockquote>
+<p>回答问题2：如何完成名字到IP地址的转换</p>
+<p><strong>名字服务器(Name Server)</strong>，就是提供<strong>名字与IP对应</strong>的数据库供客户请求时进行查找转换的工具</p>
+</blockquote>
+<h4 id="1-only-one-name-server"><a href="#1-only-one-name-server" class="headerlink" title="1.only one name server?"></a>1.only one name server?</h4><p><strong>只有一个名字服务器</strong>必然会导致一系列的问题：</p>
+<ul>
+<li>**可靠性问题：**单点故障</li>
+<li>**扩展性问题：**通信容量</li>
+<li>**维护性问题：**远距离的集中式数据库</li>
+</ul>
+<h4 id="2-区域Zone"><a href="#2-区域Zone" class="headerlink" title="2.区域Zone"></a>2.区域Zone</h4><blockquote>
+<p><strong>区域</strong>就是用来替代”<strong>只有一个名字服务器</strong>“的方案，<strong>将整个DNS名字空间划分成若干区域</strong></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007203612407.png" alt="image-20241007203612407"></p>
+<ul>
+<li>区域的划分由<strong>区域管理者决定</strong></li>
+<li>将DNS名字空间划分为<strong>互不相交</strong>的区域，每个区域都是树的一部分</li>
+</ul>
+<p><em>那么，划分出区域后，名字服务器又该怎么部署？</em></p>
+<ul>
+<li><strong>每个区域</strong>都有1个<strong>权威名字服务器</strong>，用来维护区域内<strong>域名与IP映射的权威信息</strong><ul>
+<li>当然，权威名字服务器是<strong>做冗余设计的</strong>，也就是权威名字服务器不止一个</li>
+</ul>
+</li>
+<li><strong>子域</strong>如果因为自身流量需求大等原因，<strong>需要自己的权威名字服务器</strong>，那么是<strong>允许</strong>的<ul>
+<li>如果是这样，那么区域的权威名字服务器只需要一个<strong>指向子域权威名字服务器的”指针”记录</strong>即可(见后)，<strong>子域内的所有映射关系</strong>就<strong>不保存</strong>在<strong>区域权威名字服务器</strong>中了</li>
+</ul>
+</li>
+<li>名字服务器<strong>允许被放置在区域之外</strong>，以保障可靠性</li>
+</ul>
+<h4 id="3-TLD服务器"><a href="#3-TLD服务器" class="headerlink" title="3.TLD服务器"></a>3.TLD服务器</h4><p>**顶级域(TLD)服务器：**负责通用顶级域名(如<code>com, org, net, edu</code>)和所有国家级的顶级域名(如<code>cn, uk, fr, ca, jp</code>)</p>
+<h4 id="4-资源记录"><a href="#4-资源记录" class="headerlink" title="4.资源记录"></a>4.资源记录</h4><blockquote>
+<p><strong>区域权威名字服务器</strong>维护的内容的名字是：资源记录(resource records)，简称RR</p>
+</blockquote>
+<p><strong>资源记录</strong>：</p>
+<ul>
+<li>**作用：**维护 <strong>域名-IP地址映射</strong>&#x2F;&#x2F;<strong>别名-规范名映射</strong>&#x2F;&#x2F;<strong>邮件服务器别名-邮件服务器正式名</strong>&#x2F;&#x2F;<strong>子域信息</strong> 这几种映射关系</li>
+<li>**位置：**Name Server的分布式数据库中</li>
+</ul>
+<p><strong>RR格式：</strong></p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">(domain_name, ttl, type, class, value)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><p><strong>domain_name</strong>：域名</p>
+</li>
+<li><p><strong>ttl</strong>：全称<code>time to live</code>，即<strong>生存时间</strong>，决定RR应当从缓存中删除的倒计时</p>
+<ul>
+<li>分为两种：<strong>权威</strong>和<strong>缓冲记录</strong></li>
+<li><strong>权威</strong>的TTL相当大，类似于<strong>持久化</strong></li>
+<li><strong>缓冲记录</strong>的TTL一般不大，<strong>通常是2天</strong>，2天后就会删除这条RR<ul>
+<li>缓冲记录一般是将其他名字服务器的RR临时保存在本地的，因此为了一致性考虑，不能持久化</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>class</strong>：类别，对于<code>Internet</code>因特网协议栈，值通常是<strong>IN</strong></p>
+<ul>
+<li>当下，有些RR格式中省略了<code>class</code>，这表明它们默认<code>class==IN</code></li>
+</ul>
+</li>
+<li><p><strong>value</strong>：可以是数字&#x2F;域名&#x2F;ASCII串(取决于是哪种资源记录)</p>
+</li>
+<li><p><strong>type</strong>：类型，指资源记录的类型，具体见下图</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007214807615.png" alt="image-20241007214807615"></p>
+<h4 id="5-工作过程"><a href="#5-工作过程" class="headerlink" title="5.工作过程"></a>5.工作过程</h4><ul>
+<li><p>应用调用<strong>解析器(resolver)</strong></p>
+</li>
+<li><p>解析器作为客户，向名字服务器发出查询报文(<strong>封装在UDP段中</strong>)</p>
+</li>
+<li><p>名字服务器返回响应报文</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007215047895.png" alt="image-20241007215047895"></p>
+<h4 id="6-本地名字服务器"><a href="#6-本地名字服务器" class="headerlink" title="6.本地名字服务器"></a>6.本地名字服务器</h4><p>本地名字服务器，即<code>Local Name Server</code></p>
+<ul>
+<li>并不严格属于层次结构</li>
+<li>每个ISP都有一个本地DNS服务器，也就是本地名字服务器<ul>
+<li>也称之为”默认名字服务器“</li>
+</ul>
+</li>
+<li>当一个主机发起一个DNS查询时，查询被发送到其本地DNS服务器<ul>
+<li>本地名字服务器其实起着代理的作用，将查询转发到层次结构中</li>
+<li>如果查询在本地名字服务器中找到，就不需要再向互联网中发送查询了</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-名字解析过程"><a href="#7-名字解析过程" class="headerlink" title="7.名字解析过程"></a>7.名字解析过程</h4><ul>
+<li><strong>如果目标名字的资源记录保存在Local Name Server中</strong><ul>
+<li>本地名字服务器将IP&#x2F;name发回客户端</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007215919368.png" alt="image-20241007215919368"></p>
+<ul>
+<li><p><strong>如果不在：</strong></p>
+<ul>
+<li>有两种查询方式，一种是<strong>递归查询</strong>，一种是<strong>迭代查询</strong>，<strong>迭代查询</strong>是目前真正的查询方式</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007220037597.png" alt="image-20241007220037597"></p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007220113143.png" alt="image-20241007220113143"></p>
+<p><strong>如何提高性能？——缓存(cache)</strong></p>
+<ul>
+<li>一旦名字服务器学到了一个映射，就将该映射<strong>缓存</strong>起来</li>
+<li><strong>根服务器</strong>通常都在本地名字服务器中缓存着<ul>
+<li>这使得根名字服务器不用经常被访问</li>
+</ul>
+</li>
+<li>目的：<strong>提高效率</strong></li>
+<li>可能存在的问题：<strong>一致性</strong>，远程更新了本地还是旧的</li>
+<li>解决方案：<strong>TTL</strong>(默认2天)</li>
+</ul>
+<h3 id="4-DNS协议"><a href="#4-DNS协议" class="headerlink" title="4.DNS协议"></a>4.DNS协议</h3><p>DNS协议中，<strong>查询报文</strong>和<strong>响应报文</strong>的<strong>报文格式相同</strong></p>
+<p>其中最关键的是<strong>标识符identification</strong>：</p>
+<ul>
+<li>16bit，用于标识该查询，会被复制到对查询的响应报文中，以便让客户用它来匹配发送的请求和接收到的回答</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007221704237.png" alt="image-20241007221704237"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007221716654.png" alt="image-20241007221716654"></p>
+<h3 id="5-新增域"><a href="#5-新增域" class="headerlink" title="5.新增域"></a>5.新增域</h3><blockquote>
+<p>回答问题3：如何维护：增删改查一个域？</p>
+</blockquote>
+<p><strong>如何新增一个域？</strong></p>
+<ul>
+<li>在上级域的权威名字服务器中增加两条RR，指向这个新增子域的域名和域名服务器的地址</li>
+<li>在新增子域的名字服务器上运行DNS解析服务，负责本域的名字解析</li>
+</ul>
+<p>示例：在<code>com</code>域中建立一个<code>Network Utopia</code>(乌托邦)</p>
+<ul>
+<li><p>在<code>com</code>域的<code>TLD顶级域名字服务器</code>中插入两条RR记录：</p>
+<ul>
+<li>(networkutopia.com, dns1.networkutopia.com, NS)<ul>
+<li>乌托邦域名——&gt;乌托邦权威名字服务器域名</li>
+</ul>
+</li>
+<li>(dns1.networkutopia.com, 212.212.212.1, A)<ul>
+<li>乌托邦域名规范名——&gt;乌托邦域名权威名字服务器IP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>在<code>networkutopia.com</code>的权威名字服务器中确保有：</p>
+<ul>
+<li>用于<strong>Web服务器</strong>的<code>www.networkutopia.com</code>的<strong>类型为A</strong>的RR</li>
+<li>用于<strong>邮件服务器</strong>的<code>mail.networkutopia.com</code>的<strong>类型为MX</strong>的RR</li>
+</ul>
+</li>
+</ul>
+<p><em>删、改的方法类似</em></p>
+<h3 id="6-攻击DNS"><a href="#6-攻击DNS" class="headerlink" title="6.攻击DNS"></a>6.攻击DNS</h3><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007224857120.png" alt="image-20241007224857120"></p>
+<hr>
+<h2 id="6-套接字编程"><a href="#6-套接字编程" class="headerlink" title="6.套接字编程"></a>6.套接字编程</h2><p>套接字编程，即<strong>Socket编程</strong>。根据因特网协议栈中提供的两种传输层协议(TCP&#x2F;UDP)，有两种Socket类型，因此就有两种Socket编程</p>
+<p>需要注意的是：</p>
+<ul>
+<li><strong>开发者</strong>可控制<strong>Socket应用层端</strong></li>
+<li><strong>操作系统(OS)<strong>控制</strong>Socket运输层端</strong>，用户不可控制这部分</li>
+</ul>
+<h3 id="1-TCP套接字编程"><a href="#1-TCP套接字编程" class="headerlink" title="1.TCP套接字编程"></a>1.TCP套接字编程</h3><p><strong>TCP套接字</strong>需要注意的点是：</p>
+<ul>
+<li>服务器端通常会存在一个**”欢迎Socket”**，用来监听网络中的连接请求</li>
+<li>如果出现了发往所在服务器的连接请求，<strong>“欢迎Socket”<strong>接收这个请求，并</strong>创建</strong>一个**”连接Socket”<strong>来专门处理这个连接请求以及后续的通信，</strong>“欢迎Socket”继续监听**网络中的连接请求</li>
+<li>当然，现在为了提高性能，大部分的Web服务器只有一个**”欢迎Socket”进程**，出现连接请求后<strong>创建</strong>一个**”连接Socket”线程**来服务这一连接</li>
+</ul>
+<p><strong>专业术语</strong>：</p>
+<ul>
+<li><strong>流</strong>：流入或流出某进程的一串字符序列</li>
+<li><strong>输入流</strong>：来自某个输入源(如键盘)、或某个套接字(因特网的数据流入套接字)</li>
+<li><strong>输出流</strong>：到某个输出源(如显示器)、或某个套接字(数据通过套接字流向因特网)</li>
+</ul>
+<h4 id="1-TCP连接具体过程"><a href="#1-TCP连接具体过程" class="headerlink" title="1.TCP连接具体过程"></a>1.TCP连接具体过程</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007233005919.png" alt="image-20241007233005919"></p>
+<h4 id="2-TCP-Socket编程"><a href="#2-TCP-Socket编程" class="headerlink" title="2.TCP Socket编程"></a>2.TCP Socket编程</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007233053539.png" alt="image-20241007233053539"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007233104719.png" alt="image-20241007233104719"></p>
+<p><strong>具体代码省略</strong></p>
+<h3 id="2-UDP套接字编程"><a href="#2-UDP套接字编程" class="headerlink" title="2.UDP套接字编程"></a>2.UDP套接字编程</h3><h4 id="1-UDP连接具体过程"><a href="#1-UDP连接具体过程" class="headerlink" title="1.UDP连接具体过程"></a>1.UDP连接具体过程</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007233221562.png" alt="image-20241007233221562"></p>
+<h4 id="2-UDP-Socket编程"><a href="#2-UDP-Socket编程" class="headerlink" title="2.UDP Socket编程"></a>2.UDP Socket编程</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20241007233243741.png" alt="image-20241007233243741"></p>
+<p><strong>具体代码省略</strong></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Roeland</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://somefnone.github.io/2024/09/27/ji-wang-xue-xi-bi-ji-ying-yong-ceng/">https://somefnone.github.io/2024/09/27/ji-wang-xue-xi-bi-ji-ying-yong-ceng/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Roeland</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/10/09/ji-wang-xue-xi-bi-ji-yun-shu-ceng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="计网学习笔记-运输层">
+                        
+                        <span class="card-title">计网学习笔记-运输层</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            运输层
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-10-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/09/22/ji-wang-xue-xi-bi-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="计网学习笔记">
+                        
+                        <span class="card-title">计网学习笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            概述
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 愚者的盥洗室<br />'
+            + '文章作者: Roeland<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Roeland</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">103.3k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "3";
+                        var startDate = "16";
+                        var startHour = "0";
+                        var startMinute = "56";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SomeFnone" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1229172423@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1229172423" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1229172423" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

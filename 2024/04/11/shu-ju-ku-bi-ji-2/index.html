@@ -1,0 +1,1679 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="数据库笔记-2, 愚者的盥洗室">
+    <meta name="description" content="事务、性能与安全">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>数据库笔记-2 | 愚者的盥洗室</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">愚者的盥洗室</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">愚者的盥洗室</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据库笔记-2</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" class="post-category">
+                                数据库原理
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-11
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-03-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    24 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <meta name="referrer" content="no-referrer"/>
+
+<h2 id="四、事务"><a href="#四、事务" class="headerlink" title="四、事务"></a>四、事务</h2><h3 id="1-事务概念"><a href="#1-事务概念" class="headerlink" title="1.事务概念"></a>1.事务概念</h3><h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h4><ul>
+<li>事务是由一系列操作的序列构成的程序执行单元，这些操作<strong>要么都做，要么都不做</strong>，是<strong>不可分割</strong>的工作单位</li>
+<li>SQL中事务的定义<ul>
+<li>事务以<code>Begin transaction</code>开始，以<code>commit transaction</code>(提交事务)或<code>rollback transaction</code>结束(回滚，撤销已执行的那部分操作)</li>
+<li><code>Commit transaction</code>表示提交，事务正常结束</li>
+<li><code>Rollback transaction</code>表示事务非正常结束，撤销事务已做的操作，回滚到事务开始时的状态</li>
+<li>格式如下：</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">TRANSACTION</span> <span class="token keyword">BEGIN</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">(</span>一系列操作<span class="token punctuation">)</span>
+<span class="token keyword">END</span>
+<span class="token keyword">COMMIT</span><span class="token punctuation">;</span> <span class="token comment">-- 正常结束提交，commit不可省略！</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-事务特征"><a href="#2-事务特征" class="headerlink" title="2.事务特征"></a>2.事务特征</h4><ul>
+<li>一个事务本质是用户的一次业务请求，是对数据库的一组操作，这些操作涉及对 一个或多个数据项进行更新&#x2F;修改</li>
+<li>要求：中间状态对外部不可见</li>
+</ul>
+<h4 id="3-事务特性-ACID"><a href="#3-事务特性-ACID" class="headerlink" title="3.事务特性(ACID)"></a>3.事务特性(ACID)</h4><blockquote>
+<p>事务特性，即一个DBMS支持事务的话，其所必须满足的特性</p>
+</blockquote>
+<ul>
+<li><strong>原子性</strong>：事务中包含的所有操作要么全做，要么全不做。原子性由*<code>恢复机制</code>*实现</li>
+<li><strong>一致性</strong>：事务的执行必须保证数据库的一致性。事务开始前与结束后，数据库都应该处于一致性状态<ul>
+<li>一致性指的是，在外部看来，数据库中的数据总是正确的</li>
+<li>这涉及到了数据正确性的问题，分为两种情况：<ul>
+<li>出现故障(事务故障、系统崩溃、磁盘故障、灾难故障)时，数据会丢失&#x2F;残缺</li>
+<li>无故障时，因为数据组织不合理，而导致数据更新异常、冗余、数据不正确</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>隔离性</strong>：系统必须保证事务不受其他并发事务的影响。隔离性通过*<code>并发控制机制</code>*实现<ul>
+<li>对任何一对事务T1,T2，在T1看来，T2要么在T1开始前就已经结束，要么在T1完成后再执行</li>
+<li><strong>满足隔离性的条件</strong>：多事务并发执行，但从外部看，其结果与串行执行的结果一样</li>
+</ul>
+</li>
+<li><strong>持久性</strong>：一个事务一旦提交后，它对数据库的影响必须是永久的；系统发生故障不能改变事务的持久性；持久性通过*<code>恢复机制</code>*实现<ul>
+<li>一个事务一旦提交，即使随后发生故障，其结果在数据库中也不会丢失</li>
+<li>P.S.事务未commit前，write操作在写入新值的同时还会备份旧值，方便回滚。commit后，备份删除</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-事务生命周期图"><a href="#4-事务生命周期图" class="headerlink" title="4.事务生命周期图"></a>4.事务生命周期图</h4><p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240411192116309.png" alt="image-20240411192116309"></p>
+<hr>
+<h3 id="2-事务调度"><a href="#2-事务调度" class="headerlink" title="2.事务调度"></a>2.事务调度</h3><h4 id="1-定义-1"><a href="#1-定义-1" class="headerlink" title="1.定义"></a>1.定义</h4><ul>
+<li>有多个事务需要执行时，<strong>这组事务对应的所有操作的执行顺序</strong>称为这组事务的一个调度，表示<strong>事务的指令在系统中执行的时间顺序</strong></li>
+<li>一组事务的调度必须保证：<ul>
+<li>包含了该组所有事务的操作指令</li>
+<li>同一事务中的指令，在调度中的先后顺序，同其在事物内部的先后顺序必须保持一致</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-分类"><a href="#2-分类" class="headerlink" title="2.分类"></a>2.分类</h4><ul>
+<li><p>串行调度</p>
+<ul>
+<li>串行调度中，属于同一事务的指令紧挨一起</li>
+<li>对于n个事务的事务组，可以有n!个不同的串行调度</li>
+</ul>
+</li>
+<li><p>并行调度</p>
+<ul>
+<li>并行调度中，来自不同事务的指令可以交叉执行</li>
+<li>当并行调度<strong>等价</strong>于某个串行调度时，则称它是正确的</li>
+</ul>
+</li>
+<li><p>基本比较</p>
+<ul>
+<li>并行事务容易破坏数据库的一致性</li>
+<li>串行事务效率低</li>
+</ul>
+</li>
+<li><p>并行的优点</p>
+<ul>
+<li>一个事务由不同的步骤组成，所涉及的系统资源也不同。这些步骤可以并发执行，以提高系统的<strong>吞吐量</strong><ul>
+<li>吞吐量：数据库在单位时间内处理请求的数量(每秒处理多少条请求)<ul>
+<li>请求≠指令，请求通常指的是对数据库的一次操作请求，比如查询、插入、更新或删除数据等。请求可以是单个简单的操作，也可以是一组操作的组合。目前可以认为，请求＝事务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>系统中存在着周期不等的各种事务，串行会导致难于预测的时延。如果各个事务所涉及的是数据库的不同部分，采用并发会减少<strong>平均响应时间</strong>（例如事务操作的表各不相同）<ul>
+<li>平均响应时间：吞吐量的倒数(1&#x2F;吞吐量&#x3D;平均响应时间)</li>
+<li>注意，倒数关系仅在串行条件下始终满足，并行关系不一定</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-可恢复调度"><a href="#3-可恢复调度" class="headerlink" title="3.可恢复调度"></a>3.可恢复调度</h4><ul>
+<li><strong>事务的恢复</strong>：一个事务失败了，为保证事务的原子性，我们应该能够撤消（回滚）该事务对数据库已经造成的影响，如write过的数据项。如果有其它事务Tx读取了失败事务写入的数据，则该事务Tx也应该撤消（前提是Tx尚未commit，如果已经commited，那么就无法恢复，出现不一致）</li>
+<li><strong>可恢复调度</strong>：指该调度可以回滚，也就是，在需要回滚的步骤之间不能有COMMIT</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240411193744096.png" alt="image-20240411193744096"></p>
+<ul>
+<li>结合上述案例：可恢复调度是指，对于每对事务T1和T2，如果T2<strong>读取</strong>了T1所写的数据，则T1必须<strong>先于</strong>T2提交</li>
+</ul>
+<h4 id="4-无级联调度"><a href="#4-无级联调度" class="headerlink" title="4.无级联调度"></a>4.无级联调度</h4><ul>
+<li>级联回滚：因一个事务故障，导致一系列事务回滚的现象。因为需要撤销大量工作，一般应避免</li>
+<li><strong>无级联调度</strong>：不会发生级联回滚的调度<ul>
+<li>对于每对事务T1和T2，如果T2读取了T1所写的数据，则T1必须在T2<strong>读取前提交</strong></li>
+<li>因此，无级联调度必然是可恢复调度</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-Write-VS-Commit"><a href="#5-Write-VS-Commit" class="headerlink" title="5.Write VS Commit"></a>5.Write VS Commit</h4><ul>
+<li>Write(又称 save)<ul>
+<li>将数据项的值从内存中写入到数据库中，同时会备份好旧值，以便事务失败的时候需要回滚（将旧值写回该数据项），因此Write对数据库的修改是临时性的</li>
+</ul>
+</li>
+<li>Commit<ul>
+<li>事务提交之后，会终止该事务，并且所有的备份旧值会被清除，事务对数据项的修改（Write）将因为commit的完成，实现由临时性变为永久性。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-事务隔离性"><a href="#3-事务隔离性" class="headerlink" title="3.事务隔离性"></a>3.事务隔离性</h3><h4 id="1-事务问题"><a href="#1-事务问题" class="headerlink" title="1.事务问题"></a>1.事务问题</h4><ul>
+<li>丢失修改(写-写冲突)<ul>
+<li><strong>两个事务T1和T2读入同一数据并修改，T1提交的结果破坏了T2提交的结果，导致T2的修改丢失</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240411195616016.png" alt="image-20240411195616016"></p>
+<ul>
+<li>读脏数据——脏读(写-读冲突)<ul>
+<li><strong>事务T1修改某一数据，并将其写回磁盘，事务T2读取同一数据后，T1由于某种原因被撤消，这时T1已修改过的数据恢复原值，<code>T2读到的数据与数据库中数据不一致</code>，则T2读到的数据就是脏数据</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240411195800399.png" alt="image-20240411195800399"></p>
+<ul>
+<li>不能重复读(读-写冲突)<ul>
+<li><strong>事务T2读取某一数据后，事务T1对其做了修改，当T2再次读取该数据时，得到与前次不同的值，重复读导致不同值则表示出错，即不能重复读</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240411195900182.png" alt="image-20240411195900182"></p>
+<ul>
+<li>发生幻象<ul>
+<li><strong>事务T2按一定条件读取了某些数据后，事务T1插入了一些满足这些条件的数据，当T2再次按相同条件读取数据时，发现多了一些记录</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240411200011641.png" alt="image-20240411200011641"></p>
+<blockquote>
+<p>总结：</p>
+<p>丢失修改：两个事务读同一数据，各自修改后，先后写入时会出现吞掉某个修改的情况</p>
+<p>脏读：重点是回滚，读入数据与数据库数据不一致</p>
+<p>不可重复读：重点是update，数据在两次读取前被修改，导致同样的条件，读取的数据再次读取后值不一样了</p>
+<p>幻读：重点是insert&#x2F;delete，第一次和第二次读出来的<strong>记录数目</strong>不一样</p>
+</blockquote>
+<h4 id="2-事务隔离性级别"><a href="#2-事务隔离性级别" class="headerlink" title="2.事务隔离性级别"></a>2.事务隔离性级别</h4><ul>
+<li><p>数据库事务的隔离级别有4种，由高到低分别为：</p>
+<ul>
+<li>serializable(可串行化)：一个调度的执行必须等价于一个串行调度的结果</li>
+<li>repeatable read(可重复读)：只允许读取已提交的记录，并要求调度中，一个事务对同一记录的两次读取之间，不存在其它事务对该记录的更新（update）操作</li>
+<li>read committed(读提交)：只允许读取已提交的记录，但不要求可重复读 （两次读之间能够有其它事务的对数据项的更新）</li>
+<li>read uncommitted(读未提交)：允许读取未提交的记录</li>
+</ul>
+</li>
+<li><p>隔离性级别与不一致现象</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240411201105943.png" alt="image-20240411201105943"></p>
+<h4 id="3-冲突可串行化"><a href="#3-冲突可串行化" class="headerlink" title="3.冲突可串行化"></a>3.冲突可串行化</h4><h5 id="1-指令的顺序"><a href="#1-指令的顺序" class="headerlink" title="1.指令的顺序"></a>1.指令的顺序</h5><p>考虑一个调度S中的两条连续指令（仅限于read与 write操作）Ii与Ij，分别属于事务Ti与Tj</p>
+<p>①Ii &#x3D; read(Q), Ij &#x3D; read(Q);</p>
+<p>②Ii &#x3D; read(Q), Ij &#x3D; write(Q);</p>
+<p>③Ii &#x3D; write(Q), Ij &#x3D; read(Q);</p>
+<p>④Ii &#x3D; write(Q), Ij &#x3D; write(Q);</p>
+<p>在① 情况下，Ii与Ij的次序无关紧要。其余情况下，Ii与Ij的次序不同，其执行结果也不同，数据库最终状态也不同</p>
+<p><strong><code>先读后写或先写后读显然会导致结果不同，但先写后写的区别？——Q的备份值被改变了！</code></strong></p>
+<p><strong>WARNING：以上取决于read和write的对象是同一个，如果不是一个，又会有不同！</strong></p>
+<h5 id="2-冲突指令"><a href="#2-冲突指令" class="headerlink" title="2.冲突指令"></a>2.冲突指令</h5><p>当两条指令是不同事务在相同数据项上的操作，并且其中至少有一个是write指令时，则称这两条指令是冲突的</p>
+<p>如在②、③、④情况下，Ii与Ij 是冲突的</p>
+<p>非冲突指令交换次序不会影响调度的最终结果</p>
+<h5 id="3-冲突等价"><a href="#3-冲突等价" class="headerlink" title="3.冲突等价"></a>3.冲突等价</h5><p>如果调度S可以经过一系列<strong>非冲突指令</strong>交换转换成调度S’，则称调度S与S’是冲突等价的</p>
+<ul>
+<li><strong>交换操作都默认是两个连续的指令调换先后执行顺序</strong></li>
+<li><strong>不同事务的两条连续指令，对应不同数据项的话，任何操作都是不冲突的</strong></li>
+<li><strong>调度中，同一事务内的指令先后必须与原事务中的指令先后保持一致</strong></li>
+</ul>
+<h5 id="4-冲突可串行化定义"><a href="#4-冲突可串行化定义" class="headerlink" title="4.冲突可串行化定义"></a>4.冲突可串行化定义</h5><p><code>当一个调度S与一个串行调度冲突等价时，则称该调度是冲突可串行化的</code></p>
+<h5 id="5-冲突可串行化判定"><a href="#5-冲突可串行化判定" class="headerlink" title="5.冲突可串行化判定"></a>5.冲突可串行化判定</h5><ul>
+<li><p>判定方法——优先图</p>
+<ul>
+<li><p>一个调度S的优先图是这样构造的：它是一个有向图G &#x3D;（V，E），V是顶点集，E是边集。顶点集由所有参与调度的事务组成，边集由满足下述条件之一的边Ti—&gt; Tj组成：</p>
+<p> ①在Tj执行read(Q)之前，Ti执行write(Q)</p>
+<p> ②在Tj执行write(Q)之前，Ti执行read(Q)</p>
+<p> ③在Tj执行write(Q)之前，Ti执行write(Q)</p>
+</li>
+<li><p>总结：<strong>存在读写冲突或者写写冲突时，先操作的事务，指向后操作的事务：<code>Ti—&gt;Tj</code></strong></p>
+</li>
+</ul>
+</li>
+<li><p>判定标准</p>
+<ul>
+<li>如果优先图中存在边Ti—&gt;Tj ，则在任何等价于S的串行调度S’中，Ti都必须出现在Tj之前</li>
+<li><strong>如果调度S的优先图中有环，则S是非冲突可串行化的。如果图中无环，则S是冲突可串行化的</strong></li>
+</ul>
+</li>
+</ul>
+<h5 id="6-串行顺序"><a href="#6-串行顺序" class="headerlink" title="6.串行顺序"></a>6.串行顺序</h5><ul>
+<li>串行顺序可由拓扑排序得到，求出与优先图的偏序相一致的线序<ul>
+<li>也就是说，画出优先图，按照拓扑顺序拆解优先图得到的顺序就是事务串行顺序</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-封锁"><a href="#4-封锁" class="headerlink" title="4.封锁"></a>4.封锁</h3><h4 id="1-定义-2"><a href="#1-定义-2" class="headerlink" title="1.定义"></a>1.定义</h4><ul>
+<li>封锁就是一个事务对某个数据对象加锁，取得对它一定的控制，限制其它事务对该数据对象使用</li>
+<li>要访问一个数据项R，事务Ti必须先申请对R的封锁，如果R已经被事务Tj加了<strong>不相容</strong>的锁，则Ti需要等待，直至Tj释放它的封锁</li>
+</ul>
+<h4 id="2-基本锁类型"><a href="#2-基本锁类型" class="headerlink" title="2.基本锁类型"></a>2.基本锁类型</h4><ul>
+<li><strong>排它锁(X锁)</strong><ul>
+<li>事务T对数据对象R加上X锁，则<strong>其它事务对R的<em>任何</em>封锁请求都不能成功</strong>，直至T释放R上的X锁；又称写锁</li>
+<li>申请对R的排它锁：lock-X(R)</li>
+</ul>
+</li>
+<li><strong>共享锁(S锁)</strong><ul>
+<li>事务T对数据对象R加上S锁，则<strong>其它事务对R的X锁请求不能成功</strong>，而<strong>对R的S锁&#x2F;U锁请求可以成功</strong>；又称读锁</li>
+<li>申请对R的共享锁： lock-S(R)</li>
+</ul>
+</li>
+<li><strong>更新锁(U锁)</strong><ul>
+<li>事务T对数据对象R加上U锁，则表示R<strong><em>稍后</em>更新</strong>。<strong>修改值未写入时，U锁与S锁兼容，与X锁互斥；修改值写入时，U锁转换成为X锁</strong></li>
+<li>确切的说，更新锁是<code>“即将更新锁”</code></li>
+<li>这里的更新，是狭义上的更新，也就是替换旧值，<strong>不包括插入、删除</strong></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">相容矩阵comp(A,B)</th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">请求锁模式A</td>
+<td align="center">现有锁模式B</td>
+<td align="center">现有锁模式B</td>
+<td align="center">现有锁模式B</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">S</td>
+<td align="center">X</td>
+<td align="center">U</td>
+</tr>
+<tr>
+<td align="center">S</td>
+<td align="center">是</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">X</td>
+<td align="center">否</td>
+<td align="center">否</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center">U</td>
+<td align="center">是</td>
+<td align="center">否</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="3-锁持有期"><a href="#3-锁持有期" class="headerlink" title="3.锁持有期"></a>3.锁持有期</h4><ul>
+<li>保持到事务结束时才释放的锁：长锁</li>
+<li>在事务中途就可以释放的锁：短锁</li>
+<li>例：<ul>
+<li>可重复读(repeatable read)：长S锁</li>
+<li>读提交(read commited)：短S锁</li>
+<li>读不提交(read uncommited)：不申请锁</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-封锁粒度"><a href="#4-封锁粒度" class="headerlink" title="4.封锁粒度"></a>4.封锁粒度</h4><ul>
+<li><p>封锁对象</p>
+<ul>
+<li>属性值、属性值集合、元组、关系、某索引项（key）、整个索引、整个数据库、物理页、块</li>
+</ul>
+</li>
+<li><p>封锁粒度大，则并发度低，封锁机构简单，开销小</p>
+</li>
+<li><p>封锁粒度小，则并发度高，封锁机构复杂，开销高</p>
+</li>
+<li><p>理想的情况是<strong>只封锁与规定的操作有关的的数据对象</strong>，称之为事务的<strong>完整性相关域</strong></p>
+</li>
+<li><p><strong>意向封锁(预约封锁)</strong></p>
+<ul>
+<li>在分层封锁中，封锁了上层节点就意味着封锁了所有内层节点。如果有事务T1对某元组加了S锁，而事务T2对该元组所在的关系加了X锁，因而隐含地X封锁了该元组，从而造成矛盾</li>
+<li>引入意向锁I（Intend）：当某节点加上I锁，表明该节点的某些内层节点(子节点)已发生事实上的封锁，防止其它事务再去显式封锁该节点</li>
+<li>I锁的实施是<strong>从封锁层次的根开始，依次占据路径上的所有节点，直至要真正进行显式封锁的节点的父节点</strong>为止<ul>
+<li>下图中，S锁不兼容I锁的原因是，I锁有可能指的是IX锁</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240412154414404.png" alt="image-20240412154414404"></p>
+<ul>
+<li><strong>细化意向锁</strong><ul>
+<li><strong>IS锁</strong><ul>
+<li>如果对一个数据对象加IS锁，表示它的后裔节点拟（意向）加S锁</li>
+<li>例如，要对元组加S锁，则首先要对关系和数据库加IS锁</li>
+</ul>
+</li>
+<li><strong>IX锁</strong><ul>
+<li>如果对一个数据对象加IX锁，表示它的后裔节点拟（意向）加X锁</li>
+<li>例如，要对元组加X锁，则首先要对关系和数据库加IX锁<ul>
+<li><strong>IS和IX能够兼容是因为同一节点的后代可以一部分被加S锁，其它部分被加X锁，只要没有同一部分被冲突性加锁，就没问题</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240412154946231.png" alt="image-20240412154946231"></p>
+<p><strong><code>意向锁不是真的锁，只是一种提示，即某节点被加了意向锁之后，表明其下层后代节点存在对应的锁</code></strong></p>
+<h4 id="5-死锁"><a href="#5-死锁" class="headerlink" title="5.死锁"></a>5.死锁</h4><ul>
+<li><p><strong>定义</strong>：两个事务都封锁了一些数据对象，并相互等待对方释放另一些数据对象以便对其封锁，结果两个事务都不能结束，则发生死锁</p>
+</li>
+<li><p><strong>发生条件</strong></p>
+<ul>
+<li>①互斥条件：事务请求对资源的独占控制</li>
+<li>②占有等待条件：事务已持有一定资源，又去申请并等待其它资源</li>
+<li>③非抢占条件：直到资源被持有它的事务释放之前，不可能将该资源强制从持有它的事务夺去</li>
+<li>④循环等待条件：存在事务相互等待的等待圈</li>
+<li><strong>定理</strong>：<strong>在条件① ② ③成立的前提下，条件④是死锁存在的充分必要条件</strong><ul>
+<li>如下图所示，事务T2和T3间存在环——死锁</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SomeFnone/blog_pic@main/img/image-20240412155410401.png" alt="image-20240412155410401"></p>
+<ul>
+<li><p>预防死锁</p>
+<ul>
+<li>预先占据所需的全部资源，要么一次全部封锁要么全不封锁 <ul>
+<li>缺点：难于预知需要封锁哪些数据并且数据使用率低</li>
+</ul>
+</li>
+<li>所有资源预先排序，事务按规定顺序封锁数据</li>
+<li>使用抢占与事务回滚<ul>
+<li>wait-die(抢占)：如果T1等待T2，仅当T1的时间戳小于T2时，允许T1等待，否则回滚T1。</li>
+<li>wound-wait(回滚)：如果T1等待T2，仅当T1的时间戳大于T2时，允许T1等待，否则回滚T2</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>死锁检测和恢复</p>
+<ul>
+<li>超时法：如果等待封锁的时间超过限时，则撤销该事务</li>
+<li>等待图法(略)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="5-并发处理策略"><a href="#5-并发处理策略" class="headerlink" title="5.并发处理策略"></a>5.并发处理策略</h3><p>略</p>
+<hr>
+<h3 id="6-故障处理"><a href="#6-故障处理" class="headerlink" title="6.故障处理"></a>6.故障处理</h3><h4 id="1-分类"><a href="#1-分类" class="headerlink" title="1.分类"></a>1.分类</h4><ul>
+<li>事务故障</li>
+<li>系统崩溃故障(一般说的故障，默认是系统崩溃故障)</li>
+<li>硬件故障</li>
+<li>天灾</li>
+</ul>
+<h4 id="2-故障恢复的方法"><a href="#2-故障恢复的方法" class="headerlink" title="2.故障恢复的方法"></a>2.故障恢复的方法</h4><ul>
+<li>分页方法(效率低)</li>
+<li>日志方法(常用)</li>
+</ul>
+<h4 id="3-事务故障恢复"><a href="#3-事务故障恢复" class="headerlink" title="3.事务故障恢复"></a>3.事务故障恢复</h4><p><strong>特征：事务不能执行下去，未完成；</strong></p>
+<p>**恢复方法：**执行回卷(Rollback)操作：当事物Ti要撤销时，反向扫描日志内容，对Ti的每项数据操作记录，执行undo(Ti) 操作，使用旧值恢复数据项的原有值，即撤销事务已做的数据操作；直至遇到<Ti start> 记录为止，然后放弃Ti </p>
+<h4 id="4-系统崩溃故障"><a href="#4-系统崩溃故障" class="headerlink" title="4.系统崩溃故障"></a>4.系统崩溃故障</h4><h5 id="1-方法"><a href="#1-方法" class="headerlink" title="1.方法"></a>1.方法</h5><p>①重启数据库管理系统；</p>
+<p>②从日志磁盘读取日志文件；</p>
+<p>③反向扫描日志，即从日志文件的结束位置开始后向扫描。对于在日志记录中没有<Ti commit> 记录的事物，执行回卷操作(Rollback)，使用旧值恢复数据项，做undo( )处理:</p>
+<p>④然后从日志文件的开始位置前向扫描。 对日志记录中含有<Ti commit>的事务，执行redo(Ti) 操作，使用新值赋值数据库中的数据项，确保事物的有效性；</p>
+<h5 id="2-检查点-加快故障恢复"><a href="#2-检查点-加快故障恢复" class="headerlink" title="2.检查点(加快故障恢复)"></a>2.检查点(加快故障恢复)</h5><ul>
+<li><p>概念</p>
+<ul>
+<li>**做检查点的目的：***<strong>加快系统崩溃故障恢复过程</strong> <strong>。基于如下观察：</strong><ul>
+<li>*扫描整个日志文件很费时；</li>
+<li>对已经输出到了数据库磁盘的事务数据项没有必要再做redo操作；**</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>周期性地</strong>做检查点(checkpointing):</p>
+<p>①<strong>暂停所有当前活动事务；</strong></p>
+<p>②<strong>把日志缓冲区中的所有日志记录输出到日志磁盘；</strong></p>
+<p>③<strong>把数据库缓冲区中的所有修改输出到数据库磁盘；</strong></p>
+<p>④<strong>写一条</strong> <strong>&lt; checkpoint, &lt;** **当前活动事务的标识号列表** **&gt;&gt;</strong> <strong>日志记录到日志磁盘；</strong></p>
+</li>
+<li><p>有检查点的系统崩溃恢复</p>
+<ul>
+<li><strong>①从日志文件的结尾处反向扫描，直至遇到最近的 <checkpoint> 记录为止；</strong></li>
+<li><strong>②对反向扫描中只有<Ti start> 而没有<Ti commit>的事务，执行回卷操作(Rollback (Ti) )，做撤销处理；</strong></li>
+<li><strong>③从<checkpoint>开始前向扫描日志记录，对有<Ti commit>的事务，执行redo(Ti)操作，保证其生效；</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="5-数据库磁盘故障"><a href="#5-数据库磁盘故障" class="headerlink" title="5.数据库磁盘故障"></a>5.数据库磁盘故障</h4><h5 id="1-处理手段：备份操作-Dump"><a href="#1-处理手段：备份操作-Dump" class="headerlink" title="1.处理手段：备份操作(Dump)"></a>1.处理手段：备份操作(Dump)</h5><p>周期性地执行备份(dump) 操作，对磁盘数据库进行磁盘备份:</p>
+<ul>
+<li><p>①不再接收客户事务请求，让当前所有活动事务执行完毕；</p>
+</li>
+<li><p>②输出日志缓冲区中的日志记录到日志磁盘中;</p>
+</li>
+<li><p>③输出数据库缓冲区中的缓冲数据到数据库磁盘中;</p>
+</li>
+<li><p>④把数据库磁盘中的数据库文件拷贝到另一个磁盘上；</p>
+</li>
+<li><p>⑤往日志磁盘中写入一条 <dump> 日志记录；</p>
+</li>
+<li><p>⑥接收客户事物请求，恢复正常处理；</p>
+</li>
+</ul>
+<h5 id="2-数据库磁盘故障的特征：数据库数据全部丢失"><a href="#2-数据库磁盘故障的特征：数据库数据全部丢失" class="headerlink" title="2.数据库磁盘故障的特征：数据库数据全部丢失"></a>2.数据库磁盘故障的特征：<strong>数据库数据全部丢失</strong></h5><h5 id="3-恢复方法"><a href="#3-恢复方法" class="headerlink" title="3.恢复方法"></a>3.恢复方法</h5><p>①用最近备份的数据库磁盘替换掉失效的数据库磁盘；</p>
+<p>②重启数据库管理系统；</p>
+<p>③读日志文件，从文件末尾反向扫描直至<dump>记录；</p>
+<p>④再顺向扫描日志记录，对有<Ti commit>记录的事务做redo(Ti)操作；</p>
+<p><strong>忽略哪些dump-故障之间未完成的事务，因为不需要处理了，数据都没了</strong></p>
+<h4 id="6-日志磁盘故障"><a href="#6-日志磁盘故障" class="headerlink" title="6.日志磁盘故障"></a>6.日志磁盘故障</h4><p>日志本来就是冗余的，只要数据库不发生故障，日志就没用场</p>
+<p><strong>恢复方法：</strong></p>
+<p>①不再接收客户事务请求，让当前的所有活动事务执行完毕；</p>
+<p>②输出数据库缓冲区中的缓冲数据到数据库磁盘中;</p>
+<p>③执行备份(Dump)操作，把磁盘中的数据库文件拷贝到另一个磁盘上；</p>
+<p>④用一个好的磁盘更换日志磁盘；</p>
+<p>恢复正常处理；</p>
+<ul>
+<li>日志磁盘和数据库磁盘同时故障——<strong>无法恢复</strong></li>
+</ul>
+<h4 id="7-灾难故障-容灾"><a href="#7-灾难故障-容灾" class="headerlink" title="7.灾难故障(容灾)"></a>7.灾难故障(容灾)</h4><p>远程备份</p>
+<hr>
+<h2 id="五、性能提升"><a href="#五、性能提升" class="headerlink" title="五、性能提升"></a>五、性能提升</h2><h3 id="1-数据库性能指标"><a href="#1-数据库性能指标" class="headerlink" title="1.数据库性能指标"></a>1.数据库性能指标</h3><ul>
+<li><p><strong>事务吞吐量</strong><strong>(Transaction throughput):</strong> 单位时间中能够处理的交易(事务)数量.</p>
+</li>
+<li><p><strong>响应时间</strong><strong>(Response time):</strong> 完成单个交易所用的时间**.**</p>
+</li>
+<li><p>**总指标：***<strong>事务吞吐量</strong> <strong>&#x2F;</strong> <strong>响应时间</strong></p>
+</li>
+</ul>
+<h3 id="2-提高数据库性能的策略"><a href="#2-提高数据库性能的策略" class="headerlink" title="2.提高数据库性能的策略"></a>2.提高数据库性能的策略</h3><ul>
+<li>挖掘和使用：<ul>
+<li>数据特性</li>
+<li>硬件特性</li>
+<li>数据访问特性<ul>
+<li>将用户<strong>访问频繁的数据</strong>放置在中央位置，把<strong>联系紧密的数据</strong>邻近存储</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-提高数据库性能的方法"><a href="#3-提高数据库性能的方法" class="headerlink" title="3.提高数据库性能的方法"></a>3.提高数据库性能的方法</h3><ul>
+<li><strong>方法1: 排序;</strong></li>
+<li><strong>方法2: 索引 （Tree索引和哈希索引）；</strong></li>
+<li><strong>方法3: 连续的磁盘存储;</strong></li>
+<li><strong>方法4: 分类、聚簇;</strong></li>
+<li><strong>方法5: 内存缓冲;</strong></li>
+<li><strong>方法6: 并发执行;</strong></li>
+<li><strong>方法7: 查询优化;</strong></li>
+<li><strong>方法8: 日志和数据分盘存储；</strong></li>
+</ul>
+<p><strong><code>其中，与数据库设计相关的方法：排序、索引、连续磁盘存储、分类聚簇、内存缓冲、日志和数据分盘存储</code></strong></p>
+<blockquote>
+<p>重点记住上面的几种方法的名称即可</p>
+</blockquote>
+<h4 id="1-索引"><a href="#1-索引" class="headerlink" title="1.索引"></a>1.索引</h4><ul>
+<li><p>原理：<strong>压缩+排序</strong></p>
+</li>
+<li><p>详见之前的索引</p>
+</li>
+<li><p>需要注意的是索引分为两类：顺序索引、散列索引(哈希)</p>
+<ul>
+<li>散列索引更适合等值类的查询，而不适合范围查询和模糊查询，因为其本身是用哈希函数来作为映射关系，故不保留原列的顺序，也没法对未知键值进行映射</li>
+</ul>
+</li>
+<li><p>数据量少的表不要创建索引，没有意义，直接读可能比顺序索引找B+树更快</p>
+</li>
+<li><p>增大压缩比，也就是压缩B+树的大小，使得层数更少，查找更快</p>
+<ul>
+<li>方式：合理选择索引字段顺序，选择性高的字段在前，也就是具有较多唯一值的字段</li>
+<li>对于一个表的外键字段，创建索引时，由于很多行的外键字段值相同，该如何处理，以增大压缩比？<ul>
+<li><strong>考虑字段的基数（Cardinality）</strong>：如果外键字段的基数（即唯一值的数量）较低，那么它们的索引可能不会太大。相反，如果基数较高，索引可能会变得较大。这一点可以影响索引的压缩比。如果一个字段的基数高，即有很多不同的值，那么对这个字段进行索引可能会更有意义，因为它可以帮助查询快速定位到特定的记录</li>
+<li><strong>字段顺序</strong>：将字段相同的记录放在一起可以增加索引的压缩比。这意味着尽量将字段相同的记录放在索引中靠近一起的位置。因此，如果外键字段的大部分值相同，可以考虑将这些值放在索引的最前面。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>要求创建主键索引，本质上是要求添加主键约束！！！</strong></p>
+</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> tablename
+<span class="token keyword">add</span> <span class="token keyword">constraint</span> pk <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">(</span>member_id<span class="token punctuation">,</span> community_id<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-聚簇"><a href="#2-聚簇" class="headerlink" title="2.聚簇"></a>2.聚簇</h4><p>减少磁头移动路程—把关系紧密的数据临近存储——聚簇(Clustering)</p>
+<ul>
+<li><strong>把关系紧密的数据临近存储</strong> <strong>—连续空间存储</strong><ul>
+<li>访问频繁的数据存储在中央位置</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-内存缓冲-缓存"><a href="#3-内存缓冲-缓存" class="headerlink" title="3.内存缓冲(缓存)"></a>3.内存缓冲(缓存)</h4><p><strong>缓存</strong>能使得<strong>批量读磁盘</strong>，<strong>批量写磁盘</strong>成为可能，<strong>可减少磁盘运输次数，也可减少磁头移动的总路程</strong>。其原理：<strong>规模效益</strong>。；</p>
+<h4 id="4-并发执行"><a href="#4-并发执行" class="headerlink" title="4.并发执行"></a>4.并发执行</h4><p>略</p>
+<hr>
+<h2 id="六、安全管理"><a href="#六、安全管理" class="headerlink" title="六、安全管理"></a>六、安全管理</h2><h3 id="1-DBMS安全措施"><a href="#1-DBMS安全措施" class="headerlink" title="1.DBMS安全措施"></a>1.DBMS安全措施</h3><ul>
+<li>第一道防线：账号登陆，建立连接</li>
+<li>第二道防线：权限管理</li>
+<li>威慑措施(技术手段与工具)：审计</li>
+</ul>
+<h3 id="2-权限管理"><a href="#2-权限管理" class="headerlink" title="2.权限管理"></a>2.权限管理</h3><h4 id="1-定义-3"><a href="#1-定义-3" class="headerlink" title="1.定义"></a>1.定义</h4><ul>
+<li>用户登录后，要访问数据库中的每一个对象，还有权限要求。权限的授予可用&lt;**授予者, 对象，权限，被授予者**&gt;四元组来标识。</li>
+<li>权限管理有三条准则：<ul>
+<li>1）某个对象，其创建者拥有对其访问的全部权限；</li>
+<li>2）一个用户可将其拥有的权限授予给其它用户；</li>
+<li>3）授权者可收回其授予出去的权限，权限的收回具有连带性。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-实施："><a href="#2-实施：" class="headerlink" title="2.实施："></a>2.实施：</h4><ul>
+<li>在数据库中创建表，创建<strong>用户类别</strong>，然后为每个用户类别指定其能访问的对象，明确其<strong>操作权限</strong><ul>
+<li>在SQL语言中，<strong>用户类别</strong>被叫做<strong>角色ROLE</strong>(本质上是一个权限组)</li>
+<li>也就是在数据库中为每个用户<strong>创建</strong>一个<strong>账号</strong>，再确定其<strong>所属的用户类别</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="3-访问权限的管理粒度："><a href="#3-访问权限的管理粒度：" class="headerlink" title="3.访问权限的管理粒度："></a>3.访问权限的管理粒度：</h4><ul>
+<li><p><strong>读权限</strong>：SELECT；粒度：表。</p>
+</li>
+<li><p><strong>更新权限</strong>：INSERT， UPDATE。 粒度：表，还可进一步指定列</p>
+<p>​                  DELETE；粒度：表。</p>
+</li>
+<li><p><strong>DBMS中的权限管理</strong>是<strong>粗放型的</strong>。粒度并没有细化到表中的<strong>行</strong>。对于SELECT权限，也没有细化到<strong>列</strong>。<strong>并不能满足业务需求</strong>。</p>
+</li>
+<li><p><strong>细化的其它辅助措施</strong>：<strong>视图，存储过程，应用程序</strong></p>
+</li>
+</ul>
+<h4 id="4-SQL"><a href="#4-SQL" class="headerlink" title="4.SQL"></a>4.SQL</h4><p>1.创建用户和角色</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">user</span> aaa identified <span class="token keyword">by</span> <span class="token string">'123'</span> <span class="token comment">-- identified by 密码</span>
+<span class="token keyword">create</span> role teacher
+
+<span class="token keyword">drop</span> <span class="token keyword">user</span> aaa
+<span class="token keyword">drop</span> role teacher<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2.授权</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">grant</span> <span class="token keyword">select</span> <span class="token keyword">on</span> dept <span class="token keyword">to</span> <span class="token keyword">public</span><span class="token punctuation">;</span> <span class="token comment">-- 将dept表的select权限给予public(全体)，如果只想select(部分列)，就要用视图(见下)</span>
+<span class="token keyword">grant</span> <span class="token keyword">select</span><span class="token punctuation">,</span> <span class="token keyword">update</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">on</span> emp <span class="token keyword">to</span> Manager<span class="token punctuation">,</span> Director<span class="token punctuation">;</span>
+<span class="token keyword">grant</span> <span class="token keyword">all</span> <span class="token keyword">privileges</span> <span class="token keyword">on</span> Proj <span class="token keyword">to</span> Director <span class="token keyword">with</span> <span class="token keyword">grant</span> <span class="token keyword">option</span><span class="token punctuation">;</span>
+<span class="token comment">-- with grant option：权限可转发，=relay</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>3.收回权限</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">revoke</span> <span class="token keyword">select</span> <span class="token keyword">on</span> dept <span class="token keyword">from</span> <span class="token keyword">public</span><span class="token punctuation">;</span>
+<span class="token keyword">revoke</span> <span class="token keyword">all</span> <span class="token keyword">privileges</span> <span class="token keyword">on</span> emp <span class="token keyword">from</span> Director<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="5-访问粒度细化"><a href="#5-访问粒度细化" class="headerlink" title="5.访问粒度细化"></a>5.访问粒度细化</h4><p>通过视图来增强安全——将SELECT权限细化到列</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> EmpView <span class="token keyword">AS</span>
+<span class="token keyword">SELECT</span> eno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span> title<span class="token punctuation">,</span> supereno<span class="token punctuation">,</span> dno <span class="token keyword">FROM</span> emp；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>通过视图来增强安全——将权限细化到行</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> AccountEmp <span class="token keyword">AS</span>
+<span class="token keyword">SELECT</span> eno<span class="token punctuation">,</span> name<span class="token punctuation">,</span> title<span class="token punctuation">,</span> superno<span class="token punctuation">,</span> dno <span class="token keyword">FROM</span> emp <span class="token keyword">WHERE</span> dno <span class="token operator">=</span> <span class="token string">'410'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 授权</span>
+<span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span> <span class="token keyword">ON</span> AccountEmp <span class="token keyword">TO</span> AccountStaff<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="6-访问权限管理的技巧"><a href="#6-访问权限管理的技巧" class="headerlink" title="6.访问权限管理的技巧"></a>6.访问权限管理的技巧</h4><p><strong>不要给某个用户授权，而只给角色授权。然后再将角色授予给某个用户</strong></p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 给角色(role)授权,student是role</span>
+<span class="token keyword">GRANT</span> <span class="token keyword">INSERT</span><span class="token punctuation">(</span>s_no<span class="token punctuation">,</span> c_no<span class="token punctuation">,</span> semester<span class="token punctuation">)</span> <span class="token keyword">ON</span> enroll <span class="token keyword">TO</span> student<span class="token punctuation">;</span>
+<span class="token comment">-- 将角色授予用户</span>
+<span class="token comment">-- WARNING：授权时，不要用用户身份授权，而应以角色身份授权</span>
+<span class="token keyword">GRANT</span> student <span class="token keyword">TO</span> B<span class="token punctuation">;</span>
+<span class="token comment">-- B可以是用户，也可以是role，本质上是把角色(role)的权限给到了用户/别的角色</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="3-审计"><a href="#3-审计" class="headerlink" title="3.审计"></a>3.审计</h3><ul>
+<li><p>数据库中的另一种安全机制是<strong>审计(Audit)</strong>。审计就如在公共场所安装摄像机，对登录进数据库的用户的一举一动都进行记录。一旦发现安全问题，就可调阅审计记录，查清事实真相。</p>
+</li>
+<li><p><strong>用触发器实现安全审计</strong></p>
+</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TRIGGER</span> cheatingEmployee
+<span class="token keyword">AFTER</span> <span class="token keyword">UPDATE</span> <span class="token keyword">OF</span> salary <span class="token keyword">ON</span> Emp
+REFERENCING 
+OLD <span class="token keyword">ROW</span> <span class="token keyword">AS</span> old
+NEW <span class="token keyword">ROW</span> <span class="token keyword">AS</span> new
+<span class="token keyword">FOR EACH ROW</span>
+<span class="token keyword">WHEN</span> <span class="token punctuation">(</span><span class="token variable">@new.salary</span> <span class="token operator">></span> <span class="token variable">@old.salary</span><span class="token operator">*</span><span class="token number">1.1</span><span class="token punctuation">)</span>
+            <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> auditEmpSalary
+		<span class="token keyword">VALUES</span> <span class="token punctuation">(</span>get_user_id<span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> get_connect_ip<span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">timestamp</span><span class="token punctuation">(</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">@new.eno</span><span class="token punctuation">,</span><span class="token variable">@new.salary</span><span class="token punctuation">,</span><span class="token variable">@old.salary</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-攻击"><a href="#4-攻击" class="headerlink" title="4.攻击"></a>4.攻击</h3><p>SQL注入攻击——拒绝动态拼接SQL语句</p>
+<p>HTML注入攻击</p>
+<ul>
+<li>由数据库应用程序来解决的安全问题包括：<ul>
+<li>SQL注入攻击</li>
+<li>HTML注入攻击</li>
+<li>非法篡改数据库中信息</li>
+</ul>
+</li>
+<li>由网络安全措施和协议保障解决的安全问题包括：<ul>
+<li>假冒复制攻击</li>
+</ul>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Roeland</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://somefnone.github.io/2024/04/11/shu-ju-ku-bi-ji-2/">https://somefnone.github.io/2024/04/11/shu-ju-ku-bi-ji-2/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Roeland</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/04/20/shu-ju-ku-bi-ji-3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="数据库笔记-3">
+                        
+                        <span class="card-title">数据库笔记-3</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            数据库设计
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" class="post-category">
+                                    数据库原理
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/03/09/shu-ju-ku-bi-ji-1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="数据库笔记-1">
+                        
+                        <span class="card-title">数据库笔记-1</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            关系模型与语言
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" class="post-category">
+                                    数据库原理
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 愚者的盥洗室<br />'
+            + '文章作者: Roeland<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Roeland</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">103.3k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "3";
+                        var startDate = "16";
+                        var startHour = "0";
+                        var startMinute = "56";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SomeFnone" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1229172423@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1229172423" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1229172423" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
