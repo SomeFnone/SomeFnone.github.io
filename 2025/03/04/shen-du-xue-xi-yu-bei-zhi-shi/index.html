@@ -729,7 +729,7 @@ tensor([[ 0,  1,  2,  3],
         [16, 17, 18, 19]])
 '''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>我们可以通过行索引<code>（i）</code>和列索引<code>（j）</code>来访问矩阵中的标量元素$a_{ij}$， 例如$[A]<em>{ij}$。 如果没有给出矩阵A的标量元素，我们可以简单地使用矩阵A的小写字母索引下标$a</em>{ij}$ 来引用$[A]<em>{ij}$。 为了表示起来简单，只有在必要时才会将逗号插入到单独的索引中， 例如$a</em>{2,3j}$和$[A]_{2i−1,3}$。</p>
+<p>我们可以通过行索引<code>（i）</code>和列索引<code>（j）</code>来访问矩阵中的标量元素$a_{ij}$，例如$[A]<em>{ij}$。 如果没有给出矩阵A的标量元素，我们可以简单地使用矩阵A的小写字母索引下标$a</em>{ij}$ 来引用$[A]<em>{ij}$。 为了表示起来简单，只有在必要时才会将逗号插入到单独的索引中， 例如$a</em>{2,3j}$和$[A]_{2i−1,3}$。</p>
 <p><strong>转置</strong></p>
 <p>当我们交换矩阵的行和列时，结果称为矩阵的<em>转置</em>（transpose）。 通常用$a^{\top}$来表示矩阵的转置，如果$B&#x3D;A^{\top}$， 则对于任意i和j，都有$b_{ij}&#x3D;a_{ji}$。</p>
 <p>现在在代码中访问矩阵的转置</p>
